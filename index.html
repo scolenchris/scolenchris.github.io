@@ -54,7 +54,7 @@
   isHome: true,
   isHighlightShrink: false,
   isToc: false,
-  postUpdate: '2024-07-03 02:02:02'
+  postUpdate: '2024-07-03 02:21:08'
 }</script><script>(win=>{
       win.saveToLocal = {
         set: (key, value, ttl) => {
@@ -151,245 +151,400 @@
         }
       }
       detectApple()
-    })(window)</script><link rel="stylesheet" href="/css/custom.css" media="defer" onload="this.media='all'"><!-- hexo injector head_end start --><link rel="stylesheet" href="https://cdn.cbd.int/hexo-butterfly-clock-anzhiyu/lib/clock.min.css" /><link rel="stylesheet" href="/css/runtime.min.css" media="print" onload="this.media='all'"><link rel="stylesheet" href="https://cdn.cbd.int/hexo-butterfly-wowjs/lib/animate.min.css" media="print" onload="this.media='all'"><!-- hexo injector head_end end --><meta name="generator" content="Hexo 7.0.0"><link href="https://cdn.bootcss.com/KaTeX/0.11.1/katex.min.css" rel="stylesheet" /></head><body><div id="web_bg"></div><div id="sidebar"><div id="menu-mask"></div><div id="sidebar-menus"><div class="avatar-img is-center"><img src="/img/Avatar.jpg" onerror="onerror=null;src='/img/friend_404.gif'" alt="avatar"/></div><div class="sidebar-site-data site-data is-center"><a href="/archives/"><div class="headline">文章</div><div class="length-num">7</div></a><a href="/tags/"><div class="headline">标签</div><div class="length-num">0</div></a><a href="/categories/"><div class="headline">分类</div><div class="length-num">0</div></a></div><hr class="custom-hr"/></div></div><div class="page" id="body-wrap"><header class="full_page" id="page-header"><nav id="nav"><span id="blog-info"><a href="/" title="Chris"><span class="site-name">Chris</span></a></span><div id="menus"><div id="search-button"><a class="site-page social-icon search" href="javascript:void(0);"><i class="fas fa-search fa-fw"></i><span> 搜索</span></a></div><div id="toggle-menu"><a class="site-page" href="javascript:void(0);"><i class="fas fa-bars fa-fw"></i></a></div></div></nav><div id="site-info"><h1 id="site-title">Chris</h1><div id="site-subtitle"><span id="subtitle"></span></div></div><div id="scroll-down"><i class="fas fa-angle-down scroll-down-effects"></i></div></header><main class="layout" id="content-inner"><div class="recent-posts" id="recent-posts"><div class="recent-post-item"><div class="recent-post-info no-cover"><a class="article-title" href="/posts/2e5210af.html" title="51单片机知识归档">51单片机知识归档</a><div class="article-meta-wrap"><span class="post-meta-date"><i class="far fa-calendar-alt"></i><span class="article-meta-label">发表于</span><time datetime="2024-07-03T09:53:55.000Z" title="发表于 2024-07-03 09:53:55">2024-07-03</time></span></div><div class="content">- Date:2023-05-21
+    })(window)</script><link rel="stylesheet" href="/css/custom.css" media="defer" onload="this.media='all'"><!-- hexo injector head_end start --><link rel="stylesheet" href="https://cdn.cbd.int/hexo-butterfly-clock-anzhiyu/lib/clock.min.css" /><link rel="stylesheet" href="/css/runtime.min.css" media="print" onload="this.media='all'"><link rel="stylesheet" href="https://cdn.cbd.int/hexo-butterfly-wowjs/lib/animate.min.css" media="print" onload="this.media='all'"><!-- hexo injector head_end end --><meta name="generator" content="Hexo 7.0.0"><link href="https://cdn.bootcss.com/KaTeX/0.11.1/katex.min.css" rel="stylesheet" /></head><body><div id="web_bg"></div><div id="sidebar"><div id="menu-mask"></div><div id="sidebar-menus"><div class="avatar-img is-center"><img src="/img/Avatar.jpg" onerror="onerror=null;src='/img/friend_404.gif'" alt="avatar"/></div><div class="sidebar-site-data site-data is-center"><a href="/archives/"><div class="headline">文章</div><div class="length-num">17</div></a><a href="/tags/"><div class="headline">标签</div><div class="length-num">0</div></a><a href="/categories/"><div class="headline">分类</div><div class="length-num">0</div></a></div><hr class="custom-hr"/></div></div><div class="page" id="body-wrap"><header class="full_page" id="page-header"><nav id="nav"><span id="blog-info"><a href="/" title="Chris"><span class="site-name">Chris</span></a></span><div id="menus"><div id="search-button"><a class="site-page social-icon search" href="javascript:void(0);"><i class="fas fa-search fa-fw"></i><span> 搜索</span></a></div><div id="toggle-menu"><a class="site-page" href="javascript:void(0);"><i class="fas fa-bars fa-fw"></i></a></div></div></nav><div id="site-info"><h1 id="site-title">Chris</h1><div id="site-subtitle"><span id="subtitle"></span></div></div><div id="scroll-down"><i class="fas fa-angle-down scroll-down-effects"></i></div></header><main class="layout" id="content-inner"><div class="recent-posts" id="recent-posts"><div class="recent-post-item"><div class="recent-post-info no-cover"><a class="article-title" href="/posts/46909ac5.html" title="stm32-c语言复习">stm32-c语言复习</a><div class="article-meta-wrap"><span class="post-meta-date"><i class="far fa-calendar-alt"></i><span class="article-meta-label">发表于</span><time datetime="2024-07-03T10:18:05.000Z" title="发表于 2024-07-03 10:18:05">2024-07-03</time></span></div><div class="content">- Date:2023-06-05
 
-Time:22:17
-Subject: 自动化
-Tags: #51单片机
+Time:17:08
+Subject: none
+Tags: #stm32
+[[2023-06]]
+
+
+printf函数输出流程
+
+printf的使用
+123456//printf(&quot;字符串\r\n&quot;);printf(&quot;Hello World!\r\n&quot;);//printf(&quot;输出控制符&quot;，输出参数);uint32_t  temp = 10;printf(&quot;%d\r\n&quot;, temp);          /* %d是输出控制符，temp是输出参数 */
+常用输出控制符表
+
+常用转义字符表
+
+例子
+12345678910111213//printf(&quot;输出控制符1输出控制符2…&quot;，输出参数1，输出参数2，…);uint32_t  temp1 = 5;   uint32_t  temp2 = 10;printf(&quot;%d%x \r \n&quot;, temp1,temp2);  //printf(&quot;非输出控制符 输出控制符 非输出控 ...</div></div></div><div class="recent-post-item"><div class="recent-post-info no-cover"><a class="article-title" href="/posts/3b21df78.html" title="stm32-system文件夹">stm32-system文件夹</a><div class="article-meta-wrap"><span class="post-meta-date"><i class="far fa-calendar-alt"></i><span class="article-meta-label">发表于</span><time datetime="2024-07-03T10:17:19.000Z" title="发表于 2024-07-03 10:17:19">2024-07-03</time></span></div><div class="content">- Date:2023-06-05
+
+Time:15:31
+Subject: none
+Tags: #stm32
+[[2023-06]]
+
+
+sys文件夹介绍
+
+deley文件夹介绍
+deley文件夹函数简介
+
+SysTick工作原理
+SysTick，即系统滴答[[定时器]]，包含在M3/4/7内核里面，核心是一个24位的递减计数器(2的24次方，来一个脉冲就递减)
+
+每次VAL到0时，VAL自动从LOAD重载！开始新一轮递减计数！
+SysTick寄存器介绍
+SysTick控制及状态寄存器(CTRL)
+
+SysTick重装载数值寄存器(LOAD)
+
+SysTick当前数值寄存器(VAL)
+
+delay_init()函数(f1)
+12345678void delay_init(uint16_t sysclk)//传入72（mhz）&#123;  SysTick-&gt;CTRL = 0;//hal库清空，再配置  HAL_SYSTICK_CLKSourceConfig(SYSTICK_CLKSOURCE_HCLK_DIV8);//八分频，所以是72/8=9，计数频率是9mhz  g_fa ...</div></div></div><div class="recent-post-item"><div class="recent-post-info no-cover"><a class="article-title" href="/posts/1bce3e80.html" title="stm32-基础知识">stm32-基础知识</a><div class="article-meta-wrap"><span class="post-meta-date"><i class="far fa-calendar-alt"></i><span class="article-meta-label">发表于</span><time datetime="2024-07-03T10:12:06.000Z" title="发表于 2024-07-03 10:12:06">2024-07-03</time></span></div><div class="content">- Date:2023-05-22
+
+Time:22:55
+Subject: none
+Tags: #stm32
 [[2023-05]]
 
 
-直流电机介绍
+存储器映射
 
-直流电机是一种将电能转换为机械能的装置。一般的直流电机有两个电极，当电极正接时，电机正转，当电极反接时，电机反转
-直流电机主要由永磁体（定子）、线圈（转子）和换向器组成
-除直流电机外，常见的电机还有步进电机、舵机、无刷电机、空心杯电机等
+存储器指可以存储数据的设备，本身没有地址信息，对存储器分配地址的过程称为存储器映射
+19根地址线：A0-A18   16根数据线：D0-D15
+地址范围：0 - 512K
 
-电机驱动电路
+映射1：0 - 512K
+映射2：1 – 512K + 1
+映射3：100K – 612K
+映射4：512K – 1024K
 
-大功率直接驱动
 
+F1为例子
 
+ST将4GB（2^32）地址空间分成8个块
 
 
 
-H桥驱动
 
+Block0（FLASH）功能划分
 
-可以正反转动
 
 
 
-PWM
+Block1（SRAM）功能划分
 
-PWM（Pulse Width Modulation）即脉冲宽度调制，在具有惯性的系统中，可以通过对一系列脉冲的宽度进行调制，来等效地获得所需要的模拟参量，常应用于电机控速、开关电源等领域
-PWM重要参数：
 
-频率 = 1 / TS            占空比 = TON（打开的时间） / TS（总时间）           精度 = 占空比变化步距（一格一格的调整，格子越小月细致）
 
-紫线为等效的线
 
+Block2（外设）功能划分
 
-产生pwm方法
 
-模型结构
 
 
 
 
-波形
 
+寄存器映射
 
+寄存器是单片机内部一种特殊的内存，可以实现对单片机各个功能的控制
+简单来说：寄存器就是单片机内部的控制机构
 
 
 
 
+STM32寄存器分类
 
-- Date:2023-04-29
 
-Time:1 ...</div></div></div><div class="recent-post-item"><div class="recent-post-info no-cover"><a class="article-title" href="/posts/29eadd43.html" title="第一章英语阅读原文（更新中）">第一章英语阅读原文（更新中）</a><div class="article-meta-wrap"><span class="post-meta-date"><i class="far fa-calendar-alt"></i><span class="article-meta-label">发表于</span><time datetime="2024-06-29T20:24:28.000Z" title="发表于 2024-06-29 20:24:28">2024-06-29</time></span></div><div class="content">The best bosses know how to subtract work
 
 
-Start Time: 13:02
-End Time: 15:02
-[[第一章英语阅读原文#The best bosses know how to subtract work|note]]
-Companies are used to celebrating addition. Profits, customers and share prices should go up rather than fall. Innovation is the adding of new products. Larger numbers are a measure of career success: managers climb the corporate ladder by taking on more reports, running heftier budgets and trousering bigger salaries.
 
-Genuine superstars don’t just add. They  ...</div></div></div><div class="recent-post-item"><div class="recent-post-info no-cover"><a class="article-title" href="/posts/ed5f8cc8.html" title="linux命令学习">linux命令学习</a><div class="article-meta-wrap"><span class="post-meta-date"><i class="far fa-calendar-alt"></i><span class="article-meta-label">发表于</span><time datetime="2024-06-29T20:20:08.000Z" title="发表于 2024-06-29 20:20:08">2024-06-29</time></span></div><div class="content">- Date:2024-01-05
+F1为例
 
-Time:21:44
-Subject:
-Tags: #linux
-[[2024-01]]
+寄存器是特殊的存储器，给寄存器地址命名的过程，就叫寄存器映射
 
 
-通配符
 
-* 匹配0个或者多个字符
-? 匹配一个字符
-[abcd] 匹配abcd中任意一个字符
-[a-z] 匹配a-z任意一个字符
-[!abc] 不匹配括号内任意一个字符，或者用 ^ 代替 !
 
-linux的文件目录
+寄存器描述解读
 
-[!note]
 
-磁盘结构——树状，与Windows不同
-ls / 把根的目录显示出
-sudo apt-get install openssh -server安装ssh服务
-sudo service ssh start启动ssh命令
-/etc/init.d/ssh restart重启ssh服务
 
+① 寄存器名字
+② 偏移量及复位值
+③ 寄存器位表
+④ 位功能描述
 
-目录结构
 
-bin
+直接操 ...</div></div></div><div class="recent-post-item"><div class="recent-post-info no-cover"><a class="article-title" href="/posts/982d5dfa.html" title="stm32-hal">stm32-hal</a><div class="article-meta-wrap"><span class="post-meta-date"><i class="far fa-calendar-alt"></i><span class="article-meta-label">发表于</span><time datetime="2024-07-03T10:10:44.000Z" title="发表于 2024-07-03 10:10:44">2024-07-03</time></span></div><div class="content">- Date:2023-05-25
 
-存放命令
-binary的缩写
+Time:15:57
+Subject: none
+Tags: #stm32
+[[2023-05]]
 
 
-boot
+基于CMSIS应用程序文件描述
 
-系统启动所需的目录
 
 
-dev
+STM32开发文件结构分布
 
-设备文件，把设备抽象成文件
-device缩写
 
 
-etc
+HAL库的用户配置文件（stm32f1xx_hal_conf.h）
 
-系统所需的配置文件
+裁剪HAL库外设驱动源码（不进行编译）
 
+/#ifdef /#endif 的使用
 
-home
 
-存放用户文件的目录，可以是不同用户的
+设置外部高速晶振频率（HSF）（根据开发板实际情况设置）
+设置外部低速晶振频率（根据开发板实际情况设置）
 
+HAL库使用注意事项
 
-lib
+使用HAL库出现问题，还是得通过参考手册检查是否硬件操作是否有问题
+尽量不通过修改库源码实现功能，这样不方便库更新
+HAL库可能会存在错误，要有质疑精神
+有些HAL库API函数执行效率偏低，我们可能会直接通过操作寄存器的方式代替
 
-动态库，给应用程序使用
-library缩写
+- Date:2023-05-25
 
+Time:12:53
+Subject: none
+Tags: #stm32
+[[2023-05]]
 
-lost+found
 
-异常关机产生的
+CMSIS简介
 
+CMSIS (微控制器软件接口标准)：Cortex Microcontroller Software In ...</div></div></div><div class="recent-post-item"><div class="recent-post-info no-cover"><a class="article-title" href="/posts/6a0f884f.html" title="stm32-gpio">stm32-gpio</a><div class="article-meta-wrap"><span class="post-meta-date"><i class="far fa-calendar-alt"></i><span class="article-meta-label">发表于</span><time datetime="2024-07-03T10:09:51.000Z" title="发表于 2024-07-03 10:09:51">2024-07-03</time></span></div><div class="content">- Date:2023-06-08
 
-med ...</div></div></div><div class="recent-post-item"><div class="recent-post-info no-cover"><a class="article-title" href="/posts/a48157de.html" title="自动控制原理第一章">自动控制原理第一章</a><div class="article-meta-wrap"><span class="post-meta-date"><i class="far fa-calendar-alt"></i><span class="article-meta-label">发表于</span><time datetime="2024-04-30T20:15:16.000Z" title="发表于 2024-04-30 20:15:16">2024-04-30</time></span></div><div class="content">1.2自动控制基本原理
-人工控制与自动控制
+Time:20:49
+Subject: none
+Tags: #stm32 #GPIO
+[[2023-06]]
 
-操作人员完成控制——人工控制
-自动控制模仿了人工控制
-自动控制元件
 
-给定元件
-测量元件
-比较元件
-校正元件
-执行元件
+通用外设驱动模型（四步法）
 
+初始化
 
+时钟设置：选择时钟源，启动时钟
+参数设置：gpio工作方式
+io设置：除了gpio，如串口usart，
+中断设置：开启，设置NVIC
 
-1.2.2开环控制与闭环控制
 
-归为基本控制方式
+读函数（可选）
 
-1.开环控制系统
+从外设读取数据
 
-方块 表示系统中的功能元件
-箭头有向线段 元件之间的输入输出传递方向
-外部干扰较弱，精度要求不高场合
-特征：没有反向的信号回传；抗干扰能力差；成本低
 
-闭环控制系统
+写函数（可选）
 
-信息在系统内的传递形成了闭合环路
-通道
+往外设写入数据
 
-前向通道：信号从输入到输出方向传递的通路
-反馈通道：输出到输入
 
+中断服务函数（可选）
 
-闭环控制系统利用反馈信号获得比较偏差来产生控制作用，故也称为反馈控制系统。
-内部参数精度没有这么高；增加了反馈元件和比较元件；结构比较复杂，搞不好会震荡
-系统是自动控制还是手动控制与系统是开环还是闭环无关。
+根据中断标志，处理外设各种中断事务
 
-反馈控制系统的基本要求
-稳定性
 
-稳定性是指系统受扰动后重新恢复平衡的能力
-稳定是衰减过程，等幅振荡（临界稳定过程）；不稳定为发散过程
 
-快速性
+GPIO配置步骤
+#配置
+使能时钟
+__HAL_RCC_GPIOx_CLK_ENABLE()
+主要寄存器：
+F1：RCC_APB2ENR //APB2总线上的
+F4：RCC_AHB1ENR
+F7：RCC_AHB1ENR
+H7：RCC_AHB4ENR
+开启GPIO时钟
+设置工作模式
+HAL_GPIO_Init()
+主要寄存器：
+F1：CRL、CRH、ODR
+F4/F7/H7：MODER、OTYPER、OSPEEDR、PUPDR
+初始化GPIO
+设置输出状态（可选）
+HAL_GPIO_WritePin()
+HAL_GPIO_ ...</div></div></div><div class="recent-post-item"><div class="recent-post-info no-cover"><a class="article-title" href="/posts/d231037d.html" title="stm32-cubemx">stm32-cubemx</a><div class="article-meta-wrap"><span class="post-meta-date"><i class="far fa-calendar-alt"></i><span class="article-meta-label">发表于</span><time datetime="2024-07-03T10:09:31.000Z" title="发表于 2024-07-03 10:09:31">2024-07-03</time></span></div><div class="content">- Date:2023-06-04
 
-稳定的系统对平衡状态的恢复或跟随的速度
-影响因素
+Time:23:37
+Subject: none
+Tags: #stm32 #配置
+[[2023-06]]
 
-扰动
-任务需要改变平衡状态
 
+STM32CubeMX简介
 
+STM32CubeMX是ST开发的一款图形配置工具，可通过配置自动生成初始化代码
+一个图形配置工具，搭配不同系列的STM32Cube固件包，即可支持不同系列的STM32芯片
 
-准确性
+新建STM32CubeMX工程步骤
 
-跟随期待量的能力
-系统输 ...</div></div></div><div class="recent-post-item"><div class="recent-post-info no-cover"><a class="article-title" href="/posts/9a8d65cc.html" title="自动控制原理第二章">自动控制原理第二章</a><div class="article-meta-wrap"><span class="post-meta-date"><i class="far fa-calendar-alt"></i><span class="article-meta-label">发表于</span><time datetime="2024-04-25T15:59:15.000Z" title="发表于 2024-04-25 15:59:15">2024-04-25</time></span></div><div class="content">mathjax: true
-- Date:2024-03-05
+一个小细节
 
-Time:17:02
-Subject:
-Tags:
-[[2024-03]]
+选用basic，详细的配置看视频吧
 
+</div></div></div><div class="recent-post-item"><div class="recent-post-info no-cover"><a class="article-title" href="/posts/cad4ed3.html" title="stm32-中断">stm32-中断</a><div class="article-meta-wrap"><span class="post-meta-date"><i class="far fa-calendar-alt"></i><span class="article-meta-label">发表于</span><time datetime="2024-07-03T10:07:48.000Z" title="发表于 2024-07-03 10:07:48">2024-07-03</time></span></div><div class="content">- Date:2023-06-10
 
-系统的微分方程
-物理系统微分方程
+Time:09:07
+Subject: none
+Tags: #stm32 #中断
+[[2023-06]]
 
-[!note]
-步骤
 
-定义系统及其组成元件
-确定必要的假设条件
-利用系统自身的物理规律
-利用各组成元件的原始方程和前面所确定的输入量、中间变量和输出量，消去中间变量，建立描述系统输入量与输出量之间关系的微分方程
-若得到的是线性微分方程，通常将其列写为标准形式，即将与输出量和输入量有关的各项分别列写在等号左右两边**（左出右入），并且两边各导数项均按降幂排列**。若得到的是非线性微分方程，则需要对非线性微分方程进行线性化处理才能列写为线性微分方程的标准形式
+什么是中断
+打断CPU执行正常的程序，转而处理紧急程序，然后返回原暂停的程序继续运行，就叫中断
 
+中断的作用和意义
 
+实时控制：在确定时间内对相应事件作出响应，如：温度监控
+故障处理：检测到故障，需要第一时间处理，如：电梯门夹人了
+数据传输：不确定数据何时会来，如：串口数据接收
+中断的意义：高效处理紧急程序，不会一直占用CPU资源
 
-线性叠加
-例p24
-几阶系统看最高次导数
-时间常数
+STM32 GPIO外部中断简图
 
-Tm=JmRa/(βmRa+CeCm)T_m=J_m R_a /\left(\beta_m R_a+C_e C_m\right)
-Tm​=Jm​Ra​/(βm​Ra​+Ce​Cm​)
+- Date:2023-06-10
 
-电压传递常数和转矩传递常数
+Time:09:12
+Subject: none
+Tags: #stm32 #NVIC #中断
+[[2023-06]]
 
-CmβmRa+CeCmua(t)−RaβmRa+CeCmMc(t)\frac   ...</div></div></div><div class="recent-post-item"><div class="recent-post-info no-cover"><a class="article-title" href="/posts/b6ebd1b0.html" title="博客第一文">博客第一文</a><div class="article-meta-wrap"><span class="post-meta-date"><i class="far fa-calendar-alt"></i><span class="article-meta-label">发表于</span><time datetime="2023-11-09T12:59:18.000Z" title="发表于 2023-11-09 12:59:18">2023-11-09</time></span></div><div class="content">简简单单的记录一下
-建立该博客用于记录各种事情吧~
-</div></div></div><div class="recent-post-item"><div class="recent-post-info no-cover"><a class="article-title" href="/posts/4a17b156.html" title="Hello World">Hello World</a><div class="article-meta-wrap"><span class="post-meta-date"><i class="far fa-calendar-alt"></i><span class="article-meta-label">发表于</span><time datetime="2023-10-10T20:20:08.000Z" title="发表于 2023-10-10 20:20:08">2023-10-10</time></span></div><div class="content">Welcome to Hexo! This is your very first post. Check documentation for more info. If you get any problems when using Hexo, you can find the answer in troubleshooting or you can ask me on GitHub.
-Quick Start
-Create a new post
-1$ hexo new &quot;My New Post&quot;
-More info: Writing
-Run server
-1$ hexo server
-More info: Server
-Generate static files
-1$ hexo generate
-More info: Generating
-Deploy to remote sites
-1$ hexo deploy
-More info: Deployment
-</div></div></div><nav id="pagination"><div class="pagination"><span class="page-number current">1</span></div></nav></div><div class="aside-content" id="aside-content"><div class="card-widget card-info"><div class="is-center"><div class="avatar-img"><img src="/img/Avatar.jpg" onerror="this.onerror=null;this.src='/img/friend_404.gif'" alt="avatar"/></div><div class="author-info__name">Chris</div><div class="author-info__description">描述~</div></div><div class="card-info-data site-data is-center"><a href="/archives/"><div class="headline">文章</div><div class="length-num">7</div></a><a href="/tags/"><div class="headline">标签</div><div class="length-num">0</div></a><a href="/categories/"><div class="headline">分类</div><div class="length-num">0</div></a></div><a id="card-info-btn" target="_blank" rel="noopener" href="https://github.com/scolenchris"><i class="fab fa-github"></i><span>Follow Me</span></a></div><div class="sticky_layout"><div class="card-widget card-recent-post"><div class="item-headline"><i class="fas fa-history"></i><span>最新文章</span></div><div class="aside-list"><div class="aside-list-item no-cover"><div class="content"><a class="title" href="/posts/2e5210af.html" title="51单片机知识归档">51单片机知识归档</a><time datetime="2024-07-03T09:53:55.000Z" title="发表于 2024-07-03 09:53:55">2024-07-03</time></div></div><div class="aside-list-item no-cover"><div class="content"><a class="title" href="/posts/29eadd43.html" title="第一章英语阅读原文（更新中）">第一章英语阅读原文（更新中）</a><time datetime="2024-06-29T20:24:28.000Z" title="发表于 2024-06-29 20:24:28">2024-06-29</time></div></div><div class="aside-list-item no-cover"><div class="content"><a class="title" href="/posts/ed5f8cc8.html" title="linux命令学习">linux命令学习</a><time datetime="2024-06-29T20:20:08.000Z" title="发表于 2024-06-29 20:20:08">2024-06-29</time></div></div><div class="aside-list-item no-cover"><div class="content"><a class="title" href="/posts/a48157de.html" title="自动控制原理第一章">自动控制原理第一章</a><time datetime="2024-04-30T20:15:16.000Z" title="发表于 2024-04-30 20:15:16">2024-04-30</time></div></div><div class="aside-list-item no-cover"><div class="content"><a class="title" href="/posts/9a8d65cc.html" title="自动控制原理第二章">自动控制原理第二章</a><time datetime="2024-04-25T15:59:15.000Z" title="发表于 2024-04-25 15:59:15">2024-04-25</time></div></div></div></div><div class="card-widget card-archives"><div class="item-headline"><i class="fas fa-archive"></i><span>归档</span></div><ul class="card-archive-list"><li class="card-archive-list-item"><a class="card-archive-list-link" href="/archives/2024/07/"><span class="card-archive-list-date">七月 2024</span><span class="card-archive-list-count">1</span></a></li><li class="card-archive-list-item"><a class="card-archive-list-link" href="/archives/2024/06/"><span class="card-archive-list-date">六月 2024</span><span class="card-archive-list-count">2</span></a></li><li class="card-archive-list-item"><a class="card-archive-list-link" href="/archives/2024/04/"><span class="card-archive-list-date">四月 2024</span><span class="card-archive-list-count">2</span></a></li><li class="card-archive-list-item"><a class="card-archive-list-link" href="/archives/2023/11/"><span class="card-archive-list-date">十一月 2023</span><span class="card-archive-list-count">1</span></a></li><li class="card-archive-list-item"><a class="card-archive-list-link" href="/archives/2023/10/"><span class="card-archive-list-date">十月 2023</span><span class="card-archive-list-count">1</span></a></li></ul></div><div class="card-widget card-webinfo"><div class="item-headline"><i class="fas fa-chart-line"></i><span>网站资讯</span></div><div class="webinfo"><div class="webinfo-item"><div class="item-name">文章数目 :</div><div class="item-count">7</div></div><div class="webinfo-item"><div class="item-name">本站访客数 :</div><div class="item-count" id="busuanzi_value_site_uv"><i class="fa-solid fa-spinner fa-spin"></i></div></div><div class="webinfo-item"><div class="item-name">本站总访问量 :</div><div class="item-count" id="busuanzi_value_site_pv"><i class="fa-solid fa-spinner fa-spin"></i></div></div><div class="webinfo-item"><div class="item-name">最后更新时间 :</div><div class="item-count" id="last-push-date" data-lastPushDate="2024-07-03T02:02:02.386Z"><i class="fa-solid fa-spinner fa-spin"></i></div></div></div></div></div></div></main><footer id="footer"><div id="footer-wrap"><div class="copyright">&copy;2020 - 2024 By Chris</div><div class="framework-info"><span>框架 </span><a target="_blank" rel="noopener" href="https://hexo.io">Hexo</a><span class="footer-separator">|</span><span>主题 </span><a target="_blank" rel="noopener" href="https://github.com/jerryc127/hexo-theme-butterfly">Butterfly</a></div></div></footer></div><div id="rightside"><div id="rightside-config-hide"><button id="darkmode" type="button" title="浅色和深色模式转换"><i class="fas fa-adjust"></i></button><button id="hide-aside-btn" type="button" title="单栏和双栏切换"><i class="fas fa-arrows-alt-h"></i></button></div><div id="rightside-config-show"><button id="rightside-config" type="button" title="设置"><i class="fas fa-cog fa-spin"></i></button><button id="go-up" type="button" title="回到顶部"><span class="scroll-percent"></span><i class="fas fa-arrow-up"></i></button></div></div><div><script src="/js/utils.js"></script><script src="/js/main.js"></script><script src="https://cdn.jsdelivr.net/npm/@fancyapps/ui/dist/fancybox/fancybox.umd.min.js"></script><div class="js-pjax"><script>window.typedJSFn = {
+
+NVIC基本概念
+Nested vectored interrupt controller，嵌套向量中断控制器，属于内核（M3/4/7）
+NVIC支持：256个中断（16内核 + 240外部），支持：256个优先级，允许裁剪！
+
+什么是中断向量表？
+定义一块固定的内存，以4字节对齐，存放各个中断服务函数程序的首地址 ...</div></div></div><div class="recent-post-item"><div class="recent-post-info no-cover"><a class="article-title" href="/posts/6bd75491.html" title="stm32-时钟系统">stm32-时钟系统</a><div class="article-meta-wrap"><span class="post-meta-date"><i class="far fa-calendar-alt"></i><span class="article-meta-label">发表于</span><time datetime="2024-07-03T10:07:13.000Z" title="发表于 2024-07-03 10:07:13">2024-07-03</time></span></div><div class="content">- Date:2023-06-05
+
+Time:14:21
+Subject: none
+Tags: #stm32 #时钟
+[[2023-06]]
+
+
+什么是时钟
+
+
+简单来说，时钟是具有周期性的脉冲信号，最常用的是占空比50%的方波
+时钟是单片机的脉搏，搞懂时钟走向及关系，对单片机使用至关重要！
+
+认识时钟树（F1）
+
+
+L：low
+S：speed
+I：internal
+E：external
+
+时钟树简图
+
+
+PLL：锁相环，倍频系数：2~3（PLLCLK）
+HSE分频可以说/1或者/2，HSI分频/2，再来到PLL倍频
+HCLK前分频也用1，保持72mhz
+APB1则分频/2，
+
+低速晶振
+
+HAL库内体现
+
+时钟源、锁相环：HAL_RCC_OscConfig()
+系统时钟、总线：HAL_RCC_ClockConfig()
+使能外设时钟：_ _ HAL_RCC_PPP_CLK_ENABLE()   是一个宏定义，打开外设时使用时
+扩展外设时钟(RTC/ADC/USB)：HAL_RCCEx_PeriphCLKConfig()
+
+STM32CubeMX时钟树（F103）
+
+- Date: ...</div></div></div><div class="recent-post-item"><div class="recent-post-info no-cover"><a class="article-title" href="/posts/1ba7a976.html" title="stm32-定时器">stm32-定时器</a><div class="article-meta-wrap"><span class="post-meta-date"><i class="far fa-calendar-alt"></i><span class="article-meta-label">发表于</span><time datetime="2024-07-03T10:05:42.000Z" title="发表于 2024-07-03 10:05:42">2024-07-03</time></span></div><div class="content">- Date:2023-07-18
+
+Time:19:32
+Subject: none
+Tags: #stm32 #定时器
+[[2023-07]]
+
+
+软件定时原理
+
+定时器定时原理
+定时器核心就是计数器
+使用精准的时基，通过硬件的方式，实现定时功能
+
+STM32定时器分类
+
+定时器特性表
+F1
+
+8个定时器，可以计数0-65535数，
+STM32基本，通用，高级功能整体区
+
+- Date:2023-07-18
+
+Time:19:47
+Subject: none
+Tags: #stm32 #定时器
+[[2023-07]]
+
+
+基本定时器简介（了解）
+
+基本定时器 TIM6 TIM7
+16位递增计数器（计数值：0~65535）
+16位预分频器（分频系数：1~65536）
+
+因此设置为0的时候为1分频，1为2分频
+
+
+可用于触发DAC
+在更新事件（计数器溢出）时，会产生中断/DMA请求
+
+基本定时器框图（熟悉）
+
+经过psc得到计数器的工作频率，来一个时钟就加一
+溢出条件，计数到影子寄存器里面的数字，psc和自动重转载寄存器都有影子，不能直接访问影子，但是起作用的就是影子，得产生一个事件的 ...</div></div></div><div class="recent-post-item"><div class="recent-post-info no-cover"><a class="article-title" href="/posts/7a29335c.html" title="stm32-串口">stm32-串口</a><div class="article-meta-wrap"><span class="post-meta-date"><i class="far fa-calendar-alt"></i><span class="article-meta-label">发表于</span><time datetime="2024-07-03T10:01:50.000Z" title="发表于 2024-07-03 10:01:50">2024-07-03</time></span></div><div class="content">- Date:2023-06-13
+
+Time:14:38
+Subject: none
+Tags: #stm32 #通信
+[[2023-06]]
+
+
+数据通信的基础概念
+串行/并行通信
+
+单工/半双工/全双工通信
+
+同步/异步通信
+
+波特率
+
+比特率：每秒钟传送的比特数，单位bit/s
+波特率：每秒钟传送的码元数，单位Baud
+比特率 = 波特率 * log2 M ，M表示每个码元承载的信息量
+二进制系统中，波特率数值上等于比特率
+
+常见的串行通信接口
+
+串口(RS-232)
+#串口
+什么是串口
+
+RS-232电平与COMS/TTL电平对比
+
+设备间的RS-232通信示意图
+
+STM32串口与电脑USB口通信示意图
+
+RS-232异步通信协议
+
+lsb:最低有效位，位0
+msb:最高有效位，位7
+STM32的USART
+#usart
+STM32的USART简介
+Universal synchronous asynchronous receiver transmitter，通用同步异步收发器usart
+Universal asynchronous receiver transmitter ...</div></div></div><nav id="pagination"><div class="pagination"><span class="page-number current">1</span><a class="page-number" href="/page/2/#content-inner">2</a><a class="extend next" rel="next" href="/page/2/#content-inner"><i class="fas fa-chevron-right fa-fw"></i></a></div></nav></div><div class="aside-content" id="aside-content"><div class="card-widget card-info"><div class="is-center"><div class="avatar-img"><img src="/img/Avatar.jpg" onerror="this.onerror=null;this.src='/img/friend_404.gif'" alt="avatar"/></div><div class="author-info__name">Chris</div><div class="author-info__description">描述~</div></div><div class="card-info-data site-data is-center"><a href="/archives/"><div class="headline">文章</div><div class="length-num">17</div></a><a href="/tags/"><div class="headline">标签</div><div class="length-num">0</div></a><a href="/categories/"><div class="headline">分类</div><div class="length-num">0</div></a></div><a id="card-info-btn" target="_blank" rel="noopener" href="https://github.com/scolenchris"><i class="fab fa-github"></i><span>Follow Me</span></a></div><div class="sticky_layout"><div class="card-widget card-recent-post"><div class="item-headline"><i class="fas fa-history"></i><span>最新文章</span></div><div class="aside-list"><div class="aside-list-item no-cover"><div class="content"><a class="title" href="/posts/46909ac5.html" title="stm32-c语言复习">stm32-c语言复习</a><time datetime="2024-07-03T10:18:05.000Z" title="发表于 2024-07-03 10:18:05">2024-07-03</time></div></div><div class="aside-list-item no-cover"><div class="content"><a class="title" href="/posts/3b21df78.html" title="stm32-system文件夹">stm32-system文件夹</a><time datetime="2024-07-03T10:17:19.000Z" title="发表于 2024-07-03 10:17:19">2024-07-03</time></div></div><div class="aside-list-item no-cover"><div class="content"><a class="title" href="/posts/1bce3e80.html" title="stm32-基础知识">stm32-基础知识</a><time datetime="2024-07-03T10:12:06.000Z" title="发表于 2024-07-03 10:12:06">2024-07-03</time></div></div><div class="aside-list-item no-cover"><div class="content"><a class="title" href="/posts/982d5dfa.html" title="stm32-hal">stm32-hal</a><time datetime="2024-07-03T10:10:44.000Z" title="发表于 2024-07-03 10:10:44">2024-07-03</time></div></div><div class="aside-list-item no-cover"><div class="content"><a class="title" href="/posts/6a0f884f.html" title="stm32-gpio">stm32-gpio</a><time datetime="2024-07-03T10:09:51.000Z" title="发表于 2024-07-03 10:09:51">2024-07-03</time></div></div></div></div><div class="card-widget card-archives"><div class="item-headline"><i class="fas fa-archive"></i><span>归档</span></div><ul class="card-archive-list"><li class="card-archive-list-item"><a class="card-archive-list-link" href="/archives/2024/07/"><span class="card-archive-list-date">七月 2024</span><span class="card-archive-list-count">11</span></a></li><li class="card-archive-list-item"><a class="card-archive-list-link" href="/archives/2024/06/"><span class="card-archive-list-date">六月 2024</span><span class="card-archive-list-count">2</span></a></li><li class="card-archive-list-item"><a class="card-archive-list-link" href="/archives/2024/04/"><span class="card-archive-list-date">四月 2024</span><span class="card-archive-list-count">2</span></a></li><li class="card-archive-list-item"><a class="card-archive-list-link" href="/archives/2023/11/"><span class="card-archive-list-date">十一月 2023</span><span class="card-archive-list-count">1</span></a></li><li class="card-archive-list-item"><a class="card-archive-list-link" href="/archives/2023/10/"><span class="card-archive-list-date">十月 2023</span><span class="card-archive-list-count">1</span></a></li></ul></div><div class="card-widget card-webinfo"><div class="item-headline"><i class="fas fa-chart-line"></i><span>网站资讯</span></div><div class="webinfo"><div class="webinfo-item"><div class="item-name">文章数目 :</div><div class="item-count">17</div></div><div class="webinfo-item"><div class="item-name">本站访客数 :</div><div class="item-count" id="busuanzi_value_site_uv"><i class="fa-solid fa-spinner fa-spin"></i></div></div><div class="webinfo-item"><div class="item-name">本站总访问量 :</div><div class="item-count" id="busuanzi_value_site_pv"><i class="fa-solid fa-spinner fa-spin"></i></div></div><div class="webinfo-item"><div class="item-name">最后更新时间 :</div><div class="item-count" id="last-push-date" data-lastPushDate="2024-07-03T02:21:08.119Z"><i class="fa-solid fa-spinner fa-spin"></i></div></div></div></div></div></div></main><footer id="footer"><div id="footer-wrap"><div class="copyright">&copy;2020 - 2024 By Chris</div><div class="framework-info"><span>框架 </span><a target="_blank" rel="noopener" href="https://hexo.io">Hexo</a><span class="footer-separator">|</span><span>主题 </span><a target="_blank" rel="noopener" href="https://github.com/jerryc127/hexo-theme-butterfly">Butterfly</a></div></div></footer></div><div id="rightside"><div id="rightside-config-hide"><button id="darkmode" type="button" title="浅色和深色模式转换"><i class="fas fa-adjust"></i></button><button id="hide-aside-btn" type="button" title="单栏和双栏切换"><i class="fas fa-arrows-alt-h"></i></button></div><div id="rightside-config-show"><button id="rightside-config" type="button" title="设置"><i class="fas fa-cog fa-spin"></i></button><button id="go-up" type="button" title="回到顶部"><span class="scroll-percent"></span><i class="fas fa-arrow-up"></i></button></div></div><div><script src="/js/utils.js"></script><script src="/js/main.js"></script><script src="https://cdn.jsdelivr.net/npm/@fancyapps/ui/dist/fancybox/fancybox.umd.min.js"></script><div class="js-pjax"><script>window.typedJSFn = {
   init: (str) => {
     window.typed = new Typed('#subtitle', Object.assign({
       strings: str,

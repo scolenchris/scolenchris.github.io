@@ -1,0 +1,381 @@
+<!DOCTYPE html><html lang="zh-CN" data-theme="light"><head><meta charset="UTF-8"><meta http-equiv="X-UA-Compatible" content="IE=edge"><meta name="viewport" content="width=device-width, initial-scale=1.0,viewport-fit=cover"><title>stm32-system文件夹 | Chris</title><meta name="author" content="Chris"><meta name="copyright" content="Chris"><meta name="format-detection" content="telephone=no"><meta name="theme-color" content="#ffffff"><meta name="description" content="- Date:2023-06-05  Time:15:31 Subject: none Tags: #stm32 [[2023-06]]   sys文件夹介绍  deley文件夹介绍 deley文件夹函数简介  SysTick工作原理 SysTick，即系统滴答[[定时器]]，包含在M3&#x2F;4&#x2F;7内核里面，核心是一个24位的递减计数器(2的24次方，来一个脉冲就递减)  每次VAL到0时，VAL自动">
+<meta property="og:type" content="article">
+<meta property="og:title" content="stm32-system文件夹">
+<meta property="og:url" content="https://scolenchris.top/posts/3b21df78.html">
+<meta property="og:site_name" content="Chris">
+<meta property="og:description" content="- Date:2023-06-05  Time:15:31 Subject: none Tags: #stm32 [[2023-06]]   sys文件夹介绍  deley文件夹介绍 deley文件夹函数简介  SysTick工作原理 SysTick，即系统滴答[[定时器]]，包含在M3&#x2F;4&#x2F;7内核里面，核心是一个24位的递减计数器(2的24次方，来一个脉冲就递减)  每次VAL到0时，VAL自动">
+<meta property="og:locale" content="zh_CN">
+<meta property="og:image" content="https://scolenchris.top/img/Avatar.jpg">
+<meta property="article:published_time" content="2024-07-03T10:17:19.000Z">
+<meta property="article:modified_time" content="2024-07-03T02:20:55.592Z">
+<meta property="article:author" content="Chris">
+<meta property="article:tag" content="博客,scolen,chris,技术,生活,记录,life,code">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="https://scolenchris.top/img/Avatar.jpg"><link rel="shortcut icon" href="/img/favicon.jpg"><link rel="canonical" href="https://scolenchris.top/posts/3b21df78.html"><link rel="preconnect" href="//cdn.jsdelivr.net"/><link rel="preconnect" href="//busuanzi.ibruce.info"/><link rel="manifest" href="/"/><link rel="stylesheet" href="/css/index.css"><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free/css/all.min.css" media="print" onload="this.media='all'"><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fancyapps/ui/dist/fancybox/fancybox.min.css" media="print" onload="this.media='all'"><script>const GLOBAL_CONFIG = {
+  root: '/',
+  algolia: undefined,
+  localSearch: {"path":"/search.xml","preload":false,"top_n_per_article":1,"unescape":false,"languages":{"hits_empty":"找不到您查询的内容：${query}","hits_stats":"共找到 ${hits} 篇文章"}},
+  translate: undefined,
+  noticeOutdate: undefined,
+  highlight: {"plugin":"highlighjs","highlightCopy":true,"highlightLang":true,"highlightHeightLimit":false},
+  copy: {
+    success: '复制成功',
+    error: '复制错误',
+    noSupport: '浏览器不支持'
+  },
+  relativeDate: {
+    homepage: false,
+    post: false
+  },
+  runtime: '',
+  dateSuffix: {
+    just: '刚刚',
+    min: '分钟前',
+    hour: '小时前',
+    day: '天前',
+    month: '个月前'
+  },
+  copyright: undefined,
+  lightbox: 'fancybox',
+  Snackbar: undefined,
+  infinitegrid: {
+    js: 'https://cdn.jsdelivr.net/npm/@egjs/infinitegrid/dist/infinitegrid.min.js',
+    buttonText: '加载更多'
+  },
+  isPhotoFigcaption: false,
+  islazyload: false,
+  isAnchor: false,
+  percent: {
+    toc: true,
+    rightside: false,
+  },
+  autoDarkmode: false
+}</script><script id="config-diff">var GLOBAL_CONFIG_SITE = {
+  title: 'stm32-system文件夹',
+  isPost: true,
+  isHome: false,
+  isHighlightShrink: false,
+  isToc: true,
+  postUpdate: '2024-07-03 02:20:55'
+}</script><script>(win=>{
+      win.saveToLocal = {
+        set: (key, value, ttl) => {
+          if (ttl === 0) return
+          const now = Date.now()
+          const expiry = now + ttl * 86400000
+          const item = {
+            value,
+            expiry
+          }
+          localStorage.setItem(key, JSON.stringify(item))
+        },
+      
+        get: key => {
+          const itemStr = localStorage.getItem(key)
+      
+          if (!itemStr) {
+            return undefined
+          }
+          const item = JSON.parse(itemStr)
+          const now = Date.now()
+      
+          if (now > item.expiry) {
+            localStorage.removeItem(key)
+            return undefined
+          }
+          return item.value
+        }
+      }
+    
+      win.getScript = (url, attr = {}) => new Promise((resolve, reject) => {
+        const script = document.createElement('script')
+        script.src = url
+        script.async = true
+        script.onerror = reject
+        script.onload = script.onreadystatechange = function() {
+          const loadState = this.readyState
+          if (loadState && loadState !== 'loaded' && loadState !== 'complete') return
+          script.onload = script.onreadystatechange = null
+          resolve()
+        }
+
+        Object.keys(attr).forEach(key => {
+          script.setAttribute(key, attr[key])
+        })
+
+        document.head.appendChild(script)
+      })
+    
+      win.getCSS = (url, id = false) => new Promise((resolve, reject) => {
+        const link = document.createElement('link')
+        link.rel = 'stylesheet'
+        link.href = url
+        if (id) link.id = id
+        link.onerror = reject
+        link.onload = link.onreadystatechange = function() {
+          const loadState = this.readyState
+          if (loadState && loadState !== 'loaded' && loadState !== 'complete') return
+          link.onload = link.onreadystatechange = null
+          resolve()
+        }
+        document.head.appendChild(link)
+      })
+    
+      win.activateDarkMode = () => {
+        document.documentElement.setAttribute('data-theme', 'dark')
+        if (document.querySelector('meta[name="theme-color"]') !== null) {
+          document.querySelector('meta[name="theme-color"]').setAttribute('content', '#0d0d0d')
+        }
+      }
+      win.activateLightMode = () => {
+        document.documentElement.setAttribute('data-theme', 'light')
+        if (document.querySelector('meta[name="theme-color"]') !== null) {
+          document.querySelector('meta[name="theme-color"]').setAttribute('content', '#ffffff')
+        }
+      }
+      const t = saveToLocal.get('theme')
+    
+        if (t === 'dark') activateDarkMode()
+        else if (t === 'light') activateLightMode()
+      
+      const asideStatus = saveToLocal.get('aside-status')
+      if (asideStatus !== undefined) {
+        if (asideStatus === 'hide') {
+          document.documentElement.classList.add('hide-aside')
+        } else {
+          document.documentElement.classList.remove('hide-aside')
+        }
+      }
+    
+      const detectApple = () => {
+        if(/iPad|iPhone|iPod|Macintosh/.test(navigator.userAgent)){
+          document.documentElement.classList.add('apple')
+        }
+      }
+      detectApple()
+    })(window)</script><link rel="stylesheet" href="/css/custom.css" media="defer" onload="this.media='all'"><!-- hexo injector head_end start --><link rel="stylesheet" href="https://cdn.cbd.int/hexo-butterfly-clock-anzhiyu/lib/clock.min.css" /><link rel="stylesheet" href="/css/runtime.min.css" media="print" onload="this.media='all'"><link rel="stylesheet" href="https://cdn.cbd.int/hexo-butterfly-wowjs/lib/animate.min.css" media="print" onload="this.media='all'"><!-- hexo injector head_end end --><meta name="generator" content="Hexo 7.0.0"><link href="https://cdn.bootcss.com/KaTeX/0.11.1/katex.min.css" rel="stylesheet" /></head><body><div id="web_bg"></div><div id="sidebar"><div id="menu-mask"></div><div id="sidebar-menus"><div class="avatar-img is-center"><img src="/img/Avatar.jpg" onerror="onerror=null;src='/img/friend_404.gif'" alt="avatar"/></div><div class="sidebar-site-data site-data is-center"><a href="/archives/"><div class="headline">文章</div><div class="length-num">17</div></a><a href="/tags/"><div class="headline">标签</div><div class="length-num">0</div></a><a href="/categories/"><div class="headline">分类</div><div class="length-num">0</div></a></div><hr class="custom-hr"/></div></div><div class="post" id="body-wrap"><header class="post-bg" id="page-header"><nav id="nav"><span id="blog-info"><a href="/" title="Chris"><span class="site-name">Chris</span></a></span><div id="menus"><div id="search-button"><a class="site-page social-icon search" href="javascript:void(0);"><i class="fas fa-search fa-fw"></i><span> 搜索</span></a></div><div id="toggle-menu"><a class="site-page" href="javascript:void(0);"><i class="fas fa-bars fa-fw"></i></a></div></div></nav><div id="post-info"><h1 class="post-title">stm32-system文件夹</h1><div id="post-meta"><div class="meta-firstline"><span class="post-meta-date"><i class="far fa-calendar-alt fa-fw post-meta-icon"></i><span class="post-meta-label">发表于</span><time class="post-meta-date-created" datetime="2024-07-03T10:17:19.000Z" title="发表于 2024-07-03 10:17:19">2024-07-03</time><span class="post-meta-separator">|</span><i class="fas fa-history fa-fw post-meta-icon"></i><span class="post-meta-label">更新于</span><time class="post-meta-date-updated" datetime="2024-07-03T02:20:55.592Z" title="更新于 2024-07-03 02:20:55">2024-07-03</time></span></div><div class="meta-secondline"><span class="post-meta-separator">|</span><span class="post-meta-pv-cv" id="" data-flag-title="stm32-system文件夹"><i class="far fa-eye fa-fw post-meta-icon"></i><span class="post-meta-label">阅读量:</span><span id="busuanzi_value_page_pv"><i class="fa-solid fa-spinner fa-spin"></i></span></span></div></div></div></header><main class="layout" id="content-inner"><div id="post"><article class="post-content" id="article-container"><h1 id="date-2023-06-05">- Date:2023-06-05</h1>
+<ul>
+<li>Time:15:31</li>
+<li>Subject: none</li>
+<li>Tags: #stm32<br>
+[[2023-06]]</li>
+</ul>
+<hr>
+<h2 id="sys文件夹介绍">sys文件夹介绍</h2>
+<p><img src="https://pic-chris.oss-cn-guangzhou.aliyuncs.com/img/202407030945185.png" alt="Pasted image 20230605153158|600"></p>
+<h2 id="deley文件夹介绍">deley文件夹介绍</h2>
+<h3 id="deley文件夹函数简介">deley文件夹函数简介</h3>
+<p><img src="https://pic-chris.oss-cn-guangzhou.aliyuncs.com/img/202407030945186.png" alt="Pasted image 20230605154243|600"></p>
+<h3 id="systick工作原理">SysTick工作原理</h3>
+<p>SysTick，即系统滴答[[定时器]]，包含在M3/4/7内核里面，核心是一个24位的递减计数器(2的24次方，来一个脉冲就递减)<br>
+<img src="https://pic-chris.oss-cn-guangzhou.aliyuncs.com/img/202407030945187.png" alt="Pasted image 20230605154419|600"><br>
+<font color="#ff0000">每次VAL到0时，VAL自动从LOAD重载！开始新一轮递减计数！</font></p>
+<h3 id="systick寄存器介绍">SysTick寄存器介绍</h3>
+<h4 id="systick控制及状态寄存器-ctrl">SysTick控制及状态寄存器(CTRL)</h4>
+<p><img src="https://pic-chris.oss-cn-guangzhou.aliyuncs.com/img/202407030945188.png" alt="Pasted image 20230605155740|600"></p>
+<h4 id="systick重装载数值寄存器-load">SysTick重装载数值寄存器(LOAD)</h4>
+<p><img src="https://pic-chris.oss-cn-guangzhou.aliyuncs.com/img/202407030945189.png" alt="Pasted image 20230605155836|600"></p>
+<h4 id="systick当前数值寄存器-val">SysTick当前数值寄存器(VAL)</h4>
+<p><img src="https://pic-chris.oss-cn-guangzhou.aliyuncs.com/img/202407030945190.png" alt="Pasted image 20230605160021|600"></p>
+<h3 id="delay-init-函数-f1">delay_init()函数(f1)</h3>
+<figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="type">void</span> <span class="title function_">delay_init</span><span class="params">(<span class="type">uint16_t</span> sysclk)</span><span class="comment">//传入72（mhz）</span></span><br><span class="line">&#123;</span><br><span class="line">  SysTick-&gt;CTRL = <span class="number">0</span>;<span class="comment">//hal库清空，再配置</span></span><br><span class="line">  HAL_SYSTICK_CLKSourceConfig(SYSTICK_CLKSOURCE_HCLK_DIV8);<span class="comment">//八分频，所以是72/8=9，计数频率是9mhz</span></span><br><span class="line">  g_fac_us = sysclk / <span class="number">8</span>;<span class="comment">//1us时机的来源</span></span><br><span class="line">  <span class="comment">//自动重装装载值，上面写的72/8=9，我们需要9，传入的是72，所以要处理，</span></span><br><span class="line">  <span class="comment">//1us是1/1000000s，频率f=9mzh，也就是T=1/9mhz=1/9000000s，因此乘以9，在这个计数频率的情况下，数九次才算1us</span></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h3 id="delay-us-函数-f1">delay_us()函数(f1)</h3>
+<figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line"><span class="type">void</span> <span class="title function_">delay_us</span><span class="params">(<span class="type">uint32_t</span> nus)</span> </span><br><span class="line">&#123; </span><br><span class="line">	<span class="type">uint32_t</span> temp; </span><br><span class="line">	SysTick-&gt;LOAD = nus * g_fac_us; 	<span class="comment">/* 时间加载 */</span> <span class="comment">//与上面的init照应，乘以9，</span></span><br><span class="line">	SysTick-&gt;VAL = <span class="number">0x00</span>; 			<span class="comment">/* 清空计数器 */</span> </span><br><span class="line">	SysTick-&gt;CTRL |= <span class="number">1</span> &lt;&lt; <span class="number">0</span> ; 		<span class="comment">/* 开始倒数 */</span> </span><br><span class="line">	<span class="keyword">do</span> </span><br><span class="line">	&#123; </span><br><span class="line">		temp = SysTick-&gt;CTRL; </span><br><span class="line">	&#125; <span class="keyword">while</span> ((temp &amp; <span class="number">0x01</span>) &amp;&amp; !(temp &amp; (<span class="number">1</span> &lt;&lt; <span class="number">16</span>))); <span class="comment">/* CTRL.ENABLE位必须为1, 并等待时间到达 */</span> <span class="comment">//1000000000000000(2)==2^16==65536</span></span><br><span class="line">	SysTick-&gt;CTRL &amp;= ~(<span class="number">1</span> &lt;&lt; <span class="number">0</span>) ; 		<span class="comment">/* 关闭SYSTICK */</span> </span><br><span class="line">	SysTick-&gt;VAL = <span class="number">0X00</span>; 			<span class="comment">/* 清空计数器 */</span> </span><br><span class="line">&#125;</span><br><span class="line"></span><br></pre></td></tr></table></figure>
+<h3 id="delay-ms-函数-f1">delay_ms()函数(f1)</h3>
+<figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">//利用微秒延时函数实现</span></span><br><span class="line"><span class="comment">//us最多可以计数记多少秒：1/9000000*2^24=1s左右</span></span><br><span class="line"><span class="type">void</span> <span class="title function_">delay_ms</span><span class="params">(<span class="type">uint16_t</span> nms)</span> <span class="comment">//传入要延时多少毫秒</span></span><br><span class="line">&#123; </span><br><span class="line">	<span class="type">uint32_t</span> repeat = nms / <span class="number">1000</span>;	<span class="comment">/* 这里用1000,是考虑到可能有超频应用, </span></span><br><span class="line"><span class="comment">	//取大于1000部分			    	 * 比如128Mhz的时候, delay_us最大只能延时1048576us 约为1s</span></span><br><span class="line"><span class="comment">									 */</span> </span><br><span class="line">	<span class="type">uint32_t</span> remain = nms % <span class="number">1000</span>; <span class="comment">//取小于1000部分</span></span><br><span class="line">	<span class="keyword">while</span> (repeat) </span><br><span class="line">	&#123; </span><br><span class="line">		delay_us(<span class="number">1000</span> * <span class="number">1000</span>); 	<span class="comment">/* 利用delay_us 实现 1000ms 延时 */</span> 也即是<span class="number">1</span>s</span><br><span class="line">		repeat--; <span class="comment">//把1000整数倍部分完成</span></span><br><span class="line">	&#125; </span><br><span class="line">	<span class="keyword">if</span> (remain) </span><br><span class="line">	&#123; </span><br><span class="line">		delay_us(remain * <span class="number">1000</span>); 	<span class="comment">/* 利用delay_us, 把尾数延时(remain ms)给做了 */</span> </span><br><span class="line">	&#125; </span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h1 id="date-2023-06-05">- Date:2023-06-05</h1>
+<ul>
+<li>Time:17:08</li>
+<li>Subject: none</li>
+<li>Tags: #stm32<br>
+[[2023-06]]</li>
+</ul>
+<hr>
+<h2 id="printf函数输出流程">printf函数输出流程</h2>
+<p><img src="https://pic-chris.oss-cn-guangzhou.aliyuncs.com/img/202407030945863.png" alt="Pasted image 20230605171222|600"></p>
+<h2 id="printf的使用">printf的使用</h2>
+<figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">//printf(&quot;字符串\r\n&quot;);</span></span><br><span class="line"><span class="built_in">printf</span>(<span class="string">&quot;Hello World!\r\n&quot;</span>);</span><br><span class="line"></span><br><span class="line"><span class="comment">//printf(&quot;输出控制符&quot;，输出参数);</span></span><br><span class="line"><span class="type">uint32_t</span>  temp = <span class="number">10</span>;</span><br><span class="line"><span class="built_in">printf</span>(<span class="string">&quot;%d\r\n&quot;</span>, temp);          <span class="comment">/* %d是输出控制符，temp是输出参数 */</span></span><br></pre></td></tr></table></figure>
+<h3 id="常用输出控制符表">常用输出控制符表</h3>
+<p><img src="https://pic-chris.oss-cn-guangzhou.aliyuncs.com/img/202407030945864.png" alt="Pasted image 20230605172851|600"></p>
+<h3 id="常用转义字符表">常用转义字符表</h3>
+<p><img src="https://pic-chris.oss-cn-guangzhou.aliyuncs.com/img/202407030945865.png" alt="Pasted image 20230605172915|600"></p>
+<h3 id="例子">例子</h3>
+<figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">//printf(&quot;输出控制符1输出控制符2…&quot;，输出参数1，输出参数2，…);</span></span><br><span class="line"><span class="type">uint32_t</span>  temp1 = <span class="number">5</span>;   </span><br><span class="line"><span class="type">uint32_t</span>  temp2 = <span class="number">10</span>;</span><br><span class="line"><span class="built_in">printf</span>(<span class="string">&quot;%d%x \r \n&quot;</span>, temp1,temp2);  </span><br><span class="line"></span><br><span class="line"><span class="comment">//printf(&quot;非输出控制符 输出控制符 非输出控制符&quot;，输出参数);</span></span><br><span class="line"><span class="type">uint32_t</span>  temp = <span class="number">10</span>;  </span><br><span class="line"><span class="built_in">printf</span>(<span class="string">&quot;temp=  %d  收到over\r\n&quot;</span>, temp);</span><br><span class="line"></span><br><span class="line"><span class="comment">//如何输出%、\和双引号</span></span><br><span class="line"><span class="built_in">printf</span>(<span class="string">&quot;%% \r\n&quot;</span>);<span class="comment">// %</span></span><br><span class="line"><span class="built_in">printf</span>(<span class="string">&quot;\\\r\n&quot;</span>);<span class="comment">// \</span></span><br><span class="line"><span class="comment">printf(&quot;\&quot;\&quot;\r\n&quot;);// &quot;&quot;</span></span><br></pre></td></tr></table></figure>
+<h2 id="printf函数支持">printf函数支持</h2>
+<p><img src="https://pic-chris.oss-cn-guangzhou.aliyuncs.com/img/202407030945866.png" alt="Pasted image 20230605173458|600"></p>
+<h3 id="半主机模式简介">半主机模式简介</h3>
+<p>用于 ARM 目标的一种机制，可将来自应用程序代码的输入/输出请求传送至运行调试器的主机<br>
+简单说：就是通过仿真器实现开发板在电脑上的输入和输出<br>
+一般我们：不使用半主机模式！！！</p>
+<h3 id="方法一：微库法">方法一：微库法</h3>
+<p>在魔术棒-&gt;Target选项卡，勾选：Use Micro LIB，即可避免半主机模式<br>
+<img src="https://pic-chris.oss-cn-guangzhou.aliyuncs.com/img/202407030945867.png" alt="Pasted image 20230605173808|600"></p>
+<h3 id="方法二：代码法">方法二：代码法</h3>
+<p>1个预处理、 2个定义、3个函数，会用就行</p>
+<ol>
+<li>
+<h2 id="pragma-import-use-no-semihosting-确保不从c库中使用半主机函数">pragma import(__use_no_semihosting)，确保不从C库中使用半主机函数</h2>
+</li>
+<li>定义：__ FILE结构体，避免HAL库某些情况下报错</li>
+<li>定义： FILE __ stdout，避免编译报错</li>
+<li>实现：_ ttywrch、_ sys_exit和_sys_command_string等三个函数<br>
+<font color="#ff0000">在历程（uart.c）中已经实现了</font><br>
+<font color="#ff0000">到时候拷贝就好</font></li>
+</ol>
+<h3 id="微库法-vs-代码法">微库法 VS 代码法</h3>
+<p><img src="https://pic-chris.oss-cn-guangzhou.aliyuncs.com/img/202407030945868.png" alt="Pasted image 20230605174027|600"></p>
+<h2 id="实现fputc函数">实现fputc函数</h2>
+<p><img src="https://pic-chris.oss-cn-guangzhou.aliyuncs.com/img/202407030945869.png" alt="Pasted image 20230605175055|600"><br>
+也不需要怎么知道</p>
+</article><div class="post-copyright"><div class="post-copyright__author"><span class="post-copyright-meta"><i class="fas fa-circle-user fa-fw"></i>文章作者: </span><span class="post-copyright-info"><a href="https://scolenchris.top">Chris</a></span></div><div class="post-copyright__type"><span class="post-copyright-meta"><i class="fas fa-square-arrow-up-right fa-fw"></i>文章链接: </span><span class="post-copyright-info"><a href="https://scolenchris.top/posts/3b21df78.html">https://scolenchris.top/posts/3b21df78.html</a></span></div><div class="post-copyright__notice"><span class="post-copyright-meta"><i class="fas fa-circle-exclamation fa-fw"></i>版权声明: </span><span class="post-copyright-info">本博客所有文章除特别声明外，均采用 <a href="https://creativecommons.org/licenses/by-nc-sa/4.0/" target="_blank">CC BY-NC-SA 4.0</a> 许可协议。转载请注明来自 <a href="https://scolenchris.top" target="_blank">Chris</a>！</span></div></div><div class="tag_share"><div class="post-meta__tag-list"></div><div class="post_share"><div class="social-share" data-image="/img/Avatar.jpg" data-sites="facebook,twitter,wechat,weibo,qq"></div><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/butterfly-extsrc/sharejs/dist/css/share.min.css" media="print" onload="this.media='all'"><script src="https://cdn.jsdelivr.net/npm/butterfly-extsrc/sharejs/dist/js/social-share.min.js" defer></script></div></div><nav class="pagination-post" id="pagination"><div class="prev-post pull-left"><a href="/posts/46909ac5.html" title="stm32-c语言复习"><div class="cover" style="background: var(--default-bg-color)"></div><div class="pagination-info"><div class="label">上一篇</div><div class="prev_info">stm32-c语言复习</div></div></a></div><div class="next-post pull-right"><a href="/posts/1bce3e80.html" title="stm32-基础知识"><div class="cover" style="background: var(--default-bg-color)"></div><div class="pagination-info"><div class="label">下一篇</div><div class="next_info">stm32-基础知识</div></div></a></div></nav></div><div class="aside-content" id="aside-content"><div class="card-widget card-info"><div class="is-center"><div class="avatar-img"><img src="/img/Avatar.jpg" onerror="this.onerror=null;this.src='/img/friend_404.gif'" alt="avatar"/></div><div class="author-info__name">Chris</div><div class="author-info__description">描述~</div></div><div class="card-info-data site-data is-center"><a href="/archives/"><div class="headline">文章</div><div class="length-num">17</div></a><a href="/tags/"><div class="headline">标签</div><div class="length-num">0</div></a><a href="/categories/"><div class="headline">分类</div><div class="length-num">0</div></a></div><a id="card-info-btn" target="_blank" rel="noopener" href="https://github.com/scolenchris"><i class="fab fa-github"></i><span>Follow Me</span></a></div><div class="sticky_layout"><div class="card-widget" id="card-toc"><div class="item-headline"><i class="fas fa-stream"></i><span>目录</span><span class="toc-percentage"></span></div><div class="toc-content"><ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#date-2023-06-05"><span class="toc-number">1.</span> <span class="toc-text">- Date:2023-06-05</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#sys%E6%96%87%E4%BB%B6%E5%A4%B9%E4%BB%8B%E7%BB%8D"><span class="toc-number">1.1.</span> <span class="toc-text">sys文件夹介绍</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#deley%E6%96%87%E4%BB%B6%E5%A4%B9%E4%BB%8B%E7%BB%8D"><span class="toc-number">1.2.</span> <span class="toc-text">deley文件夹介绍</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#deley%E6%96%87%E4%BB%B6%E5%A4%B9%E5%87%BD%E6%95%B0%E7%AE%80%E4%BB%8B"><span class="toc-number">1.2.1.</span> <span class="toc-text">deley文件夹函数简介</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#systick%E5%B7%A5%E4%BD%9C%E5%8E%9F%E7%90%86"><span class="toc-number">1.2.2.</span> <span class="toc-text">SysTick工作原理</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#systick%E5%AF%84%E5%AD%98%E5%99%A8%E4%BB%8B%E7%BB%8D"><span class="toc-number">1.2.3.</span> <span class="toc-text">SysTick寄存器介绍</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#systick%E6%8E%A7%E5%88%B6%E5%8F%8A%E7%8A%B6%E6%80%81%E5%AF%84%E5%AD%98%E5%99%A8-ctrl"><span class="toc-number">1.2.3.1.</span> <span class="toc-text">SysTick控制及状态寄存器(CTRL)</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#systick%E9%87%8D%E8%A3%85%E8%BD%BD%E6%95%B0%E5%80%BC%E5%AF%84%E5%AD%98%E5%99%A8-load"><span class="toc-number">1.2.3.2.</span> <span class="toc-text">SysTick重装载数值寄存器(LOAD)</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#systick%E5%BD%93%E5%89%8D%E6%95%B0%E5%80%BC%E5%AF%84%E5%AD%98%E5%99%A8-val"><span class="toc-number">1.2.3.3.</span> <span class="toc-text">SysTick当前数值寄存器(VAL)</span></a></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#delay-init-%E5%87%BD%E6%95%B0-f1"><span class="toc-number">1.2.4.</span> <span class="toc-text">delay_init()函数(f1)</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#delay-us-%E5%87%BD%E6%95%B0-f1"><span class="toc-number">1.2.5.</span> <span class="toc-text">delay_us()函数(f1)</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#delay-ms-%E5%87%BD%E6%95%B0-f1"><span class="toc-number">1.2.6.</span> <span class="toc-text">delay_ms()函数(f1)</span></a></li></ol></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#date-2023-06-05"><span class="toc-number">2.</span> <span class="toc-text">- Date:2023-06-05</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#printf%E5%87%BD%E6%95%B0%E8%BE%93%E5%87%BA%E6%B5%81%E7%A8%8B"><span class="toc-number">2.1.</span> <span class="toc-text">printf函数输出流程</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#printf%E7%9A%84%E4%BD%BF%E7%94%A8"><span class="toc-number">2.2.</span> <span class="toc-text">printf的使用</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#%E5%B8%B8%E7%94%A8%E8%BE%93%E5%87%BA%E6%8E%A7%E5%88%B6%E7%AC%A6%E8%A1%A8"><span class="toc-number">2.2.1.</span> <span class="toc-text">常用输出控制符表</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E5%B8%B8%E7%94%A8%E8%BD%AC%E4%B9%89%E5%AD%97%E7%AC%A6%E8%A1%A8"><span class="toc-number">2.2.2.</span> <span class="toc-text">常用转义字符表</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E4%BE%8B%E5%AD%90"><span class="toc-number">2.2.3.</span> <span class="toc-text">例子</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#printf%E5%87%BD%E6%95%B0%E6%94%AF%E6%8C%81"><span class="toc-number">2.3.</span> <span class="toc-text">printf函数支持</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#%E5%8D%8A%E4%B8%BB%E6%9C%BA%E6%A8%A1%E5%BC%8F%E7%AE%80%E4%BB%8B"><span class="toc-number">2.3.1.</span> <span class="toc-text">半主机模式简介</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E6%96%B9%E6%B3%95%E4%B8%80%EF%BC%9A%E5%BE%AE%E5%BA%93%E6%B3%95"><span class="toc-number">2.3.2.</span> <span class="toc-text">方法一：微库法</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E6%96%B9%E6%B3%95%E4%BA%8C%EF%BC%9A%E4%BB%A3%E7%A0%81%E6%B3%95"><span class="toc-number">2.3.3.</span> <span class="toc-text">方法二：代码法</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#pragma-import-use-no-semihosting-%E7%A1%AE%E4%BF%9D%E4%B8%8D%E4%BB%8Ec%E5%BA%93%E4%B8%AD%E4%BD%BF%E7%94%A8%E5%8D%8A%E4%B8%BB%E6%9C%BA%E5%87%BD%E6%95%B0"><span class="toc-number">2.4.</span> <span class="toc-text">pragma import(__use_no_semihosting)，确保不从C库中使用半主机函数</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#%E5%BE%AE%E5%BA%93%E6%B3%95-vs-%E4%BB%A3%E7%A0%81%E6%B3%95"><span class="toc-number">2.4.1.</span> <span class="toc-text">微库法 VS 代码法</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%AE%9E%E7%8E%B0fputc%E5%87%BD%E6%95%B0"><span class="toc-number">2.5.</span> <span class="toc-text">实现fputc函数</span></a></li></ol></li></ol></div></div><div class="card-widget card-recent-post"><div class="item-headline"><i class="fas fa-history"></i><span>最新文章</span></div><div class="aside-list"><div class="aside-list-item no-cover"><div class="content"><a class="title" href="/posts/46909ac5.html" title="stm32-c语言复习">stm32-c语言复习</a><time datetime="2024-07-03T10:18:05.000Z" title="发表于 2024-07-03 10:18:05">2024-07-03</time></div></div><div class="aside-list-item no-cover"><div class="content"><a class="title" href="/posts/3b21df78.html" title="stm32-system文件夹">stm32-system文件夹</a><time datetime="2024-07-03T10:17:19.000Z" title="发表于 2024-07-03 10:17:19">2024-07-03</time></div></div><div class="aside-list-item no-cover"><div class="content"><a class="title" href="/posts/1bce3e80.html" title="stm32-基础知识">stm32-基础知识</a><time datetime="2024-07-03T10:12:06.000Z" title="发表于 2024-07-03 10:12:06">2024-07-03</time></div></div><div class="aside-list-item no-cover"><div class="content"><a class="title" href="/posts/982d5dfa.html" title="stm32-hal">stm32-hal</a><time datetime="2024-07-03T10:10:44.000Z" title="发表于 2024-07-03 10:10:44">2024-07-03</time></div></div><div class="aside-list-item no-cover"><div class="content"><a class="title" href="/posts/6a0f884f.html" title="stm32-gpio">stm32-gpio</a><time datetime="2024-07-03T10:09:51.000Z" title="发表于 2024-07-03 10:09:51">2024-07-03</time></div></div></div></div></div></div></main><footer id="footer"><div id="footer-wrap"><div class="copyright">&copy;2020 - 2024 By Chris</div><div class="framework-info"><span>框架 </span><a target="_blank" rel="noopener" href="https://hexo.io">Hexo</a><span class="footer-separator">|</span><span>主题 </span><a target="_blank" rel="noopener" href="https://github.com/jerryc127/hexo-theme-butterfly">Butterfly</a></div></div></footer></div><div id="rightside"><div id="rightside-config-hide"><button id="readmode" type="button" title="阅读模式"><i class="fas fa-book-open"></i></button><button id="darkmode" type="button" title="浅色和深色模式转换"><i class="fas fa-adjust"></i></button><button id="hide-aside-btn" type="button" title="单栏和双栏切换"><i class="fas fa-arrows-alt-h"></i></button></div><div id="rightside-config-show"><button id="rightside-config" type="button" title="设置"><i class="fas fa-cog fa-spin"></i></button><button class="close" id="mobile-toc-button" type="button" title="目录"><i class="fas fa-list-ul"></i></button><button id="go-up" type="button" title="回到顶部"><span class="scroll-percent"></span><i class="fas fa-arrow-up"></i></button></div></div><div><script src="/js/utils.js"></script><script src="/js/main.js"></script><script src="https://cdn.jsdelivr.net/npm/@fancyapps/ui/dist/fancybox/fancybox.umd.min.js"></script><div class="js-pjax"></div><script src="https://cdn.jsdelivr.net/npm/butterfly-extsrc/dist/activate-power-mode.min.js"></script><script>POWERMODE.colorful = true;
+POWERMODE.shake = true;
+POWERMODE.mobile = true;
+document.body.addEventListener('input', POWERMODE);
+</script><script async data-pjax src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script><div id="local-search"><div class="search-dialog"><nav class="search-nav"><span class="search-dialog-title">搜索</span><span id="loading-status"></span><button class="search-close-button"><i class="fas fa-times"></i></button></nav><div class="is-center" id="loading-database"><i class="fas fa-spinner fa-pulse"></i><span>  数据库加载中</span></div><div class="search-wrap"><div id="local-search-input"><div class="local-search-box"><input class="local-search-box--input" placeholder="搜索文章" type="text"/></div></div><hr/><div id="local-search-results"></div><div id="local-search-stats-wrap"></div></div></div><div id="search-mask"></div><script src="/js/search/local-search.js"></script></div><div class="app-refresh" id="app-refresh" style="position: fixed;top: -2.2rem;left: 0;right: 0;z-index: 99999;padding: 0 1rem;font-size: 15px;height: 2.2rem;transition: all 0.3s ease;"><div class="app-refresh-wrap" style=" display: flex;color: #fff;height: 100%;align-items: center;justify-content: center;"><label>✨ 有新文章啦！ 👉</label><a href="javascript:void(0)" onclick="location.reload()"><span style="color: #fff;text-decoration: underline;cursor: pointer;">🍗点击食用🍔</span></a></div></div><script>if ('serviceWorker' in navigator) {
+if (navigator.serviceWorker.controller) {
+navigator.serviceWorker.addEventListener('controllerchange', function() {
+showNotification()
+})
+}
+window.addEventListener('load', function() {
+navigator.serviceWorker.register('/sw.js')
+})
+}
+function showNotification() {
+if (GLOBAL_CONFIG.Snackbar) {
+var snackbarBg =
+document.documentElement.getAttribute('data-theme') === 'light' ?
+GLOBAL_CONFIG.Snackbar.bgLight :
+GLOBAL_CONFIG.Snackbar.bgDark
+var snackbarPos = GLOBAL_CONFIG.Snackbar.position
+Snackbar.show({
+text: '✨ 有新文章啦！ 👉',
+backgroundColor: snackbarBg,
+duration: 500000,
+pos: snackbarPos,
+actionText: '🍗点击食用🍔',
+actionTextColor: '#fff',
+onActionClick: function(e) {
+location.reload()
+},
+})
+} else {
+var showBg =
+document.documentElement.getAttribute('data-theme') === 'light' ?
+'#3b70fc' :
+'#1f1f1f'
+var cssText = `top: 0; background: ${showBg};`
+document.getElementById('app-refresh').style.cssText = cssText
+}
+}</script></div><!-- hexo injector body_end start --><script data-pjax>
+  function butterfly_clock_anzhiyu_injector_config(){
+    var parent_div_git = document.getElementsByClassName('sticky_layout')[0];
+    var item_html = '<div class="card-widget card-clock"><div class="card-glass"><div class="card-background"><div class="card-content"><div id="hexo_electric_clock"><img class="entered loading" id="card-clock-loading" src="https://cdn.cbd.int/hexo-butterfly-clock-anzhiyu/lib/loading.gif" style="height: 120px; width: 100%;" data-ll-status="loading"/></div></div></div></div></div>';
+    console.log('已挂载butterfly_clock_anzhiyu')
+    if(parent_div_git) {
+      parent_div_git.insertAdjacentHTML("afterbegin",item_html)
+    }
+  }
+  var elist = 'null'.split(',');
+  var cpage = location.pathname;
+  var epage = 'all';
+  var qweather_key = '1ecb681188744caeb284ad8724d6dd64';
+  var gaud_map_key = 'da2cc83783dbfdf556049e4e4bc86869';
+  var baidu_ak_key = 'undefined';
+  var flag = 0;
+  var clock_rectangle = '112.982279,28.19409';
+  var clock_default_rectangle_enable = 'false';
+
+  for (var i=0;i<elist.length;i++){
+    if (cpage.includes(elist[i])){
+      flag++;
+    }
+  }
+
+  if ((epage ==='all')&&(flag == 0)){
+    butterfly_clock_anzhiyu_injector_config();
+  }
+  else if (epage === cpage){
+    butterfly_clock_anzhiyu_injector_config();
+  }
+  </script><script src="https://widget.qweather.net/simple/static/js/he-simple-common.js?v=2.0"></script><script data-pjax src="https://cdn.cbd.int/hexo-butterfly-clock-anzhiyu/lib/clock.min.js"></script><script data-pjax>
+  function butterfly_footer_beautify_injector_config(){
+    var parent_div_git = document.getElementById('footer-wrap');
+    var item_html = '<div id="workboard"></div>';
+    console.log('已挂载butterfly_footer_beautify')
+    parent_div_git.insertAdjacentHTML("beforeend",item_html)
+    }
+  var elist = 'null'.split(',');
+  var cpage = location.pathname;
+  var epage = 'all';
+  var flag = 0;
+
+  for (var i=0;i<elist.length;i++){
+    if (cpage.includes(elist[i])){
+      flag++;
+    }
+  }
+
+  if ((epage ==='all')&&(flag == 0)){
+    butterfly_footer_beautify_injector_config();
+  }
+  else if (epage === cpage){
+    butterfly_footer_beautify_injector_config();
+  }
+  </script><script async src="/js/runtime.min.js"></script><div class="js-pjax"><script async="async">var arr = document.getElementsByClassName('recent-post-item');
+for(var i = 0;i<arr.length;i++){
+    arr[i].classList.add('wow');
+    arr[i].classList.add('animate__zoomIn');
+    arr[i].setAttribute('data-wow-duration', '1.5s');
+    arr[i].setAttribute('data-wow-delay', '200ms');
+    arr[i].setAttribute('data-wow-offset', '30');
+    arr[i].setAttribute('data-wow-iteration', '1');
+  }</script><script async="async">var arr = document.getElementsByClassName('card-widget');
+for(var i = 0;i<arr.length;i++){
+    arr[i].classList.add('wow');
+    arr[i].classList.add('animate__zoomIn');
+    arr[i].setAttribute('data-wow-duration', '');
+    arr[i].setAttribute('data-wow-delay', '200ms');
+    arr[i].setAttribute('data-wow-offset', '');
+    arr[i].setAttribute('data-wow-iteration', '');
+  }</script><script async="async">var arr = document.getElementsByClassName('flink-list-card');
+for(var i = 0;i<arr.length;i++){
+    arr[i].classList.add('wow');
+    arr[i].classList.add('animate__flipInY');
+    arr[i].setAttribute('data-wow-duration', '3s');
+    arr[i].setAttribute('data-wow-delay', '');
+    arr[i].setAttribute('data-wow-offset', '');
+    arr[i].setAttribute('data-wow-iteration', '');
+  }</script><script async="async">var arr = document.getElementsByClassName('flink-list-card');
+for(var i = 0;i<arr.length;i++){
+    arr[i].classList.add('wow');
+    arr[i].classList.add('animate__animated');
+    arr[i].setAttribute('data-wow-duration', '3s');
+    arr[i].setAttribute('data-wow-delay', '');
+    arr[i].setAttribute('data-wow-offset', '');
+    arr[i].setAttribute('data-wow-iteration', '');
+  }</script><script async="async">var arr = document.getElementsByClassName('article-sort-item');
+for(var i = 0;i<arr.length;i++){
+    arr[i].classList.add('wow');
+    arr[i].classList.add('animate__slideInRight');
+    arr[i].setAttribute('data-wow-duration', '1.5s');
+    arr[i].setAttribute('data-wow-delay', '');
+    arr[i].setAttribute('data-wow-offset', '');
+    arr[i].setAttribute('data-wow-iteration', '');
+  }</script><script async="async">var arr = document.getElementsByClassName('site-card');
+for(var i = 0;i<arr.length;i++){
+    arr[i].classList.add('wow');
+    arr[i].classList.add('animate__flipInY');
+    arr[i].setAttribute('data-wow-duration', '3s');
+    arr[i].setAttribute('data-wow-delay', '');
+    arr[i].setAttribute('data-wow-offset', '');
+    arr[i].setAttribute('data-wow-iteration', '');
+  }</script><script async="async">var arr = document.getElementsByClassName('site-card');
+for(var i = 0;i<arr.length;i++){
+    arr[i].classList.add('wow');
+    arr[i].classList.add('animate__animated');
+    arr[i].setAttribute('data-wow-duration', '3s');
+    arr[i].setAttribute('data-wow-delay', '');
+    arr[i].setAttribute('data-wow-offset', '');
+    arr[i].setAttribute('data-wow-iteration', '');
+  }</script></div><script defer src="https://cdn.cbd.int/hexo-butterfly-wowjs/lib/wow.min.js"></script><script defer src="https://cdn.cbd.int/hexo-butterfly-wowjs/lib/wow_init.js"></script><!-- hexo injector body_end end --></body></html>

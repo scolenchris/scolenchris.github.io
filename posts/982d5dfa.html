@@ -1,0 +1,517 @@
+<!DOCTYPE html><html lang="zh-CN" data-theme="light"><head><meta charset="UTF-8"><meta http-equiv="X-UA-Compatible" content="IE=edge"><meta name="viewport" content="width=device-width, initial-scale=1.0,viewport-fit=cover"><title>stm32-hal | Chris</title><meta name="author" content="Chris"><meta name="copyright" content="Chris"><meta name="format-detection" content="telephone=no"><meta name="theme-color" content="#ffffff"><meta name="description" content="- Date:2023-05-25  Time:15:57 Subject: none Tags: #stm32 [[2023-05]]   基于CMSIS应用程序文件描述    STM32开发文件结构分布    HAL库的用户配置文件（stm32f1xx_hal_conf.h）  裁剪HAL库外设驱动源码（不进行编译）  &#x2F;#ifdef &#x2F;#endif 的使用   设置外部高速晶振频率（HSF）">
+<meta property="og:type" content="article">
+<meta property="og:title" content="stm32-hal">
+<meta property="og:url" content="https://scolenchris.top/posts/982d5dfa.html">
+<meta property="og:site_name" content="Chris">
+<meta property="og:description" content="- Date:2023-05-25  Time:15:57 Subject: none Tags: #stm32 [[2023-05]]   基于CMSIS应用程序文件描述    STM32开发文件结构分布    HAL库的用户配置文件（stm32f1xx_hal_conf.h）  裁剪HAL库外设驱动源码（不进行编译）  &#x2F;#ifdef &#x2F;#endif 的使用   设置外部高速晶振频率（HSF）">
+<meta property="og:locale" content="zh_CN">
+<meta property="og:image" content="https://scolenchris.top/img/Avatar.jpg">
+<meta property="article:published_time" content="2024-07-03T10:10:44.000Z">
+<meta property="article:modified_time" content="2024-07-03T02:20:55.592Z">
+<meta property="article:author" content="Chris">
+<meta property="article:tag" content="博客,scolen,chris,技术,生活,记录,life,code">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="https://scolenchris.top/img/Avatar.jpg"><link rel="shortcut icon" href="/img/favicon.jpg"><link rel="canonical" href="https://scolenchris.top/posts/982d5dfa.html"><link rel="preconnect" href="//cdn.jsdelivr.net"/><link rel="preconnect" href="//busuanzi.ibruce.info"/><link rel="manifest" href="/"/><link rel="stylesheet" href="/css/index.css"><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free/css/all.min.css" media="print" onload="this.media='all'"><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fancyapps/ui/dist/fancybox/fancybox.min.css" media="print" onload="this.media='all'"><script>const GLOBAL_CONFIG = {
+  root: '/',
+  algolia: undefined,
+  localSearch: {"path":"/search.xml","preload":false,"top_n_per_article":1,"unescape":false,"languages":{"hits_empty":"找不到您查询的内容：${query}","hits_stats":"共找到 ${hits} 篇文章"}},
+  translate: undefined,
+  noticeOutdate: undefined,
+  highlight: {"plugin":"highlighjs","highlightCopy":true,"highlightLang":true,"highlightHeightLimit":false},
+  copy: {
+    success: '复制成功',
+    error: '复制错误',
+    noSupport: '浏览器不支持'
+  },
+  relativeDate: {
+    homepage: false,
+    post: false
+  },
+  runtime: '',
+  dateSuffix: {
+    just: '刚刚',
+    min: '分钟前',
+    hour: '小时前',
+    day: '天前',
+    month: '个月前'
+  },
+  copyright: undefined,
+  lightbox: 'fancybox',
+  Snackbar: undefined,
+  infinitegrid: {
+    js: 'https://cdn.jsdelivr.net/npm/@egjs/infinitegrid/dist/infinitegrid.min.js',
+    buttonText: '加载更多'
+  },
+  isPhotoFigcaption: false,
+  islazyload: false,
+  isAnchor: false,
+  percent: {
+    toc: true,
+    rightside: false,
+  },
+  autoDarkmode: false
+}</script><script id="config-diff">var GLOBAL_CONFIG_SITE = {
+  title: 'stm32-hal',
+  isPost: true,
+  isHome: false,
+  isHighlightShrink: false,
+  isToc: true,
+  postUpdate: '2024-07-03 02:20:55'
+}</script><script>(win=>{
+      win.saveToLocal = {
+        set: (key, value, ttl) => {
+          if (ttl === 0) return
+          const now = Date.now()
+          const expiry = now + ttl * 86400000
+          const item = {
+            value,
+            expiry
+          }
+          localStorage.setItem(key, JSON.stringify(item))
+        },
+      
+        get: key => {
+          const itemStr = localStorage.getItem(key)
+      
+          if (!itemStr) {
+            return undefined
+          }
+          const item = JSON.parse(itemStr)
+          const now = Date.now()
+      
+          if (now > item.expiry) {
+            localStorage.removeItem(key)
+            return undefined
+          }
+          return item.value
+        }
+      }
+    
+      win.getScript = (url, attr = {}) => new Promise((resolve, reject) => {
+        const script = document.createElement('script')
+        script.src = url
+        script.async = true
+        script.onerror = reject
+        script.onload = script.onreadystatechange = function() {
+          const loadState = this.readyState
+          if (loadState && loadState !== 'loaded' && loadState !== 'complete') return
+          script.onload = script.onreadystatechange = null
+          resolve()
+        }
+
+        Object.keys(attr).forEach(key => {
+          script.setAttribute(key, attr[key])
+        })
+
+        document.head.appendChild(script)
+      })
+    
+      win.getCSS = (url, id = false) => new Promise((resolve, reject) => {
+        const link = document.createElement('link')
+        link.rel = 'stylesheet'
+        link.href = url
+        if (id) link.id = id
+        link.onerror = reject
+        link.onload = link.onreadystatechange = function() {
+          const loadState = this.readyState
+          if (loadState && loadState !== 'loaded' && loadState !== 'complete') return
+          link.onload = link.onreadystatechange = null
+          resolve()
+        }
+        document.head.appendChild(link)
+      })
+    
+      win.activateDarkMode = () => {
+        document.documentElement.setAttribute('data-theme', 'dark')
+        if (document.querySelector('meta[name="theme-color"]') !== null) {
+          document.querySelector('meta[name="theme-color"]').setAttribute('content', '#0d0d0d')
+        }
+      }
+      win.activateLightMode = () => {
+        document.documentElement.setAttribute('data-theme', 'light')
+        if (document.querySelector('meta[name="theme-color"]') !== null) {
+          document.querySelector('meta[name="theme-color"]').setAttribute('content', '#ffffff')
+        }
+      }
+      const t = saveToLocal.get('theme')
+    
+        if (t === 'dark') activateDarkMode()
+        else if (t === 'light') activateLightMode()
+      
+      const asideStatus = saveToLocal.get('aside-status')
+      if (asideStatus !== undefined) {
+        if (asideStatus === 'hide') {
+          document.documentElement.classList.add('hide-aside')
+        } else {
+          document.documentElement.classList.remove('hide-aside')
+        }
+      }
+    
+      const detectApple = () => {
+        if(/iPad|iPhone|iPod|Macintosh/.test(navigator.userAgent)){
+          document.documentElement.classList.add('apple')
+        }
+      }
+      detectApple()
+    })(window)</script><link rel="stylesheet" href="/css/custom.css" media="defer" onload="this.media='all'"><!-- hexo injector head_end start --><link rel="stylesheet" href="https://cdn.cbd.int/hexo-butterfly-clock-anzhiyu/lib/clock.min.css" /><link rel="stylesheet" href="/css/runtime.min.css" media="print" onload="this.media='all'"><link rel="stylesheet" href="https://cdn.cbd.int/hexo-butterfly-wowjs/lib/animate.min.css" media="print" onload="this.media='all'"><!-- hexo injector head_end end --><meta name="generator" content="Hexo 7.0.0"><link href="https://cdn.bootcss.com/KaTeX/0.11.1/katex.min.css" rel="stylesheet" /></head><body><div id="web_bg"></div><div id="sidebar"><div id="menu-mask"></div><div id="sidebar-menus"><div class="avatar-img is-center"><img src="/img/Avatar.jpg" onerror="onerror=null;src='/img/friend_404.gif'" alt="avatar"/></div><div class="sidebar-site-data site-data is-center"><a href="/archives/"><div class="headline">文章</div><div class="length-num">17</div></a><a href="/tags/"><div class="headline">标签</div><div class="length-num">0</div></a><a href="/categories/"><div class="headline">分类</div><div class="length-num">0</div></a></div><hr class="custom-hr"/></div></div><div class="post" id="body-wrap"><header class="post-bg" id="page-header"><nav id="nav"><span id="blog-info"><a href="/" title="Chris"><span class="site-name">Chris</span></a></span><div id="menus"><div id="search-button"><a class="site-page social-icon search" href="javascript:void(0);"><i class="fas fa-search fa-fw"></i><span> 搜索</span></a></div><div id="toggle-menu"><a class="site-page" href="javascript:void(0);"><i class="fas fa-bars fa-fw"></i></a></div></div></nav><div id="post-info"><h1 class="post-title">stm32-hal</h1><div id="post-meta"><div class="meta-firstline"><span class="post-meta-date"><i class="far fa-calendar-alt fa-fw post-meta-icon"></i><span class="post-meta-label">发表于</span><time class="post-meta-date-created" datetime="2024-07-03T10:10:44.000Z" title="发表于 2024-07-03 10:10:44">2024-07-03</time><span class="post-meta-separator">|</span><i class="fas fa-history fa-fw post-meta-icon"></i><span class="post-meta-label">更新于</span><time class="post-meta-date-updated" datetime="2024-07-03T02:20:55.592Z" title="更新于 2024-07-03 02:20:55">2024-07-03</time></span></div><div class="meta-secondline"><span class="post-meta-separator">|</span><span class="post-meta-pv-cv" id="" data-flag-title="stm32-hal"><i class="far fa-eye fa-fw post-meta-icon"></i><span class="post-meta-label">阅读量:</span><span id="busuanzi_value_page_pv"><i class="fa-solid fa-spinner fa-spin"></i></span></span></div></div></div></header><main class="layout" id="content-inner"><div id="post"><article class="post-content" id="article-container"><h1 id="date-2023-05-25">- Date:2023-05-25</h1>
+<ul>
+<li>Time:15:57</li>
+<li>Subject: none</li>
+<li>Tags: #stm32<br>
+[[2023-05]]</li>
+</ul>
+<hr>
+<h2 id="基于cmsis应用程序文件描述">基于CMSIS应用程序文件描述</h2>
+<ol>
+<li><img src="https://pic-chris.oss-cn-guangzhou.aliyuncs.com/img/202407030944008.png" alt="Pasted image 20230604222756|600"></li>
+</ol>
+<h2 id="stm32开发文件结构分布">STM32开发文件结构分布</h2>
+<ol>
+<li><img src="https://pic-chris.oss-cn-guangzhou.aliyuncs.com/img/202407030944009.png" alt="Pasted image 20230604222818|600"></li>
+</ol>
+<h2 id="hal库的用户配置文件-stm32f1xx-hal-conf-h">HAL库的用户配置文件（stm32f1xx_hal_conf.h）</h2>
+<ol>
+<li>裁剪HAL库外设驱动源码（不进行编译）
+<ol>
+<li>/#ifdef /#endif 的使用</li>
+</ol>
+</li>
+<li>设置外部高速晶振频率（HSF）（根据开发板实际情况设置）</li>
+<li>设置外部低速晶振频率（根据开发板实际情况设置）</li>
+</ol>
+<h2 id="hal库使用注意事项">HAL库使用注意事项</h2>
+<ol>
+<li>使用HAL库出现问题，还是得通过参考手册检查是否硬件操作是否有问题</li>
+<li>尽量不通过修改库源码实现功能，这样不方便库更新</li>
+<li>HAL库可能会存在错误，要有质疑精神</li>
+<li>有些HAL库API函数执行效率偏低，我们可能会直接通过操作寄存器的方式代替</li>
+</ol>
+<h1 id="date-2023-05-25">- Date:2023-05-25</h1>
+<ul>
+<li>Time:12:53</li>
+<li>Subject: none</li>
+<li>Tags: #stm32<br>
+[[2023-05]]</li>
+</ul>
+<hr>
+<h2 id="cmsis简介">CMSIS简介</h2>
+<ol>
+<li>CMSIS (微控制器软件接口标准)：Cortex Microcontroller Software Interface Standard，是由ARM和与其合作的芯片厂商、软件工具厂商，共同制定的标准
+<ol>
+<li><img src="https://pic-chris.oss-cn-guangzhou.aliyuncs.com/img/202407030945752.png" alt="Pasted image 20230525151257|600"></li>
+</ol>
+</li>
+</ol>
+<h2 id="hal库简介">HAL库简介</h2>
+<ol>
+<li>ST 为了方便用户开发 STM32芯片开发提供了三种库：
+<ol>
+<li>标准外设库 (Standard Peripheral Libraries)
+<ol>
+<li>F0/F1/F3/F2/F4/L1</li>
+<li>目前已停止维护</li>
+</ol>
+</li>
+<li>HAL库(硬件抽象层)：Hardware Abstraction Layer
+<ol>
+<li>全系列兼容</li>
+<li>ST目前主推的库</li>
+<li>兼容性、易移植性</li>
+<li>效率低</li>
+</ol>
+</li>
+<li>LL库：Low Layer
+<ol>
+<li>全系列兼容</li>
+<li>与HAL库捆绑发布</li>
+<li>轻量级、效率高</li>
+<li>不匹配部分复杂外设</li>
+</ol>
+</li>
+</ol>
+</li>
+</ol>
+<h2 id="stm32cube固件包浅析">STM32Cube固件包浅析</h2>
+<h3 id="stm32cube固件包文件夹简介">STM32Cube固件包文件夹简介</h3>
+<ol>
+<li><img src="https://pic-chris.oss-cn-guangzhou.aliyuncs.com/img/202407030945753.png" alt="Pasted image 20230525151957|600"></li>
+<li><img src="https://pic-chris.oss-cn-guangzhou.aliyuncs.com/img/202407030945754.png" alt="Pasted image 20230525152058|600"></li>
+<li><img src="https://pic-chris.oss-cn-guangzhou.aliyuncs.com/img/202407030945755.png" alt="Pasted image 20230525152106|600"></li>
+</ol>
+<h3 id="cmsis文件夹关键文件">CMSIS文件夹关键文件</h3>
+<ol>
+<li><img src="https://pic-chris.oss-cn-guangzhou.aliyuncs.com/img/202407030945756.png" alt="Pasted image 20230525152122|600"></li>
+<li><img src="https://pic-chris.oss-cn-guangzhou.aliyuncs.com/img/202407030945757.png" alt="Pasted image 20230525152258|600"></li>
+</ol>
+<h4 id="device和include文件夹的关键文件介绍">Device和Include文件夹的关键文件介绍</h4>
+<ol>
+<li><img src="https://pic-chris.oss-cn-guangzhou.aliyuncs.com/img/202407030945758.png" alt="Pasted image 20230525152330|600"></li>
+<li>可以从cube固件包里面找</li>
+</ol>
+<h2 id="hal库框架结构">HAL库框架结构</h2>
+<h3 id="hal库文件夹结构">HAL库文件夹结构</h3>
+<ol>
+<li><img src="https://pic-chris.oss-cn-guangzhou.aliyuncs.com/img/202407030945759.png" alt="Pasted image 20230525153514|600">
+<ol>
+<li>Src(Source)：外设驱动源码</li>
+<li>Inc(Include)：外设驱动源码头文件</li>
+</ol>
+</li>
+</ol>
+<h3 id="hal库文件介绍">HAL库文件介绍</h3>
+<ol>
+<li><img src="https://pic-chris.oss-cn-guangzhou.aliyuncs.com/img/202407030945760.png" alt="Pasted image 20230525153656|600"></li>
+</ol>
+<h3 id="hal库api函数和变量命名规则">HAL库API函数和变量命名规则</h3>
+<ol>
+<li><img src="https://pic-chris.oss-cn-guangzhou.aliyuncs.com/img/202407030945761.png" alt="Pasted image 20230525153716|600">
+<ol>
+<li>初始化/反初始化函数:HAL_PPP_Init(),   HAL_PPP_DeInit()</li>
+<li>外设读写函数:HAL_PPP_Read(),   HAL_PPP_Write(),   HAL_PPP_Transmit(),    HAL_PPP_Receive()</li>
+<li>控制函数:HAL_PPP_Set (),     HAL_PPP_Get ()</li>
+<li>状态和错误:HAL_PPP_GetState (),    HAL_PPP_GetError ()</li>
+</ol>
+</li>
+</ol>
+<h3 id="hal库对寄存器位操作的相关宏定义">HAL库对寄存器位操作的相关宏定义</h3>
+<ol>
+<li><img src="https://pic-chris.oss-cn-guangzhou.aliyuncs.com/img/202407030945762.png" alt="Pasted image 20230525154333|600"></li>
+</ol>
+<h3 id="hal库回调函数">HAL库回调函数</h3>
+<ol>
+<li><img src="https://pic-chris.oss-cn-guangzhou.aliyuncs.com/img/202407030945763.png" alt="Pasted image 20230525154615|600">
+<ol>
+<li>此类函数通常被_weak修饰（弱函数），允许用户重新定义该函数</li>
+</ol>
+</li>
+</ol>
+<h1 id="date-2023-06-04">- Date:2023-06-04</h1>
+<ul>
+<li>Time:22:41</li>
+<li>Subject: none</li>
+<li>Tags: #stm32<br>
+[[2023-06]]</li>
+</ul>
+<hr>
+<h2 id="map文件浅析">MAP文件浅析</h2>
+<ol>
+<li>MDK编译过程文件（11种）
+<ol>
+<li><img src="https://pic-chris.oss-cn-guangzhou.aliyuncs.com/img/202407030945918.png" alt="Pasted image 20230604224248|600"></li>
+</ol>
+</li>
+<li>MAP文件概念和作用
+<ol>
+<li>MAP文件是MDK编译代码后，产生的集程序、数据及IO空间的一种映射列表文件</li>
+<li>简单说就是包括了：各种.c文件、函数、符号等的地址、大小、引用关系等信息</li>
+<li><font color="#ff0000">分析各.c文件占用FLASH 和 RAM的大小，方便优化代码</font></li>
+</ol>
+</li>
+<li>MAP文件组成
+<ol>
+<li><img src="https://pic-chris.oss-cn-guangzhou.aliyuncs.com/img/202407030945919.png" alt="Pasted image 20230604224449|600"></li>
+</ol>
+</li>
+</ol>
+<h2 id="stm32启动过程">STM32启动过程</h2>
+<ol>
+<li>STM32启动模式（F1/F4/F7/H7）（也称自举模式）
+<ol>
+<li>M3/M4/M7等内核复位后，做的第一件事：
+<ol>
+<li>从地址 0x0000 0000 处取出堆栈指针 MSP 的初始值，该值就是栈顶地址</li>
+<li>从地址 0x0000 0004 处取出程序计数器指针 PC 的初始值，该值是复位向量</li>
+</ol>
+</li>
+<li><img src="https://pic-chris.oss-cn-guangzhou.aliyuncs.com/img/202407030945920.png" alt="Pasted image 20230604225747|600"></li>
+</ol>
+</li>
+<li>STM32启动模式（F1）
+<ol>
+<li>在系统复位后，SYSCLK的第4个上升沿，BOOT引脚的值将被锁存</li>
+<li><img src="https://pic-chris.oss-cn-guangzhou.aliyuncs.com/img/202407030945921.png" alt="Pasted image 20230604225826|600"></li>
+</ol>
+</li>
+<li>STM32启动过程(内部FLASH启动为例)
+<ol>
+<li><img src="https://pic-chris.oss-cn-guangzhou.aliyuncs.com/img/202407030945922.png" alt="Pasted image 20230604230440|600"></li>
+<li>.s启动文件介绍
+<ol>
+<li><img src="https://pic-chris.oss-cn-guangzhou.aliyuncs.com/img/202407030945923.png" alt="Pasted image 20230604230828|600"></li>
+</ol>
+</li>
+<li>Reset_Handler函数介绍(汇编)</li>
+</ol>
+</li>
+</ol>
+<figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line">Reset_Handler   PROC</span><br><span class="line">                EXPORT  Reset_Handler   [WEAK]</span><br><span class="line">                IMPORT  __main</span><br><span class="line">                IMPORT  SystemInit</span><br><span class="line">                LDR   R0, =SystemInit</span><br><span class="line">                BLX   R0              </span><br><span class="line">                LDR   R0, =__main</span><br><span class="line">                BX      R0</span><br><span class="line">                ENDP</span><br></pre></td></tr></table></figure>
+<pre><code>	1. EXPORT：标明全局属性，可被外部调用
+	2. IMPORT：申明来自外部文件，类extern
+	3. PROC：定义子程序
+	4. ENDP：表示子程序结束
+	5. WEAK：弱定义	
+</code></pre>
+<ol>
+<li>堆栈简介
+<ol>
+<li><img src="https://pic-chris.oss-cn-guangzhou.aliyuncs.com/img/202407030945924.png" alt="Pasted image 20230604231214|600"></li>
+<li>函数局部变量较多，嵌套关系复杂时，需加大栈大小（Stack_Size）！</li>
+</ol>
+</li>
+</ol>
+<h2 id="32启动过程图解">32启动过程图解</h2>
+<ol>
+<li><img src="https://pic-chris.oss-cn-guangzhou.aliyuncs.com/img/202407030945925.png" alt="Pasted image 20230604231507|600"></li>
+</ol>
+</article><div class="post-copyright"><div class="post-copyright__author"><span class="post-copyright-meta"><i class="fas fa-circle-user fa-fw"></i>文章作者: </span><span class="post-copyright-info"><a href="https://scolenchris.top">Chris</a></span></div><div class="post-copyright__type"><span class="post-copyright-meta"><i class="fas fa-square-arrow-up-right fa-fw"></i>文章链接: </span><span class="post-copyright-info"><a href="https://scolenchris.top/posts/982d5dfa.html">https://scolenchris.top/posts/982d5dfa.html</a></span></div><div class="post-copyright__notice"><span class="post-copyright-meta"><i class="fas fa-circle-exclamation fa-fw"></i>版权声明: </span><span class="post-copyright-info">本博客所有文章除特别声明外，均采用 <a href="https://creativecommons.org/licenses/by-nc-sa/4.0/" target="_blank">CC BY-NC-SA 4.0</a> 许可协议。转载请注明来自 <a href="https://scolenchris.top" target="_blank">Chris</a>！</span></div></div><div class="tag_share"><div class="post-meta__tag-list"></div><div class="post_share"><div class="social-share" data-image="/img/Avatar.jpg" data-sites="facebook,twitter,wechat,weibo,qq"></div><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/butterfly-extsrc/sharejs/dist/css/share.min.css" media="print" onload="this.media='all'"><script src="https://cdn.jsdelivr.net/npm/butterfly-extsrc/sharejs/dist/js/social-share.min.js" defer></script></div></div><nav class="pagination-post" id="pagination"><div class="prev-post pull-left"><a href="/posts/1bce3e80.html" title="stm32-基础知识"><div class="cover" style="background: var(--default-bg-color)"></div><div class="pagination-info"><div class="label">上一篇</div><div class="prev_info">stm32-基础知识</div></div></a></div><div class="next-post pull-right"><a href="/posts/6a0f884f.html" title="stm32-gpio"><div class="cover" style="background: var(--default-bg-color)"></div><div class="pagination-info"><div class="label">下一篇</div><div class="next_info">stm32-gpio</div></div></a></div></nav></div><div class="aside-content" id="aside-content"><div class="card-widget card-info"><div class="is-center"><div class="avatar-img"><img src="/img/Avatar.jpg" onerror="this.onerror=null;this.src='/img/friend_404.gif'" alt="avatar"/></div><div class="author-info__name">Chris</div><div class="author-info__description">描述~</div></div><div class="card-info-data site-data is-center"><a href="/archives/"><div class="headline">文章</div><div class="length-num">17</div></a><a href="/tags/"><div class="headline">标签</div><div class="length-num">0</div></a><a href="/categories/"><div class="headline">分类</div><div class="length-num">0</div></a></div><a id="card-info-btn" target="_blank" rel="noopener" href="https://github.com/scolenchris"><i class="fab fa-github"></i><span>Follow Me</span></a></div><div class="sticky_layout"><div class="card-widget" id="card-toc"><div class="item-headline"><i class="fas fa-stream"></i><span>目录</span><span class="toc-percentage"></span></div><div class="toc-content"><ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#date-2023-05-25"><span class="toc-number">1.</span> <span class="toc-text">- Date:2023-05-25</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%9F%BA%E4%BA%8Ecmsis%E5%BA%94%E7%94%A8%E7%A8%8B%E5%BA%8F%E6%96%87%E4%BB%B6%E6%8F%8F%E8%BF%B0"><span class="toc-number">1.1.</span> <span class="toc-text">基于CMSIS应用程序文件描述</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#stm32%E5%BC%80%E5%8F%91%E6%96%87%E4%BB%B6%E7%BB%93%E6%9E%84%E5%88%86%E5%B8%83"><span class="toc-number">1.2.</span> <span class="toc-text">STM32开发文件结构分布</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#hal%E5%BA%93%E7%9A%84%E7%94%A8%E6%88%B7%E9%85%8D%E7%BD%AE%E6%96%87%E4%BB%B6-stm32f1xx-hal-conf-h"><span class="toc-number">1.3.</span> <span class="toc-text">HAL库的用户配置文件（stm32f1xx_hal_conf.h）</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#hal%E5%BA%93%E4%BD%BF%E7%94%A8%E6%B3%A8%E6%84%8F%E4%BA%8B%E9%A1%B9"><span class="toc-number">1.4.</span> <span class="toc-text">HAL库使用注意事项</span></a></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#date-2023-05-25"><span class="toc-number">2.</span> <span class="toc-text">- Date:2023-05-25</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#cmsis%E7%AE%80%E4%BB%8B"><span class="toc-number">2.1.</span> <span class="toc-text">CMSIS简介</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#hal%E5%BA%93%E7%AE%80%E4%BB%8B"><span class="toc-number">2.2.</span> <span class="toc-text">HAL库简介</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#stm32cube%E5%9B%BA%E4%BB%B6%E5%8C%85%E6%B5%85%E6%9E%90"><span class="toc-number">2.3.</span> <span class="toc-text">STM32Cube固件包浅析</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#stm32cube%E5%9B%BA%E4%BB%B6%E5%8C%85%E6%96%87%E4%BB%B6%E5%A4%B9%E7%AE%80%E4%BB%8B"><span class="toc-number">2.3.1.</span> <span class="toc-text">STM32Cube固件包文件夹简介</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#cmsis%E6%96%87%E4%BB%B6%E5%A4%B9%E5%85%B3%E9%94%AE%E6%96%87%E4%BB%B6"><span class="toc-number">2.3.2.</span> <span class="toc-text">CMSIS文件夹关键文件</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#device%E5%92%8Cinclude%E6%96%87%E4%BB%B6%E5%A4%B9%E7%9A%84%E5%85%B3%E9%94%AE%E6%96%87%E4%BB%B6%E4%BB%8B%E7%BB%8D"><span class="toc-number">2.3.2.1.</span> <span class="toc-text">Device和Include文件夹的关键文件介绍</span></a></li></ol></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#hal%E5%BA%93%E6%A1%86%E6%9E%B6%E7%BB%93%E6%9E%84"><span class="toc-number">2.4.</span> <span class="toc-text">HAL库框架结构</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#hal%E5%BA%93%E6%96%87%E4%BB%B6%E5%A4%B9%E7%BB%93%E6%9E%84"><span class="toc-number">2.4.1.</span> <span class="toc-text">HAL库文件夹结构</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#hal%E5%BA%93%E6%96%87%E4%BB%B6%E4%BB%8B%E7%BB%8D"><span class="toc-number">2.4.2.</span> <span class="toc-text">HAL库文件介绍</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#hal%E5%BA%93api%E5%87%BD%E6%95%B0%E5%92%8C%E5%8F%98%E9%87%8F%E5%91%BD%E5%90%8D%E8%A7%84%E5%88%99"><span class="toc-number">2.4.3.</span> <span class="toc-text">HAL库API函数和变量命名规则</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#hal%E5%BA%93%E5%AF%B9%E5%AF%84%E5%AD%98%E5%99%A8%E4%BD%8D%E6%93%8D%E4%BD%9C%E7%9A%84%E7%9B%B8%E5%85%B3%E5%AE%8F%E5%AE%9A%E4%B9%89"><span class="toc-number">2.4.4.</span> <span class="toc-text">HAL库对寄存器位操作的相关宏定义</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#hal%E5%BA%93%E5%9B%9E%E8%B0%83%E5%87%BD%E6%95%B0"><span class="toc-number">2.4.5.</span> <span class="toc-text">HAL库回调函数</span></a></li></ol></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#date-2023-06-04"><span class="toc-number">3.</span> <span class="toc-text">- Date:2023-06-04</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#map%E6%96%87%E4%BB%B6%E6%B5%85%E6%9E%90"><span class="toc-number">3.1.</span> <span class="toc-text">MAP文件浅析</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#stm32%E5%90%AF%E5%8A%A8%E8%BF%87%E7%A8%8B"><span class="toc-number">3.2.</span> <span class="toc-text">STM32启动过程</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#32%E5%90%AF%E5%8A%A8%E8%BF%87%E7%A8%8B%E5%9B%BE%E8%A7%A3"><span class="toc-number">3.3.</span> <span class="toc-text">32启动过程图解</span></a></li></ol></li></ol></div></div><div class="card-widget card-recent-post"><div class="item-headline"><i class="fas fa-history"></i><span>最新文章</span></div><div class="aside-list"><div class="aside-list-item no-cover"><div class="content"><a class="title" href="/posts/46909ac5.html" title="stm32-c语言复习">stm32-c语言复习</a><time datetime="2024-07-03T10:18:05.000Z" title="发表于 2024-07-03 10:18:05">2024-07-03</time></div></div><div class="aside-list-item no-cover"><div class="content"><a class="title" href="/posts/3b21df78.html" title="stm32-system文件夹">stm32-system文件夹</a><time datetime="2024-07-03T10:17:19.000Z" title="发表于 2024-07-03 10:17:19">2024-07-03</time></div></div><div class="aside-list-item no-cover"><div class="content"><a class="title" href="/posts/1bce3e80.html" title="stm32-基础知识">stm32-基础知识</a><time datetime="2024-07-03T10:12:06.000Z" title="发表于 2024-07-03 10:12:06">2024-07-03</time></div></div><div class="aside-list-item no-cover"><div class="content"><a class="title" href="/posts/982d5dfa.html" title="stm32-hal">stm32-hal</a><time datetime="2024-07-03T10:10:44.000Z" title="发表于 2024-07-03 10:10:44">2024-07-03</time></div></div><div class="aside-list-item no-cover"><div class="content"><a class="title" href="/posts/6a0f884f.html" title="stm32-gpio">stm32-gpio</a><time datetime="2024-07-03T10:09:51.000Z" title="发表于 2024-07-03 10:09:51">2024-07-03</time></div></div></div></div></div></div></main><footer id="footer"><div id="footer-wrap"><div class="copyright">&copy;2020 - 2024 By Chris</div><div class="framework-info"><span>框架 </span><a target="_blank" rel="noopener" href="https://hexo.io">Hexo</a><span class="footer-separator">|</span><span>主题 </span><a target="_blank" rel="noopener" href="https://github.com/jerryc127/hexo-theme-butterfly">Butterfly</a></div></div></footer></div><div id="rightside"><div id="rightside-config-hide"><button id="readmode" type="button" title="阅读模式"><i class="fas fa-book-open"></i></button><button id="darkmode" type="button" title="浅色和深色模式转换"><i class="fas fa-adjust"></i></button><button id="hide-aside-btn" type="button" title="单栏和双栏切换"><i class="fas fa-arrows-alt-h"></i></button></div><div id="rightside-config-show"><button id="rightside-config" type="button" title="设置"><i class="fas fa-cog fa-spin"></i></button><button class="close" id="mobile-toc-button" type="button" title="目录"><i class="fas fa-list-ul"></i></button><button id="go-up" type="button" title="回到顶部"><span class="scroll-percent"></span><i class="fas fa-arrow-up"></i></button></div></div><div><script src="/js/utils.js"></script><script src="/js/main.js"></script><script src="https://cdn.jsdelivr.net/npm/@fancyapps/ui/dist/fancybox/fancybox.umd.min.js"></script><div class="js-pjax"></div><script src="https://cdn.jsdelivr.net/npm/butterfly-extsrc/dist/activate-power-mode.min.js"></script><script>POWERMODE.colorful = true;
+POWERMODE.shake = true;
+POWERMODE.mobile = true;
+document.body.addEventListener('input', POWERMODE);
+</script><script async data-pjax src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script><div id="local-search"><div class="search-dialog"><nav class="search-nav"><span class="search-dialog-title">搜索</span><span id="loading-status"></span><button class="search-close-button"><i class="fas fa-times"></i></button></nav><div class="is-center" id="loading-database"><i class="fas fa-spinner fa-pulse"></i><span>  数据库加载中</span></div><div class="search-wrap"><div id="local-search-input"><div class="local-search-box"><input class="local-search-box--input" placeholder="搜索文章" type="text"/></div></div><hr/><div id="local-search-results"></div><div id="local-search-stats-wrap"></div></div></div><div id="search-mask"></div><script src="/js/search/local-search.js"></script></div><div class="app-refresh" id="app-refresh" style="position: fixed;top: -2.2rem;left: 0;right: 0;z-index: 99999;padding: 0 1rem;font-size: 15px;height: 2.2rem;transition: all 0.3s ease;"><div class="app-refresh-wrap" style=" display: flex;color: #fff;height: 100%;align-items: center;justify-content: center;"><label>✨ 有新文章啦！ 👉</label><a href="javascript:void(0)" onclick="location.reload()"><span style="color: #fff;text-decoration: underline;cursor: pointer;">🍗点击食用🍔</span></a></div></div><script>if ('serviceWorker' in navigator) {
+if (navigator.serviceWorker.controller) {
+navigator.serviceWorker.addEventListener('controllerchange', function() {
+showNotification()
+})
+}
+window.addEventListener('load', function() {
+navigator.serviceWorker.register('/sw.js')
+})
+}
+function showNotification() {
+if (GLOBAL_CONFIG.Snackbar) {
+var snackbarBg =
+document.documentElement.getAttribute('data-theme') === 'light' ?
+GLOBAL_CONFIG.Snackbar.bgLight :
+GLOBAL_CONFIG.Snackbar.bgDark
+var snackbarPos = GLOBAL_CONFIG.Snackbar.position
+Snackbar.show({
+text: '✨ 有新文章啦！ 👉',
+backgroundColor: snackbarBg,
+duration: 500000,
+pos: snackbarPos,
+actionText: '🍗点击食用🍔',
+actionTextColor: '#fff',
+onActionClick: function(e) {
+location.reload()
+},
+})
+} else {
+var showBg =
+document.documentElement.getAttribute('data-theme') === 'light' ?
+'#3b70fc' :
+'#1f1f1f'
+var cssText = `top: 0; background: ${showBg};`
+document.getElementById('app-refresh').style.cssText = cssText
+}
+}</script></div><!-- hexo injector body_end start --><script data-pjax>
+  function butterfly_clock_anzhiyu_injector_config(){
+    var parent_div_git = document.getElementsByClassName('sticky_layout')[0];
+    var item_html = '<div class="card-widget card-clock"><div class="card-glass"><div class="card-background"><div class="card-content"><div id="hexo_electric_clock"><img class="entered loading" id="card-clock-loading" src="https://cdn.cbd.int/hexo-butterfly-clock-anzhiyu/lib/loading.gif" style="height: 120px; width: 100%;" data-ll-status="loading"/></div></div></div></div></div>';
+    console.log('已挂载butterfly_clock_anzhiyu')
+    if(parent_div_git) {
+      parent_div_git.insertAdjacentHTML("afterbegin",item_html)
+    }
+  }
+  var elist = 'null'.split(',');
+  var cpage = location.pathname;
+  var epage = 'all';
+  var qweather_key = '1ecb681188744caeb284ad8724d6dd64';
+  var gaud_map_key = 'da2cc83783dbfdf556049e4e4bc86869';
+  var baidu_ak_key = 'undefined';
+  var flag = 0;
+  var clock_rectangle = '112.982279,28.19409';
+  var clock_default_rectangle_enable = 'false';
+
+  for (var i=0;i<elist.length;i++){
+    if (cpage.includes(elist[i])){
+      flag++;
+    }
+  }
+
+  if ((epage ==='all')&&(flag == 0)){
+    butterfly_clock_anzhiyu_injector_config();
+  }
+  else if (epage === cpage){
+    butterfly_clock_anzhiyu_injector_config();
+  }
+  </script><script src="https://widget.qweather.net/simple/static/js/he-simple-common.js?v=2.0"></script><script data-pjax src="https://cdn.cbd.int/hexo-butterfly-clock-anzhiyu/lib/clock.min.js"></script><script data-pjax>
+  function butterfly_footer_beautify_injector_config(){
+    var parent_div_git = document.getElementById('footer-wrap');
+    var item_html = '<div id="workboard"></div>';
+    console.log('已挂载butterfly_footer_beautify')
+    parent_div_git.insertAdjacentHTML("beforeend",item_html)
+    }
+  var elist = 'null'.split(',');
+  var cpage = location.pathname;
+  var epage = 'all';
+  var flag = 0;
+
+  for (var i=0;i<elist.length;i++){
+    if (cpage.includes(elist[i])){
+      flag++;
+    }
+  }
+
+  if ((epage ==='all')&&(flag == 0)){
+    butterfly_footer_beautify_injector_config();
+  }
+  else if (epage === cpage){
+    butterfly_footer_beautify_injector_config();
+  }
+  </script><script async src="/js/runtime.min.js"></script><div class="js-pjax"><script async="async">var arr = document.getElementsByClassName('recent-post-item');
+for(var i = 0;i<arr.length;i++){
+    arr[i].classList.add('wow');
+    arr[i].classList.add('animate__zoomIn');
+    arr[i].setAttribute('data-wow-duration', '1.5s');
+    arr[i].setAttribute('data-wow-delay', '200ms');
+    arr[i].setAttribute('data-wow-offset', '30');
+    arr[i].setAttribute('data-wow-iteration', '1');
+  }</script><script async="async">var arr = document.getElementsByClassName('card-widget');
+for(var i = 0;i<arr.length;i++){
+    arr[i].classList.add('wow');
+    arr[i].classList.add('animate__zoomIn');
+    arr[i].setAttribute('data-wow-duration', '');
+    arr[i].setAttribute('data-wow-delay', '200ms');
+    arr[i].setAttribute('data-wow-offset', '');
+    arr[i].setAttribute('data-wow-iteration', '');
+  }</script><script async="async">var arr = document.getElementsByClassName('flink-list-card');
+for(var i = 0;i<arr.length;i++){
+    arr[i].classList.add('wow');
+    arr[i].classList.add('animate__flipInY');
+    arr[i].setAttribute('data-wow-duration', '3s');
+    arr[i].setAttribute('data-wow-delay', '');
+    arr[i].setAttribute('data-wow-offset', '');
+    arr[i].setAttribute('data-wow-iteration', '');
+  }</script><script async="async">var arr = document.getElementsByClassName('flink-list-card');
+for(var i = 0;i<arr.length;i++){
+    arr[i].classList.add('wow');
+    arr[i].classList.add('animate__animated');
+    arr[i].setAttribute('data-wow-duration', '3s');
+    arr[i].setAttribute('data-wow-delay', '');
+    arr[i].setAttribute('data-wow-offset', '');
+    arr[i].setAttribute('data-wow-iteration', '');
+  }</script><script async="async">var arr = document.getElementsByClassName('article-sort-item');
+for(var i = 0;i<arr.length;i++){
+    arr[i].classList.add('wow');
+    arr[i].classList.add('animate__slideInRight');
+    arr[i].setAttribute('data-wow-duration', '1.5s');
+    arr[i].setAttribute('data-wow-delay', '');
+    arr[i].setAttribute('data-wow-offset', '');
+    arr[i].setAttribute('data-wow-iteration', '');
+  }</script><script async="async">var arr = document.getElementsByClassName('site-card');
+for(var i = 0;i<arr.length;i++){
+    arr[i].classList.add('wow');
+    arr[i].classList.add('animate__flipInY');
+    arr[i].setAttribute('data-wow-duration', '3s');
+    arr[i].setAttribute('data-wow-delay', '');
+    arr[i].setAttribute('data-wow-offset', '');
+    arr[i].setAttribute('data-wow-iteration', '');
+  }</script><script async="async">var arr = document.getElementsByClassName('site-card');
+for(var i = 0;i<arr.length;i++){
+    arr[i].classList.add('wow');
+    arr[i].classList.add('animate__animated');
+    arr[i].setAttribute('data-wow-duration', '3s');
+    arr[i].setAttribute('data-wow-delay', '');
+    arr[i].setAttribute('data-wow-offset', '');
+    arr[i].setAttribute('data-wow-iteration', '');
+  }</script></div><script defer src="https://cdn.cbd.int/hexo-butterfly-wowjs/lib/wow.min.js"></script><script defer src="https://cdn.cbd.int/hexo-butterfly-wowjs/lib/wow_init.js"></script><!-- hexo injector body_end end --></body></html>
