@@ -6,12 +6,12 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="HandheldFriendly" content="True">
     <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=5" />
-    <meta name="description" content="- Date:2023-05-25  Time:15:57 Subject: none Tags: #stm32 [[2023-05]]   基于CMSIS应用程序文件描述    STM32开发文件结构分布    HAL库的用户配置文件（stm32f1xx_hal_conf.h）  裁剪HAL库外设驱动源码（不进行编译）  &#x2F;#ifdef &#x2F;#endif 的使用   设置外部高速晶振频率（HSF）">
+    <meta name="description" content="- Date:2023-05-25 Time:15:57 Subject: none Tags: #stm32[[2023-05]]   基于CMSIS应用程序文件描述 STM32开发文件结构分布 HAL库的用户配置文件（stm32f1xx_hal_conf.h） 裁剪HAL库外设驱动源码（不进行编译） &#x2F;#ifdef &#x2F;#endif 的使用   设置外部高速晶振频率（HSF）（根据开发板实际情况">
 <meta property="og:type" content="article">
 <meta property="og:title" content="stm32-hal">
 <meta property="og:url" content="https://scolenchris.top/posts/982d5dfa.html">
 <meta property="og:site_name" content="Chris">
-<meta property="og:description" content="- Date:2023-05-25  Time:15:57 Subject: none Tags: #stm32 [[2023-05]]   基于CMSIS应用程序文件描述    STM32开发文件结构分布    HAL库的用户配置文件（stm32f1xx_hal_conf.h）  裁剪HAL库外设驱动源码（不进行编译）  &#x2F;#ifdef &#x2F;#endif 的使用   设置外部高速晶振频率（HSF）">
+<meta property="og:description" content="- Date:2023-05-25 Time:15:57 Subject: none Tags: #stm32[[2023-05]]   基于CMSIS应用程序文件描述 STM32开发文件结构分布 HAL库的用户配置文件（stm32f1xx_hal_conf.h） 裁剪HAL库外设驱动源码（不进行编译） &#x2F;#ifdef &#x2F;#endif 的使用   设置外部高速晶振频率（HSF）（根据开发板实际情况">
 <meta property="og:locale" content="zh_CN">
 <meta property="og:image" content="https://pic-chris.oss-cn-guangzhou.aliyuncs.com/img/202407030944008.png">
 <meta property="og:image" content="https://pic-chris.oss-cn-guangzhou.aliyuncs.com/img/202407030944009.png">
@@ -36,7 +36,7 @@
 <meta property="og:image" content="https://pic-chris.oss-cn-guangzhou.aliyuncs.com/img/202407030945924.png">
 <meta property="og:image" content="https://pic-chris.oss-cn-guangzhou.aliyuncs.com/img/202407030945925.png">
 <meta property="article:published_time" content="2024-07-03T10:10:44.000Z">
-<meta property="article:modified_time" content="2025-02-28T07:17:00.708Z">
+<meta property="article:modified_time" content="2025-02-28T07:46:54.943Z">
 <meta property="article:author" content="Chris">
 <meta property="article:tag" content="博客,scolen,chris,技术,生活,记录,life,code">
 <meta name="twitter:card" content="summary">
@@ -147,7 +147,7 @@
     
     
       <div id="toc">
-        <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link"><span class="toc-number">1.</span> <span class="toc-text">- Date:2023-05-25</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%9F%BA%E4%BA%8ECMSIS%E5%BA%94%E7%94%A8%E7%A8%8B%E5%BA%8F%E6%96%87%E4%BB%B6%E6%8F%8F%E8%BF%B0"><span class="toc-number">1.1.</span> <span class="toc-text">基于CMSIS应用程序文件描述</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#STM32%E5%BC%80%E5%8F%91%E6%96%87%E4%BB%B6%E7%BB%93%E6%9E%84%E5%88%86%E5%B8%83"><span class="toc-number">1.2.</span> <span class="toc-text">STM32开发文件结构分布</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#HAL%E5%BA%93%E7%9A%84%E7%94%A8%E6%88%B7%E9%85%8D%E7%BD%AE%E6%96%87%E4%BB%B6%EF%BC%88stm32f1xx-hal-conf-h%EF%BC%89"><span class="toc-number">1.3.</span> <span class="toc-text">HAL库的用户配置文件（stm32f1xx_hal_conf.h）</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#HAL%E5%BA%93%E4%BD%BF%E7%94%A8%E6%B3%A8%E6%84%8F%E4%BA%8B%E9%A1%B9"><span class="toc-number">1.4.</span> <span class="toc-text">HAL库使用注意事项</span></a></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link"><span class="toc-number">2.</span> <span class="toc-text">- Date:2023-05-25</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#CMSIS%E7%AE%80%E4%BB%8B"><span class="toc-number">2.1.</span> <span class="toc-text">CMSIS简介</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#HAL%E5%BA%93%E7%AE%80%E4%BB%8B"><span class="toc-number">2.2.</span> <span class="toc-text">HAL库简介</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#STM32Cube%E5%9B%BA%E4%BB%B6%E5%8C%85%E6%B5%85%E6%9E%90"><span class="toc-number">2.3.</span> <span class="toc-text">STM32Cube固件包浅析</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#STM32Cube%E5%9B%BA%E4%BB%B6%E5%8C%85%E6%96%87%E4%BB%B6%E5%A4%B9%E7%AE%80%E4%BB%8B"><span class="toc-number">2.3.1.</span> <span class="toc-text">STM32Cube固件包文件夹简介</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#CMSIS%E6%96%87%E4%BB%B6%E5%A4%B9%E5%85%B3%E9%94%AE%E6%96%87%E4%BB%B6"><span class="toc-number">2.3.2.</span> <span class="toc-text">CMSIS文件夹关键文件</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#Device%E5%92%8CInclude%E6%96%87%E4%BB%B6%E5%A4%B9%E7%9A%84%E5%85%B3%E9%94%AE%E6%96%87%E4%BB%B6%E4%BB%8B%E7%BB%8D"><span class="toc-number">2.3.2.1.</span> <span class="toc-text">Device和Include文件夹的关键文件介绍</span></a></li></ol></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#HAL%E5%BA%93%E6%A1%86%E6%9E%B6%E7%BB%93%E6%9E%84"><span class="toc-number">2.4.</span> <span class="toc-text">HAL库框架结构</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#HAL%E5%BA%93%E6%96%87%E4%BB%B6%E5%A4%B9%E7%BB%93%E6%9E%84"><span class="toc-number">2.4.1.</span> <span class="toc-text">HAL库文件夹结构</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#HAL%E5%BA%93%E6%96%87%E4%BB%B6%E4%BB%8B%E7%BB%8D"><span class="toc-number">2.4.2.</span> <span class="toc-text">HAL库文件介绍</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#HAL%E5%BA%93API%E5%87%BD%E6%95%B0%E5%92%8C%E5%8F%98%E9%87%8F%E5%91%BD%E5%90%8D%E8%A7%84%E5%88%99"><span class="toc-number">2.4.3.</span> <span class="toc-text">HAL库API函数和变量命名规则</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#HAL%E5%BA%93%E5%AF%B9%E5%AF%84%E5%AD%98%E5%99%A8%E4%BD%8D%E6%93%8D%E4%BD%9C%E7%9A%84%E7%9B%B8%E5%85%B3%E5%AE%8F%E5%AE%9A%E4%B9%89"><span class="toc-number">2.4.4.</span> <span class="toc-text">HAL库对寄存器位操作的相关宏定义</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#HAL%E5%BA%93%E5%9B%9E%E8%B0%83%E5%87%BD%E6%95%B0"><span class="toc-number">2.4.5.</span> <span class="toc-text">HAL库回调函数</span></a></li></ol></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link"><span class="toc-number">3.</span> <span class="toc-text">- Date:2023-06-04</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#MAP%E6%96%87%E4%BB%B6%E6%B5%85%E6%9E%90"><span class="toc-number">3.1.</span> <span class="toc-text">MAP文件浅析</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#STM32%E5%90%AF%E5%8A%A8%E8%BF%87%E7%A8%8B"><span class="toc-number">3.2.</span> <span class="toc-text">STM32启动过程</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#32%E5%90%AF%E5%8A%A8%E8%BF%87%E7%A8%8B%E5%9B%BE%E8%A7%A3"><span class="toc-number">3.3.</span> <span class="toc-text">32启动过程图解</span></a></li></ol></li></ol>
+        <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#Date-2023-05-25"><span class="toc-number">1.</span> <span class="toc-text">- Date:2023-05-25</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%9F%BA%E4%BA%8ECMSIS%E5%BA%94%E7%94%A8%E7%A8%8B%E5%BA%8F%E6%96%87%E4%BB%B6%E6%8F%8F%E8%BF%B0"><span class="toc-number">1.1.</span> <span class="toc-text">基于CMSIS应用程序文件描述</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#STM32%E5%BC%80%E5%8F%91%E6%96%87%E4%BB%B6%E7%BB%93%E6%9E%84%E5%88%86%E5%B8%83"><span class="toc-number">1.2.</span> <span class="toc-text">STM32开发文件结构分布</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#HAL%E5%BA%93%E7%9A%84%E7%94%A8%E6%88%B7%E9%85%8D%E7%BD%AE%E6%96%87%E4%BB%B6%EF%BC%88stm32f1xx-hal-conf-h%EF%BC%89"><span class="toc-number">1.3.</span> <span class="toc-text">HAL库的用户配置文件（stm32f1xx_hal_conf.h）</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#HAL%E5%BA%93%E4%BD%BF%E7%94%A8%E6%B3%A8%E6%84%8F%E4%BA%8B%E9%A1%B9"><span class="toc-number">1.4.</span> <span class="toc-text">HAL库使用注意事项</span></a></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#Date-2023-05-25-1"><span class="toc-number">2.</span> <span class="toc-text">- Date:2023-05-25</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#CMSIS%E7%AE%80%E4%BB%8B"><span class="toc-number">2.1.</span> <span class="toc-text">CMSIS简介</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#HAL%E5%BA%93%E7%AE%80%E4%BB%8B"><span class="toc-number">2.2.</span> <span class="toc-text">HAL库简介</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#STM32Cube%E5%9B%BA%E4%BB%B6%E5%8C%85%E6%B5%85%E6%9E%90"><span class="toc-number">2.3.</span> <span class="toc-text">STM32Cube固件包浅析</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#STM32Cube%E5%9B%BA%E4%BB%B6%E5%8C%85%E6%96%87%E4%BB%B6%E5%A4%B9%E7%AE%80%E4%BB%8B"><span class="toc-number">2.3.1.</span> <span class="toc-text">STM32Cube固件包文件夹简介</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#CMSIS%E6%96%87%E4%BB%B6%E5%A4%B9%E5%85%B3%E9%94%AE%E6%96%87%E4%BB%B6"><span class="toc-number">2.3.2.</span> <span class="toc-text">CMSIS文件夹关键文件</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#Device%E5%92%8CInclude%E6%96%87%E4%BB%B6%E5%A4%B9%E7%9A%84%E5%85%B3%E9%94%AE%E6%96%87%E4%BB%B6%E4%BB%8B%E7%BB%8D"><span class="toc-number">2.3.2.1.</span> <span class="toc-text">Device和Include文件夹的关键文件介绍</span></a></li></ol></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#HAL%E5%BA%93%E6%A1%86%E6%9E%B6%E7%BB%93%E6%9E%84"><span class="toc-number">2.4.</span> <span class="toc-text">HAL库框架结构</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#HAL%E5%BA%93%E6%96%87%E4%BB%B6%E5%A4%B9%E7%BB%93%E6%9E%84"><span class="toc-number">2.4.1.</span> <span class="toc-text">HAL库文件夹结构</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#HAL%E5%BA%93%E6%96%87%E4%BB%B6%E4%BB%8B%E7%BB%8D"><span class="toc-number">2.4.2.</span> <span class="toc-text">HAL库文件介绍</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#HAL%E5%BA%93API%E5%87%BD%E6%95%B0%E5%92%8C%E5%8F%98%E9%87%8F%E5%91%BD%E5%90%8D%E8%A7%84%E5%88%99"><span class="toc-number">2.4.3.</span> <span class="toc-text">HAL库API函数和变量命名规则</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#HAL%E5%BA%93%E5%AF%B9%E5%AF%84%E5%AD%98%E5%99%A8%E4%BD%8D%E6%93%8D%E4%BD%9C%E7%9A%84%E7%9B%B8%E5%85%B3%E5%AE%8F%E5%AE%9A%E4%B9%89"><span class="toc-number">2.4.4.</span> <span class="toc-text">HAL库对寄存器位操作的相关宏定义</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#HAL%E5%BA%93%E5%9B%9E%E8%B0%83%E5%87%BD%E6%95%B0"><span class="toc-number">2.4.5.</span> <span class="toc-text">HAL库回调函数</span></a></li></ol></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#Date-2023-06-04"><span class="toc-number">3.</span> <span class="toc-text">- Date:2023-06-04</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#MAP%E6%96%87%E4%BB%B6%E6%B5%85%E6%9E%90"><span class="toc-number">3.1.</span> <span class="toc-text">MAP文件浅析</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#STM32%E5%90%AF%E5%8A%A8%E8%BF%87%E7%A8%8B"><span class="toc-number">3.2.</span> <span class="toc-text">STM32启动过程</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#32%E5%90%AF%E5%8A%A8%E8%BF%87%E7%A8%8B%E5%9B%BE%E8%A7%A3"><span class="toc-number">3.3.</span> <span class="toc-text">32启动过程图解</span></a></li></ol></li></ol>
       </div>
     
   </span>
@@ -187,172 +187,108 @@
   
 
   <div class="content e-content" itemprop="articleBody">
-    <h1>- Date:2023-05-25</h1>
-<ul>
+    <h1 id="Date-2023-05-25"><a href="#Date-2023-05-25" class="headerlink" title="- Date:2023-05-25"></a>- Date:2023-05-25</h1><ul>
 <li>Time:15:57</li>
 <li>Subject: none</li>
-<li>Tags: #stm32<br>
-[[2023-05]]</li>
+<li>Tags: #stm32<br>[[2023-05]]</li>
 </ul>
 <hr>
-<h2 id="基于CMSIS应用程序文件描述">基于CMSIS应用程序文件描述</h2>
-<ol>
-<li><img src="https://pic-chris.oss-cn-guangzhou.aliyuncs.com/img/202407030944008.png" alt="Pasted image 20230604222756|600"></li>
-</ol>
-<h2 id="STM32开发文件结构分布">STM32开发文件结构分布</h2>
-<ol>
-<li><img src="https://pic-chris.oss-cn-guangzhou.aliyuncs.com/img/202407030944009.png" alt="Pasted image 20230604222818|600"></li>
-</ol>
-<h2 id="HAL库的用户配置文件（stm32f1xx-hal-conf-h）">HAL库的用户配置文件（stm32f1xx_hal_conf.h）</h2>
-<ol>
-<li>裁剪HAL库外设驱动源码（不进行编译）
-<ol>
+<h2 id="基于CMSIS应用程序文件描述"><a href="#基于CMSIS应用程序文件描述" class="headerlink" title="基于CMSIS应用程序文件描述"></a>基于CMSIS应用程序文件描述</h2><ol>
+<li><img src="https://pic-chris.oss-cn-guangzhou.aliyuncs.com/img/202407030944008.png" alt="Pasted image 20230604222756|600"><h2 id="STM32开发文件结构分布"><a href="#STM32开发文件结构分布" class="headerlink" title="STM32开发文件结构分布"></a>STM32开发文件结构分布</h2></li>
+<li><img src="https://pic-chris.oss-cn-guangzhou.aliyuncs.com/img/202407030944009.png" alt="Pasted image 20230604222818|600"><h2 id="HAL库的用户配置文件（stm32f1xx-hal-conf-h）"><a href="#HAL库的用户配置文件（stm32f1xx-hal-conf-h）" class="headerlink" title="HAL库的用户配置文件（stm32f1xx_hal_conf.h）"></a>HAL库的用户配置文件（stm32f1xx_hal_conf.h）</h2></li>
+<li>裁剪HAL库外设驱动源码（不进行编译）<ol>
 <li>/#ifdef /#endif 的使用</li>
 </ol>
 </li>
 <li>设置外部高速晶振频率（HSF）（根据开发板实际情况设置）</li>
-<li>设置外部低速晶振频率（根据开发板实际情况设置）</li>
-</ol>
-<h2 id="HAL库使用注意事项">HAL库使用注意事项</h2>
-<ol>
+<li>设置外部低速晶振频率（根据开发板实际情况设置）<h2 id="HAL库使用注意事项"><a href="#HAL库使用注意事项" class="headerlink" title="HAL库使用注意事项"></a>HAL库使用注意事项</h2></li>
 <li>使用HAL库出现问题，还是得通过参考手册检查是否硬件操作是否有问题</li>
 <li>尽量不通过修改库源码实现功能，这样不方便库更新</li>
 <li>HAL库可能会存在错误，要有质疑精神</li>
 <li>有些HAL库API函数执行效率偏低，我们可能会直接通过操作寄存器的方式代替</li>
 </ol>
-<h1>- Date:2023-05-25</h1>
-<ul>
+<h1 id="Date-2023-05-25-1"><a href="#Date-2023-05-25-1" class="headerlink" title="- Date:2023-05-25"></a>- Date:2023-05-25</h1><ul>
 <li>Time:12:53</li>
 <li>Subject: none</li>
-<li>Tags: #stm32<br>
-[[2023-05]]</li>
+<li>Tags: #stm32<br>[[2023-05]]</li>
 </ul>
 <hr>
-<h2 id="CMSIS简介">CMSIS简介</h2>
-<ol>
-<li>CMSIS (微控制器软件接口标准)：Cortex Microcontroller Software Interface Standard，是由ARM和与其合作的芯片厂商、软件工具厂商，共同制定的标准
-<ol>
-<li><img src="https://pic-chris.oss-cn-guangzhou.aliyuncs.com/img/202407030945752.png" alt="Pasted image 20230525151257|600"></li>
+<h2 id="CMSIS简介"><a href="#CMSIS简介" class="headerlink" title="CMSIS简介"></a>CMSIS简介</h2><ol>
+<li>CMSIS (微控制器软件接口标准)：Cortex Microcontroller Software Interface Standard，是由ARM和与其合作的芯片厂商、软件工具厂商，共同制定的标准<ol>
+<li><img src="https://pic-chris.oss-cn-guangzhou.aliyuncs.com/img/202407030945752.png" alt="Pasted image 20230525151257|600"><h2 id="HAL库简介"><a href="#HAL库简介" class="headerlink" title="HAL库简介"></a>HAL库简介</h2></li>
 </ol>
 </li>
-</ol>
-<h2 id="HAL库简介">HAL库简介</h2>
-<ol>
-<li>ST 为了方便用户开发 STM32芯片开发提供了三种库：
-<ol>
-<li>标准外设库 (Standard Peripheral Libraries)
-<ol>
+<li>ST 为了方便用户开发 STM32芯片开发提供了三种库：<ol>
+<li>标准外设库 (Standard Peripheral Libraries)<ol>
 <li>F0/F1/F3/F2/F4/L1</li>
 <li>目前已停止维护</li>
 </ol>
 </li>
-<li>HAL库(硬件抽象层)：Hardware Abstraction Layer
-<ol>
+<li>HAL库(硬件抽象层)：Hardware Abstraction Layer<ol>
 <li>全系列兼容</li>
 <li>ST目前主推的库</li>
 <li>兼容性、易移植性</li>
 <li>效率低</li>
 </ol>
 </li>
-<li>LL库：Low Layer
-<ol>
+<li>LL库：Low Layer<ol>
 <li>全系列兼容</li>
 <li>与HAL库捆绑发布</li>
 <li>轻量级、效率高</li>
-<li>不匹配部分复杂外设</li>
+<li>不匹配部分复杂外设<h2 id="STM32Cube固件包浅析"><a href="#STM32Cube固件包浅析" class="headerlink" title="STM32Cube固件包浅析"></a>STM32Cube固件包浅析</h2><h3 id="STM32Cube固件包文件夹简介"><a href="#STM32Cube固件包文件夹简介" class="headerlink" title="STM32Cube固件包文件夹简介"></a>STM32Cube固件包文件夹简介</h3></li>
 </ol>
 </li>
 </ol>
 </li>
-</ol>
-<h2 id="STM32Cube固件包浅析">STM32Cube固件包浅析</h2>
-<h3 id="STM32Cube固件包文件夹简介">STM32Cube固件包文件夹简介</h3>
-<ol>
 <li><img src="https://pic-chris.oss-cn-guangzhou.aliyuncs.com/img/202407030945753.png" alt="Pasted image 20230525151957|600"></li>
 <li><img src="https://pic-chris.oss-cn-guangzhou.aliyuncs.com/img/202407030945754.png" alt="Pasted image 20230525152058|600"></li>
-<li><img src="https://pic-chris.oss-cn-guangzhou.aliyuncs.com/img/202407030945755.png" alt="Pasted image 20230525152106|600"></li>
-</ol>
-<h3 id="CMSIS文件夹关键文件">CMSIS文件夹关键文件</h3>
-<ol>
+<li><img src="https://pic-chris.oss-cn-guangzhou.aliyuncs.com/img/202407030945755.png" alt="Pasted image 20230525152106|600"><h3 id="CMSIS文件夹关键文件"><a href="#CMSIS文件夹关键文件" class="headerlink" title="CMSIS文件夹关键文件"></a>CMSIS文件夹关键文件</h3></li>
 <li><img src="https://pic-chris.oss-cn-guangzhou.aliyuncs.com/img/202407030945756.png" alt="Pasted image 20230525152122|600"></li>
-<li><img src="https://pic-chris.oss-cn-guangzhou.aliyuncs.com/img/202407030945757.png" alt="Pasted image 20230525152258|600"></li>
-</ol>
-<h4 id="Device和Include文件夹的关键文件介绍">Device和Include文件夹的关键文件介绍</h4>
-<ol>
+<li><img src="https://pic-chris.oss-cn-guangzhou.aliyuncs.com/img/202407030945757.png" alt="Pasted image 20230525152258|600"><h4 id="Device和Include文件夹的关键文件介绍"><a href="#Device和Include文件夹的关键文件介绍" class="headerlink" title="Device和Include文件夹的关键文件介绍"></a>Device和Include文件夹的关键文件介绍</h4></li>
 <li><img src="https://pic-chris.oss-cn-guangzhou.aliyuncs.com/img/202407030945758.png" alt="Pasted image 20230525152330|600"></li>
-<li>可以从cube固件包里面找</li>
-</ol>
-<h2 id="HAL库框架结构">HAL库框架结构</h2>
-<h3 id="HAL库文件夹结构">HAL库文件夹结构</h3>
-<ol>
-<li><img src="https://pic-chris.oss-cn-guangzhou.aliyuncs.com/img/202407030945759.png" alt="Pasted image 20230525153514|600">
-<ol>
+<li>可以从cube固件包里面找<h2 id="HAL库框架结构"><a href="#HAL库框架结构" class="headerlink" title="HAL库框架结构"></a>HAL库框架结构</h2><h3 id="HAL库文件夹结构"><a href="#HAL库文件夹结构" class="headerlink" title="HAL库文件夹结构"></a>HAL库文件夹结构</h3></li>
+<li><img src="https://pic-chris.oss-cn-guangzhou.aliyuncs.com/img/202407030945759.png" alt="Pasted image 20230525153514|600"><ol>
 <li>Src(Source)：外设驱动源码</li>
-<li>Inc(Include)：外设驱动源码头文件</li>
+<li>Inc(Include)：外设驱动源码头文件<h3 id="HAL库文件介绍"><a href="#HAL库文件介绍" class="headerlink" title="HAL库文件介绍"></a>HAL库文件介绍</h3></li>
 </ol>
 </li>
-</ol>
-<h3 id="HAL库文件介绍">HAL库文件介绍</h3>
-<ol>
-<li><img src="https://pic-chris.oss-cn-guangzhou.aliyuncs.com/img/202407030945760.png" alt="Pasted image 20230525153656|600"></li>
-</ol>
-<h3 id="HAL库API函数和变量命名规则">HAL库API函数和变量命名规则</h3>
-<ol>
-<li><img src="https://pic-chris.oss-cn-guangzhou.aliyuncs.com/img/202407030945761.png" alt="Pasted image 20230525153716|600">
-<ol>
+<li><img src="https://pic-chris.oss-cn-guangzhou.aliyuncs.com/img/202407030945760.png" alt="Pasted image 20230525153656|600"><h3 id="HAL库API函数和变量命名规则"><a href="#HAL库API函数和变量命名规则" class="headerlink" title="HAL库API函数和变量命名规则"></a>HAL库API函数和变量命名规则</h3></li>
+<li><img src="https://pic-chris.oss-cn-guangzhou.aliyuncs.com/img/202407030945761.png" alt="Pasted image 20230525153716|600"><ol>
 <li>初始化/反初始化函数:HAL_PPP_Init(),   HAL_PPP_DeInit()</li>
 <li>外设读写函数:HAL_PPP_Read(),   HAL_PPP_Write(),   HAL_PPP_Transmit(),    HAL_PPP_Receive()</li>
 <li>控制函数:HAL_PPP_Set (),     HAL_PPP_Get ()</li>
-<li>状态和错误:HAL_PPP_GetState (),    HAL_PPP_GetError ()</li>
+<li>状态和错误:HAL_PPP_GetState (),    HAL_PPP_GetError ()<h3 id="HAL库对寄存器位操作的相关宏定义"><a href="#HAL库对寄存器位操作的相关宏定义" class="headerlink" title="HAL库对寄存器位操作的相关宏定义"></a>HAL库对寄存器位操作的相关宏定义</h3></li>
 </ol>
 </li>
-</ol>
-<h3 id="HAL库对寄存器位操作的相关宏定义">HAL库对寄存器位操作的相关宏定义</h3>
-<ol>
-<li><img src="https://pic-chris.oss-cn-guangzhou.aliyuncs.com/img/202407030945762.png" alt="Pasted image 20230525154333|600"></li>
-</ol>
-<h3 id="HAL库回调函数">HAL库回调函数</h3>
-<ol>
-<li><img src="https://pic-chris.oss-cn-guangzhou.aliyuncs.com/img/202407030945763.png" alt="Pasted image 20230525154615|600">
-<ol>
+<li><img src="https://pic-chris.oss-cn-guangzhou.aliyuncs.com/img/202407030945762.png" alt="Pasted image 20230525154333|600"><h3 id="HAL库回调函数"><a href="#HAL库回调函数" class="headerlink" title="HAL库回调函数"></a>HAL库回调函数</h3></li>
+<li><img src="https://pic-chris.oss-cn-guangzhou.aliyuncs.com/img/202407030945763.png" alt="Pasted image 20230525154615|600"><ol>
 <li>此类函数通常被_weak修饰（弱函数），允许用户重新定义该函数</li>
 </ol>
 </li>
 </ol>
-<h1>- Date:2023-06-04</h1>
-<ul>
+<h1 id="Date-2023-06-04"><a href="#Date-2023-06-04" class="headerlink" title="- Date:2023-06-04"></a>- Date:2023-06-04</h1><ul>
 <li>Time:22:41</li>
 <li>Subject: none</li>
-<li>Tags: #stm32<br>
-[[2023-06]]</li>
+<li>Tags: #stm32<br>[[2023-06]]</li>
 </ul>
 <hr>
-<h2 id="MAP文件浅析">MAP文件浅析</h2>
-<ol>
-<li>MDK编译过程文件（11种）
-<ol>
+<h2 id="MAP文件浅析"><a href="#MAP文件浅析" class="headerlink" title="MAP文件浅析"></a>MAP文件浅析</h2><ol>
+<li>MDK编译过程文件（11种）<ol>
 <li><img src="https://pic-chris.oss-cn-guangzhou.aliyuncs.com/img/202407030945918.png" alt="Pasted image 20230604224248|600"></li>
 </ol>
 </li>
-<li>MAP文件概念和作用
-<ol>
+<li>MAP文件概念和作用<ol>
 <li>MAP文件是MDK编译代码后，产生的集程序、数据及IO空间的一种映射列表文件</li>
 <li>简单说就是包括了：各种.c文件、函数、符号等的地址、大小、引用关系等信息</li>
 <li><font color="#ff0000">分析各.c文件占用FLASH 和 RAM的大小，方便优化代码</font></li>
 </ol>
 </li>
-<li>MAP文件组成
-<ol>
-<li><img src="https://pic-chris.oss-cn-guangzhou.aliyuncs.com/img/202407030945919.png" alt="Pasted image 20230604224449|600"></li>
+<li>MAP文件组成<ol>
+<li><img src="https://pic-chris.oss-cn-guangzhou.aliyuncs.com/img/202407030945919.png" alt="Pasted image 20230604224449|600"><h2 id="STM32启动过程"><a href="#STM32启动过程" class="headerlink" title="STM32启动过程"></a>STM32启动过程</h2></li>
 </ol>
 </li>
-</ol>
-<h2 id="STM32启动过程">STM32启动过程</h2>
-<ol>
-<li>STM32启动模式（F1/F4/F7/H7）（也称自举模式）
-<ol>
-<li>M3/M4/M7等内核复位后，做的第一件事：
-<ol>
+<li>STM32启动模式（F1/F4/F7/H7）（也称自举模式）<ol>
+<li>M3/M4/M7等内核复位后，做的第一件事：<ol>
 <li>从地址 0x0000 0000 处取出堆栈指针 MSP 的初始值，该值就是栈顶地址</li>
 <li>从地址 0x0000 0004 处取出程序计数器指针 PC 的初始值，该值是复位向量</li>
 </ol>
@@ -360,41 +296,33 @@
 <li><img src="https://pic-chris.oss-cn-guangzhou.aliyuncs.com/img/202407030945920.png" alt="Pasted image 20230604225747|600"></li>
 </ol>
 </li>
-<li>STM32启动模式（F1）
-<ol>
+<li>STM32启动模式（F1）<ol>
 <li>在系统复位后，SYSCLK的第4个上升沿，BOOT引脚的值将被锁存</li>
 <li><img src="https://pic-chris.oss-cn-guangzhou.aliyuncs.com/img/202407030945921.png" alt="Pasted image 20230604225826|600"></li>
 </ol>
 </li>
-<li>STM32启动过程(内部FLASH启动为例)
-<ol>
+<li>STM32启动过程(内部FLASH启动为例)<ol>
 <li><img src="https://pic-chris.oss-cn-guangzhou.aliyuncs.com/img/202407030945922.png" alt="Pasted image 20230604230440|600"></li>
-<li>.s启动文件介绍
-<ol>
+<li>.s启动文件介绍<ol>
 <li><img src="https://pic-chris.oss-cn-guangzhou.aliyuncs.com/img/202407030945923.png" alt="Pasted image 20230604230828|600"></li>
 </ol>
 </li>
-<li>Reset_Handler函数介绍(汇编)</li>
+<li>Reset_Handler函数介绍(汇编)<figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line">Reset_Handler   PROC</span><br><span class="line">                EXPORT  Reset_Handler   [WEAK]</span><br><span class="line">                IMPORT  __main</span><br><span class="line">                IMPORT  SystemInit</span><br><span class="line">                LDR   R0, =SystemInit</span><br><span class="line">                BLX   R0              </span><br><span class="line">                LDR   R0, =__main</span><br><span class="line">                BX      R0</span><br><span class="line">                ENDP</span><br></pre></td></tr></table></figure>
+<ol>
+<li>EXPORT：标明全局属性，可被外部调用</li>
+<li>IMPORT：申明来自外部文件，类extern</li>
+<li>PROC：定义子程序</li>
+<li>ENDP：表示子程序结束</li>
+<li>WEAK：弱定义    <ol>
+<li>堆栈简介</li>
 </ol>
 </li>
 </ol>
-<figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line">Reset_Handler   PROC</span><br><span class="line">                EXPORT  Reset_Handler   [WEAK]</span><br><span class="line">                IMPORT  __main</span><br><span class="line">                IMPORT  SystemInit</span><br><span class="line">                LDR   R0, =SystemInit</span><br><span class="line">                BLX   R0              </span><br><span class="line">                LDR   R0, =__main</span><br><span class="line">                BX      R0</span><br><span class="line">                ENDP</span><br></pre></td></tr></table></figure>
-<pre><code>	1. EXPORT：标明全局属性，可被外部调用
-	2. IMPORT：申明来自外部文件，类extern
-	3. PROC：定义子程序
-	4. ENDP：表示子程序结束
-	5. WEAK：弱定义	
-</code></pre>
-<ol>
-<li>堆栈简介
-<ol>
+</li>
 <li><img src="https://pic-chris.oss-cn-guangzhou.aliyuncs.com/img/202407030945924.png" alt="Pasted image 20230604231214|600"></li>
-<li>函数局部变量较多，嵌套关系复杂时，需加大栈大小（Stack_Size）！</li>
+<li>函数局部变量较多，嵌套关系复杂时，需加大栈大小（Stack_Size）！<h2 id="32启动过程图解"><a href="#32启动过程图解" class="headerlink" title="32启动过程图解"></a>32启动过程图解</h2></li>
 </ol>
 </li>
-</ol>
-<h2 id="32启动过程图解">32启动过程图解</h2>
-<ol>
 <li><img src="https://pic-chris.oss-cn-guangzhou.aliyuncs.com/img/202407030945925.png" alt="Pasted image 20230604231507|600"></li>
 </ol>
 
@@ -424,7 +352,7 @@
     
     
       <div id="toc-footer" style="display: none">
-        <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link"><span class="toc-number">1.</span> <span class="toc-text">- Date:2023-05-25</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%9F%BA%E4%BA%8ECMSIS%E5%BA%94%E7%94%A8%E7%A8%8B%E5%BA%8F%E6%96%87%E4%BB%B6%E6%8F%8F%E8%BF%B0"><span class="toc-number">1.1.</span> <span class="toc-text">基于CMSIS应用程序文件描述</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#STM32%E5%BC%80%E5%8F%91%E6%96%87%E4%BB%B6%E7%BB%93%E6%9E%84%E5%88%86%E5%B8%83"><span class="toc-number">1.2.</span> <span class="toc-text">STM32开发文件结构分布</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#HAL%E5%BA%93%E7%9A%84%E7%94%A8%E6%88%B7%E9%85%8D%E7%BD%AE%E6%96%87%E4%BB%B6%EF%BC%88stm32f1xx-hal-conf-h%EF%BC%89"><span class="toc-number">1.3.</span> <span class="toc-text">HAL库的用户配置文件（stm32f1xx_hal_conf.h）</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#HAL%E5%BA%93%E4%BD%BF%E7%94%A8%E6%B3%A8%E6%84%8F%E4%BA%8B%E9%A1%B9"><span class="toc-number">1.4.</span> <span class="toc-text">HAL库使用注意事项</span></a></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link"><span class="toc-number">2.</span> <span class="toc-text">- Date:2023-05-25</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#CMSIS%E7%AE%80%E4%BB%8B"><span class="toc-number">2.1.</span> <span class="toc-text">CMSIS简介</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#HAL%E5%BA%93%E7%AE%80%E4%BB%8B"><span class="toc-number">2.2.</span> <span class="toc-text">HAL库简介</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#STM32Cube%E5%9B%BA%E4%BB%B6%E5%8C%85%E6%B5%85%E6%9E%90"><span class="toc-number">2.3.</span> <span class="toc-text">STM32Cube固件包浅析</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#STM32Cube%E5%9B%BA%E4%BB%B6%E5%8C%85%E6%96%87%E4%BB%B6%E5%A4%B9%E7%AE%80%E4%BB%8B"><span class="toc-number">2.3.1.</span> <span class="toc-text">STM32Cube固件包文件夹简介</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#CMSIS%E6%96%87%E4%BB%B6%E5%A4%B9%E5%85%B3%E9%94%AE%E6%96%87%E4%BB%B6"><span class="toc-number">2.3.2.</span> <span class="toc-text">CMSIS文件夹关键文件</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#Device%E5%92%8CInclude%E6%96%87%E4%BB%B6%E5%A4%B9%E7%9A%84%E5%85%B3%E9%94%AE%E6%96%87%E4%BB%B6%E4%BB%8B%E7%BB%8D"><span class="toc-number">2.3.2.1.</span> <span class="toc-text">Device和Include文件夹的关键文件介绍</span></a></li></ol></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#HAL%E5%BA%93%E6%A1%86%E6%9E%B6%E7%BB%93%E6%9E%84"><span class="toc-number">2.4.</span> <span class="toc-text">HAL库框架结构</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#HAL%E5%BA%93%E6%96%87%E4%BB%B6%E5%A4%B9%E7%BB%93%E6%9E%84"><span class="toc-number">2.4.1.</span> <span class="toc-text">HAL库文件夹结构</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#HAL%E5%BA%93%E6%96%87%E4%BB%B6%E4%BB%8B%E7%BB%8D"><span class="toc-number">2.4.2.</span> <span class="toc-text">HAL库文件介绍</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#HAL%E5%BA%93API%E5%87%BD%E6%95%B0%E5%92%8C%E5%8F%98%E9%87%8F%E5%91%BD%E5%90%8D%E8%A7%84%E5%88%99"><span class="toc-number">2.4.3.</span> <span class="toc-text">HAL库API函数和变量命名规则</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#HAL%E5%BA%93%E5%AF%B9%E5%AF%84%E5%AD%98%E5%99%A8%E4%BD%8D%E6%93%8D%E4%BD%9C%E7%9A%84%E7%9B%B8%E5%85%B3%E5%AE%8F%E5%AE%9A%E4%B9%89"><span class="toc-number">2.4.4.</span> <span class="toc-text">HAL库对寄存器位操作的相关宏定义</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#HAL%E5%BA%93%E5%9B%9E%E8%B0%83%E5%87%BD%E6%95%B0"><span class="toc-number">2.4.5.</span> <span class="toc-text">HAL库回调函数</span></a></li></ol></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link"><span class="toc-number">3.</span> <span class="toc-text">- Date:2023-06-04</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#MAP%E6%96%87%E4%BB%B6%E6%B5%85%E6%9E%90"><span class="toc-number">3.1.</span> <span class="toc-text">MAP文件浅析</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#STM32%E5%90%AF%E5%8A%A8%E8%BF%87%E7%A8%8B"><span class="toc-number">3.2.</span> <span class="toc-text">STM32启动过程</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#32%E5%90%AF%E5%8A%A8%E8%BF%87%E7%A8%8B%E5%9B%BE%E8%A7%A3"><span class="toc-number">3.3.</span> <span class="toc-text">32启动过程图解</span></a></li></ol></li></ol>
+        <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#Date-2023-05-25"><span class="toc-number">1.</span> <span class="toc-text">- Date:2023-05-25</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%9F%BA%E4%BA%8ECMSIS%E5%BA%94%E7%94%A8%E7%A8%8B%E5%BA%8F%E6%96%87%E4%BB%B6%E6%8F%8F%E8%BF%B0"><span class="toc-number">1.1.</span> <span class="toc-text">基于CMSIS应用程序文件描述</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#STM32%E5%BC%80%E5%8F%91%E6%96%87%E4%BB%B6%E7%BB%93%E6%9E%84%E5%88%86%E5%B8%83"><span class="toc-number">1.2.</span> <span class="toc-text">STM32开发文件结构分布</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#HAL%E5%BA%93%E7%9A%84%E7%94%A8%E6%88%B7%E9%85%8D%E7%BD%AE%E6%96%87%E4%BB%B6%EF%BC%88stm32f1xx-hal-conf-h%EF%BC%89"><span class="toc-number">1.3.</span> <span class="toc-text">HAL库的用户配置文件（stm32f1xx_hal_conf.h）</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#HAL%E5%BA%93%E4%BD%BF%E7%94%A8%E6%B3%A8%E6%84%8F%E4%BA%8B%E9%A1%B9"><span class="toc-number">1.4.</span> <span class="toc-text">HAL库使用注意事项</span></a></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#Date-2023-05-25-1"><span class="toc-number">2.</span> <span class="toc-text">- Date:2023-05-25</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#CMSIS%E7%AE%80%E4%BB%8B"><span class="toc-number">2.1.</span> <span class="toc-text">CMSIS简介</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#HAL%E5%BA%93%E7%AE%80%E4%BB%8B"><span class="toc-number">2.2.</span> <span class="toc-text">HAL库简介</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#STM32Cube%E5%9B%BA%E4%BB%B6%E5%8C%85%E6%B5%85%E6%9E%90"><span class="toc-number">2.3.</span> <span class="toc-text">STM32Cube固件包浅析</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#STM32Cube%E5%9B%BA%E4%BB%B6%E5%8C%85%E6%96%87%E4%BB%B6%E5%A4%B9%E7%AE%80%E4%BB%8B"><span class="toc-number">2.3.1.</span> <span class="toc-text">STM32Cube固件包文件夹简介</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#CMSIS%E6%96%87%E4%BB%B6%E5%A4%B9%E5%85%B3%E9%94%AE%E6%96%87%E4%BB%B6"><span class="toc-number">2.3.2.</span> <span class="toc-text">CMSIS文件夹关键文件</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#Device%E5%92%8CInclude%E6%96%87%E4%BB%B6%E5%A4%B9%E7%9A%84%E5%85%B3%E9%94%AE%E6%96%87%E4%BB%B6%E4%BB%8B%E7%BB%8D"><span class="toc-number">2.3.2.1.</span> <span class="toc-text">Device和Include文件夹的关键文件介绍</span></a></li></ol></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#HAL%E5%BA%93%E6%A1%86%E6%9E%B6%E7%BB%93%E6%9E%84"><span class="toc-number">2.4.</span> <span class="toc-text">HAL库框架结构</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#HAL%E5%BA%93%E6%96%87%E4%BB%B6%E5%A4%B9%E7%BB%93%E6%9E%84"><span class="toc-number">2.4.1.</span> <span class="toc-text">HAL库文件夹结构</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#HAL%E5%BA%93%E6%96%87%E4%BB%B6%E4%BB%8B%E7%BB%8D"><span class="toc-number">2.4.2.</span> <span class="toc-text">HAL库文件介绍</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#HAL%E5%BA%93API%E5%87%BD%E6%95%B0%E5%92%8C%E5%8F%98%E9%87%8F%E5%91%BD%E5%90%8D%E8%A7%84%E5%88%99"><span class="toc-number">2.4.3.</span> <span class="toc-text">HAL库API函数和变量命名规则</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#HAL%E5%BA%93%E5%AF%B9%E5%AF%84%E5%AD%98%E5%99%A8%E4%BD%8D%E6%93%8D%E4%BD%9C%E7%9A%84%E7%9B%B8%E5%85%B3%E5%AE%8F%E5%AE%9A%E4%B9%89"><span class="toc-number">2.4.4.</span> <span class="toc-text">HAL库对寄存器位操作的相关宏定义</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#HAL%E5%BA%93%E5%9B%9E%E8%B0%83%E5%87%BD%E6%95%B0"><span class="toc-number">2.4.5.</span> <span class="toc-text">HAL库回调函数</span></a></li></ol></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#Date-2023-06-04"><span class="toc-number">3.</span> <span class="toc-text">- Date:2023-06-04</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#MAP%E6%96%87%E4%BB%B6%E6%B5%85%E6%9E%90"><span class="toc-number">3.1.</span> <span class="toc-text">MAP文件浅析</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#STM32%E5%90%AF%E5%8A%A8%E8%BF%87%E7%A8%8B"><span class="toc-number">3.2.</span> <span class="toc-text">STM32启动过程</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#32%E5%90%AF%E5%8A%A8%E8%BF%87%E7%A8%8B%E5%9B%BE%E8%A7%A3"><span class="toc-number">3.3.</span> <span class="toc-text">32启动过程图解</span></a></li></ol></li></ol>
       </div>
     
 

@@ -6,18 +6,42 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="HandheldFriendly" content="True">
     <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=5" />
-    <meta name="description" content="公式 ce’sces $$ G ( s ) !&#x3D;! \frac{Y ( s )} {U ( s )} !&#x3D;! \frac{b*{m} s^{m}+b*{m-1} s^{m-1}+\cdots+b*{1} s+b*{0}} {a*{n} s^{n}+a*{n-1} s^{n-1}+\cdots+a*{1} s+a*{0}} $$">
+    <meta name="description" content="第一章 摩尔定律(Moore’s Law)：微处理器内晶体管的集成度每两年增加一倍； 吉尔德定律(Gilder,s Law)：主干网的带宽每 6 个月增加一倍； 麦特卡夫定第(Metcalfe’sLaw)：网络价值与网络用户数的平方成正比  1.1 泛在计算特别关注所谓的隐蔽性 (Invisibleness) 和环境感知性 (Context Awareness) 环境感知是泛在计算技术的核心；泛在">
 <meta property="og:type" content="article">
-<meta property="og:title" content="hello1">
+<meta property="og:title" content="微机原理整理">
 <meta property="og:url" content="https://scolenchris.top/posts/8731d904.html">
 <meta property="og:site_name" content="Chris">
-<meta property="og:description" content="公式 ce’sces $$ G ( s ) !&#x3D;! \frac{Y ( s )} {U ( s )} !&#x3D;! \frac{b*{m} s^{m}+b*{m-1} s^{m-1}+\cdots+b*{1} s+b*{0}} {a*{n} s^{n}+a*{n-1} s^{n-1}+\cdots+a*{1} s+a*{0}} $$">
+<meta property="og:description" content="第一章 摩尔定律(Moore’s Law)：微处理器内晶体管的集成度每两年增加一倍； 吉尔德定律(Gilder,s Law)：主干网的带宽每 6 个月增加一倍； 麦特卡夫定第(Metcalfe’sLaw)：网络价值与网络用户数的平方成正比  1.1 泛在计算特别关注所谓的隐蔽性 (Invisibleness) 和环境感知性 (Context Awareness) 环境感知是泛在计算技术的核心；泛在">
 <meta property="og:locale" content="zh_CN">
+<meta property="og:image" content="https://pic-chris.oss-cn-guangzhou.aliyuncs.com/img/202412141927564.png">
+<meta property="og:image" content="https://pic-chris.oss-cn-guangzhou.aliyuncs.com/img/202412142034116.png">
+<meta property="og:image" content="https://pic-chris.oss-cn-guangzhou.aliyuncs.com/img/202412141953096.png">
+<meta property="og:image" content="https://pic-chris.oss-cn-guangzhou.aliyuncs.com/img/202412142056560.png">
+<meta property="og:image" content="https://pic-chris.oss-cn-guangzhou.aliyuncs.com/img/202412142104189.png">
+<meta property="og:image" content="https://pic-chris.oss-cn-guangzhou.aliyuncs.com/img/202412142125194.png">
+<meta property="og:image" content="https://pic-chris.oss-cn-guangzhou.aliyuncs.com/img/202412142128040.png">
+<meta property="og:image" content="https://pic-chris.oss-cn-guangzhou.aliyuncs.com/img/202412150938864.png">
+<meta property="og:image" content="https://pic-chris.oss-cn-guangzhou.aliyuncs.com/img/202412150942158.png">
+<meta property="og:image" content="https://pic-chris.oss-cn-guangzhou.aliyuncs.com/img/202412172213216.png">
+<meta property="og:image" content="https://pic-chris.oss-cn-guangzhou.aliyuncs.com/img/202412172237359.png">
+<meta property="og:image" content="https://pic-chris.oss-cn-guangzhou.aliyuncs.com/img/202412172243039.png">
+<meta property="og:image" content="https://pic-chris.oss-cn-guangzhou.aliyuncs.com/img/202412172338305.png">
+<meta property="og:image" content="https://pic-chris.oss-cn-guangzhou.aliyuncs.com/img/202412182052743.png">
+<meta property="og:image" content="https://pic-chris.oss-cn-guangzhou.aliyuncs.com/img/202412180939272.png">
+<meta property="og:image" content="https://pic-chris.oss-cn-guangzhou.aliyuncs.com/img/202412180941008.png">
+<meta property="og:image" content="https://pic-chris.oss-cn-guangzhou.aliyuncs.com/img/202412180941561.png">
+<meta property="og:image" content="https://pic-chris.oss-cn-guangzhou.aliyuncs.com/img/202412180943698.png">
+<meta property="og:image" content="https://pic-chris.oss-cn-guangzhou.aliyuncs.com/img/202412180957251.png">
+<meta property="og:image" content="https://pic-chris.oss-cn-guangzhou.aliyuncs.com/img/202412181032358.png">
+<meta property="og:image" content="https://pic-chris.oss-cn-guangzhou.aliyuncs.com/img/202412181053854.png">
+<meta property="og:image" content="https://pic-chris.oss-cn-guangzhou.aliyuncs.com/img/202412181053176.png">
+<meta property="og:image" content="https://pic-chris.oss-cn-guangzhou.aliyuncs.com/img/202412181054980.png">
 <meta property="article:published_time" content="2025-02-28T14:54:42.000Z">
-<meta property="article:modified_time" content="2025-02-28T07:17:00.708Z">
+<meta property="article:modified_time" content="2025-02-28T07:46:54.944Z">
 <meta property="article:author" content="Chris">
 <meta property="article:tag" content="博客,scolen,chris,技术,生活,记录,life,code">
 <meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="https://pic-chris.oss-cn-guangzhou.aliyuncs.com/img/202412141927564.png">
     
     
       
@@ -37,7 +61,7 @@
       
     
     <!-- title -->
-    <title>hello1</title>
+    <title>微机原理整理</title>
     <!-- async scripts -->
     <!-- Google Analytics -->
 
@@ -106,20 +130,24 @@
     <div id="share" style="display: none">
       <ul>
   <li><a class="icon" target="_blank" rel="noopener" href="http://www.facebook.com/sharer.php?u=https://scolenchris.top/posts/8731d904.html"><i class="fab fa-facebook " aria-hidden="true"></i></a></li>
-  <li><a class="icon" target="_blank" rel="noopener" href="https://twitter.com/share?url=https://scolenchris.top/posts/8731d904.html&text=hello1"><i class="fab fa-twitter " aria-hidden="true"></i></a></li>
-  <li><a class="icon" target="_blank" rel="noopener" href="http://www.linkedin.com/shareArticle?url=https://scolenchris.top/posts/8731d904.html&title=hello1"><i class="fab fa-linkedin " aria-hidden="true"></i></a></li>
-  <li><a class="icon" target="_blank" rel="noopener" href="https://pinterest.com/pin/create/bookmarklet/?url=https://scolenchris.top/posts/8731d904.html&is_video=false&description=hello1"><i class="fab fa-pinterest " aria-hidden="true"></i></a></li>
-  <li><a class="icon" href="mailto:?subject=hello1&body=Check out this article: https://scolenchris.top/posts/8731d904.html"><i class="fa-solid fa-envelope " aria-hidden="true"></i></a></li>
-  <li><a class="icon" target="_blank" rel="noopener" href="https://getpocket.com/save?url=https://scolenchris.top/posts/8731d904.html&title=hello1"><i class="fab fa-get-pocket " aria-hidden="true"></i></a></li>
-  <li><a class="icon" target="_blank" rel="noopener" href="http://reddit.com/submit?url=https://scolenchris.top/posts/8731d904.html&title=hello1"><i class="fab fa-reddit " aria-hidden="true"></i></a></li>
-  <li><a class="icon" target="_blank" rel="noopener" href="http://www.stumbleupon.com/submit?url=https://scolenchris.top/posts/8731d904.html&title=hello1"><i class="fab fa-stumbleupon " aria-hidden="true"></i></a></li>
-  <li><a class="icon" target="_blank" rel="noopener" href="http://digg.com/submit?url=https://scolenchris.top/posts/8731d904.html&title=hello1"><i class="fab fa-digg " aria-hidden="true"></i></a></li>
-  <li><a class="icon" target="_blank" rel="noopener" href="http://www.tumblr.com/share/link?url=https://scolenchris.top/posts/8731d904.html&name=hello1&description="><i class="fab fa-tumblr " aria-hidden="true"></i></a></li>
-  <li><a class="icon" target="_blank" rel="noopener" href="https://news.ycombinator.com/submitlink?u=https://scolenchris.top/posts/8731d904.html&t=hello1"><i class="fab fa-hacker-news " aria-hidden="true"></i></a></li>
+  <li><a class="icon" target="_blank" rel="noopener" href="https://twitter.com/share?url=https://scolenchris.top/posts/8731d904.html&text=微机原理整理"><i class="fab fa-twitter " aria-hidden="true"></i></a></li>
+  <li><a class="icon" target="_blank" rel="noopener" href="http://www.linkedin.com/shareArticle?url=https://scolenchris.top/posts/8731d904.html&title=微机原理整理"><i class="fab fa-linkedin " aria-hidden="true"></i></a></li>
+  <li><a class="icon" target="_blank" rel="noopener" href="https://pinterest.com/pin/create/bookmarklet/?url=https://scolenchris.top/posts/8731d904.html&is_video=false&description=微机原理整理"><i class="fab fa-pinterest " aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="mailto:?subject=微机原理整理&body=Check out this article: https://scolenchris.top/posts/8731d904.html"><i class="fa-solid fa-envelope " aria-hidden="true"></i></a></li>
+  <li><a class="icon" target="_blank" rel="noopener" href="https://getpocket.com/save?url=https://scolenchris.top/posts/8731d904.html&title=微机原理整理"><i class="fab fa-get-pocket " aria-hidden="true"></i></a></li>
+  <li><a class="icon" target="_blank" rel="noopener" href="http://reddit.com/submit?url=https://scolenchris.top/posts/8731d904.html&title=微机原理整理"><i class="fab fa-reddit " aria-hidden="true"></i></a></li>
+  <li><a class="icon" target="_blank" rel="noopener" href="http://www.stumbleupon.com/submit?url=https://scolenchris.top/posts/8731d904.html&title=微机原理整理"><i class="fab fa-stumbleupon " aria-hidden="true"></i></a></li>
+  <li><a class="icon" target="_blank" rel="noopener" href="http://digg.com/submit?url=https://scolenchris.top/posts/8731d904.html&title=微机原理整理"><i class="fab fa-digg " aria-hidden="true"></i></a></li>
+  <li><a class="icon" target="_blank" rel="noopener" href="http://www.tumblr.com/share/link?url=https://scolenchris.top/posts/8731d904.html&name=微机原理整理&description="><i class="fab fa-tumblr " aria-hidden="true"></i></a></li>
+  <li><a class="icon" target="_blank" rel="noopener" href="https://news.ycombinator.com/submitlink?u=https://scolenchris.top/posts/8731d904.html&t=微机原理整理"><i class="fab fa-hacker-news " aria-hidden="true"></i></a></li>
 </ul>
 
     </div>
     
+    
+      <div id="toc">
+        <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#%E7%AC%AC%E4%B8%80%E7%AB%A0"><span class="toc-number">1.</span> <span class="toc-text">第一章</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#1-1"><span class="toc-number">1.1.</span> <span class="toc-text">1.1</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#1-2-%E9%9B%86%E6%88%90%E7%94%B5%E8%B7%AF%E4%B8%8E-SoC-%E8%AE%BE%E8%AE%A1"><span class="toc-number">1.2.</span> <span class="toc-text">1.2 集成电路与 SoC 设计</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#1-3"><span class="toc-number">1.3.</span> <span class="toc-text">1.3</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#1-4"><span class="toc-number">1.4.</span> <span class="toc-text">1.4</span></a></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#%E7%AC%AC%E4%B8%83%E7%AB%A0"><span class="toc-number">2.</span> <span class="toc-text">第七章</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#7-1"><span class="toc-number">2.1.</span> <span class="toc-text">7.1</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#7-2-ARM-%E7%BC%96%E7%A8%8B%E6%A8%A1%E5%9E%8B"><span class="toc-number">2.2.</span> <span class="toc-text">7.2 ARM 编程模型</span></a></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#%E7%AC%AC%E4%BA%94%E7%AB%A0"><span class="toc-number">3.</span> <span class="toc-text">第五章</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#%E7%AC%AC%E5%85%AD%E7%AB%A0"><span class="toc-number">4.</span> <span class="toc-text">第六章</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#%E7%AC%AC%E5%9B%9B%E7%AB%A0"><span class="toc-number">5.</span> <span class="toc-text">第四章</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#%E7%AC%AC%E4%BA%8C%E7%AB%A0"><span class="toc-number">6.</span> <span class="toc-text">第二章</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#%E7%AC%AC%E4%B8%89%E7%AB%A0"><span class="toc-number">7.</span> <span class="toc-text">第三章</span></a></li></ol>
+      </div>
     
   </span>
 </div>
@@ -131,7 +159,7 @@
   <header>
     
     <h1 class="posttitle p-name" itemprop="name headline">
-        hello1
+        微机原理整理
     </h1>
 
 
@@ -158,8 +186,598 @@
   
 
   <div class="content e-content" itemprop="articleBody">
-    <p>公式 ce’sces</p>
-<p>$$ G ( s ) !=! \frac{Y ( s )} {U ( s )} !=! \frac{b*{m} s^{m}+b*{m-1} s^{m-1}+\cdots+b*{1} s+b*{0}} {a*{n} s^{n}+a*{n-1} s^{n-1}+\cdots+a*{1} s+a*{0}} $$</p>
+    <h1 id="第一章"><a href="#第一章" class="headerlink" title="第一章"></a>第一章</h1><ul>
+<li>摩尔定律(Moore’s Law)：<strong>微处理器内晶体管的集成度每两年增加一倍；</strong></li>
+<li>吉尔德定律(Gilder,s Law)<strong>：主干网的带宽</strong>每 6 个月增加一倍；</li>
+<li>麦特卡夫定第(Metcalfe’sLaw)：网络价值与网络用户数的平方成正比</li>
+</ul>
+<h2 id="1-1"><a href="#1-1" class="headerlink" title="1.1"></a>1.1</h2><ul>
+<li>泛在计算特别关注所谓的隐蔽性 (Invisibleness) 和环境感知性 (Context Awareness) 环境感知是泛在计算技术的核心；泛在通信即广泛存在的通信，以实现在任何时间、任何地点、任何人、任何物都能顺畅地通信为目标。</li>
+<li>普适计算具有环境感知的特性<ul>
+<li>强调和环境融为一体的计算概念，即人们能够在任何时间、任何地点、以任何方式进行信息的获取与处理。</li>
+</ul>
+</li>
+<li>无线传感器网络 (Wireless Sensor Network, WSN)也称为泛在传感器网络 (Ubiquitous Sensor Network, USN) , 是一种由多个节点组成的、面向任务的无线自组织网络。<ul>
+<li>自组织组网</li>
+<li>多跳路由</li>
+<li>资源受限</li>
+<li>低功耗</li>
+</ul>
+</li>
+</ul>
+<h2 id="1-2-集成电路与-SoC-设计"><a href="#1-2-集成电路与-SoC-设计" class="headerlink" title="1.2 集成电路与 SoC 设计"></a>1.2 集成电路与 SoC 设计</h2><blockquote>
+<ul>
+<li>集成电路是指通过一系列特定的加工工艺，将晶体管、二极管等有源器件和电阻、电容、电感等无源器件，按照一定方式互连，“集成”在一块半导体晶片(如硅或神化像)上，封装在一个外壳内，执行特定电路或系统功能的一种器件。</li>
+</ul>
+</blockquote>
+<ul>
+<li><strong>特征尺寸</strong>(Feature Size)与集成规模(<strong>Integration</strong> Scale)是标志集成电路工艺技术水平的两个<strong>重要指标。</strong><ul>
+<li><strong>特征尺寸</strong>表征了集成电路工艺所能实现的最<strong>小线宽</strong></li>
+</ul>
+</li>
+<li><strong>系统级芯片(System on Chip, SoC)，SoC 也称为片上系统、系统芯片或系统集成芯片。</strong><ul>
+<li>SoC 包括一个<strong>可编程处理器(叶)、片上存储器和由硬件实现的加速功能单元(如 DSP)</strong>。此外，SoC 作为一个系统，需要直接与外界打交道</li>
+<li><img src="https://pic-chris.oss-cn-guangzhou.aliyuncs.com/img/202412141927564.png" alt="image.png|600"></li>
+<li>现代 SoC 设计技术理念中，<strong>IP 是构成 SoC 的基本单元</strong>。这里的 <strong>IP 可以理解为满足特定的规范和要求，并且能够在设计中反复重用的功能模块，通常称其为 IP 核(IP Core</strong><ul>
+<li>IP 核是一些设计好的功能模块，购买一个 IP 核所得到的是一些设计数据，但不是实际芯片</li>
+<li>IP 核必须经过实际验证，最好 IP 核在设计中已经被成功使用，最起码已通过某种可编程器件(例如现场可编程门阵列 FPGA 等)验证了其功能正确</li>
+<li>IP 核必须经过性能优化，只有那些性能优异的 IP 核才会有人购买</li>
+</ul>
+</li>
+<li><strong>软核</strong>(Soft Core)。可重用性最高 设计复杂度将大幅增加</li>
+<li><strong>硬核</strong>(Hard Core)。指经过预先布局且不能由系统设计者修改的 IP 核，通常以电路版图形式提交，灵活性最小,可重用性最低(硬核具有不可更改性)，但性能最稳定，可靠性最高。</li>
+<li><strong>固核</strong>(Finn Core)。介于软核和硬核之间，固核由 RTL 描述和可综合网表组成，通常以门级网表的形式提交 固核与实现工艺相关，耳网表本身难于理解，这些都限制了固核的使用范围</li>
+</ul>
+</li>
+</ul>
+<h2 id="1-3"><a href="#1-3" class="headerlink" title="1.3"></a>1.3</h2><ul>
+<li>具有代表性的新型体系统结构主要包括片上多核处理器(Chip Multi-Processors, CMP) 、流处理器 (Stream Processor) 、存内处理器 (Processor In Memory)及可重构处理器(Reconfigurable Processor)</li>
+<li>片上多核处理器(又称多核微处理器)是目前构造现代高性能微处理器的主要技术途径<ul>
+<li>通过在单个芯片中放入多个结构相对简单的微处理器内核(而不是使用一个巨大的微处理器内核)，片上多核技术避免了上述问题。</li>
+<li>结构易扩展。</li>
+<li>设计可重用</li>
+<li>低功耗</li>
+<li>线延迟容忍度高。</li>
+</ul>
+</li>
+<li>VIM 系统的结构示意图，主要由 4 部分组成：标量 RISC 核、向量核、嵌入式 DRAM 存储体和内部互连矩阵（CROSSBAR）。其中，嵌入式存储体内部由 4 个独立的存储体（Bank）组成</li>
+<li>可重构处理器抛弃了指令流这种存储访问密集的计算方式，使用硬件完成重要数据的计算，而无须额外的指令控制，因而可以大大减缓存储屏障带来的压力。</li>
+</ul>
+<h2 id="1-4"><a href="#1-4" class="headerlink" title="1.4"></a>1.4</h2><ul>
+<li>嵌入式系统是指任何包括可编程计算机的设备，但本身并未被刻意设计为一台通用计算机。<ul>
+<li>以各种形态嵌入到对象体系中的专用计算机系统</li>
+<li>嵌入式系统（Embedded System）是控制、监视或者辅助设备、机器或平台运行的装置</li>
+<li>目前国内普遍认同的嵌入式系统的定义是：<strong>以应用为中心，以计算机技术为基础，软硬件可裁减，适应应用系统对功能、可靠性、成本、体积和功耗等严格要求的专用计算机系统，即“嵌入应用对象体系中的专用计算机系统”。</strong></li>
+<li>嵌入性、专用性和计算系统是嵌入式系统的 3 个基本要素，对象系统则是指计算系统所嵌入的宿主系统。</li>
+</ul>
+</li>
+<li><img src="https://pic-chris.oss-cn-guangzhou.aliyuncs.com/img/202412142034116.png" alt="image.png|600"></li>
+<li>嵌人式系统一般由<strong>硬件平台、软件系统及开发工具</strong>等三部分组成<ul>
+<li><img src="https://pic-chris.oss-cn-guangzhou.aliyuncs.com/img/202412141953096.png" alt="image.png|600"></li>
+<li>嵌入式系统硬件包括嵌入式核心芯片、存储系统及外部接口。</li>
+<li>嵌入式系统的软件主要包括两部分：嵌入式操作系统和应用软件</li>
+</ul>
+</li>
+<li>嵌人式系统的核心部件是各种类型的嵌入式处理器<ul>
+<li>网络互连</li>
+<li>多核异构</li>
+<li>软件定义</li>
+</ul>
+</li>
+</ul>
+<h1 id="第七章"><a href="#第七章" class="headerlink" title="第七章"></a>第七章</h1><h2 id="7-1"><a href="#7-1" class="headerlink" title="7.1"></a>7.1</h2><ul>
+<li>RISC 技术</li>
+<li>加载/存储体系结构，也称为寄存器/寄存器体系结构或 R-R 系统结构，借用大量的标量或向量寄存器来进行中转，使用更多的通用寄存器存储操作数和运算结果</li>
+<li>采用固定长度精简指令集</li>
+<li>三地址指令格式，操作数、源操作数和第二源操作数。</li>
+</ul>
+<h2 id="7-2-ARM-编程模型"><a href="#7-2-ARM-编程模型" class="headerlink" title="7.2 ARM 编程模型"></a>7.2 ARM 编程模型</h2><ul>
+<li>32 位的 ARM 微处理器支持以下两种工作状态：<ul>
+<li>ARM 状态。微处理器执行 32 位的字对齐的 ARM 指令。</li>
+<li>Thumb 状态，微处理器执行 16 位的、半字对齐的 Thumb 指令。</li>
+</ul>
+</li>
+<li>ARM 微处理器复位后开始执行代码时，或者异常处理时，处于 ARM 状态<ul>
+<li>状态切换<strong>不影响工作模式和寄存器内容</strong></li>
+<li>thumb 则会还在 thumb 状态</li>
+</ul>
+</li>
+<li>ARM 微处理器的工作模式可以通过软件改变，也可能因外部中断或异常引发改变</li>
+<li><img src="https://pic-chris.oss-cn-guangzhou.aliyuncs.com/img/202412142056560.png" alt="image.png|600"></li>
+<li>其余所有 6 种模式称为非用户模式或特权模式 (Privileged Mode)</li>
+<li>当微处理器工作在用户模式时，正在执行的程序不能访问某些被保护的系统资源，也示能直接进行工作模式的切换。应用程序可以通过产生异常中断，在异常处理过程中切换工作模式，当应用程序产生异常中断时，微处理器进入相应的异常模式</li>
+<li>32 位 ARM 微处理器共有 37 个 32 位的物理寄存器，其中包括 31 个通用寄存器(含程序计数器 PC) 和 6 个程序状态寄存器。这些寄存器不能同时访问，具体哪些寄存器可编程访问取决于微处理器的工作状态及具体的工作模式。</li>
+<li>通用寄存器包括 R0-R14, 可以分为两类：不分组寄存器(R0-R7)和分组寄存器(R8-R14)。<ul>
+<li>对于不分组寄存器 R0 R7, 在微处理器的所有工作模式下，它们中的每一个都指向一个物理寄存器，且未被系统用于特殊用途。因此，在中断或异常处理中进行模式切换时，由于不同的微处理器工作模式均使用相同的物理寄存器，可能会破坏寄存器中的数据，进行程序设计时应引起注意。</li>
+<li>对于分组寄存器 R8-R14, 物理寄存器可能有分组，具体使用哪一组与微处理器当前的工作模式有关<ul>
+<li>寄存器 <strong>R13 通常作为堆栈指针(SP)</strong>, 用于保存当前微处理器工作模式下堆栈的<strong>栈顶地址</strong>。寄存器 R14 通常作为<strong>链接寄存器(LR</strong>),<strong>用于保存子程序的返回地址</strong>。当子程序的返回地址保存在堆栈中时，R14 也可以作为通用寄存器。</li>
+</ul>
+</li>
+</ul>
+</li>
+<li>R15 作为<strong>程序计数器，用于保存微处理器准备读取的下一条指令的地址</strong> - 通常 PC 总是指向当前指令之后两条指令的地址，即 PC 的值为当前指令的地址值加 8 - ![[微机原理复习#^1z1bgb]]<blockquote>
+<ul>
+<li>程序状态寄存器(PSR)包括<strong>当前程序状态寄存器</strong> (Current Program Status Register, <strong>CPSR</strong>) 和<strong>程序状态保存寄存器</strong> (Saved Program Status Register, <strong>SPSR</strong>)<ul>
+<li>微处理器在所有工作模式下都可以访问当前程序状态寄存器，而在每一种异常工作模式下都还另有一个程序状态保存寄存器 SPSR。当异常发生时，SPSR 用于保存 CPSR 的当前值,当从异常退出时，可用 SPSR 来<strong>恢复</strong> CPSR。</li>
+<li>用户模式和系统模式不属于异常模式，因此这两种模式没有 SPSR, 当在这两种情况下访问 SPSR 时，结果是未知的<ul>
+<li><img src="https://pic-chris.oss-cn-guangzhou.aliyuncs.com/img/202412142104189.png" alt="image.png|600"></li>
+<li>控制位: CPSR 的低 8 位，即 I、F、T 和 M4-M0 称为控制位。当发生异常时这些位可能被改变，当微处理器运行在特权模式时，这些位也可以由程序修改</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</blockquote>
+</li>
+<li>32 位 ARM 微处理器支持的数据类型有<strong>字节（8 位）、半字（16 位）和字（32 位）。</strong><ul>
+<li>字节 在 ARM 微处理器中，字节的长度均为 8 位。</li>
+<li>半字 ARM 微处理器中，半字的长度为 16 位，半字必须以 2 字节为边</li>
+<li>字 在 ARM 微处理器中，字的长度为 <strong>32 位，字必须以 4 字节为边界对齐</strong></li>
+<li>这三种数据类型都支持无符号数和有符号数 N 位决定</li>
+</ul>
+</li>
+<li>以字节为单位的线性空间。每个字数据占 4 字节单元,每个半字数据占 2 字节单元。<ul>
+<li>ARM 微处理器的 32 位地址线能支持的<strong>最大寻址空间为 4 GB 2 的 32 次方</strong></li>
+<li>![[微机原理复习#^qus79v]]</li>
+<li>在小端格式中，32 位字数据的高字节存放在高地址单元中，而低字节则存放在低地址单元中</li>
+<li><img src="https://pic-chris.oss-cn-guangzhou.aliyuncs.com/img/202412142125194.png" alt="image.png|600"></li>
+</ul>
+</li>
+<li>当发生异常时，微处理器必须<strong>先保存当前的状态</strong>；当异常处理完成后，需要将微处理器的<strong>状态恢复</strong>到处理异常之前，然后才能继续执行当前程序。ARM 微处理器允许多个异常同时发生，它们将会按固定的优先级进行处理。<ul>
+<li>指令执行引起的直接异常。软件中断、未定义指令（包括要求的协处理器不存在时的协处理器指令）和预取指令中止都属于这一类。</li>
+<li>指令执行引起的间接异常。数据中止（在用加载/存储指令访问数据时的存储器故障）属于这一类。</li>
+<li>外部产生的与指令流无关的异常。复位、IRQ 和 FIQ 属于这一类</li>
+</ul>
+</li>
+<li>当多个异常同时发生时，系统根据固定的优先级决定异常的处理次序<ul>
+<li><img src="https://pic-chris.oss-cn-guangzhou.aliyuncs.com/img/202412142128040.png" alt="image.png|600"></li>
+<li>未定义指令异常和软件中断异常都依靠指令的特殊 译码产生，由于两者是互斥的指令编码，因此不可能同时发生</li>
+</ul>
+</li>
+<li>存储器中为每个异常类型分配一个固定地址，该固定地址称为异常向量<ul>
+<li>当 ARM 微处理器发生异常时，<strong>程序计数器被强制设置为对应的异常向量</strong>，从而转到异常处理程序</li>
+</ul>
+</li>
+<li>复位异常处理程序执行完后无须返回。其他所有异常处理程序执行完后必须返回到原来程序处继续执行</li>
+<li>![[微机原理复习#^1zbw8k]]</li>
+<li><img src="https://pic-chris.oss-cn-guangzhou.aliyuncs.com/img/202412150938864.png" alt="image.png|600"></li>
+<li>异常返回<ul>
+<li><img src="https://pic-chris.oss-cn-guangzhou.aliyuncs.com/img/202412150942158.png" alt="image.png|600"><br>-</li>
+</ul>
+</li>
+</ul>
+<h1 id="第五章"><a href="#第五章" class="headerlink" title="第五章"></a>第五章</h1><ul>
+<li><strong>易失性</strong>存储器是指需要持续<strong>维持电源供应</strong>，才能确保存储内容不变化或不丢失的存储器。</li>
+<li>最常见的 <strong>MOS 型易失性存储器</strong>有两种基本类型：<ul>
+<li>静态 RAM (Static RAM, SRAM)和动态 RAM (Dynamic RAM, DRAM) c</li>
+<li>SRAM 中的基本存储单元是由 MOS 管构成的<strong>双稳态电路</strong>，存储的信息由双稳态电路的<strong>逻辑状态</strong>表征。</li>
+<li>DRAM 存储的信息由<strong>电容上的电位</strong>来表征。由<strong>于电容总存在充电施电回路，即使不访问存储器，电容上的电荷也会发生变化，从而引起电位，变化并导致存储信息的丢失</strong>。<ul>
+<li>reason：DRAM 内部保存信息的<strong>电荷会随着时间而泄漏</strong>，因此需要周期性地进行刷新</li>
+</ul>
+</li>
+</ul>
+</li>
+<li>一般采用<strong>速度较快</strong>但<strong>成本较高</strong>的 <strong>SRAM</strong> 构成高速缓冲存储器(cache)，成本较低、速度较慢的 DRAM 可用于构成主存</li>
+<li>最早的 NVM 是只读存储器 (Read Only Memory, ROM), 其存储内容在生产期间永久写入。<ul>
+<li>EPROM</li>
+<li>Flash 存储器又称为闪速存储器，简称<strong>闪存</strong></li>
+</ul>
+</li>
+<li>按数据<strong>访问方式</strong>的不同，存储器可分为<strong>并行</strong>存储器(Parallel Memory, PM) 和<strong>串行</strong>存储器(Serial Memory, SM)</li>
+<li><strong>随机存取又称为直接存取</strong><ul>
+<li>可按地址随机访问任意存储单元；访问存储单元所需的时间与数据存储的位置(即地址)无关</li>
+<li>计算机系统中 CPU 直接寻址的存储器都采用随机存取方式</li>
+</ul>
+</li>
+<li>在顺序存取方式下，数据按照特定的线性或时序顺序写入存储介质，并且可以按照完全相同的顺序读回。顺序存取也称为 <strong>“先进先出</strong>” (First In First Out, FIFO), 非常适合作为缓冲存储器。<ul>
+<li>队列</li>
+</ul>
+</li>
+<li>按数据<strong>存取顺序</strong>的不同，存储器可分为<strong>随机</strong>存取存储器 (Random Access Memory,RAM) 、<strong>顺序</strong>存取存储器(Sequential Access Memory, SAM) 和<strong>堆栈</strong>存取存储器。</li>
+<li>按存取方式可以把存储器分为 随机存储器 和 只读存储器 2 类</li>
+<li><strong>存取周期</strong>是<strong>连续启动两次独立的存储器</strong>操作所需的<strong>最小时间间隔</strong></li>
+<li><strong>存取时间</strong>又称为存储器访问时间，<strong>即启动一次存储器操</strong>和（读或写）<strong>到完成该操作所需的时间</strong>。存取周期往往比存取时间<strong>大</strong>得多、</li>
+<li>带宽是指存储器在<strong>连续访问</strong>时的数据吞吐量</li>
+<li>现代计算机系统通常把各种不同存储容量、存取速度和价格的存储器按一定的体系结构组成<strong>多层结构</strong>，并通过管理软件和辅助硬件有机组合成统一的整体，使所存放的程序和数据按层次分布在各种存储器中，以解决存储容量、存取速度和价格之间的矛盾</li>
+<li>映像规则用于确定一个新的块（页）被调人本级存储器时应放在什么位置上。<ul>
+<li><strong>全相联映像</strong>方式的优点是可以灵活地进行块的分配，块的<strong>冲突率低</strong>，但实际上由于成本太高而并不会被采用，可以允许在任意的存储器位置</li>
+<li><strong>组相联映像</strong>方式是直接映像和全相联映像方式的一种<strong>折中</strong>方案</li>
+<li><strong>直接映像</strong> 方式规定每一个块（页）只能被放到唯一的指定位置。直接映像时的地址变换速度快，实现简单，缺点是不够灵活，降低了命中率</li>
+</ul>
+</li>
+<li>这种对局部范围内存储器地址频繁访问，而对此范围以外的存储器地址较少访问的现象称为<strong>存储器访问的局部性</strong><ul>
+<li>时间局部性</li>
+<li>引用局部性</li>
+</ul>
+</li>
+<li>替换规则<ul>
+<li><strong>先人先出法</strong>(First In First Out, FIFO)选择将最早调入的块作为被替换的块</li>
+<li><strong>最近最少使用法</strong>(Lqast Recently Used, LRU)选择将最久未被访问块作为被替换的块，可以<strong>提高命中率</strong></li>
+<li><strong>随机替换算法</strong>(RAlgom substitution, RAND)是在组内随机选择一块来替换</li>
+</ul>
+</li>
+<li>cache<ul>
+<li>如果不命中，则将数据请求传给主存，<strong>贯穿读出</strong>，该方法的优点是降低了 CPU 对主存的请求次数，缺点是<strong>延迟</strong>了 CPU 对主存的访问时间</li>
+<li><strong>旁路读出式</strong>，如果命中，则 cache 在将数据回送给 CPU 的同时，还来得及中断 CPU 对主存的请求；若不命中，贝 U cache 不做任何动作，由 CPU 直接访问主存。它的优点是没有延时，缺点是每次 CPU 都要访问主存，会<strong>占用部分总线时间</strong></li>
+</ul>
+</li>
+<li>多层存储系统也需要使用这种<strong>虚拟存储器技术</strong>来实现相邻层之间的数据调度。<strong>其主要思想是将虚拟地址空间和物理地址空间分离，并通过存储器管理单元 Management Unit, 使用地址映射表来完成两者之间的映射联系</strong></li>
+<li>cache 存储器系统主要负责解决<strong>高速度和低成本</strong>之间的矛盾。为了弥补主存速度的不足，这个层次的功能完全由硬件实现，因此对用户是完全透明的。<ul>
+<li>高速缓存技术是一种用来缓解冯 •诺依曼瓶颈</li>
+</ul>
+</li>
+<li>虚拟存储器系统主要负责解决<strong>大容量和低成本</strong>之间的矛盾，由于 CPU 不能直接访问辅存，主存-辅存层次通过附加的硬件及存储管理软件来控制。<ul>
+<li>![[微机原理复习#^c2nnhj]]</li>
+<li>可以简化寻址方式。</li>
+<li>可以高效利用物理存储器</li>
+<li>便于访问控制</li>
+</ul>
+</li>
+<li><strong>虚拟地址</strong>空间指的是<strong>程序使用</strong>的地址空间（也称为逻辑地址空间或程序空间），而<strong>物理地址空</strong>间指的是物理存储器<strong>实际的硬件地址空间</strong>（也称为实存空间）<ul>
+<li>另一种常用的存储器地址映射技术称为<strong>分段</strong>技术，<strong>逻辑地址到物理地址</strong>。在<strong>分段技术中，段的大小可变</strong>。用户可见，段内连续编址，段间不一定，<strong>段是逻辑单位</strong></li>
+<li>与<strong>分页技术</strong>（虚<strong>拟地址到物理地址</strong>）的不同之处在于，系统确定，用户不可见，大小固定，<strong>页是物理单位</strong></li>
+</ul>
+</li>
+</ul>
+<h1 id="第六章"><a href="#第六章" class="headerlink" title="第六章"></a>第六章</h1><ul>
+<li><strong>输入/输出接口</strong>简称 I/O 接口，有时也称为 I/O 电路或 I/O 控制器。I/O 接口不仅包括<strong>外部设备</strong>与 CPU 或计算机之间的<strong>硬件电路</strong>，也包括相应的<strong>驱动程序</strong></li>
+<li>分类<ul>
+<li>并行接口是指微处理器与 I/O 接口之间、I/O 接口与外部设备之间均以多个位的并行方式传送数据。串行接口是指接口与外设之间采用串行方式(即单个位)传送数据，数据按位一位一位地传送<ul>
+<li>并行接口适用于传输距离较<strong>近</strong>、传输速度较<strong>高</strong>的场合，接口电路相对<strong>简单</strong>。</li>
+<li>串行接口则适用于传输距离较<strong>远</strong>、传输速度相对较<strong>低</strong>的场合，传输线路<strong>成本较低</strong>，接口电路相对前者更<strong>复杂</strong>。</li>
+<li>现代的高速串行接口也用于对传输速度要求特别高的场合。</li>
+</ul>
+</li>
+<li>同步接口是指与同步总线相连的接口，其数据传输由<strong>统一的时序信号同步控制</strong>。异步接口则是指与异步总线相连的接口，其信息传送采用异步<strong>应答的方式</strong>进行。</li>
+<li>程序查询接口、程序中断接口、直接存储器访问 (DMA)接口<ul>
+<li>CPU 通过程序来查询接口的状态寄存器,并执行相应接口的数据访问操作。</li>
+<li>作为一种特例，即需传送的数据总是准备好的，无须任何状态联络信息，CPU 直接执行输入/输出指令即可实现读取接口数据或输出数据到输出接口的操作，这种特例也称为<strong>无条件传送方式</strong>。</li>
+</ul>
+</li>
+</ul>
+</li>
+<li>统一编制<ul>
+<li>这种编址方式是将存储器和 I/O 端口<strong>统一编址</strong>，即在存储器空间中<strong>划分出一段地址空间</strong>作为访问 I/O 端口的地址空间</li>
+<li>将端口看<strong>作存储单元</strong>，仅以<strong>地址范围</strong>的不同来区分两者。</li>
+<li>优点：对端口的操作和对存储单元的<strong>操作完全一样</strong>，因此<strong>系统简单</strong>，并且对端口操作的指令种类较多</li>
+<li>缺点：CPU 对存储单元和 I/O 端口的实际寻址空间都<strong>小于其最大寻址空间</strong></li>
+</ul>
+</li>
+<li>独立编址<ul>
+<li>存储器和 I/O 端口的地址空间<strong>彼此独立</strong></li>
+<li>特点：系统视端口和存储单元为不同的对象。</li>
+<li>优点：系统中存储单元和 I/O 端口的<strong>数量可达到最大</strong>。</li>
+<li>缺点：需<strong>专门信号</strong>来指示系统地址线上出现的是存储单元地址还是端口地址；专用端口操作<strong>指令比较单一</strong></li>
+</ul>
+</li>
+<li><strong>中断</strong><ul>
+<li>中断源是指引起中断的事件或发出中<strong>断请求的来源</strong>，如掉电、数据校验出错等异常事件,键盘、磁盘、网口等外设操作请求等，<ul>
+<li>中断处理模块会对中断源加以命名或通过编号进行区分，这个编号就是所谓的<strong>中断类型码</strong>（或称中断类型号）。</li>
+</ul>
+</li>
+<li><strong>中断向量</strong>即<strong>中断服务子程序的人口地址</strong>，也就是中断服务子程序<strong>第一条指</strong>令在存储器中的存放地址。</li>
+<li><strong>断点</strong>通常是指<strong>被中断主程</strong>序<strong>下一条待执行指令的存放施址</strong>，也就是<strong>中断返回时的程序地址</strong>。</li>
+<li><strong>现场</strong>指中断发生前<strong>程序的运行状态</strong>，一般主要指系统标志寄存器和相关数据寄存器中的内容。</li>
+<li><strong>中断屏蔽</strong>可能在两种情况下发生：一种情况是中断<strong>系统允许设置</strong>中断屏蔽标志（或中断允许标志），以屏蔽某些中断源的请求；另一种情况是当系统在处理<strong>优先级较高</strong>的中断请求时,不会响应后到的级别较<strong>低</strong>的中断请求，也就是中断系统会自动屏蔽优先级低的中断，不允许其产生中断嵌套。</li>
+</ul>
+</li>
+<li>中断处理 ^1zbw8k<ul>
+<li><strong>中断请求及检测</strong><ul>
+<li>虽然中断请求可能在任意时刻被送到 CPU, 但实际上 CPU 只是在当前指令执行完后才进行中断请求的检测，硬件检测</li>
+</ul>
+</li>
+<li><strong>中断优先级的判断</strong></li>
+<li><strong>中断响应</strong><ul>
+<li><strong>跳转</strong>至中断服务<strong>子程序人口</strong>的过程，也是硬件</li>
+<li>获取<strong>中断类型码</strong></li>
+<li><strong>保护</strong>现场和断点</li>
+<li>获取<strong>中断向量</strong>，从而进入中断处理</li>
+</ul>
+</li>
+<li>中断处理就是<strong>执行中断服务子程序</strong>的过程</li>
+<li>中断<strong>返回</strong></li>
+</ul>
+</li>
+<li>优先级判断<ul>
+<li>软件查询</li>
+<li>硬件判断<ul>
+<li>菊花链</li>
+<li>中断优先级编码</li>
+</ul>
+</li>
+</ul>
+</li>
+<li>中断控制方式充分发挥了 CPU 的效能，大大提高了 CPU 的工作效率。有了中断后，就允许 CPU 与多个外设<strong>同时工作</strong>，并可实现实时控制</li>
+<li>DMA 直接存储器访问（DMA）传输方式<ul>
+<li><strong>高速的批量数据传输</strong></li>
+<li>MA 是通过硬件控制实现主存与 I/O 设备间的直接数据传送，在传送<strong>不用 cpu</strong>干预</li>
+<li>控制主存与 I/O 设备间之间直接数据传输的硬件就是 DMA 控制器，总线的从属模块，要让出系统总线控制权</li>
+<li><img src="https://pic-chris.oss-cn-guangzhou.aliyuncs.com/img/202412172213216.png" alt="image.png|600"></li>
+<li>可以<strong>突发传输</strong>，这种一次请求总线传输一整块数据的方法；<strong>周期窃取</strong>，慢速设备，传输完一个数据字后，下一个字还没准备好，这时没有 DMA 请求，DMAC 撤销总线请求，恢复 CPU 操作。当 I/O 数据准备好时，再启动一次一个数据字的传输过程</li>
+<li>它不运行程序，不能处理较复杂的事件</li>
+</ul>
+</li>
+<li>可编程通用并行接口(GPIO)允许用户通过写入不同的控制字改变其工作方式<strong>8255</strong><ul>
+<li>数据总线缓冲器、读医控制逻辑、输入/输出端口(A、B 和 C)和可编程控制寄存器。其中数据总线缓冲器用于总线隔离</li>
+<li><img src="https://pic-chris.oss-cn-guangzhou.aliyuncs.com/img/202412172237359.png" alt="image.png|600"></li>
+</ul>
+</li>
+<li>串行外围设备接口(SerialPeripheral Interface, <strong>SPI</strong>)是一种<strong>全双工同步串行</strong>总线接口 ^eh604s</li>
+<li>I2c 是一种两线式<strong>半双工串行同步</strong>总线接口，两个都是同步的</li>
+<li>异步：<ul>
+<li><img src="https://pic-chris.oss-cn-guangzhou.aliyuncs.com/img/202412172243039.png" alt="image.png|600"></li>
+<li><strong>波特率</strong> ^3czyja<ul>
+<li>通信线路的传送速度可以<strong>每秒最多能传送的位数</strong>（即每秒硬件电路<strong>状态最多能改变的次数</strong>）来衡量</li>
+<li>要求接收器采用比波特率更高的时钟频率对接收数据进行<strong>最大化采样</strong>，以提高定位采样的<strong>分辨率和抗干扰能力</strong></li>
+</ul>
+</li>
+<li>在串行传输中，收发双方都按通信协议进行<ul>
+<li>意义？停止位，起始位，校验位，校验位是补上之后加上停止和起始后还符合奇偶的方法</li>
+<li>，起始位与停止位/空闲位采用不同的逻辑电平</li>
+</ul>
+</li>
+</ul>
+</li>
+<li>起始位置和停止位置的作用是使<strong>收发双方在随机传送的字符与字符间实现同步</strong>。接收端在检测到起始位时，便知道字符已经到达，应开始接收字符；当检测到停止位时，则知道字符传送已经结束 ^2zcwk8<ul>
+<li><strong>由于传送字符出现在数据流中的相对时间是任意的，保证异步通信的准确性，使收发两方随机传送的字符与字符之间实现同步接受发送</strong>。</li>
+</ul>
+</li>
+<li>IO 端口：数据控制状态，接口电路中的一些寄存器</li>
+<li>锁存器：对于慢速设备，将 cpu 的数据<strong>锁存到锁存器的输出</strong>中，然后给 io 口外设进行<strong>后续</strong>处理</li>
+<li>数据缓冲器，三太缓冲，以便 cpu 读入数据时，缓冲电路打开设备和数据线之间<strong>通道</strong>，进行数据输入</li>
+<li>约定通讯协议：波特率。校验方式，帧格式，停止位，起始位：<strong>保证双方能在数据流中识别出其实和结束</strong>，并能正确解析出数据，避免丢失信息 ^k6cnq3<ul>
+<li>空闲状态为 1，一旦有数据，起始为 0，检测电平变换即可；</li>
+<li>由于异步中没有共同的时钟信号，要对<strong>数据流进行采样</strong>，接收方 baud 率为发送方好几倍，保证<strong>最大化采样的准确性</strong>，中间信号最稳定，可以提高抗干扰与分率率；波特率因子</li>
+<li>当收发双方的时钟源频率不严格一致时，<strong>累积的位时间错位</strong>会造成停止位采样落在实际停止位之外而产生帧错误，或数据采样值落在其他数据位处而产生校验错误等</li>
+</ul>
+</li>
+</ul>
+<h1 id="第四章"><a href="#第四章" class="headerlink" title="第四章"></a>第四章</h1><ul>
+<li>总线是<strong>计算机系统中的信息传输通道</strong>，由系统中各个部件所共享。总线是计算机系统中模块与模块之间、部件与部件之间、设备与设备之间传送信息的一组<strong>公用信号传输线</strong>。<strong>公用性</strong> ^ed1ans</li>
+<li>分为<strong>片上总线、系统总线和系统外总线</strong><ul>
+<li>片上总线是指在<strong>微处理器芯片内部的总线</strong>，是用来连接芯片内部各功能模块的信息通路</li>
+<li>系统总线也称为微处理器系统总线，是微处理器芯片与存储器芯片、外设接口芯片等连接的总线，如 PCI-E 总线和 SAIA 总线等</li>
+<li>系统外总线是微机系统与系统之间、微机系统与外部设备之间的总线。USB</li>
+</ul>
+</li>
+<li>异步总线在数据传送时，没有固定的时钟周期定时，而采用<strong>应答方式</strong>工作，操作时间根据需要可长可短。控制较复杂</li>
+<li>同步总线广泛应用于各个模块间<strong>数据传送时间差异较小的场合</strong>，控制简单，同步总线在进行数据传送时，由严格的时钟周期来定时，一般设置有同步定时信号</li>
+<li>并行总线有<strong>多条数据传输线</strong>，可以同时并行传送多个二进制位，其位数一般就称为总线宽度。高速并行总线需要克服<strong>串扰</strong>、<strong>时钟偏斜</strong>(Skew)等问题，一般成本较<strong>高</strong></li>
+<li>串行总线只需要一条数据线，串行地逐位传送数据。</li>
+<li>性能指标<ul>
+<li>总线时钟频率是总线时钟源每秒产生的脉冲数，反映了总线基本工作速度的快慢程度，总线偏斜</li>
+<li><strong>总线宽度</strong>是总线单次并行传送数据的<strong>位数</strong>，一般为数据线的条数<ul>
+<li>通常总线宽度仅指数据线宽度，<strong>与地址线宽度无关</strong>。</li>
+</ul>
+</li>
+<li><strong>总线速率</strong>是指每秒所能传输数据的最大<strong>次数</strong>（区分带宽）。总线速率与总线的时钟频率(或时钟周期)和总线周期数有关，<ul>
+<li><strong>总线速率=总线时钟频率/总线周期数</strong></li>
+<li>总线周期数是指通过总线<strong>传送一次数据</strong>所需的<strong>时钟周期数</strong>。</li>
+</ul>
+</li>
+<li><strong>总线带宽</strong>是指每秒传输的字节数，单位是字节用 XB/s)或<strong>兆字节</strong>电<ul>
+<li>总线带宽与总线速率<strong>和总线宽度有关</strong>，即<strong>总线带宽=总线速率 x 总线宽度/8</strong></li>
+</ul>
+</li>
+</ul>
+</li>
+<li>总线仲裁可分为两种方式：集中式(主从式)控制方式和分布式(对等式)控制方式。<ul>
+<li>总线仲裁又称总线判决，其目的是<strong>合理的控制和管理系统中多个主设备的总线请求</strong>，以避免总线冲突。</li>
+<li>集中式控制方式是指系统采用专门的总线控制器或仲裁器分配总线时间,总线控制器或仲裁器可以是独立的模块或器件，也可以集成在 CPU 中。<ul>
+<li>采用<strong>集中式</strong>控制方式的总线协议简单而有效，但<strong>总体系统性能较低</strong>。分布式控制方式是指总线控制逻辑<strong>分散在连接于总线上的各个模块或设备</strong>中。</li>
+<li><strong>串行仲裁</strong>“菊花链”(Daisy Chain)是一种常用的串行仲裁机制，模块使用总线时的优先级由它到总线仲裁器的距离决定，离仲裁器越近，则优先级越高</li>
+<li><strong>并行仲裁</strong>，仲裁器按规定的优先级算法选中一个主模块，并把 BG 信号送给该模块</li>
+<li><strong>混合仲裁</strong>又称为多级仲裁，是把并行和串行两种方案相结合构成的更为灵活的</li>
+</ul>
+</li>
+<li>采用<strong>分布式</strong>控制方式的总线协议既复杂，成本又高，但可以换来 CPU 和总线的高效使用。<ul>
+<li>可能更为复杂，但可靠性更高，不会因为某个设备（如集中式仲裁器）损坏而导致整个系统都无法工作。</li>
+</ul>
+</li>
+</ul>
+</li>
+<li>总线时序一般可分为 4 种：同步时序、半同步时序、异步时序和周期分裂式时序。<ul>
+<li>对于同步总线而言，其<strong>控制总线</strong>包含一个时钟和一个固定的<strong>与时钟有关</strong>的地址和数据发送协议</li>
+<li>异步，一条同步总线上连接着多个工作速度<strong>有快有慢的设备</strong>，异步时序依靠传送双方互相制约的握手信号来实现定时控制。在这种方式下，系统没有公用的时钟，也没有固定的时间间隔，设备之间采用一问一答的方式进行联络和协调工作</li>
+<li>周期分裂式时序，充分利用这段<strong>总线空闲的时间</strong>，两个子周期之间的空闲时间（从模块准备数据的时间）即可让出总线给其他主模块使</li>
+</ul>
+</li>
+<li>串行总线<ul>
+<li>串行总线使用的线缆少，成本低，非常适合用于嵌入式系统。，没有并行信号之间的串扰</li>
+<li>单工和双工（又可分为半双工和全双工）<ul>
+<li><strong>单工方式</strong>。在接收器和发送器之间<strong>只有一条</strong>传输线，只能进行单一方向的传输，这样的传送方式就是单工方式</li>
+<li><strong>半双工方式</strong>。当使用<strong>同一条传输线</strong>既用于<strong>发送又用于接收</strong>时，虽然数据可以在两个方向上传送，但通信双方不能同时收发数据，这样的传送方式就是半双工方式，通信系统一端的发送器和接收器通过收/发开关接到通信线上，进行传输方向的切换。</li>
+<li><strong>全双工方式</strong>。当数据的接收和发送分别由<strong>两条不同</strong>的传输线完成时，通信双方都能同时发送和接收数据，通信系统的每-端都设置了接收器和发送器</li>
+</ul>
+</li>
+<li>采用调制解调技术之后，比特率大于波特率。![[微机原理复习#^3czyja]]</li>
+<li>同步和异步<ul>
+<li>在同步串行总线中，收发双方可以在同一个时钟的不同边沿工作</li>
+<li>在异步串行总线中，收发双方使用<strong>频率接近</strong>（但不可能完全相同）的独立时钟源进行工作<ul>
+<li><strong>在异步通信时，被传送的字符出现在数据流中的相对时间是任意的、随机的。为了确保异步通信的正确性，让发送的字符与字符之间实现同步，字符数据格式中设置起始位和停止位</strong></li>
+<li>![[微机原理复习#^2zcwk8]]</li>
+<li>![[微机原理复习#^k6cnq3]]</li>
+<li>设置停止位的目的是强制总线恢复到初始（空闲）状态（1 高电平），以便能检测到下一起始位的下降沿</li>
+</ul>
+</li>
+<li>将接收时钟的频率设置得比发送时钟的高，如令接收时钟频率是发送时钟的 16 倍，就能保证接收方不会漏掉任何一个起始位。<strong>异步才要</strong></li>
+<li>接收方在检测到起始位的前沿（下降沿）后，延时 8 个采样时钟，确定起始位稳定时刻，之后每隔 16 个采样时钟读取一位数据即可</li>
+<li><img src="https://pic-chris.oss-cn-guangzhou.aliyuncs.com/img/202412172338305.png" alt="image.png|600"></li>
+<li>因为每个字都以一个新的起始位作为开头，这个起始位能够使通信重新同步</li>
+<li>在停止位或空闲位后，如果全部 8 个采样点连续低电平，则确认起始位有效，而如果不是 8 个采样点连续低电平，则认为是干扰信号。</li>
+<li>奇偶校验，<strong>加上这位判</strong>断</li>
+</ul>
+</li>
+</ul>
+</li>
+<li>总线标准<ul>
+<li>总线标准也称为总线协议</li>
+<li>总线协议一般包括信号含义、数据格式、时序关系、信号电平、控制逻辑，甚至包括物理连接器的定义等，它确定了一个系统使用总线的方法</li>
+<li>在 SoC 设计中，片上总线设计是最关键的问题</li>
+</ul>
+</li>
+<li>PCI 总线<strong>支持多总线结构和线性突发(Burst)传输</strong>。最大允许 32/64 位<strong>并行</strong>数据传送，采用地址/数据总线复用方式<ul>
+<li>数据帧的传输模式，可确保总线不断满载数据</li>
+<li>PCI 总线是一种<strong>同步</strong>总线</li>
+<li>PCI 总线上可以存在多个具有总线管理控制能力的主控设备</li>
+<li>PCI 总线通过 CPU 局部总线到 PCI 总线之间的桥接器形成一种独特的中间缓冲器设计方式，将中央处理器子系统与外部设备分开，使 PCI 总线具有独立于微处理器的结构特点。</li>
+</ul>
+</li>
+<li>PCI-E <strong>串行</strong>总线<ul>
+<li>PCI-E 总线使用了高速差分总线，并采用端到端的连接方式</li>
+<li>基于时钟的同步传送机制，但是在物理链路上并没有时钟线</li>
+</ul>
+</li>
+<li>RS-232 是<strong>异步串行</strong>通信<ul>
+<li>RS-232c 采用<strong>负逻辑</strong></li>
+<li>噪声容限 6v</li>
+</ul>
+</li>
+<li><strong>usb 半双工异步串行</strong></li>
+<li><strong>spi 同步串行</strong>![[微机原理复习#^eh604s]]</li>
+<li><strong>can 异步串行</strong></li>
+</ul>
+<h1 id="第二章"><a href="#第二章" class="headerlink" title="第二章"></a>第二章</h1><blockquote>
+<p>[!warning]</p>
+<ul>
+<li>PC 用于<strong>存放下一条要执行指令的存放地址</strong></li>
+<li>计算机系统划分成三层，<strong>应用软件，系统软件，硬件系统</strong> ^1z1bgb</li>
+</ul>
+</blockquote>
+<ul>
+<li>计算机体系结构（ComputerArchitecture）主要是指程序员关心的计算机<strong>概念结构与功能特性</strong>，而计算机组成（Computer Organization）则偏重关注物理机器中各操作单元（部件）的<strong>逻辑设计、硬件实现及互连组织技术</strong>，更底层的集成电路设计技术、封装技术、电源技术、冷却措施及<strong>微组装技术</strong>则称为计算机实现</li>
+<li>冯氏<ul>
+<li><strong>电子计算机的基本工作原理：存储程序原理</strong></li>
+<li>二进制表示和存储程序（Stored Program），</li>
+<li><strong>运算器、控制器、存储器、输入设备和输出设备</strong><ul>
+<li>控制器对程序代码进行<strong>解释并产生各种控制信号</strong>协调各部件工作</li>
+<li>计算机按<strong>存储程序原理</strong>工作<ul>
+<li>其基本点是指令（控制）驱动：编制好的<strong>程序</strong>（包括指令和数据）预先经由输人设备输入并<strong>保存在存储器</strong>中；计算机开始工作后，在无须人工干预的情况下，由控制器自动、高速地<strong>依次从存储器中取出指令并加以执行。</strong></li>
+</ul>
+</li>
+</ul>
+</li>
+<li><img src="https://pic-chris.oss-cn-guangzhou.aliyuncs.com/img/202412182052743.png" alt="image.png|600"></li>
+<li><strong>总线</strong>是<strong>连接上述各部件的公共通道，用于实现各部件之间的数据、信息等的传输和交换</strong>![[微机原理复习#^ed1ans]]</li>
+<li>存储器由许多<strong>字节单元</strong>组成，每个单元都有一个唯一的编号。这个编号称为<strong>存储单元地址</strong>，而其中保存的字节信息称为<strong>存储单元内容</strong></li>
+<li>输入/输出子系统用于完成计算机与外部的信息交换<ul>
+<li><strong>总线和设备之间</strong>添加一个信息交换的中间环节一<strong>接口</strong> (Interface)，接口一方面应该负责<strong>接收、转换、解释并执行总线主设备(如 CPU)发来的命令</strong>，另一方面应能将总线从设备(如显示器、打印机)的状态或数据传送给总线主设备，从而完成<strong>数据交换</strong>。I/O 接口的组织及读写方式一般与<strong>存储器</strong>类似。</li>
+</ul>
+</li>
+<li>运算器、控制器和寄存器集成在一片称为 CPU (Central Processing Unit, 中央处理单元，或称为中央处理器)的超大规模集成电路芯片 (VLSI) 中<ul>
+<li><strong>算术逻辑单元</strong>是运算器的<strong>核心</strong></li>
+<li>控制器是整个微处理器的指挥控制中心，对协调整个计算机系统有序工作极为重要。</li>
+<li>reg 存器阵列是 CPU 内部的临时存储单元，用来暂时存放数据和地址</li>
+<li>堆栈(Stack)是一组寄存器或存储器中开辟的<strong>一个特定区域</strong>。先进后出”(FILO)或“后进先出”(LIFO)</li>
+</ul>
+</li>
+</ul>
+</li>
+<li><strong>CPU 可以处理</strong>的<strong>全部指令集合</strong>称为<strong>指令集</strong>（Instruction Set）<ul>
+<li>指令通常包含<strong>操作码和操作数</strong>两部分</li>
+<li>将源程序<strong>翻译成机器语言</strong>表示的目标程序，这个过程称为<strong>汇编</strong>。</li>
+</ul>
+</li>
+<li>每条指令执行的基本过程都可以分为<strong>取指令(Fetch)、分析指令(Decode)和执行指令(Execute)三个阶段</strong> ^kqinps</li>
+<li>冯 • 诺依曼型计算机的串行特点：计算机以<strong>存储程序原理</strong>为基础，将程序和数据混合存<strong>放在单一存储器</strong>中，并使用单一处理部件按“取指-分析-执行”的步骤顺序执行指令<ul>
+<li><strong>指令执行的串行性和存储器读取的串行</strong>性。这种串行特性正是导致冯・诺依曼结构性能<strong>瓶颈</strong>的主要原因。</li>
+<li><img src="https://pic-chris.oss-cn-guangzhou.aliyuncs.com/img/202412180939272.png" alt="image.png|600"></li>
+</ul>
+</li>
+<li>CPU 的指令集结构(Instruction Set Architecture, ISA)是计算机体系结构的主要内容之一，其功能设计实际上就是<strong>确定软硬件的功能分配</strong>，即哪些基本功能由硬件实现,哪些由软件实现。<ul>
+<li>设计指令集结构时有精简指令集计算机(Reduced Instruction Set Computer, <strong>RISC</strong>)和复杂指令集计算机(Complex Instruction Set Computer, <strong>CISC</strong>)</li>
+<li>复杂指令功能通过<strong>微程序实现</strong>，再将微程序<strong>固化或硬化后交由硬件实现</strong>，这就是 CISC 系统的设计思路</li>
+<li><img src="https://pic-chris.oss-cn-guangzhou.aliyuncs.com/img/202412180941008.png" alt="image.png|600"></li>
+<li><img src="https://pic-chris.oss-cn-guangzhou.aliyuncs.com/img/202412180941561.png" alt="image.png|600"></li>
+</ul>
+</li>
+<li>大多数现代计算机采用了图 2-8 所示的<strong>四级存储结构</strong>。 ^c2nnhj<ul>
+<li><img src="https://pic-chris.oss-cn-guangzhou.aliyuncs.com/img/202412180943698.png" alt="image.png|600"></li>
+<li><strong>cache-主存层次</strong>的存取速度接近于 cache 的存取速度，容量和每位存储的平均价格却接近主存，解决了<strong>高速度和低成本之间的矛盾</strong>；而<strong>主存一辅存层次</strong>的存取速度接近于主存的存取速度，容量和每位存储的平均价格却接近辅存，解决了<strong>大容量和低成本</strong>之间的矛盾。</li>
+</ul>
+</li>
+<li>哈佛体系结构计算机将<strong>程序存储器与数据存储器</strong>分开，从而可以提供较大的存储器带宽。但是要求 CPU 拥有<strong>两套独立的地址和数据总线。</strong><blockquote>
+<p>[!warning]</p>
+<ul>
+<li>现代计算机采用了工业生产中基于时间重叠的<strong>流水线</strong>（Pipeline）技术，即把一个<strong>重复的过程分解为若干个子过程</strong>（相当于“工序”），每个<strong>子过程</strong>由<strong>专门的功能部件</strong>来实现。<ul>
+<li>同一时刻流水线各段能够并行处理不同指令，使多条指令的执行过程实现了（时间）重叠</li>
+</ul>
+</li>
+</ul>
+</blockquote>
+</li>
+<li>超标量处理机通过重复设置<strong>多个流水段硬件</strong>并行工作来提高性能</li>
+<li>超长指令字机能并行执行的多条指令组装成一条很长的指令</li>
+<li>计算机体系结构分类，按指令流和数据流，单和多 - SIMD 阵列处理机和向量处理机 - MISD 不存在<blockquote>
+<p>[!warning]</p>
+<ul>
+<li><strong>字长是一个基本的微处理器设计决策，它指 CPU 能够一次处理（运算、存储、传送）的最大数据宽度</strong>^qus79v<ul>
+<li>所谓的 16 位（bit）机、3.2 位机、64 位机就是指该机的字长</li>
+</ul>
+</li>
+</ul>
+</blockquote>
+</li>
+<li>访存空间是指 CPU 能直接访问的存储单元(主存单元)数量，一般由 <strong>CPU 的地址总线宽度</strong>确定。 - 若 CPU 地址总线宽度为 16 位，则其直接访存空间为 2^16=64KB<blockquote>
+<ul>
+<li><img src="https://pic-chris.oss-cn-guangzhou.aliyuncs.com/img/202412180957251.png" alt="image.png|600"><ul>
+<li>F是时钟频率，而 IC 是指令数目，即运行中的程序的指令总数</li>
+<li><strong>局部性原理</strong>是指CPU访问存储器时，无论是存取指令还是存取数据，所访问的存储单元都趋于聚集在一个较小的连续区域中。</li>
+</ul>
+</li>
+</ul>
+</blockquote>
+</li>
+</ul>
+<h1 id="第三章"><a href="#第三章" class="headerlink" title="第三章"></a>第三章</h1><ul>
+<li>微处理器的基本功能包括<strong>数据的存储、数据的运算和控制</strong>，具体如下<ul>
+<li><strong>数据加工</strong>由 ALU、移位器和寄存器等<strong>数据通路</strong>部件完成，其他功能由控制器实现</li>
+<li><img src="https://pic-chris.oss-cn-guangzhou.aliyuncs.com/img/202412181032358.png" alt="image.png|600"></li>
+</ul>
+</li>
+<li>微处理器中的<strong>计算部分</strong>称为<strong>数据通路</strong>，包括运算部件、移位器等执行部件，以及<strong>寄存器组和它们之间的通信通路</strong><ul>
+<li>寄存器组常采用小型半导体存储器结构，一个存储单元相当于一个寄存器，存储单元的位数即是寄存器字长</li>
+</ul>
+</li>
+<li>CPU 内部的控制器获取来自内存的指令流并逐条执行指令，根据指令规定产生各种具有一定时序的控制信号，送往数据通路或 CPU 外部。</li>
+<li>MAR 存储器地址寄存器和 MBR 存储器缓冲寄存器是连接<strong>微处理器与主存</strong>的桥梁，这两个寄存器使 CPU 与主存之间的传送通路变得更容易控制。这两个寄存器不能直接编程访问，即对<strong>用户是透明的</strong></li>
+<li>译码逻辑<ul>
+<li>微程序 cisc，控制单元和<strong>输入输出之间的关系被视为一个存储系统</strong>，重用性好，开销大，硬件好设计</li>
+<li>硬连逻辑 risc，随机逻辑，<strong>布尔函数</strong>表示控制单元，减少门电路，低沉本，重用性差，简单指令集结构，硬件难设计</li>
+</ul>
+</li>
+<li>控制器的任务是<strong>决定在什么时间、根据什么条件、发出什么命令、做什么操作</strong>。产生微控制命令的基本依据是时间（如周期、节拍、脉冲等时序信号）、指令代码（如操作码、寻址方式）、状态（如内部的程序状态、外部设备的状态）、外部请求（如外部中断请求、DMA 请求）等。控制器以这些信息作为输入逻辑变量，经硬连电路产生控制信号序列，或者形成相应的微程序地址后再通过<strong>执行微指令实现控制功能</strong><ul>
+<li>生成<strong>时钟信号</strong></li>
+<li>生成执行一个基本指令周期所需的<strong>控制信号</strong></li>
+<li><strong>响应异常事件请求</strong>或输人解出设备发出的<strong>中断</strong></li>
+</ul>
+</li>
+<li>基本操作指令可以大致分为以下 3 类。<ul>
+<li><strong>数据传送指令。</strong></li>
+<li><strong>数据处理指令</strong></li>
+<li><strong>控制指令</strong></li>
+</ul>
+</li>
+<li>流水线<strong>各段延迟不同</strong>导致的性能下降，流水线中某些段的处理时间比其他段的长，则这些段将成为瓶颈，引起阻塞</li>
+<li>流水<strong>线段数过多</strong>导致的性能下降，寄存器延迟占用多</li>
+<li>流水线中<strong>指令相关</strong>导致的性能下降，两条相关指令在执行顺序中足够接近，就可能使爸们在重叠执行期间产生冒险（Hazard），产生停顿</li>
+<li>冒险<ul>
+<li>结构相关是指不同流水线阶段在同一时刻<strong>争用同一硬件资源</strong>的现象</li>
+<li>数据相关是指流水线中<strong>相近指令因为操作重叠</strong>，引起对<strong>同一寄存器或存储单元</strong>访问次序的改变</li>
+<li>控制相关是指流水线中的<strong>转移指令</strong>无法<strong>立即给出</strong>转移目标处的<strong>地址</strong>，而取指阶段又立即要求获得后继指令</li>
+</ul>
+</li>
+<li><img src="https://pic-chris.oss-cn-guangzhou.aliyuncs.com/img/202412181053854.png" alt="image.png|600"></li>
+<li><img src="https://pic-chris.oss-cn-guangzhou.aliyuncs.com/img/202412181053176.png" alt="image.png|600"></li>
+<li><img src="https://pic-chris.oss-cn-guangzhou.aliyuncs.com/img/202412181054980.png" alt="image.png|600"></li>
+<li>处理器基本操作有：<strong>取指令、分析指令、执行指令</strong>。<ul>
+<li>![[微机原理复习#^kqinps]]</li>
+<li>取指令：当程序已在存储器中时，首先根据程序入口地址取出一条程序，为此要<strong>发出指令地址及控制信号</strong>。</li>
+<li>分析指令：对当前取得的指令进行分析，<strong>指出它要求什么操作，并产生相应的操作控制命令</strong>。</li>
+<li>执行指令：<strong>根据</strong>分析指令时产生的“<strong>操作命令</strong>”形成相应的<strong>操作控制信号序列</strong>，通过运算器、存储器及输入/输出设备的执行，<strong>实现每条指令的功能</strong>，其中包括对<strong>运算结果的处理以及下条指令地址</strong>的形成</li>
+</ul>
+</li>
+</ul>
 
   </div>
 </article>
@@ -186,26 +804,32 @@
 
     
     
+      <div id="toc-footer" style="display: none">
+        <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#%E7%AC%AC%E4%B8%80%E7%AB%A0"><span class="toc-number">1.</span> <span class="toc-text">第一章</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#1-1"><span class="toc-number">1.1.</span> <span class="toc-text">1.1</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#1-2-%E9%9B%86%E6%88%90%E7%94%B5%E8%B7%AF%E4%B8%8E-SoC-%E8%AE%BE%E8%AE%A1"><span class="toc-number">1.2.</span> <span class="toc-text">1.2 集成电路与 SoC 设计</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#1-3"><span class="toc-number">1.3.</span> <span class="toc-text">1.3</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#1-4"><span class="toc-number">1.4.</span> <span class="toc-text">1.4</span></a></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#%E7%AC%AC%E4%B8%83%E7%AB%A0"><span class="toc-number">2.</span> <span class="toc-text">第七章</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#7-1"><span class="toc-number">2.1.</span> <span class="toc-text">7.1</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#7-2-ARM-%E7%BC%96%E7%A8%8B%E6%A8%A1%E5%9E%8B"><span class="toc-number">2.2.</span> <span class="toc-text">7.2 ARM 编程模型</span></a></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#%E7%AC%AC%E4%BA%94%E7%AB%A0"><span class="toc-number">3.</span> <span class="toc-text">第五章</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#%E7%AC%AC%E5%85%AD%E7%AB%A0"><span class="toc-number">4.</span> <span class="toc-text">第六章</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#%E7%AC%AC%E5%9B%9B%E7%AB%A0"><span class="toc-number">5.</span> <span class="toc-text">第四章</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#%E7%AC%AC%E4%BA%8C%E7%AB%A0"><span class="toc-number">6.</span> <span class="toc-text">第二章</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#%E7%AC%AC%E4%B8%89%E7%AB%A0"><span class="toc-number">7.</span> <span class="toc-text">第三章</span></a></li></ol>
+      </div>
+    
 
     <div id="share-footer" style="display: none">
       <ul>
   <li><a class="icon" target="_blank" rel="noopener" href="http://www.facebook.com/sharer.php?u=https://scolenchris.top/posts/8731d904.html"><i class="fab fa-facebook fa-lg" aria-hidden="true"></i></a></li>
-  <li><a class="icon" target="_blank" rel="noopener" href="https://twitter.com/share?url=https://scolenchris.top/posts/8731d904.html&text=hello1"><i class="fab fa-twitter fa-lg" aria-hidden="true"></i></a></li>
-  <li><a class="icon" target="_blank" rel="noopener" href="http://www.linkedin.com/shareArticle?url=https://scolenchris.top/posts/8731d904.html&title=hello1"><i class="fab fa-linkedin fa-lg" aria-hidden="true"></i></a></li>
-  <li><a class="icon" target="_blank" rel="noopener" href="https://pinterest.com/pin/create/bookmarklet/?url=https://scolenchris.top/posts/8731d904.html&is_video=false&description=hello1"><i class="fab fa-pinterest fa-lg" aria-hidden="true"></i></a></li>
-  <li><a class="icon" href="mailto:?subject=hello1&body=Check out this article: https://scolenchris.top/posts/8731d904.html"><i class="fa-solid fa-envelope fa-lg" aria-hidden="true"></i></a></li>
-  <li><a class="icon" target="_blank" rel="noopener" href="https://getpocket.com/save?url=https://scolenchris.top/posts/8731d904.html&title=hello1"><i class="fab fa-get-pocket fa-lg" aria-hidden="true"></i></a></li>
-  <li><a class="icon" target="_blank" rel="noopener" href="http://reddit.com/submit?url=https://scolenchris.top/posts/8731d904.html&title=hello1"><i class="fab fa-reddit fa-lg" aria-hidden="true"></i></a></li>
-  <li><a class="icon" target="_blank" rel="noopener" href="http://www.stumbleupon.com/submit?url=https://scolenchris.top/posts/8731d904.html&title=hello1"><i class="fab fa-stumbleupon fa-lg" aria-hidden="true"></i></a></li>
-  <li><a class="icon" target="_blank" rel="noopener" href="http://digg.com/submit?url=https://scolenchris.top/posts/8731d904.html&title=hello1"><i class="fab fa-digg fa-lg" aria-hidden="true"></i></a></li>
-  <li><a class="icon" target="_blank" rel="noopener" href="http://www.tumblr.com/share/link?url=https://scolenchris.top/posts/8731d904.html&name=hello1&description="><i class="fab fa-tumblr fa-lg" aria-hidden="true"></i></a></li>
-  <li><a class="icon" target="_blank" rel="noopener" href="https://news.ycombinator.com/submitlink?u=https://scolenchris.top/posts/8731d904.html&t=hello1"><i class="fab fa-hacker-news fa-lg" aria-hidden="true"></i></a></li>
+  <li><a class="icon" target="_blank" rel="noopener" href="https://twitter.com/share?url=https://scolenchris.top/posts/8731d904.html&text=微机原理整理"><i class="fab fa-twitter fa-lg" aria-hidden="true"></i></a></li>
+  <li><a class="icon" target="_blank" rel="noopener" href="http://www.linkedin.com/shareArticle?url=https://scolenchris.top/posts/8731d904.html&title=微机原理整理"><i class="fab fa-linkedin fa-lg" aria-hidden="true"></i></a></li>
+  <li><a class="icon" target="_blank" rel="noopener" href="https://pinterest.com/pin/create/bookmarklet/?url=https://scolenchris.top/posts/8731d904.html&is_video=false&description=微机原理整理"><i class="fab fa-pinterest fa-lg" aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="mailto:?subject=微机原理整理&body=Check out this article: https://scolenchris.top/posts/8731d904.html"><i class="fa-solid fa-envelope fa-lg" aria-hidden="true"></i></a></li>
+  <li><a class="icon" target="_blank" rel="noopener" href="https://getpocket.com/save?url=https://scolenchris.top/posts/8731d904.html&title=微机原理整理"><i class="fab fa-get-pocket fa-lg" aria-hidden="true"></i></a></li>
+  <li><a class="icon" target="_blank" rel="noopener" href="http://reddit.com/submit?url=https://scolenchris.top/posts/8731d904.html&title=微机原理整理"><i class="fab fa-reddit fa-lg" aria-hidden="true"></i></a></li>
+  <li><a class="icon" target="_blank" rel="noopener" href="http://www.stumbleupon.com/submit?url=https://scolenchris.top/posts/8731d904.html&title=微机原理整理"><i class="fab fa-stumbleupon fa-lg" aria-hidden="true"></i></a></li>
+  <li><a class="icon" target="_blank" rel="noopener" href="http://digg.com/submit?url=https://scolenchris.top/posts/8731d904.html&title=微机原理整理"><i class="fab fa-digg fa-lg" aria-hidden="true"></i></a></li>
+  <li><a class="icon" target="_blank" rel="noopener" href="http://www.tumblr.com/share/link?url=https://scolenchris.top/posts/8731d904.html&name=微机原理整理&description="><i class="fab fa-tumblr fa-lg" aria-hidden="true"></i></a></li>
+  <li><a class="icon" target="_blank" rel="noopener" href="https://news.ycombinator.com/submitlink?u=https://scolenchris.top/posts/8731d904.html&t=微机原理整理"><i class="fab fa-hacker-news fa-lg" aria-hidden="true"></i></a></li>
 </ul>
 
     </div>
 
     <div id="actions-footer">
         <a id="menu" class="icon" href="#" onclick="$('#nav-footer').toggle();return false;"><i class="fa-solid fa-bars fa-lg" aria-hidden="true"></i> 菜单</a>
+        
+          <a id="toc" class="icon" href="#" onclick="$('#toc-footer').toggle();return false;"><i class="fa-solid fa-list fa-lg" aria-hidden="true"></i> 目录</a>
         
         <a id="share" class="icon" href="#" onclick="$('#share-footer').toggle();return false;"><i class="fa-solid fa-share-alt fa-lg" aria-hidden="true"></i> 分享</a>
         <a id="top" style="display:none" class="icon" href="#" onclick="$('html, body').animate({ scrollTop: 0 }, 'fast');"><i class="fa-solid fa-chevron-up fa-lg" aria-hidden="true"></i> 返回顶部</a>

@@ -6,15 +6,15 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="HandheldFriendly" content="True">
     <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=5" />
-    <meta name="description" content="1.2自动控制基本原理 人工控制与自动控制  操作人员完成控制——人工控制 自动控制模仿了人工控制 自动控制元件  给定元件 测量元件 比较元件 校正元件 执行元件    1.2.2开环控制与闭环控制  归为基本控制方式  1.开环控制系统  方块 表示系统中的功能元件 箭头有向线段 元件之间的输入输出传递方向 外部干扰较弱，精度要求不高场合 特征：没有反向的信号回传；抗干扰能力差；成本低  闭环">
+    <meta name="description" content="1.2自动控制基本原理人工控制与自动控制 操作人员完成控制——人工控制 自动控制模仿了人工控制 自动控制元件 给定元件 测量元件 比较元件 校正元件 执行元件1.2.2开环控制与闭环控制   归为基本控制方式1.开环控制系统 方块 表示系统中的功能元件 箭头有向线段 元件之间的输入输出传递方向 外部干扰较弱，精度要求不高场合 特征：没有反向的信号回传；抗干扰能力差；成本低闭环控制系统 信息在系统内">
 <meta property="og:type" content="article">
 <meta property="og:title" content="自动控制原理第一章">
 <meta property="og:url" content="https://scolenchris.top/posts/a48157de.html">
 <meta property="og:site_name" content="Chris">
-<meta property="og:description" content="1.2自动控制基本原理 人工控制与自动控制  操作人员完成控制——人工控制 自动控制模仿了人工控制 自动控制元件  给定元件 测量元件 比较元件 校正元件 执行元件    1.2.2开环控制与闭环控制  归为基本控制方式  1.开环控制系统  方块 表示系统中的功能元件 箭头有向线段 元件之间的输入输出传递方向 外部干扰较弱，精度要求不高场合 特征：没有反向的信号回传；抗干扰能力差；成本低  闭环">
+<meta property="og:description" content="1.2自动控制基本原理人工控制与自动控制 操作人员完成控制——人工控制 自动控制模仿了人工控制 自动控制元件 给定元件 测量元件 比较元件 校正元件 执行元件1.2.2开环控制与闭环控制   归为基本控制方式1.开环控制系统 方块 表示系统中的功能元件 箭头有向线段 元件之间的输入输出传递方向 外部干扰较弱，精度要求不高场合 特征：没有反向的信号回传；抗干扰能力差；成本低闭环控制系统 信息在系统内">
 <meta property="og:locale" content="zh_CN">
 <meta property="article:published_time" content="2024-04-30T20:15:16.000Z">
-<meta property="article:modified_time" content="2025-02-28T07:17:00.709Z">
+<meta property="article:modified_time" content="2025-02-28T07:46:54.944Z">
 <meta property="article:author" content="Chris">
 <meta property="article:tag" content="博客,scolen,chris,技术,生活,记录,life,code">
 <meta name="twitter:card" content="summary">
@@ -124,7 +124,7 @@
     
     
       <div id="toc">
-        <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link"><span class="toc-number">1.</span> <span class="toc-text">1.2自动控制基本原理</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#%E4%BA%BA%E5%B7%A5%E6%8E%A7%E5%88%B6%E4%B8%8E%E8%87%AA%E5%8A%A8%E6%8E%A7%E5%88%B6"><span class="toc-number">1.1.</span> <span class="toc-text">人工控制与自动控制</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#1-2-2%E5%BC%80%E7%8E%AF%E6%8E%A7%E5%88%B6%E4%B8%8E%E9%97%AD%E7%8E%AF%E6%8E%A7%E5%88%B6"><span class="toc-number">1.2.</span> <span class="toc-text">1.2.2开环控制与闭环控制</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#1-%E5%BC%80%E7%8E%AF%E6%8E%A7%E5%88%B6%E7%B3%BB%E7%BB%9F"><span class="toc-number">1.2.1.</span> <span class="toc-text">1.开环控制系统</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E9%97%AD%E7%8E%AF%E6%8E%A7%E5%88%B6%E7%B3%BB%E7%BB%9F"><span class="toc-number">1.2.2.</span> <span class="toc-text">闭环控制系统</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%8F%8D%E9%A6%88%E6%8E%A7%E5%88%B6%E7%B3%BB%E7%BB%9F%E7%9A%84%E5%9F%BA%E6%9C%AC%E8%A6%81%E6%B1%82"><span class="toc-number">1.3.</span> <span class="toc-text">反馈控制系统的基本要求</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#%E7%A8%B3%E5%AE%9A%E6%80%A7"><span class="toc-number">1.3.1.</span> <span class="toc-text">稳定性</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E5%BF%AB%E9%80%9F%E6%80%A7"><span class="toc-number">1.3.2.</span> <span class="toc-text">快速性</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E5%87%86%E7%A1%AE%E6%80%A7"><span class="toc-number">1.3.3.</span> <span class="toc-text">准确性</span></a></li></ol></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link"><span class="toc-number">2.</span> <span class="toc-text">反馈系统的组成</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#%E6%8C%89%E6%9E%84%E6%88%90%E7%B3%BB%E7%BB%9F%E7%9A%84%E5%9F%BA%E6%9C%AC%E5%85%83%E4%BB%B6%E5%88%92%E5%88%86"><span class="toc-number">2.1.</span> <span class="toc-text">按构成系统的基本元件划分</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E6%8C%89%E7%B3%BB%E7%BB%9F%E5%86%85%E9%83%A8%E5%9F%BA%E6%9C%AC%E5%8A%9F%E8%83%BD%E7%8E%AF%E8%8A%82%E5%88%92%E5%88%86"><span class="toc-number">2.2.</span> <span class="toc-text">按系统内部基本功能环节划分</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%B8%B8%E8%A7%81%E6%9C%AF%E8%AF%AD"><span class="toc-number">2.3.</span> <span class="toc-text">常见术语</span></a></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link"><span class="toc-number">3.</span> <span class="toc-text">控制系统分类</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#%E6%8C%89%E5%8F%82%E8%80%83%E8%BE%93%E5%85%A5%E4%BF%A1%E5%8F%B7%E7%89%B9%E5%BE%81%E5%88%86%E7%B1%BB"><span class="toc-number">3.1.</span> <span class="toc-text">按参考输入信号特征分类</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#%E6%81%92%E5%80%BC%E6%8E%A7%E5%88%B6%E7%B3%BB%E7%BB%9F"><span class="toc-number">3.1.1.</span> <span class="toc-text">恒值控制系统</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E9%9A%8F%E5%8A%A8%E6%8E%A7%E5%88%B6%E7%B3%BB%E7%BB%9F"><span class="toc-number">3.1.2.</span> <span class="toc-text">随动控制系统</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E7%A8%8B%E5%BA%8F%E6%8E%A7%E5%88%B6%E7%B3%BB%E7%BB%9F"><span class="toc-number">3.1.3.</span> <span class="toc-text">程序控制系统</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E6%8C%89%E7%B3%BB%E7%BB%9F%E7%8E%AF%E8%8A%82%E9%97%B4%E4%BF%A1%E5%8F%B7%E4%BC%A0%E9%80%92%E5%BD%A2%E5%BC%8F%E5%88%86%E7%B1%BB"><span class="toc-number">3.2.</span> <span class="toc-text">按系统环节间信号传递形式分类</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#%E8%BF%9E%E7%BB%AD%E6%97%B6%E9%97%B4%E6%8E%A7%E5%88%B6%E7%B3%BB%E7%BB%9F"><span class="toc-number">3.2.1.</span> <span class="toc-text">连续时间控制系统</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E7%A6%BB%E6%95%A3%E6%97%B6%E9%97%B4%E6%8E%A7%E5%88%B6%E7%B3%BB%E7%BB%9F"><span class="toc-number">3.2.2.</span> <span class="toc-text">离散时间控制系统</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E7%BD%91%E7%BB%9C%E5%8C%96%E6%8E%A7%E5%88%B6%E7%B3%BB%E7%BB%9F"><span class="toc-number">3.2.3.</span> <span class="toc-text">网络化控制系统</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E6%8C%89%E6%8F%8F%E8%BF%B0%E7%B3%BB%E7%BB%9F%E7%9A%84%E5%8A%A8%E6%80%81%E6%96%B9%E7%A8%8B%E5%88%86%E7%B1%BB"><span class="toc-number">3.3.</span> <span class="toc-text">按描述系统的动态方程分类</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#%E7%BA%BF%E6%80%A7%E7%B3%BB%E7%BB%9F"><span class="toc-number">3.3.1.</span> <span class="toc-text">线性系统</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E9%9D%9E%E7%BA%BF%E6%80%A7%E7%B3%BB%E7%BB%9F"><span class="toc-number">3.3.2.</span> <span class="toc-text">非线性系统</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E5%AE%9A%E5%B8%B8%E7%B3%BB%E7%BB%9F"><span class="toc-number">3.3.3.</span> <span class="toc-text">定常系统</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E6%97%B6%E5%8F%98%E7%B3%BB%E7%BB%9F"><span class="toc-number">3.3.4.</span> <span class="toc-text">时变系统</span></a></li></ol></li></ol></li></ol>
+        <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#1-2%E8%87%AA%E5%8A%A8%E6%8E%A7%E5%88%B6%E5%9F%BA%E6%9C%AC%E5%8E%9F%E7%90%86"><span class="toc-number">1.</span> <span class="toc-text">1.2自动控制基本原理</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#%E4%BA%BA%E5%B7%A5%E6%8E%A7%E5%88%B6%E4%B8%8E%E8%87%AA%E5%8A%A8%E6%8E%A7%E5%88%B6"><span class="toc-number">1.1.</span> <span class="toc-text">人工控制与自动控制</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#1-2-2%E5%BC%80%E7%8E%AF%E6%8E%A7%E5%88%B6%E4%B8%8E%E9%97%AD%E7%8E%AF%E6%8E%A7%E5%88%B6"><span class="toc-number">1.2.</span> <span class="toc-text">1.2.2开环控制与闭环控制</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#1-%E5%BC%80%E7%8E%AF%E6%8E%A7%E5%88%B6%E7%B3%BB%E7%BB%9F"><span class="toc-number">1.2.1.</span> <span class="toc-text">1.开环控制系统</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E9%97%AD%E7%8E%AF%E6%8E%A7%E5%88%B6%E7%B3%BB%E7%BB%9F"><span class="toc-number">1.2.2.</span> <span class="toc-text">闭环控制系统</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%8F%8D%E9%A6%88%E6%8E%A7%E5%88%B6%E7%B3%BB%E7%BB%9F%E7%9A%84%E5%9F%BA%E6%9C%AC%E8%A6%81%E6%B1%82"><span class="toc-number">1.3.</span> <span class="toc-text">反馈控制系统的基本要求</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#%E7%A8%B3%E5%AE%9A%E6%80%A7"><span class="toc-number">1.3.1.</span> <span class="toc-text">稳定性</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E5%BF%AB%E9%80%9F%E6%80%A7"><span class="toc-number">1.3.2.</span> <span class="toc-text">快速性</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E5%87%86%E7%A1%AE%E6%80%A7"><span class="toc-number">1.3.3.</span> <span class="toc-text">准确性</span></a></li></ol></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#%E5%8F%8D%E9%A6%88%E7%B3%BB%E7%BB%9F%E7%9A%84%E7%BB%84%E6%88%90"><span class="toc-number">2.</span> <span class="toc-text">反馈系统的组成</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#%E6%8C%89%E6%9E%84%E6%88%90%E7%B3%BB%E7%BB%9F%E7%9A%84%E5%9F%BA%E6%9C%AC%E5%85%83%E4%BB%B6%E5%88%92%E5%88%86"><span class="toc-number">2.1.</span> <span class="toc-text">按构成系统的基本元件划分</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E6%8C%89%E7%B3%BB%E7%BB%9F%E5%86%85%E9%83%A8%E5%9F%BA%E6%9C%AC%E5%8A%9F%E8%83%BD%E7%8E%AF%E8%8A%82%E5%88%92%E5%88%86"><span class="toc-number">2.2.</span> <span class="toc-text">按系统内部基本功能环节划分</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%B8%B8%E8%A7%81%E6%9C%AF%E8%AF%AD"><span class="toc-number">2.3.</span> <span class="toc-text">常见术语</span></a></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#%E6%8E%A7%E5%88%B6%E7%B3%BB%E7%BB%9F%E5%88%86%E7%B1%BB"><span class="toc-number">3.</span> <span class="toc-text">控制系统分类</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#%E6%8C%89%E5%8F%82%E8%80%83%E8%BE%93%E5%85%A5%E4%BF%A1%E5%8F%B7%E7%89%B9%E5%BE%81%E5%88%86%E7%B1%BB"><span class="toc-number">3.1.</span> <span class="toc-text">按参考输入信号特征分类</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#%E6%81%92%E5%80%BC%E6%8E%A7%E5%88%B6%E7%B3%BB%E7%BB%9F"><span class="toc-number">3.1.1.</span> <span class="toc-text">恒值控制系统</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E9%9A%8F%E5%8A%A8%E6%8E%A7%E5%88%B6%E7%B3%BB%E7%BB%9F"><span class="toc-number">3.1.2.</span> <span class="toc-text">随动控制系统</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E7%A8%8B%E5%BA%8F%E6%8E%A7%E5%88%B6%E7%B3%BB%E7%BB%9F"><span class="toc-number">3.1.3.</span> <span class="toc-text">程序控制系统</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E6%8C%89%E7%B3%BB%E7%BB%9F%E7%8E%AF%E8%8A%82%E9%97%B4%E4%BF%A1%E5%8F%B7%E4%BC%A0%E9%80%92%E5%BD%A2%E5%BC%8F%E5%88%86%E7%B1%BB"><span class="toc-number">3.2.</span> <span class="toc-text">按系统环节间信号传递形式分类</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#%E8%BF%9E%E7%BB%AD%E6%97%B6%E9%97%B4%E6%8E%A7%E5%88%B6%E7%B3%BB%E7%BB%9F"><span class="toc-number">3.2.1.</span> <span class="toc-text">连续时间控制系统</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E7%A6%BB%E6%95%A3%E6%97%B6%E9%97%B4%E6%8E%A7%E5%88%B6%E7%B3%BB%E7%BB%9F"><span class="toc-number">3.2.2.</span> <span class="toc-text">离散时间控制系统</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E7%BD%91%E7%BB%9C%E5%8C%96%E6%8E%A7%E5%88%B6%E7%B3%BB%E7%BB%9F"><span class="toc-number">3.2.3.</span> <span class="toc-text">网络化控制系统</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E6%8C%89%E6%8F%8F%E8%BF%B0%E7%B3%BB%E7%BB%9F%E7%9A%84%E5%8A%A8%E6%80%81%E6%96%B9%E7%A8%8B%E5%88%86%E7%B1%BB"><span class="toc-number">3.3.</span> <span class="toc-text">按描述系统的动态方程分类</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#%E7%BA%BF%E6%80%A7%E7%B3%BB%E7%BB%9F"><span class="toc-number">3.3.1.</span> <span class="toc-text">线性系统</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E9%9D%9E%E7%BA%BF%E6%80%A7%E7%B3%BB%E7%BB%9F"><span class="toc-number">3.3.2.</span> <span class="toc-text">非线性系统</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E5%AE%9A%E5%B8%B8%E7%B3%BB%E7%BB%9F"><span class="toc-number">3.3.3.</span> <span class="toc-text">定常系统</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E6%97%B6%E5%8F%98%E7%B3%BB%E7%BB%9F"><span class="toc-number">3.3.4.</span> <span class="toc-text">时变系统</span></a></li></ol></li></ol></li></ol>
       </div>
     
   </span>
@@ -164,133 +164,65 @@
   
 
   <div class="content e-content" itemprop="articleBody">
-    <h1>1.2自动控制基本原理</h1>
-<h2 id="人工控制与自动控制">人工控制与自动控制</h2>
-<ul>
+    <h1 id="1-2自动控制基本原理"><a href="#1-2自动控制基本原理" class="headerlink" title="1.2自动控制基本原理"></a>1.2自动控制基本原理</h1><h2 id="人工控制与自动控制"><a href="#人工控制与自动控制" class="headerlink" title="人工控制与自动控制"></a>人工控制与自动控制</h2><ul>
 <li>操作人员完成控制——人工控制</li>
 <li>自动控制模仿了人工控制</li>
-<li>自动控制元件
-<ul>
+<li>自动控制元件<ul>
 <li>给定元件</li>
 <li>测量元件</li>
 <li>比较元件</li>
 <li>校正元件</li>
-<li>执行元件</li>
+<li>执行元件<h2 id="1-2-2开环控制与闭环控制"><a href="#1-2-2开环控制与闭环控制" class="headerlink" title="1.2.2开环控制与闭环控制"></a>1.2.2开环控制与闭环控制</h2></li>
 </ul>
 </li>
-</ul>
-<h2 id="1-2-2开环控制与闭环控制">1.2.2开环控制与闭环控制</h2>
-<ul>
-<li>归为基本控制方式</li>
-</ul>
-<h3 id="1-开环控制系统">1.开环控制系统</h3>
-<ul>
+<li>归为基本控制方式<h3 id="1-开环控制系统"><a href="#1-开环控制系统" class="headerlink" title="1.开环控制系统"></a>1.开环控制系统</h3></li>
 <li>方块 表示系统中的功能元件</li>
 <li>箭头有向线段 元件之间的输入输出传递方向</li>
 <li>外部干扰较弱，精度要求不高场合</li>
-<li>特征：没有反向的信号回传；抗干扰能力差；成本低</li>
-</ul>
-<h3 id="闭环控制系统">闭环控制系统</h3>
-<ul>
+<li>特征：没有反向的信号回传；抗干扰能力差；成本低<h3 id="闭环控制系统"><a href="#闭环控制系统" class="headerlink" title="闭环控制系统"></a>闭环控制系统</h3></li>
 <li>信息在系统内的传递形成了闭合环路</li>
-<li>通道
-<ul>
+<li>通道<ul>
 <li>前向通道：信号从输入到输出方向传递的通路</li>
 <li>反馈通道：输出到输入</li>
 </ul>
 </li>
 <li>闭环控制系统利用反馈信号获得比较偏差来产生控制作用，故也称为反馈控制系统。</li>
 <li>内部参数精度没有这么高；增加了反馈元件和比较元件；结构比较复杂，搞不好会震荡</li>
-<li>系统是自动控制还是手动控制与系统是开环还是闭环<strong>无关</strong>。</li>
-</ul>
-<h2 id="反馈控制系统的基本要求">反馈控制系统的基本要求</h2>
-<h3 id="稳定性">稳定性</h3>
-<ul>
+<li>系统是自动控制还是手动控制与系统是开环还是闭环<strong>无关</strong>。<h2 id="反馈控制系统的基本要求"><a href="#反馈控制系统的基本要求" class="headerlink" title="反馈控制系统的基本要求"></a>反馈控制系统的基本要求</h2><h3 id="稳定性"><a href="#稳定性" class="headerlink" title="稳定性"></a>稳定性</h3></li>
 <li>稳定性是指系统受扰动后<strong>重新恢复平衡</strong>的能力</li>
-<li>稳定是衰减过程，等幅振荡（临界稳定过程）；不稳定为发散过程</li>
-</ul>
-<h3 id="快速性">快速性</h3>
-<ul>
+<li>稳定是衰减过程，等幅振荡（临界稳定过程）；不稳定为发散过程<h3 id="快速性"><a href="#快速性" class="headerlink" title="快速性"></a>快速性</h3></li>
 <li>稳定的系统对平衡状态的<strong>恢复或跟随</strong>的速度</li>
-<li>影响因素
-<ul>
+<li>影响因素<ul>
 <li>扰动</li>
-<li>任务需要改变平衡状态</li>
+<li>任务需要改变平衡状态<h3 id="准确性"><a href="#准确性" class="headerlink" title="准确性"></a>准确性</h3></li>
 </ul>
 </li>
-</ul>
-<h3 id="准确性">准确性</h3>
-<ul>
 <li>跟随期待量的能力</li>
-<li>系统输出量的期望值与实际值之差称为稳态误差，越小稳态精度越高；为零就是无差系统，不为零就是有差系统</li>
-</ul>
-<h1>反馈系统的组成</h1>
-<h2 id="按构成系统的基本元件划分">按构成系统的基本元件划分</h2>
-<ul>
+<li>系统输出量的期望值与实际值之差称为稳态误差，越小稳态精度越高；为零就是无差系统，不为零就是有差系统<h1 id="反馈系统的组成"><a href="#反馈系统的组成" class="headerlink" title="反馈系统的组成"></a>反馈系统的组成</h1><h2 id="按构成系统的基本元件划分"><a href="#按构成系统的基本元件划分" class="headerlink" title="按构成系统的基本元件划分"></a>按构成系统的基本元件划分</h2></li>
 <li>测量元件：测量，量纲转换</li>
 <li>比较元件：形成偏差</li>
 <li>校正元件：基于偏差产生控制命令</li>
 <li>执行元件：执行控制命令</li>
 <li>放大元件：对信号家乡放大</li>
-<li>被控对象：受控对象</li>
-</ul>
-<h2 id="按系统内部基本功能环节划分">按系统内部基本功能环节划分</h2>
-<ul>
+<li>被控对象：受控对象<h2 id="按系统内部基本功能环节划分"><a href="#按系统内部基本功能环节划分" class="headerlink" title="按系统内部基本功能环节划分"></a>按系统内部基本功能环节划分</h2></li>
 <li>传感器：测量</li>
 <li>控制器：产生执行的控制信号</li>
 <li>执行机构：执行器，控制/调节被控过程</li>
-<li>被控对象：被控过程</li>
-</ul>
-<h2 id="常见术语">常见术语</h2>
-<ul>
-<li>p11 略</li>
-</ul>
-<h1>控制系统分类</h1>
-<h2 id="按参考输入信号特征分类">按参考输入信号特征分类</h2>
-<h3 id="恒值控制系统">恒值控制系统</h3>
-<ul>
-<li>输入信号恒定</li>
-</ul>
-<h3 id="随动控制系统">随动控制系统</h3>
-<ul>
+<li>被控对象：被控过程<h2 id="常见术语"><a href="#常见术语" class="headerlink" title="常见术语"></a>常见术语</h2></li>
+<li>p11 略<h1 id="控制系统分类"><a href="#控制系统分类" class="headerlink" title="控制系统分类"></a>控制系统分类</h1><h2 id="按参考输入信号特征分类"><a href="#按参考输入信号特征分类" class="headerlink" title="按参考输入信号特征分类"></a>按参考输入信号特征分类</h2><h3 id="恒值控制系统"><a href="#恒值控制系统" class="headerlink" title="恒值控制系统"></a>恒值控制系统</h3></li>
+<li>输入信号恒定<h3 id="随动控制系统"><a href="#随动控制系统" class="headerlink" title="随动控制系统"></a>随动控制系统</h3></li>
 <li>伺服系统</li>
-<li>参考输入信号为预先未知的函数</li>
-</ul>
-<h3 id="程序控制系统">程序控制系统</h3>
-<ul>
-<li>参考输入信号是预先设定的函数曲线</li>
-</ul>
-<h2 id="按系统环节间信号传递形式分类">按系统环节间信号传递形式分类</h2>
-<h3 id="连续时间控制系统">连续时间控制系统</h3>
-<ul>
-<li>环节间的信号传递为t的连续函数</li>
-</ul>
-<h3 id="离散时间控制系统">离散时间控制系统</h3>
-<ul>
+<li>参考输入信号为预先未知的函数<h3 id="程序控制系统"><a href="#程序控制系统" class="headerlink" title="程序控制系统"></a>程序控制系统</h3></li>
+<li>参考输入信号是预先设定的函数曲线<h2 id="按系统环节间信号传递形式分类"><a href="#按系统环节间信号传递形式分类" class="headerlink" title="按系统环节间信号传递形式分类"></a>按系统环节间信号传递形式分类</h2><h3 id="连续时间控制系统"><a href="#连续时间控制系统" class="headerlink" title="连续时间控制系统"></a>连续时间控制系统</h3></li>
+<li>环节间的信号传递为t的连续函数<h3 id="离散时间控制系统"><a href="#离散时间控制系统" class="headerlink" title="离散时间控制系统"></a>离散时间控制系统</h3></li>
 <li>脉冲序列/数字编码序列形式</li>
 <li>差分方程描述</li>
-<li>控制器输入输出为数字量，A/D</li>
-</ul>
-<h3 id="网络化控制系统">网络化控制系统</h3>
-<ul>
-<li>不连续信号——一个个包含数据和网络控制信息的数据包</li>
-</ul>
-<h2 id="按描述系统的动态方程分类">按描述系统的动态方程分类</h2>
-<h3 id="线性系统">线性系统</h3>
-<ul>
-<li>满足线性叠加原理</li>
-</ul>
-<h3 id="非线性系统">非线性系统</h3>
-<ul>
-<li>非线性微分方程</li>
-</ul>
-<h3 id="定常系统">定常系统</h3>
-<ul>
+<li>控制器输入输出为数字量，A/D<h3 id="网络化控制系统"><a href="#网络化控制系统" class="headerlink" title="网络化控制系统"></a>网络化控制系统</h3></li>
+<li>不连续信号——一个个包含数据和网络控制信息的数据包<h2 id="按描述系统的动态方程分类"><a href="#按描述系统的动态方程分类" class="headerlink" title="按描述系统的动态方程分类"></a>按描述系统的动态方程分类</h2><h3 id="线性系统"><a href="#线性系统" class="headerlink" title="线性系统"></a>线性系统</h3></li>
+<li>满足线性叠加原理<h3 id="非线性系统"><a href="#非线性系统" class="headerlink" title="非线性系统"></a>非线性系统</h3></li>
+<li>非线性微分方程<h3 id="定常系统"><a href="#定常系统" class="headerlink" title="定常系统"></a>定常系统</h3></li>
 <li>定常微分方程</li>
-<li>时不变系统</li>
-</ul>
-<h3 id="时变系统">时变系统</h3>
-<ul>
+<li>时不变系统<h3 id="时变系统"><a href="#时变系统" class="headerlink" title="时变系统"></a>时变系统</h3></li>
 <li>微分方程描述</li>
 </ul>
 
@@ -320,7 +252,7 @@
     
     
       <div id="toc-footer" style="display: none">
-        <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link"><span class="toc-number">1.</span> <span class="toc-text">1.2自动控制基本原理</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#%E4%BA%BA%E5%B7%A5%E6%8E%A7%E5%88%B6%E4%B8%8E%E8%87%AA%E5%8A%A8%E6%8E%A7%E5%88%B6"><span class="toc-number">1.1.</span> <span class="toc-text">人工控制与自动控制</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#1-2-2%E5%BC%80%E7%8E%AF%E6%8E%A7%E5%88%B6%E4%B8%8E%E9%97%AD%E7%8E%AF%E6%8E%A7%E5%88%B6"><span class="toc-number">1.2.</span> <span class="toc-text">1.2.2开环控制与闭环控制</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#1-%E5%BC%80%E7%8E%AF%E6%8E%A7%E5%88%B6%E7%B3%BB%E7%BB%9F"><span class="toc-number">1.2.1.</span> <span class="toc-text">1.开环控制系统</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E9%97%AD%E7%8E%AF%E6%8E%A7%E5%88%B6%E7%B3%BB%E7%BB%9F"><span class="toc-number">1.2.2.</span> <span class="toc-text">闭环控制系统</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%8F%8D%E9%A6%88%E6%8E%A7%E5%88%B6%E7%B3%BB%E7%BB%9F%E7%9A%84%E5%9F%BA%E6%9C%AC%E8%A6%81%E6%B1%82"><span class="toc-number">1.3.</span> <span class="toc-text">反馈控制系统的基本要求</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#%E7%A8%B3%E5%AE%9A%E6%80%A7"><span class="toc-number">1.3.1.</span> <span class="toc-text">稳定性</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E5%BF%AB%E9%80%9F%E6%80%A7"><span class="toc-number">1.3.2.</span> <span class="toc-text">快速性</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E5%87%86%E7%A1%AE%E6%80%A7"><span class="toc-number">1.3.3.</span> <span class="toc-text">准确性</span></a></li></ol></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link"><span class="toc-number">2.</span> <span class="toc-text">反馈系统的组成</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#%E6%8C%89%E6%9E%84%E6%88%90%E7%B3%BB%E7%BB%9F%E7%9A%84%E5%9F%BA%E6%9C%AC%E5%85%83%E4%BB%B6%E5%88%92%E5%88%86"><span class="toc-number">2.1.</span> <span class="toc-text">按构成系统的基本元件划分</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E6%8C%89%E7%B3%BB%E7%BB%9F%E5%86%85%E9%83%A8%E5%9F%BA%E6%9C%AC%E5%8A%9F%E8%83%BD%E7%8E%AF%E8%8A%82%E5%88%92%E5%88%86"><span class="toc-number">2.2.</span> <span class="toc-text">按系统内部基本功能环节划分</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%B8%B8%E8%A7%81%E6%9C%AF%E8%AF%AD"><span class="toc-number">2.3.</span> <span class="toc-text">常见术语</span></a></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link"><span class="toc-number">3.</span> <span class="toc-text">控制系统分类</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#%E6%8C%89%E5%8F%82%E8%80%83%E8%BE%93%E5%85%A5%E4%BF%A1%E5%8F%B7%E7%89%B9%E5%BE%81%E5%88%86%E7%B1%BB"><span class="toc-number">3.1.</span> <span class="toc-text">按参考输入信号特征分类</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#%E6%81%92%E5%80%BC%E6%8E%A7%E5%88%B6%E7%B3%BB%E7%BB%9F"><span class="toc-number">3.1.1.</span> <span class="toc-text">恒值控制系统</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E9%9A%8F%E5%8A%A8%E6%8E%A7%E5%88%B6%E7%B3%BB%E7%BB%9F"><span class="toc-number">3.1.2.</span> <span class="toc-text">随动控制系统</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E7%A8%8B%E5%BA%8F%E6%8E%A7%E5%88%B6%E7%B3%BB%E7%BB%9F"><span class="toc-number">3.1.3.</span> <span class="toc-text">程序控制系统</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E6%8C%89%E7%B3%BB%E7%BB%9F%E7%8E%AF%E8%8A%82%E9%97%B4%E4%BF%A1%E5%8F%B7%E4%BC%A0%E9%80%92%E5%BD%A2%E5%BC%8F%E5%88%86%E7%B1%BB"><span class="toc-number">3.2.</span> <span class="toc-text">按系统环节间信号传递形式分类</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#%E8%BF%9E%E7%BB%AD%E6%97%B6%E9%97%B4%E6%8E%A7%E5%88%B6%E7%B3%BB%E7%BB%9F"><span class="toc-number">3.2.1.</span> <span class="toc-text">连续时间控制系统</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E7%A6%BB%E6%95%A3%E6%97%B6%E9%97%B4%E6%8E%A7%E5%88%B6%E7%B3%BB%E7%BB%9F"><span class="toc-number">3.2.2.</span> <span class="toc-text">离散时间控制系统</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E7%BD%91%E7%BB%9C%E5%8C%96%E6%8E%A7%E5%88%B6%E7%B3%BB%E7%BB%9F"><span class="toc-number">3.2.3.</span> <span class="toc-text">网络化控制系统</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E6%8C%89%E6%8F%8F%E8%BF%B0%E7%B3%BB%E7%BB%9F%E7%9A%84%E5%8A%A8%E6%80%81%E6%96%B9%E7%A8%8B%E5%88%86%E7%B1%BB"><span class="toc-number">3.3.</span> <span class="toc-text">按描述系统的动态方程分类</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#%E7%BA%BF%E6%80%A7%E7%B3%BB%E7%BB%9F"><span class="toc-number">3.3.1.</span> <span class="toc-text">线性系统</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E9%9D%9E%E7%BA%BF%E6%80%A7%E7%B3%BB%E7%BB%9F"><span class="toc-number">3.3.2.</span> <span class="toc-text">非线性系统</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E5%AE%9A%E5%B8%B8%E7%B3%BB%E7%BB%9F"><span class="toc-number">3.3.3.</span> <span class="toc-text">定常系统</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E6%97%B6%E5%8F%98%E7%B3%BB%E7%BB%9F"><span class="toc-number">3.3.4.</span> <span class="toc-text">时变系统</span></a></li></ol></li></ol></li></ol>
+        <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#1-2%E8%87%AA%E5%8A%A8%E6%8E%A7%E5%88%B6%E5%9F%BA%E6%9C%AC%E5%8E%9F%E7%90%86"><span class="toc-number">1.</span> <span class="toc-text">1.2自动控制基本原理</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#%E4%BA%BA%E5%B7%A5%E6%8E%A7%E5%88%B6%E4%B8%8E%E8%87%AA%E5%8A%A8%E6%8E%A7%E5%88%B6"><span class="toc-number">1.1.</span> <span class="toc-text">人工控制与自动控制</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#1-2-2%E5%BC%80%E7%8E%AF%E6%8E%A7%E5%88%B6%E4%B8%8E%E9%97%AD%E7%8E%AF%E6%8E%A7%E5%88%B6"><span class="toc-number">1.2.</span> <span class="toc-text">1.2.2开环控制与闭环控制</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#1-%E5%BC%80%E7%8E%AF%E6%8E%A7%E5%88%B6%E7%B3%BB%E7%BB%9F"><span class="toc-number">1.2.1.</span> <span class="toc-text">1.开环控制系统</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E9%97%AD%E7%8E%AF%E6%8E%A7%E5%88%B6%E7%B3%BB%E7%BB%9F"><span class="toc-number">1.2.2.</span> <span class="toc-text">闭环控制系统</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%8F%8D%E9%A6%88%E6%8E%A7%E5%88%B6%E7%B3%BB%E7%BB%9F%E7%9A%84%E5%9F%BA%E6%9C%AC%E8%A6%81%E6%B1%82"><span class="toc-number">1.3.</span> <span class="toc-text">反馈控制系统的基本要求</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#%E7%A8%B3%E5%AE%9A%E6%80%A7"><span class="toc-number">1.3.1.</span> <span class="toc-text">稳定性</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E5%BF%AB%E9%80%9F%E6%80%A7"><span class="toc-number">1.3.2.</span> <span class="toc-text">快速性</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E5%87%86%E7%A1%AE%E6%80%A7"><span class="toc-number">1.3.3.</span> <span class="toc-text">准确性</span></a></li></ol></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#%E5%8F%8D%E9%A6%88%E7%B3%BB%E7%BB%9F%E7%9A%84%E7%BB%84%E6%88%90"><span class="toc-number">2.</span> <span class="toc-text">反馈系统的组成</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#%E6%8C%89%E6%9E%84%E6%88%90%E7%B3%BB%E7%BB%9F%E7%9A%84%E5%9F%BA%E6%9C%AC%E5%85%83%E4%BB%B6%E5%88%92%E5%88%86"><span class="toc-number">2.1.</span> <span class="toc-text">按构成系统的基本元件划分</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E6%8C%89%E7%B3%BB%E7%BB%9F%E5%86%85%E9%83%A8%E5%9F%BA%E6%9C%AC%E5%8A%9F%E8%83%BD%E7%8E%AF%E8%8A%82%E5%88%92%E5%88%86"><span class="toc-number">2.2.</span> <span class="toc-text">按系统内部基本功能环节划分</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%B8%B8%E8%A7%81%E6%9C%AF%E8%AF%AD"><span class="toc-number">2.3.</span> <span class="toc-text">常见术语</span></a></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#%E6%8E%A7%E5%88%B6%E7%B3%BB%E7%BB%9F%E5%88%86%E7%B1%BB"><span class="toc-number">3.</span> <span class="toc-text">控制系统分类</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#%E6%8C%89%E5%8F%82%E8%80%83%E8%BE%93%E5%85%A5%E4%BF%A1%E5%8F%B7%E7%89%B9%E5%BE%81%E5%88%86%E7%B1%BB"><span class="toc-number">3.1.</span> <span class="toc-text">按参考输入信号特征分类</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#%E6%81%92%E5%80%BC%E6%8E%A7%E5%88%B6%E7%B3%BB%E7%BB%9F"><span class="toc-number">3.1.1.</span> <span class="toc-text">恒值控制系统</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E9%9A%8F%E5%8A%A8%E6%8E%A7%E5%88%B6%E7%B3%BB%E7%BB%9F"><span class="toc-number">3.1.2.</span> <span class="toc-text">随动控制系统</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E7%A8%8B%E5%BA%8F%E6%8E%A7%E5%88%B6%E7%B3%BB%E7%BB%9F"><span class="toc-number">3.1.3.</span> <span class="toc-text">程序控制系统</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E6%8C%89%E7%B3%BB%E7%BB%9F%E7%8E%AF%E8%8A%82%E9%97%B4%E4%BF%A1%E5%8F%B7%E4%BC%A0%E9%80%92%E5%BD%A2%E5%BC%8F%E5%88%86%E7%B1%BB"><span class="toc-number">3.2.</span> <span class="toc-text">按系统环节间信号传递形式分类</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#%E8%BF%9E%E7%BB%AD%E6%97%B6%E9%97%B4%E6%8E%A7%E5%88%B6%E7%B3%BB%E7%BB%9F"><span class="toc-number">3.2.1.</span> <span class="toc-text">连续时间控制系统</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E7%A6%BB%E6%95%A3%E6%97%B6%E9%97%B4%E6%8E%A7%E5%88%B6%E7%B3%BB%E7%BB%9F"><span class="toc-number">3.2.2.</span> <span class="toc-text">离散时间控制系统</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E7%BD%91%E7%BB%9C%E5%8C%96%E6%8E%A7%E5%88%B6%E7%B3%BB%E7%BB%9F"><span class="toc-number">3.2.3.</span> <span class="toc-text">网络化控制系统</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E6%8C%89%E6%8F%8F%E8%BF%B0%E7%B3%BB%E7%BB%9F%E7%9A%84%E5%8A%A8%E6%80%81%E6%96%B9%E7%A8%8B%E5%88%86%E7%B1%BB"><span class="toc-number">3.3.</span> <span class="toc-text">按描述系统的动态方程分类</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#%E7%BA%BF%E6%80%A7%E7%B3%BB%E7%BB%9F"><span class="toc-number">3.3.1.</span> <span class="toc-text">线性系统</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E9%9D%9E%E7%BA%BF%E6%80%A7%E7%B3%BB%E7%BB%9F"><span class="toc-number">3.3.2.</span> <span class="toc-text">非线性系统</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E5%AE%9A%E5%B8%B8%E7%B3%BB%E7%BB%9F"><span class="toc-number">3.3.3.</span> <span class="toc-text">定常系统</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E6%97%B6%E5%8F%98%E7%B3%BB%E7%BB%9F"><span class="toc-number">3.3.4.</span> <span class="toc-text">时变系统</span></a></li></ol></li></ol></li></ol>
       </div>
     
 
