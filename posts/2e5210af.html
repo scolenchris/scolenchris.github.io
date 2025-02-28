@@ -6,12 +6,12 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="HandheldFriendly" content="True">
     <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=5" />
-    <meta name="description" content="- Date:2023-05-22 Time:22:17 Subject: 自动化 Tags: #51 单片机[[2023-05]]   直流电机介绍 直流电机是一种将电能转换为机械能的装置。一般的直流电机有两个电极，当电极正接时，电机正转，当电极反接时，电机反转 直流电机主要由永磁体（定子）、线圈（转子）和换向器组成 除直流电机外，常见的电机还有步进电机、舵机、无刷电机、空心杯电机等  电机驱动">
+    <meta name="description" content="- Date:2023-05-22  Time:22:17 Subject: 自动化 Tags: #51 单片机 [[2023-05]]   直流电机介绍  直流电机是一种将电能转换为机械能的装置。一般的直流电机有两个电极，当电极正接时，电机正转，当电极反接时，电机反转 直流电机主要由永磁体（定子）、线圈（转子）和换向器组成 除直流电机外，常见的电机还有步进电机、舵机、无刷电机、空心杯电机等  电">
 <meta property="og:type" content="article">
 <meta property="og:title" content="51单片机知识归档">
 <meta property="og:url" content="https://scolenchris.top/posts/2e5210af.html">
 <meta property="og:site_name" content="Chris">
-<meta property="og:description" content="- Date:2023-05-22 Time:22:17 Subject: 自动化 Tags: #51 单片机[[2023-05]]   直流电机介绍 直流电机是一种将电能转换为机械能的装置。一般的直流电机有两个电极，当电极正接时，电机正转，当电极反接时，电机反转 直流电机主要由永磁体（定子）、线圈（转子）和换向器组成 除直流电机外，常见的电机还有步进电机、舵机、无刷电机、空心杯电机等  电机驱动">
+<meta property="og:description" content="- Date:2023-05-22  Time:22:17 Subject: 自动化 Tags: #51 单片机 [[2023-05]]   直流电机介绍  直流电机是一种将电能转换为机械能的装置。一般的直流电机有两个电极，当电极正接时，电机正转，当电极反接时，电机反转 直流电机主要由永磁体（定子）、线圈（转子）和换向器组成 除直流电机外，常见的电机还有步进电机、舵机、无刷电机、空心杯电机等  电">
 <meta property="og:locale" content="zh_CN">
 <meta property="og:image" content="https://pic-chris.oss-cn-guangzhou.aliyuncs.com/img/202407030937135.png">
 <meta property="og:image" content="https://pic-chris.oss-cn-guangzhou.aliyuncs.com/img/202407030937136.png">
@@ -53,7 +53,7 @@
 <meta property="og:image" content="https://pic-chris.oss-cn-guangzhou.aliyuncs.com/img/202407030937219.png">
 <meta property="og:image" content="https://pic-chris.oss-cn-guangzhou.aliyuncs.com/img/202407030937220.png">
 <meta property="article:published_time" content="2024-07-03T09:53:55.000Z">
-<meta property="article:modified_time" content="2025-02-28T07:46:54.943Z">
+<meta property="article:modified_time" content="2025-02-28T07:54:48.128Z">
 <meta property="article:author" content="Chris">
 <meta property="article:tag" content="博客,scolen,chris,技术,生活,记录,life,code">
 <meta name="twitter:card" content="summary">
@@ -164,7 +164,7 @@
     
     
       <div id="toc">
-        <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#Date-2023-05-22"><span class="toc-number">1.</span> <span class="toc-text">- Date:2023-05-22</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#%E7%9B%B4%E6%B5%81%E7%94%B5%E6%9C%BA%E4%BB%8B%E7%BB%8D"><span class="toc-number">1.1.</span> <span class="toc-text">直流电机介绍</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E7%94%B5%E6%9C%BA%E9%A9%B1%E5%8A%A8%E7%94%B5%E8%B7%AF"><span class="toc-number">1.2.</span> <span class="toc-text">电机驱动电路</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#PWM"><span class="toc-number">1.3.</span> <span class="toc-text">PWM</span></a></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#Date-2023-04-29"><span class="toc-number">2.</span> <span class="toc-text">- Date:2023-04-29</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#%E7%94%B5%E5%B9%B3%E6%A0%87%E5%87%86"><span class="toc-number">2.1.</span> <span class="toc-text">电平标准</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E7%94%B5%E8%B7%AF"><span class="toc-number">2.2.</span> <span class="toc-text">电路</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E9%80%9A%E4%BF%A1%E6%8E%A5%E5%8F%A3%E6%AF%94%E8%BE%83"><span class="toc-number">2.3.</span> <span class="toc-text">通信接口比较</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E7%9B%B8%E5%85%B3%E6%9C%AF%E8%AF%AD"><span class="toc-number">2.4.</span> <span class="toc-text">相关术语</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#51-%E5%8D%95%E7%89%87%E6%9C%BA%E7%9A%84-uart"><span class="toc-number">2.5.</span> <span class="toc-text">51 单片机的 uart</span></a></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#Date-2023-04-29-1"><span class="toc-number">3.</span> <span class="toc-text">- Date:2023-04-29</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#%E4%BB%8B%E7%BB%8D"><span class="toc-number">3.1.</span> <span class="toc-text">介绍</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%B8%B8%E8%A7%81%E6%9C%AF%E8%AF%AD"><span class="toc-number">3.2.</span> <span class="toc-text">常见术语</span></a></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#Date-2023-04-29-2"><span class="toc-number">4.</span> <span class="toc-text">- Date:2023-04-29</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%AE%9A%E6%97%B6%E5%99%A8%E6%A1%86%E6%9E%B6"><span class="toc-number">4.1.</span> <span class="toc-text">定时器框架</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%B7%A5%E4%BD%9C%E6%A8%A1%E5%BC%8F"><span class="toc-number">4.2.</span> <span class="toc-text">工作模式</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E4%B8%AD%E6%96%AD%E7%B3%BB%E7%BB%9F"><span class="toc-number">4.3.</span> <span class="toc-text">中断系统</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%AE%9A%E6%97%B6%E5%99%A8%E7%9B%B8%E5%85%B3%E5%AF%84%E5%AD%98%E5%99%A8"><span class="toc-number">4.4.</span> <span class="toc-text">定时器相关寄存器</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E8%AE%BE%E7%BD%AE"><span class="toc-number">4.5.</span> <span class="toc-text">设置</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E9%A9%B1%E5%8A%A8%E7%94%B5%E8%B7%AF"><span class="toc-number">4.6.</span> <span class="toc-text">驱动电路</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#ULN2003"><span class="toc-number">4.7.</span> <span class="toc-text">ULN2003</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E4%B9%90%E7%90%86%E9%83%A8%E5%88%86"><span class="toc-number">4.8.</span> <span class="toc-text">乐理部分</span></a></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#Date-2023-05-18"><span class="toc-number">5.</span> <span class="toc-text">- Date:2023-05-18</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#AT24C02"><span class="toc-number">5.1.</span> <span class="toc-text">AT24C02</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%86%85%E9%83%A8%E7%BB%93%E6%9E%84%E6%A1%86%E5%9B%BE"><span class="toc-number">5.2.</span> <span class="toc-text">内部结构框图</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#I2C-%E6%80%BB%E7%BA%BF%EF%BC%88i-%E6%96%B9-c%EF%BC%89"><span class="toc-number">5.3.</span> <span class="toc-text">I2C 总线（i 方 c）</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#I2C-%E7%94%B5%E8%B7%AF%E8%A7%84%E8%8C%83"><span class="toc-number">5.4.</span> <span class="toc-text">I2C 电路规范</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#I2C-%E6%97%B6%E5%BA%8F%E7%BB%93%E6%9E%84"><span class="toc-number">5.5.</span> <span class="toc-text">I2C 时序结构</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#I2C-%E6%95%B0%E6%8D%AE%E5%B8%A7"><span class="toc-number">5.6.</span> <span class="toc-text">I2C 数据帧</span></a></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#Date-2023-04-29-3"><span class="toc-number">6.</span> <span class="toc-text">- Date:2023-04-29</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#%E7%94%B5%E8%B7%AF-1"><span class="toc-number">6.1.</span> <span class="toc-text">电路</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%AF%84%E5%AD%98%E5%99%A8"><span class="toc-number">6.2.</span> <span class="toc-text">寄存器</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E6%97%B6%E5%BA%8F%E5%AE%9A%E4%B9%89"><span class="toc-number">6.3.</span> <span class="toc-text">时序定义</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#bcd-%E7%A0%81"><span class="toc-number">6.4.</span> <span class="toc-text">bcd 码</span></a></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#Date-2023-04-29-4"><span class="toc-number">7.</span> <span class="toc-text">- Date:2023-04-29</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#74HC595"><span class="toc-number">7.1.</span> <span class="toc-text">74HC595</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#srf-sbit"><span class="toc-number">7.2.</span> <span class="toc-text">srf sbit</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E4%BB%A3%E7%A0%81%E4%B9%A0%E6%83%AF"><span class="toc-number">7.3.</span> <span class="toc-text">代码习惯</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E6%9C%AF%E8%AF%AD"><span class="toc-number">7.4.</span> <span class="toc-text">术语</span></a></li></ol></li></ol>
+        <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link"><span class="toc-number">1.</span> <span class="toc-text">- Date:2023-05-22</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#%E7%9B%B4%E6%B5%81%E7%94%B5%E6%9C%BA%E4%BB%8B%E7%BB%8D"><span class="toc-number">1.1.</span> <span class="toc-text">直流电机介绍</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E7%94%B5%E6%9C%BA%E9%A9%B1%E5%8A%A8%E7%94%B5%E8%B7%AF"><span class="toc-number">1.2.</span> <span class="toc-text">电机驱动电路</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#PWM"><span class="toc-number">1.3.</span> <span class="toc-text">PWM</span></a></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link"><span class="toc-number">2.</span> <span class="toc-text">- Date:2023-04-29</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#%E7%94%B5%E5%B9%B3%E6%A0%87%E5%87%86"><span class="toc-number">2.1.</span> <span class="toc-text">电平标准</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E7%94%B5%E8%B7%AF"><span class="toc-number">2.2.</span> <span class="toc-text">电路</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E9%80%9A%E4%BF%A1%E6%8E%A5%E5%8F%A3%E6%AF%94%E8%BE%83"><span class="toc-number">2.3.</span> <span class="toc-text">通信接口比较</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E7%9B%B8%E5%85%B3%E6%9C%AF%E8%AF%AD"><span class="toc-number">2.4.</span> <span class="toc-text">相关术语</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#51-%E5%8D%95%E7%89%87%E6%9C%BA%E7%9A%84-uart"><span class="toc-number">2.5.</span> <span class="toc-text">51 单片机的 uart</span></a></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link"><span class="toc-number">3.</span> <span class="toc-text">- Date:2023-04-29</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#%E4%BB%8B%E7%BB%8D"><span class="toc-number">3.1.</span> <span class="toc-text">介绍</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%B8%B8%E8%A7%81%E6%9C%AF%E8%AF%AD"><span class="toc-number">3.2.</span> <span class="toc-text">常见术语</span></a></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link"><span class="toc-number">4.</span> <span class="toc-text">- Date:2023-04-29</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%AE%9A%E6%97%B6%E5%99%A8%E6%A1%86%E6%9E%B6"><span class="toc-number">4.1.</span> <span class="toc-text">定时器框架</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%B7%A5%E4%BD%9C%E6%A8%A1%E5%BC%8F"><span class="toc-number">4.2.</span> <span class="toc-text">工作模式</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E4%B8%AD%E6%96%AD%E7%B3%BB%E7%BB%9F"><span class="toc-number">4.3.</span> <span class="toc-text">中断系统</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%AE%9A%E6%97%B6%E5%99%A8%E7%9B%B8%E5%85%B3%E5%AF%84%E5%AD%98%E5%99%A8"><span class="toc-number">4.4.</span> <span class="toc-text">定时器相关寄存器</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E8%AE%BE%E7%BD%AE"><span class="toc-number">4.5.</span> <span class="toc-text">设置</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E9%A9%B1%E5%8A%A8%E7%94%B5%E8%B7%AF"><span class="toc-number">4.6.</span> <span class="toc-text">驱动电路</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#ULN2003"><span class="toc-number">4.7.</span> <span class="toc-text">ULN2003</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E4%B9%90%E7%90%86%E9%83%A8%E5%88%86"><span class="toc-number">4.8.</span> <span class="toc-text">乐理部分</span></a></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link"><span class="toc-number">5.</span> <span class="toc-text">- Date:2023-05-18</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#AT24C02"><span class="toc-number">5.1.</span> <span class="toc-text">AT24C02</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%86%85%E9%83%A8%E7%BB%93%E6%9E%84%E6%A1%86%E5%9B%BE"><span class="toc-number">5.2.</span> <span class="toc-text">内部结构框图</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#I2C-%E6%80%BB%E7%BA%BF%EF%BC%88i-%E6%96%B9-c%EF%BC%89"><span class="toc-number">5.3.</span> <span class="toc-text">I2C 总线（i 方 c）</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#I2C-%E7%94%B5%E8%B7%AF%E8%A7%84%E8%8C%83"><span class="toc-number">5.4.</span> <span class="toc-text">I2C 电路规范</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#I2C-%E6%97%B6%E5%BA%8F%E7%BB%93%E6%9E%84"><span class="toc-number">5.5.</span> <span class="toc-text">I2C 时序结构</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#I2C-%E6%95%B0%E6%8D%AE%E5%B8%A7"><span class="toc-number">5.6.</span> <span class="toc-text">I2C 数据帧</span></a></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link"><span class="toc-number">6.</span> <span class="toc-text">- Date:2023-04-29</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#%E7%94%B5%E8%B7%AF-2"><span class="toc-number">6.1.</span> <span class="toc-text">电路</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%AF%84%E5%AD%98%E5%99%A8"><span class="toc-number">6.2.</span> <span class="toc-text">寄存器</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E6%97%B6%E5%BA%8F%E5%AE%9A%E4%B9%89"><span class="toc-number">6.3.</span> <span class="toc-text">时序定义</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#bcd-%E7%A0%81"><span class="toc-number">6.4.</span> <span class="toc-text">bcd 码</span></a></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link"><span class="toc-number">7.</span> <span class="toc-text">- Date:2023-04-29</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#74HC595"><span class="toc-number">7.1.</span> <span class="toc-text">74HC595</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#srf-sbit"><span class="toc-number">7.2.</span> <span class="toc-text">srf sbit</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E4%BB%A3%E7%A0%81%E4%B9%A0%E6%83%AF"><span class="toc-number">7.3.</span> <span class="toc-text">代码习惯</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E6%9C%AF%E8%AF%AD"><span class="toc-number">7.4.</span> <span class="toc-text">术语</span></a></li></ol></li></ol>
       </div>
     
   </span>
@@ -204,96 +204,135 @@
   
 
   <div class="content e-content" itemprop="articleBody">
-    <h1 id="Date-2023-05-22"><a href="#Date-2023-05-22" class="headerlink" title="- Date:2023-05-22"></a>- Date:2023-05-22</h1><ul>
+    <h1>- Date:2023-05-22</h1>
+<ul>
 <li>Time:22:17</li>
 <li>Subject: 自动化</li>
-<li>Tags: #51 单片机<br>[[2023-05]]</li>
+<li>Tags: #51 单片机<br>
+[[2023-05]]</li>
 </ul>
 <hr>
-<h2 id="直流电机介绍"><a href="#直流电机介绍" class="headerlink" title="直流电机介绍"></a>直流电机介绍</h2><ol>
+<h2 id="直流电机介绍">直流电机介绍</h2>
+<ol>
 <li>直流电机是一种将电能转换为机械能的装置。一般的直流电机有两个电极，当电极正接时，电机正转，当电极反接时，电机反转</li>
 <li>直流电机主要由永磁体（定子）、线圈（转子）和换向器组成</li>
 <li>除直流电机外，常见的电机还有步进电机、舵机、无刷电机、空心杯电机等</li>
 </ol>
-<h2 id="电机驱动电路"><a href="#电机驱动电路" class="headerlink" title="电机驱动电路"></a>电机驱动电路</h2><ol>
-<li>大功率直接驱动<ol>
+<h2 id="电机驱动电路">电机驱动电路</h2>
+<ol>
+<li>大功率直接驱动
+<ol>
 <li><img src="https://pic-chris.oss-cn-guangzhou.aliyuncs.com/img/202407030937135.png" alt="Pasted image 20230521222110|500"></li>
 <li><img src="https://pic-chris.oss-cn-guangzhou.aliyuncs.com/img/202407030937136.png" alt="Pasted image 20230521222117|500"></li>
 </ol>
 </li>
-<li>H 桥驱动<ol>
+<li>H 桥驱动
+<ol>
 <li><img src="https://pic-chris.oss-cn-guangzhou.aliyuncs.com/img/202407030937137.png" alt="Pasted image 20230521222246|500"></li>
 <li>可以正反转动</li>
 </ol>
 </li>
 </ol>
-<h2 id="PWM"><a href="#PWM" class="headerlink" title="PWM"></a>PWM</h2><ol>
+<h2 id="PWM">PWM</h2>
+<ol>
 <li>PWM（Pulse Width Modulation）即脉冲宽度调制，在具有惯性的系统中，可以通过对一系列<font color="#ff0000">脉冲的宽度进行调制</font>，来<font color="#ff0000">等效</font>地获得所需要的<font color="#ff0000">模拟参量</font>，常应用于电机控速、开关电源等领域</li>
-<li>PWM 重要参数：<ol>
-<li>频率 = 1 / TS            占空比 = TON（打开的时间） / TS（总时间）           精度 = 占空比变化步距（一格一格的调整，格子越小月细致）</li>
+<li>PWM 重要参数：
+<ol>
+<li>频率 = 1 / TS            占空比 = TON（打开的时间） / TS（总时间）           精度 = 占空比变化步距（一格一格的调整，格子越小月细致）</li>
 <li><img src="https://pic-chris.oss-cn-guangzhou.aliyuncs.com/img/202407030937138.png" alt="Pasted image 20230521222713|500"></li>
 <li>紫线为等效的线</li>
 </ol>
 </li>
-<li>产生 pwm 方法<ol>
-<li>模型结构<ol>
+<li>产生 pwm 方法
+<ol>
+<li>模型结构
+<ol>
 <li><img src="https://pic-chris.oss-cn-guangzhou.aliyuncs.com/img/202407030937139.png" alt="Pasted image 20230521224437|500"></li>
 </ol>
 </li>
-<li>波形<ol>
+<li>波形
+<ol>
 <li><img src="https://pic-chris.oss-cn-guangzhou.aliyuncs.com/img/202407030937140.png" alt="Pasted image 20230521224452|500"></li>
 </ol>
 </li>
 </ol>
 </li>
 </ol>
-<h1 id="Date-2023-04-29"><a href="#Date-2023-04-29" class="headerlink" title="- Date:2023-04-29"></a>- Date:2023-04-29</h1><ul>
+<h1>- Date:2023-04-29</h1>
+<ul>
 <li>Time:12:52</li>
 <li>Subject: 自动化</li>
-<li>Tags: #51 单片机<br>[[2023-04]]</li>
+<li>Tags: #51 单片机<br>
+[[2023-04]]</li>
 </ul>
 <hr>
 <p>51 自带 uart（Universal Asynchronous Receiver Transmitter，通用异步收发器）</p>
-<h2 id="电平标准"><a href="#电平标准" class="headerlink" title="电平标准"></a>电平标准</h2><p>电平标准是数据 1 和数据 0 的表达方式，是传输线缆中人为规定的电压与数据的对应关系，串口常用的电平标准有如下三种：<br>TTL 电平：+5V 表示 1，0V 表示 0<br>RS232 电平：-3~-15V 表示 1，+3~+15V 表示 0<br>RS485 电平：两线压差+2~+6V 表示 1，-2~-6V 表示 0（差分信号）</p>
-<h2 id="电路"><a href="#电路" class="headerlink" title="电路"></a>电路</h2><ol>
+<h2 id="电平标准">电平标准</h2>
+<p>电平标准是数据 1 和数据 0 的表达方式，是传输线缆中人为规定的电压与数据的对应关系，串口常用的电平标准有如下三种：<br>
+TTL 电平：+5V 表示 1，0V 表示 0<br>
+RS232 电平：-3~-15V 表示 1，+3~+15V 表示 0<br>
+RS485 电平：两线压差+2~+6V 表示 1，-2~-6V 表示 0（差分信号）</p>
+<h2 id="电路">电路</h2>
+<ol>
 <li>两端的设备的 TXD（发送）和 RXD（接受）交叉连接，单向可以一条，vcc，gnd 必须接</li>
 <li>点平标准不一样的时候要加转换芯片</li>
 </ol>
-<h2 id="通信接口比较"><a href="#通信接口比较" class="headerlink" title="通信接口比较"></a>通信接口比较</h2><ol>
+<h2 id="通信接口比较">通信接口比较</h2>
+<ol>
 <li><img src="https://pic-chris.oss-cn-guangzhou.aliyuncs.com/img/202407030934282.png" alt="Pasted image 20230429110126|500"></li>
 </ol>
-<h2 id="相关术语"><a href="#相关术语" class="headerlink" title="相关术语"></a>相关术语</h2><p>全双工：通信双方可以在同一时刻互相传输数据<br>半双工：通信双方可以互相传输数据，但必须分时复用一根数据线<br>单工：通信只能有一方发送到另一方，不能反向传输<br>异步：通信双方各自约定通信速率<br>同步：通信双方靠一根时钟线来约定通信速率，有时钟线<br>总线：连接各个设备的数据传输线路（类似于一条马路，把路边各住户连接起来，使住户可以相互交流）</p>
-<h2 id="51-单片机的-uart"><a href="#51-单片机的-uart" class="headerlink" title="51 单片机的 uart"></a>51 单片机的 uart</h2><ol>
+<h2 id="相关术语">相关术语</h2>
+<p>全双工：通信双方可以在同一时刻互相传输数据<br>
+半双工：通信双方可以互相传输数据，但必须分时复用一根数据线<br>
+单工：通信只能有一方发送到另一方，不能反向传输<br>
+异步：通信双方各自约定通信速率<br>
+同步：通信双方靠一根时钟线来约定通信速率，有时钟线<br>
+总线：连接各个设备的数据传输线路（类似于一条马路，把路边各住户连接起来，使住户可以相互交流）</p>
+<h2 id="51-单片机的-uart">51 单片机的 uart</h2>
+<ol>
 <li>我们的低端单片机只能一个</li>
-<li>四个工作模式<ol>
+<li>四个工作模式
+<ol>
 <li>模式 0：同步移位寄存器</li>
 <li>模式 1：8 位 UART，波特率可变（常用）</li>
 <li>模式 2：9 位 UART，波特率固定</li>
 <li>模式 3：9 位 UART，波特率可变</li>
 </ol>
 </li>
-<li><strong>串口模式图</strong><ol>
+<li><strong>串口模式图</strong>
+<ol>
 <li><img src="https://pic-chris.oss-cn-guangzhou.aliyuncs.com/img/202407030934283.png" alt="Pasted image 20230429124914|400"></li>
 <li>SBUF：串口数据缓存寄存器，物理上是两个独立的寄存器，但占用相同的地址。写操作时，写入的是发送寄存器，读操作时，读出的是接收寄存器</li>
 </ol>
 </li>
-<li><strong>相关寄存器</strong><ol>
+<li><strong>相关寄存器</strong>
+<ol>
 <li><img src="https://pic-chris.oss-cn-guangzhou.aliyuncs.com/img/202407030934284.png" alt="Pasted image 20230429125026|400"></li>
 </ol>
 </li>
 </ol>
-<h1 id="Date-2023-04-29-1"><a href="#Date-2023-04-29-1" class="headerlink" title="- Date:2023-04-29"></a>- Date:2023-04-29</h1><ul>
+<h1>- Date:2023-04-29</h1>
+<ul>
 <li>Time:12:52</li>
 <li>Subject: 自动化</li>
-<li>Tags: #51 单片机<br>[[2023-04]]</li>
+<li>Tags: #51 单片机<br>
+[[2023-04]]</li>
 </ul>
 <hr>
-<h2 id="介绍"><a href="#介绍" class="headerlink" title="介绍"></a>介绍</h2><p>单片机，英文 Micro Controller Unit，简称 MCU<br>里面有电脑的各个组成部分，有 CPU、RAM、ROM、定时器、中断系统、通讯接口，可以构成一个计算机系统，一个袖珍计算机，但是它小，功能实现比较完整<br><img src="https://pic-chris.oss-cn-guangzhou.aliyuncs.com/img/202407030937223.png" alt="Pasted image 20230423211439|500"><br>其可以完成的任务：信息采集（依靠传感器）、处理（依靠 CPU）和硬件设备（例如电机，LED 等）的控制，在我们比赛的时候处处都快体现（如机械臂，麦克纳姆轮）<br>我当前学的用的是 51 单片机，也就是 stc51 单片机，stc 是公司，<br>stm32 单片机 比赛用的</p>
-<h2 id="常见术语"><a href="#常见术语" class="headerlink" title="常见术语"></a>常见术语</h2><ol>
+<h2 id="介绍">介绍</h2>
+<p>单片机，英文 Micro Controller Unit，简称 MCU<br>
+里面有电脑的各个组成部分，有 CPU、RAM、ROM、定时器、中断系统、通讯接口，可以构成一个计算机系统，一个袖珍计算机，但是它小，功能实现比较完整<br>
+<img src="https://pic-chris.oss-cn-guangzhou.aliyuncs.com/img/202407030937223.png" alt="Pasted image 20230423211439|500"><br>
+其可以完成的任务：信息采集（依靠传感器）、处理（依靠 CPU）和硬件设备（例如电机，LED 等）的控制，在我们比赛的时候处处都快体现（如机械臂，麦克纳姆轮）<br>
+我当前学的用的是 51 单片机，也就是 stc51 单片机，stc 是公司，<br>
+stm32 单片机 比赛用的</p>
+<h2 id="常见术语">常见术语</h2>
+<ol>
 <li>LED 灯</li>
 <li>引脚 P1_0 P1 gnd vcc 对应有功能</li>
 <li>串口 与电脑进行通讯，电脑也参与到工作来</li>
-<li>定时器，用于计时系统，隔一段时间进行操作<ol>
+<li>定时器，用于计时系统，隔一段时间进行操作
+<ol>
 <li>中断系统：为了应急事件设计的，先处理应急的，暂停其他的，再回来</li>
 <li>寄存器：连接软硬件的媒介，单片机的放在 ram，然后 ram 后面接着导线，寄存器相当于一个复杂机器的“操作按钮”，软件上设置了，实际的硬件电路能发生相应的功能</li>
 </ol>
@@ -301,16 +340,23 @@
 <li>keil4 keil5 用来写代码的平台</li>
 <li>c 语言，单片机的程序语言</li>
 </ol>
-<h1 id="Date-2023-04-29-2"><a href="#Date-2023-04-29-2" class="headerlink" title="- Date:2023-04-29"></a>- Date:2023-04-29</h1><ul>
+<h1>- Date:2023-04-29</h1>
+<ul>
 <li>Time:12:51</li>
 <li>Subject: 自动化</li>
-<li>Tags: #51 单片机<br>[[2023-04]]</li>
+<li>Tags: #51 单片机<br>
+[[2023-04]]</li>
 </ul>
 <hr>
-<h2 id="定时器框架"><a href="#定时器框架" class="headerlink" title="定时器框架"></a>定时器框架</h2><p>时钟（提供计数单元的时钟脉冲）-&gt; 计数单元（时钟计数）-&gt;中断系统（产生中断，执行定时任务）</p>
-<h2 id="工作模式"><a href="#工作模式" class="headerlink" title="工作模式"></a>工作模式</h2><ol>
-<li>模式 0：13 位定时器<br><img src="https://pic-chris.oss-cn-guangzhou.aliyuncs.com/img/202407030937963.png" alt="Pasted image 20230423155323|500"><br>相当于一个计数器</li>
-<li>模式 1：16 位定时器/计数器（常用）<ol>
+<h2 id="定时器框架">定时器框架</h2>
+<p>时钟（提供计数单元的时钟脉冲）-&gt; 计数单元（时钟计数）-&gt;中断系统（产生中断，执行定时任务）</p>
+<h2 id="工作模式">工作模式</h2>
+<ol>
+<li>模式 0：13 位定时器<br>
+<img src="https://pic-chris.oss-cn-guangzhou.aliyuncs.com/img/202407030937963.png" alt="Pasted image 20230423155323|500"><br>
+相当于一个计数器</li>
+<li>模式 1：16 位定时器/计数器（常用）
+<ol>
 <li>sysclk ：系统时钟，也就是晶振周期，</li>
 <li>12T 12 分频，1 微秒，这样记一次数</li>
 <li>6T 类似</li>
@@ -318,50 +364,63 @@
 </ol>
 </li>
 </ol>
-<h2 id="中断系统"><a href="#中断系统" class="headerlink" title="中断系统"></a>中断系统</h2><ol>
+<h2 id="中断系统">中断系统</h2>
+<ol>
 <li>发生紧急事情，先暂停其他处理紧急，然后再回去，cpu 优先相依那个中断源请求问题，所以中断源就有优先级别</li>
 <li><img src="https://pic-chris.oss-cn-guangzhou.aliyuncs.com/img/202407030937964.png" alt="Pasted image 20230423161243|500"></li>
 <li>相当于可以同时进行两个任务（断点）</li>
 </ol>
-<h2 id="定时器相关寄存器"><a href="#定时器相关寄存器" class="headerlink" title="定时器相关寄存器"></a>定时器相关寄存器</h2><ol>
-<li>定时器/计数器 0 和 1 的相关寄存器<ol>
+<h2 id="定时器相关寄存器">定时器相关寄存器</h2>
+<ol>
+<li>定时器/计数器 0 和 1 的相关寄存器
+<ol>
 <li>特殊的 ram 存储器，每个寄存器连着导线，控制电路连接的方式</li>
 <li>可位寻址，可以单独设置；</li>
 <li>不可位寻址，统一设置；</li>
 </ol>
 </li>
 </ol>
-<h2 id="设置"><a href="#设置" class="headerlink" title="设置"></a>设置</h2><p><img src="https://pic-chris.oss-cn-guangzhou.aliyuncs.com/img/202407030937965.png" alt="Pasted image 20230521224952|500"></p>
-<h2 id="驱动电路"><a href="#驱动电路" class="headerlink" title="驱动电路"></a>驱动电路</h2><ol>
+<h2 id="设置">设置</h2>
+<p><img src="https://pic-chris.oss-cn-guangzhou.aliyuncs.com/img/202407030937965.png" alt="Pasted image 20230521224952|500"></p>
+<h2 id="驱动电路">驱动电路</h2>
+<ol>
 <li><img src="https://pic-chris.oss-cn-guangzhou.aliyuncs.com/img/202407030937553.png" alt="Pasted image 20230501103127|500"></li>
 </ol>
-<h2 id="ULN2003"><a href="#ULN2003" class="headerlink" title="ULN2003"></a>ULN2003</h2><ol>
+<h2 id="ULN2003">ULN2003</h2>
+<ol>
 <li><img src="https://pic-chris.oss-cn-guangzhou.aliyuncs.com/img/202407030937554.png" alt="Pasted image 20230501103255|500"></li>
 <li>增大驱动能力</li>
 <li>与门 或门 非门 ，如下：<img src="https://pic-chris.oss-cn-guangzhou.aliyuncs.com/img/202407030937555.png" alt="Pasted image 20230501103511|500"></li>
 </ol>
-<h2 id="乐理部分"><a href="#乐理部分" class="headerlink" title="乐理部分"></a>乐理部分</h2><h1 id="Date-2023-05-18"><a href="#Date-2023-05-18" class="headerlink" title="- Date:2023-05-18"></a>- Date:2023-05-18</h1><ul>
+<h2 id="乐理部分">乐理部分</h2>
+<h1>- Date:2023-05-18</h1>
+<ul>
 <li>Time:23:53</li>
 <li>Subject: 自动化</li>
-<li>Tags: #51 单片机<br>[[2023-05]]</li>
+<li>Tags: #51 单片机<br>
+[[2023-05]]</li>
 </ul>
 <hr>
-<h2 id="AT24C02"><a href="#AT24C02" class="headerlink" title="AT24C02"></a>AT24C02</h2><ol>
+<h2 id="AT24C02">AT24C02</h2>
+<ol>
 <li>AT24C02 是一种可以实现掉电不丢失的存储器，可用于保存单片机运行时想要永久保存的数据信息</li>
 <li>存储介质：E2PROM</li>
 </ol>
-<h2 id="内部结构框图"><a href="#内部结构框图" class="headerlink" title="内部结构框图"></a>内部结构框图</h2><p><img src="https://pic-chris.oss-cn-guangzhou.aliyuncs.com/img/202407030937651.png" alt="Pasted image 20230519000430|500"></p>
+<h2 id="内部结构框图">内部结构框图</h2>
+<p><img src="https://pic-chris.oss-cn-guangzhou.aliyuncs.com/img/202407030937651.png" alt="Pasted image 20230519000430|500"></p>
 <ol>
 <li>eeprom 的左边 x DEC 就是 decoder 编码器；下面就是输出端；上面用于擦除</li>
 <li>data word 地址寄存器</li>
 </ol>
-<h2 id="I2C-总线（i-方-c）"><a href="#I2C-总线（i-方-c）" class="headerlink" title="I2C 总线（i 方 c）"></a>I2C 总线（i 方 c）</h2><ol>
+<h2 id="I2C-总线（i-方-c）">I2C 总线（i 方 c）</h2>
+<ol>
 <li>两根通信线：SCL（Serial Clock）、SDA（Serial Data）半双工通信</li>
 <li>同步 半双工 带数据应答</li>
 <li>通用的 I2C 总线，可以使各种设备的通信标准统一</li>
 <li>I2C 总线（Inter IC BUS）是由 Philips 公司开发的一种通用数据总线</li>
 </ol>
-<h2 id="I2C-电路规范"><a href="#I2C-电路规范" class="headerlink" title="I2C 电路规范"></a>I2C 电路规范</h2><ol>
+<h2 id="I2C-电路规范">I2C 电路规范</h2>
+<ol>
 <li><img src="https://pic-chris.oss-cn-guangzhou.aliyuncs.com/img/202407030937652.png" alt="Pasted image 20230519224809|500"></li>
 <li><img src="https://pic-chris.oss-cn-guangzhou.aliyuncs.com/img/202407030937653.png" alt="Pasted image 20230519224814|500"></li>
 <li>所有 I2C 设备的 SCL 连在一起，SDA 连在一起</li>
@@ -369,54 +428,66 @@
 <li>SCL 和 SDA 各添加一个上拉电阻，阻值一般为 4.7KΩ 左右</li>
 <li>开漏输出和上拉电阻的共同作用实现了“线与”的功能，<font color="#ff0000">此设计主要是为了解决多机通信互相干扰的问题</font></li>
 </ol>
-<h2 id="I2C-时序结构"><a href="#I2C-时序结构" class="headerlink" title="I2C 时序结构"></a>I2C 时序结构</h2><ol>
-<li>起始条件：<font color="#ff0000">SCL 高电平期间，SDA 从高电平切换到低电平</font><ol>
+<h2 id="I2C-时序结构">I2C 时序结构</h2>
+<ol>
+<li>起始条件：<font color="#ff0000">SCL 高电平期间，SDA 从高电平切换到低电平</font>
+<ol>
 <li><img src="https://pic-chris.oss-cn-guangzhou.aliyuncs.com/img/202407030937654.png" alt="Pasted image 20230519230113|500"></li>
 </ol>
 </li>
-<li>终止条件：<font color="#ff0000">SCL 高电平期间，SDA 从低电平切换到高电平</font><ol>
+<li>终止条件：<font color="#ff0000">SCL 高电平期间，SDA 从低电平切换到高电平</font>
+<ol>
 <li><img src="https://pic-chris.oss-cn-guangzhou.aliyuncs.com/img/202407030937655.png" alt="Pasted image 20230519230123|500"></li>
 </ol>
 </li>
-<li>发送一个字节：SCL 低电平期间，<font color="#ff0000">主机</font>将数据位依次放到 SDA 线上（高位在前），然后拉高 SCL，从机将在 SCL 高电平期间读取数据位(读取 b7 下面的两个脉冲)，所以 SCL 高电平期间 SDA 不允许有数据变化（方框内的下面两个脉冲得保持不变），依次循环上述过程 8 次(b7-b0)，即可发送一个字节<ol>
+<li>发送一个字节：SCL 低电平期间，<font color="#ff0000">主机</font>将数据位依次放到 SDA 线上（高位在前），然后拉高 SCL，从机将在 SCL 高电平期间读取数据位(读取 b7 下面的两个脉冲)，所以 SCL 高电平期间 SDA 不允许有数据变化（方框内的下面两个脉冲得保持不变），依次循环上述过程 8 次(b7-b0)，即可发送一个字节
+<ol>
 <li><img src="https://pic-chris.oss-cn-guangzhou.aliyuncs.com/img/202407030937656.png" alt="Pasted image 20230519230412|500"></li>
 </ol>
 </li>
-<li>接收一个字节：SCL 低电平期间，<font color="#ff0000">从机</font>将数据位依次放到 SDA 线上（高位在前），然后拉高 SCL，<font color="#ff0000">主机将在 SCL 高电平期间读取数据位</font>，所以 SCL 高电平期间 SDA 不允许有数据变化，依次循环上述过程 8 次，即可接收一个字节（主机在接收之前，需要释放 SDA，把控制权交给从机）紫色是从机控制的时候<ol>
+<li>接收一个字节：SCL 低电平期间，<font color="#ff0000">从机</font>将数据位依次放到 SDA 线上（高位在前），然后拉高 SCL，<font color="#ff0000">主机将在 SCL 高电平期间读取数据位</font>，所以 SCL 高电平期间 SDA 不允许有数据变化，依次循环上述过程 8 次，即可接收一个字节（主机在接收之前，需要释放 SDA，把控制权交给从机）紫色是从机控制的时候
+<ol>
 <li><img src="https://pic-chris.oss-cn-guangzhou.aliyuncs.com/img/202407030937657.png" alt="Pasted image 20230519233248|500"></li>
 </ol>
 </li>
 <li>发送应答(SA)：在接收完一个字节之后，主机在下一个时钟发送一位数据，<font color="#ff0000">数据 0 表示应答，数据 1 表示非应答</font>（ACK 就是应答）</li>
-<li>接收应答(RA)：在发送完一个字节之后，主机在下一个时钟接收一位数据，判断从机是否应答，<font color="#ff0000">数据 0 表示应答，数据 1 表示非应答</font>（主机在接收之前，需要<font color="#ff0000">释放 SDA，也就是 sda 置高电平，控制权交给从机</font>）<ol>
+<li>接收应答(RA)：在发送完一个字节之后，主机在下一个时钟接收一位数据，判断从机是否应答，<font color="#ff0000">数据 0 表示应答，数据 1 表示非应答</font>（主机在接收之前，需要<font color="#ff0000">释放 SDA，也就是 sda 置高电平，控制权交给从机</font>）
+<ol>
 <li><img src="https://pic-chris.oss-cn-guangzhou.aliyuncs.com/img/202407030937658.png" alt="Pasted image 20230519233803|500"></li>
 </ol>
 </li>
 </ol>
-<h2 id="I2C-数据帧"><a href="#I2C-数据帧" class="headerlink" title="I2C 数据帧"></a>I2C 数据帧</h2><ol>
-<li>发送一帧数据<ol>
+<h2 id="I2C-数据帧">I2C 数据帧</h2>
+<ol>
+<li>发送一帧数据
+<ol>
 <li><img src="https://pic-chris.oss-cn-guangzhou.aliyuncs.com/img/202407030937659.png" alt="Pasted image 20230519234146|500"></li>
 <li>a6-3 在这个芯片规定为 1010 无法改变（相当于身份）后三位可以见到在原理图，都是接地的，为 0，最后一位决定功能，带横线接 gnd 起作用</li>
 <li><font color="#ff0000">向谁发什么</font></li>
 </ol>
 </li>
-<li>接受一帧数据<ol>
+<li>接受一帧数据
+<ol>
 <li><img src="https://pic-chris.oss-cn-guangzhou.aliyuncs.com/img/202407030937660.png" alt="Pasted image 20230519235731|500"></li>
 <li><font color="#ff0000">向谁收什么</font></li>
 </ol>
 </li>
-<li>先发送再接收数据帧（复合格式）<ol>
+<li>先发送再接收数据帧（复合格式）
+<ol>
 <li><img src="https://pic-chris.oss-cn-guangzhou.aliyuncs.com/img/202407030937661.png" alt="Pasted image 20230519235841|500"></li>
 <li>先说（发）再收取数据，对于传感器来说不必要，但是对于其他的，主机给了什么指令，就让从机回复些什么东西；实现的是 <font color="#ff0000">向谁收指定的什么</font></li>
 </ol>
 </li>
-<li>字节写<ol>
+<li>字节写
+<ol>
 <li><img src="https://pic-chris.oss-cn-guangzhou.aliyuncs.com/img/202407030937662.png" alt="Pasted image 20230520000310|500"></li>
 <li>在 WORD ADDRESS（字地址）处写入数据 DATA</li>
 <li><img src="https://pic-chris.oss-cn-guangzhou.aliyuncs.com/img/202407030937663.png" alt="Pasted image 20230520000838|500"></li>
 <li>手册上的时序，可以参照思考对照一下，下面也是</li>
 </ol>
 </li>
-<li>随机读<ol>
+<li>随机读
+<ol>
 <li><img src="https://pic-chris.oss-cn-guangzhou.aliyuncs.com/img/202407030937664.png" alt="Pasted image 20230520000337|500"></li>
 <li>读出在 WORD ADDRESS 处的数据 DATA</li>
 <li><img src="https://pic-chris.oss-cn-guangzhou.aliyuncs.com/img/202407030937665.png" alt="Pasted image 20230520000827|500"></li>
@@ -424,40 +495,51 @@
 </li>
 <li><font color="#ff0000">注</font>：AT24C02 的固定地址为 1010，可配置地址本开发板上为 000（原理图中的 a0-a2），所以 SLAVE ADDRESS+W 为 0xA0 (Write 接地起作用)，SLAVE ADDRESS+R 为 0xA1（Read 接高电平起作用）</li>
 </ol>
-<h1 id="Date-2023-04-29-3"><a href="#Date-2023-04-29-3" class="headerlink" title="- Date:2023-04-29"></a>- Date:2023-04-29</h1><ul>
+<h1>- Date:2023-04-29</h1>
+<ul>
 <li>Time:17:43</li>
 <li>Subject: 自动化</li>
-<li>Tags: #51 单片机<br>[[2023-04]]</li>
+<li>Tags: #51 单片机<br>
+[[2023-04]]</li>
 </ul>
 <hr>
 <p>RTC(Real Time Clock)：实时时钟，是一种集成电路，通常称为时钟芯片</p>
-<h2 id="电路-1"><a href="#电路-1" class="headerlink" title="电路"></a>电路</h2><p><img src="https://pic-chris.oss-cn-guangzhou.aliyuncs.com/img/202407030937877.png" alt="Pasted image 20230429203500|500"><br><img src="https://pic-chris.oss-cn-guangzhou.aliyuncs.com/img/202407030937878.png" alt="Pasted image 20230429203524|500"></p>
-<h2 id="寄存器"><a href="#寄存器" class="headerlink" title="寄存器"></a>寄存器</h2><p><img src="https://pic-chris.oss-cn-guangzhou.aliyuncs.com/img/202407030937879.png" alt="Pasted image 20230429204346|500"></p>
+<h2 id="电路-2">电路</h2>
+<p><img src="https://pic-chris.oss-cn-guangzhou.aliyuncs.com/img/202407030937877.png" alt="Pasted image 20230429203500|500"><br>
+<img src="https://pic-chris.oss-cn-guangzhou.aliyuncs.com/img/202407030937878.png" alt="Pasted image 20230429203524|500"></p>
+<h2 id="寄存器">寄存器</h2>
+<p><img src="https://pic-chris.oss-cn-guangzhou.aliyuncs.com/img/202407030937879.png" alt="Pasted image 20230429204346|500"></p>
 <ol>
 <li>前两列命令字的结果，命令是什么，就是上面<font color="#ff0000">对</font><font color="#ff0000">应</font>的功能</li>
 <li><img src="https://pic-chris.oss-cn-guangzhou.aliyuncs.com/img/202407030937880.png" alt="Pasted image 20230429205534|500"></li>
 </ol>
-<h2 id="时序定义"><a href="#时序定义" class="headerlink" title="时序定义"></a>时序定义</h2><ol>
+<h2 id="时序定义">时序定义</h2>
+<ol>
 <li><img src="https://pic-chris.oss-cn-guangzhou.aliyuncs.com/img/202407030937881.png" alt="Pasted image 20230429210957|500"></li>
 <li>第一位读取 write 还是 read，要是 read，则就把后面的那一段作为读取，从时钟芯片读取，write 就是下面的第二段，把它写入到里面去</li>
 <li>一个时钟周期是一系列的上升沿伴随下降沿.要输入数据在时钟的上升沿数据必须有效，而 且在下降沿要输出数据位.如果 CE 输入为低电平,则所有数据传输终止,并且 I/O 口成高阻 抗状态.图 4 显示了数据传输. 在上电时, CE 必须为逻辑 0 直到 VCC 大于 2v，同样，SCLK 必须为逻辑 0 当 CE 变成逻辑 1 状态.</li>
 </ol>
-<h2 id="bcd-码"><a href="#bcd-码" class="headerlink" title="bcd 码"></a>bcd 码</h2><ol>
+<h2 id="bcd-码">bcd 码</h2>
+<ol>
 <li>用 4 位二进制数来表示 1 位十进制数</li>
 <li>BCD 码转十进制：DEC=BCD/16 * 10+BCD%16; （2 位 BCD）</li>
 <li>十进制转 BCD 码：BCD=DEC/10 * 16+DEC%10; （2 位 BCD）</li>
 <li>在十六进制中的体现：0x13 表示 13，0x85 表示 85，0x1A 不合法</li>
 </ol>
-<h1 id="Date-2023-04-29-4"><a href="#Date-2023-04-29-4" class="headerlink" title="- Date:2023-04-29"></a>- Date:2023-04-29</h1><ul>
+<h1>- Date:2023-04-29</h1>
+<ul>
 <li>Time:14:34</li>
 <li>Subject: 自动化</li>
-<li>Tags: #51 单片机<br>[[2023-04]]</li>
+<li>Tags: #51 单片机<br>
+[[2023-04]]</li>
 </ul>
 <hr>
 <ol>
-<li><strong>显示原理</strong><br><img src="https://pic-chris.oss-cn-guangzhou.aliyuncs.com/img/202407030937218.png" alt="Pasted image 20230429143429|500"></li>
+<li><strong>显示原理</strong><br>
+<img src="https://pic-chris.oss-cn-guangzhou.aliyuncs.com/img/202407030937218.png" alt="Pasted image 20230429143429|500"></li>
 </ol>
-<h2 id="74HC595"><a href="#74HC595" class="headerlink" title="74HC595"></a>74HC595</h2><ol>
+<h2 id="74HC595">74HC595</h2>
+<ol>
 <li>74HC595 是串行输入并行输出的移位寄存器，可用 3 根线输入串行数据，8 根线输出并行数据，多片级联后，可输出 16 位、24 位、32 位等，常用于 IO 口扩展。</li>
 <li><img src="https://pic-chris.oss-cn-guangzhou.aliyuncs.com/img/202407030937219.png" alt="Pasted image 20230429145026|500"></li>
 <li>SER: 输入数据，serclk：移动位置，一层层往下，上面补充</li>
@@ -465,26 +547,45 @@
 <li>qh‘ 放到下一个芯片的寄存器里面（当 8 位满了之后）</li>
 <li>低电平工作</li>
 </ol>
-<h2 id="srf-sbit"><a href="#srf-sbit" class="headerlink" title="srf sbit"></a>srf sbit</h2><ol>
-<li>sfr（special function register）：<ol>
+<h2 id="srf-sbit">srf sbit</h2>
+<ol>
+<li>sfr（special function register）：
+<ol>
 <li>特殊功能寄存器声明 例：sfr P0 = 0x80; <font color="#ff0000">声明 P0 口寄存器，物理地址为 0x80</font></li>
 </ol>
 </li>
-<li>sbit（special bit）： 2. 特殊位声明例：sbit P0_1 = 0x81;    或     sbit P0_1 = P0^1; <font color="#ff0000"> 声明 P0 寄存器的第 1 位</font></li>
+<li>sbit（special bit）： 2. 特殊位声明例：sbit P0_1 = 0x81;    或     sbit P0_1 = P0^1; <font color="#ff0000"> 声明 P0 寄存器的第 1 位</font></li>
 <li>可位寻址/不可位寻址：在单片机系统中，操作任意寄存器或者某一位的数据时，必须给出其物理地址，又因为一个寄存器里有 8 位，所以位的数量是寄存器数量的 8 倍，单片机无法对所有位进行编码，故每 8 个寄存器中，只有一个是可以位寻址的。对不可位寻址的寄存器，若要只操作其中一位而不影响其它位时，可用“&amp;=”、“|=”、“^=”的方法进行位操作</li>
 </ol>
-<h2 id="代码习惯"><a href="#代码习惯" class="headerlink" title="代码习惯"></a>代码习惯</h2><ol>
+<h2 id="代码习惯">代码习惯</h2>
+<ol>
 <li>函数和变量命名建议小写开头，结构体建议大写开头，常量建议全大写</li>
 </ol>
-<h2 id="术语"><a href="#术语" class="headerlink" title="术语"></a>术语</h2><p><img src="https://pic-chris.oss-cn-guangzhou.aliyuncs.com/img/202407030937220.png" alt="Pasted image 20230429175356|500"></p>
+<h2 id="术语">术语</h2>
+<p><img src="https://pic-chris.oss-cn-guangzhou.aliyuncs.com/img/202407030937220.png" alt="Pasted image 20230429175356|500"></p>
 <ol>
 <li>首先要知道这个: <strong>加横线一般表示这个接口低电平工作</strong></li>
-<li>OE:<br>open enable 直译(打开使能)<br>说人话(打开此芯片的开关)<br>带上横线的意思用人话说就是(输入低电平这个芯片才能工作)</li>
-<li>SRCLR:<br>serial clear 直译(连续清零/串行清零)<br>说人话(这个芯片数据清空)<br>带上横线的意思用人话说就是(输入低电平这个芯片里面的数据清空)<br>所以说你要用的话得接个高电平才能工作(毕竟你不能让芯片一直清空你准备的数据信号是不是)</li>
-<li>SER: serial 直译(连续/串行)<br>说人话解释(这个接口就是商场大门,排成一条长队的数据就从这个接口进)<br>这个接数据输入的 IO 口</li>
-<li>SRCLK : serial clock 直译(连续时钟/串行时钟)<br>说人话解释(这个就是可以通行的绿色标志,数据从 SER 口排着队,这里大喊一声(具体操作就是给他一个高点平),贵客一位! 然后数据就从这里进一位)<br>感觉和水龙头也挺像的,开一下关一下,水和数据似得.打开走一点,打开走一点,打开走一点…<br>要用的话就是 给高电平一下 走一个位(bit) 给高电平一下走一个位(bit)</li>
-<li>RCLK: receive clock 直译(接收时钟)<br>说人话解释(连着上面的说了啊,一个一个顾客进来凑够了一桌子 8 个人,不能让他们站着啊,你得让他们坐下来,这个就是请坐,你们一块坐下吧)<br>诶,这就输出了这个接口就是把当前的 8 个位,一块儿给输出的 要用的话就是给 给高电平一下,输出存的那几个位</li>
-<li>QA-QH:<br>就是桌子旁边的座位,这是输出口 最后进来的位在最前面 QA 座位 第二个进来位在第二个 QB 座位</li>
+<li>OE:<br>
+open enable 直译(打开使能)<br>
+说人话(打开此芯片的开关)<br>
+带上横线的意思用人话说就是(输入低电平这个芯片才能工作)</li>
+<li>SRCLR:<br>
+serial clear 直译(连续清零/串行清零)<br>
+说人话(这个芯片数据清空)<br>
+带上横线的意思用人话说就是(输入低电平这个芯片里面的数据清空)<br>
+所以说你要用的话得接个高电平才能工作(毕竟你不能让芯片一直清空你准备的数据信号是不是)</li>
+<li>SER: serial 直译(连续/串行)<br>
+说人话解释(这个接口就是商场大门,排成一条长队的数据就从这个接口进)<br>
+这个接数据输入的 IO 口</li>
+<li>SRCLK : serial clock 直译(连续时钟/串行时钟)<br>
+说人话解释(这个就是可以通行的绿色标志,数据从 SER 口排着队,这里大喊一声(具体操作就是给他一个高点平),贵客一位! 然后数据就从这里进一位)<br>
+感觉和水龙头也挺像的,开一下关一下,水和数据似得.打开走一点,打开走一点,打开走一点…<br>
+要用的话就是 给高电平一下 走一个位(bit) 给高电平一下走一个位(bit)</li>
+<li>RCLK: receive clock 直译(接收时钟)<br>
+说人话解释(连着上面的说了啊,一个一个顾客进来凑够了一桌子 8 个人,不能让他们站着啊,你得让他们坐下来,这个就是请坐,你们一块坐下吧)<br>
+诶,这就输出了这个接口就是把当前的 8 个位,一块儿给输出的 要用的话就是给 给高电平一下,输出存的那几个位</li>
+<li>QA-QH:<br>
+就是桌子旁边的座位,这是输出口 最后进来的位在最前面 QA 座位 第二个进来位在第二个 QB 座位</li>
 </ol>
 
   </div>
@@ -513,7 +614,7 @@
     
     
       <div id="toc-footer" style="display: none">
-        <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#Date-2023-05-22"><span class="toc-number">1.</span> <span class="toc-text">- Date:2023-05-22</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#%E7%9B%B4%E6%B5%81%E7%94%B5%E6%9C%BA%E4%BB%8B%E7%BB%8D"><span class="toc-number">1.1.</span> <span class="toc-text">直流电机介绍</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E7%94%B5%E6%9C%BA%E9%A9%B1%E5%8A%A8%E7%94%B5%E8%B7%AF"><span class="toc-number">1.2.</span> <span class="toc-text">电机驱动电路</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#PWM"><span class="toc-number">1.3.</span> <span class="toc-text">PWM</span></a></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#Date-2023-04-29"><span class="toc-number">2.</span> <span class="toc-text">- Date:2023-04-29</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#%E7%94%B5%E5%B9%B3%E6%A0%87%E5%87%86"><span class="toc-number">2.1.</span> <span class="toc-text">电平标准</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E7%94%B5%E8%B7%AF"><span class="toc-number">2.2.</span> <span class="toc-text">电路</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E9%80%9A%E4%BF%A1%E6%8E%A5%E5%8F%A3%E6%AF%94%E8%BE%83"><span class="toc-number">2.3.</span> <span class="toc-text">通信接口比较</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E7%9B%B8%E5%85%B3%E6%9C%AF%E8%AF%AD"><span class="toc-number">2.4.</span> <span class="toc-text">相关术语</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#51-%E5%8D%95%E7%89%87%E6%9C%BA%E7%9A%84-uart"><span class="toc-number">2.5.</span> <span class="toc-text">51 单片机的 uart</span></a></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#Date-2023-04-29-1"><span class="toc-number">3.</span> <span class="toc-text">- Date:2023-04-29</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#%E4%BB%8B%E7%BB%8D"><span class="toc-number">3.1.</span> <span class="toc-text">介绍</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%B8%B8%E8%A7%81%E6%9C%AF%E8%AF%AD"><span class="toc-number">3.2.</span> <span class="toc-text">常见术语</span></a></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#Date-2023-04-29-2"><span class="toc-number">4.</span> <span class="toc-text">- Date:2023-04-29</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%AE%9A%E6%97%B6%E5%99%A8%E6%A1%86%E6%9E%B6"><span class="toc-number">4.1.</span> <span class="toc-text">定时器框架</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%B7%A5%E4%BD%9C%E6%A8%A1%E5%BC%8F"><span class="toc-number">4.2.</span> <span class="toc-text">工作模式</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E4%B8%AD%E6%96%AD%E7%B3%BB%E7%BB%9F"><span class="toc-number">4.3.</span> <span class="toc-text">中断系统</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%AE%9A%E6%97%B6%E5%99%A8%E7%9B%B8%E5%85%B3%E5%AF%84%E5%AD%98%E5%99%A8"><span class="toc-number">4.4.</span> <span class="toc-text">定时器相关寄存器</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E8%AE%BE%E7%BD%AE"><span class="toc-number">4.5.</span> <span class="toc-text">设置</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E9%A9%B1%E5%8A%A8%E7%94%B5%E8%B7%AF"><span class="toc-number">4.6.</span> <span class="toc-text">驱动电路</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#ULN2003"><span class="toc-number">4.7.</span> <span class="toc-text">ULN2003</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E4%B9%90%E7%90%86%E9%83%A8%E5%88%86"><span class="toc-number">4.8.</span> <span class="toc-text">乐理部分</span></a></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#Date-2023-05-18"><span class="toc-number">5.</span> <span class="toc-text">- Date:2023-05-18</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#AT24C02"><span class="toc-number">5.1.</span> <span class="toc-text">AT24C02</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%86%85%E9%83%A8%E7%BB%93%E6%9E%84%E6%A1%86%E5%9B%BE"><span class="toc-number">5.2.</span> <span class="toc-text">内部结构框图</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#I2C-%E6%80%BB%E7%BA%BF%EF%BC%88i-%E6%96%B9-c%EF%BC%89"><span class="toc-number">5.3.</span> <span class="toc-text">I2C 总线（i 方 c）</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#I2C-%E7%94%B5%E8%B7%AF%E8%A7%84%E8%8C%83"><span class="toc-number">5.4.</span> <span class="toc-text">I2C 电路规范</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#I2C-%E6%97%B6%E5%BA%8F%E7%BB%93%E6%9E%84"><span class="toc-number">5.5.</span> <span class="toc-text">I2C 时序结构</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#I2C-%E6%95%B0%E6%8D%AE%E5%B8%A7"><span class="toc-number">5.6.</span> <span class="toc-text">I2C 数据帧</span></a></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#Date-2023-04-29-3"><span class="toc-number">6.</span> <span class="toc-text">- Date:2023-04-29</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#%E7%94%B5%E8%B7%AF-1"><span class="toc-number">6.1.</span> <span class="toc-text">电路</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%AF%84%E5%AD%98%E5%99%A8"><span class="toc-number">6.2.</span> <span class="toc-text">寄存器</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E6%97%B6%E5%BA%8F%E5%AE%9A%E4%B9%89"><span class="toc-number">6.3.</span> <span class="toc-text">时序定义</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#bcd-%E7%A0%81"><span class="toc-number">6.4.</span> <span class="toc-text">bcd 码</span></a></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#Date-2023-04-29-4"><span class="toc-number">7.</span> <span class="toc-text">- Date:2023-04-29</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#74HC595"><span class="toc-number">7.1.</span> <span class="toc-text">74HC595</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#srf-sbit"><span class="toc-number">7.2.</span> <span class="toc-text">srf sbit</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E4%BB%A3%E7%A0%81%E4%B9%A0%E6%83%AF"><span class="toc-number">7.3.</span> <span class="toc-text">代码习惯</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E6%9C%AF%E8%AF%AD"><span class="toc-number">7.4.</span> <span class="toc-text">术语</span></a></li></ol></li></ol>
+        <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link"><span class="toc-number">1.</span> <span class="toc-text">- Date:2023-05-22</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#%E7%9B%B4%E6%B5%81%E7%94%B5%E6%9C%BA%E4%BB%8B%E7%BB%8D"><span class="toc-number">1.1.</span> <span class="toc-text">直流电机介绍</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E7%94%B5%E6%9C%BA%E9%A9%B1%E5%8A%A8%E7%94%B5%E8%B7%AF"><span class="toc-number">1.2.</span> <span class="toc-text">电机驱动电路</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#PWM"><span class="toc-number">1.3.</span> <span class="toc-text">PWM</span></a></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link"><span class="toc-number">2.</span> <span class="toc-text">- Date:2023-04-29</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#%E7%94%B5%E5%B9%B3%E6%A0%87%E5%87%86"><span class="toc-number">2.1.</span> <span class="toc-text">电平标准</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E7%94%B5%E8%B7%AF"><span class="toc-number">2.2.</span> <span class="toc-text">电路</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E9%80%9A%E4%BF%A1%E6%8E%A5%E5%8F%A3%E6%AF%94%E8%BE%83"><span class="toc-number">2.3.</span> <span class="toc-text">通信接口比较</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E7%9B%B8%E5%85%B3%E6%9C%AF%E8%AF%AD"><span class="toc-number">2.4.</span> <span class="toc-text">相关术语</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#51-%E5%8D%95%E7%89%87%E6%9C%BA%E7%9A%84-uart"><span class="toc-number">2.5.</span> <span class="toc-text">51 单片机的 uart</span></a></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link"><span class="toc-number">3.</span> <span class="toc-text">- Date:2023-04-29</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#%E4%BB%8B%E7%BB%8D"><span class="toc-number">3.1.</span> <span class="toc-text">介绍</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%B8%B8%E8%A7%81%E6%9C%AF%E8%AF%AD"><span class="toc-number">3.2.</span> <span class="toc-text">常见术语</span></a></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link"><span class="toc-number">4.</span> <span class="toc-text">- Date:2023-04-29</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%AE%9A%E6%97%B6%E5%99%A8%E6%A1%86%E6%9E%B6"><span class="toc-number">4.1.</span> <span class="toc-text">定时器框架</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%B7%A5%E4%BD%9C%E6%A8%A1%E5%BC%8F"><span class="toc-number">4.2.</span> <span class="toc-text">工作模式</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E4%B8%AD%E6%96%AD%E7%B3%BB%E7%BB%9F"><span class="toc-number">4.3.</span> <span class="toc-text">中断系统</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%AE%9A%E6%97%B6%E5%99%A8%E7%9B%B8%E5%85%B3%E5%AF%84%E5%AD%98%E5%99%A8"><span class="toc-number">4.4.</span> <span class="toc-text">定时器相关寄存器</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E8%AE%BE%E7%BD%AE"><span class="toc-number">4.5.</span> <span class="toc-text">设置</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E9%A9%B1%E5%8A%A8%E7%94%B5%E8%B7%AF"><span class="toc-number">4.6.</span> <span class="toc-text">驱动电路</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#ULN2003"><span class="toc-number">4.7.</span> <span class="toc-text">ULN2003</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E4%B9%90%E7%90%86%E9%83%A8%E5%88%86"><span class="toc-number">4.8.</span> <span class="toc-text">乐理部分</span></a></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link"><span class="toc-number">5.</span> <span class="toc-text">- Date:2023-05-18</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#AT24C02"><span class="toc-number">5.1.</span> <span class="toc-text">AT24C02</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%86%85%E9%83%A8%E7%BB%93%E6%9E%84%E6%A1%86%E5%9B%BE"><span class="toc-number">5.2.</span> <span class="toc-text">内部结构框图</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#I2C-%E6%80%BB%E7%BA%BF%EF%BC%88i-%E6%96%B9-c%EF%BC%89"><span class="toc-number">5.3.</span> <span class="toc-text">I2C 总线（i 方 c）</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#I2C-%E7%94%B5%E8%B7%AF%E8%A7%84%E8%8C%83"><span class="toc-number">5.4.</span> <span class="toc-text">I2C 电路规范</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#I2C-%E6%97%B6%E5%BA%8F%E7%BB%93%E6%9E%84"><span class="toc-number">5.5.</span> <span class="toc-text">I2C 时序结构</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#I2C-%E6%95%B0%E6%8D%AE%E5%B8%A7"><span class="toc-number">5.6.</span> <span class="toc-text">I2C 数据帧</span></a></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link"><span class="toc-number">6.</span> <span class="toc-text">- Date:2023-04-29</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#%E7%94%B5%E8%B7%AF-2"><span class="toc-number">6.1.</span> <span class="toc-text">电路</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%AF%84%E5%AD%98%E5%99%A8"><span class="toc-number">6.2.</span> <span class="toc-text">寄存器</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E6%97%B6%E5%BA%8F%E5%AE%9A%E4%B9%89"><span class="toc-number">6.3.</span> <span class="toc-text">时序定义</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#bcd-%E7%A0%81"><span class="toc-number">6.4.</span> <span class="toc-text">bcd 码</span></a></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link"><span class="toc-number">7.</span> <span class="toc-text">- Date:2023-04-29</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#74HC595"><span class="toc-number">7.1.</span> <span class="toc-text">74HC595</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#srf-sbit"><span class="toc-number">7.2.</span> <span class="toc-text">srf sbit</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E4%BB%A3%E7%A0%81%E4%B9%A0%E6%83%AF"><span class="toc-number">7.3.</span> <span class="toc-text">代码习惯</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E6%9C%AF%E8%AF%AD"><span class="toc-number">7.4.</span> <span class="toc-text">术语</span></a></li></ol></li></ol>
       </div>
     
 

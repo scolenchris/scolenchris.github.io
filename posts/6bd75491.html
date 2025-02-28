@@ -6,12 +6,12 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="HandheldFriendly" content="True">
     <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=5" />
-    <meta name="description" content="- Date:2023-06-05 Time:14:21 Subject: none Tags: #stm32 #时钟[[2023-06]]   什么是时钟  简单来说，时钟是具有周期性的脉冲信号，最常用的是占空比50%的方波 时钟是单片机的脉搏，搞懂时钟走向及关系，对单片机使用至关重要！认识时钟树（F1）L：lowS：speedI：internalE：external时钟树简图 PLL：锁相环，">
+    <meta name="description" content="- Date:2023-06-05  Time:14:21 Subject: none Tags: #stm32 #时钟 [[2023-06]]   什么是时钟   简单来说，时钟是具有周期性的脉冲信号，最常用的是占空比50%的方波 时钟是单片机的脉搏，搞懂时钟走向及关系，对单片机使用至关重要！  认识时钟树（F1）   L：low S：speed I：internal E：external  时">
 <meta property="og:type" content="article">
 <meta property="og:title" content="stm32-时钟系统">
 <meta property="og:url" content="https://scolenchris.top/posts/6bd75491.html">
 <meta property="og:site_name" content="Chris">
-<meta property="og:description" content="- Date:2023-06-05 Time:14:21 Subject: none Tags: #stm32 #时钟[[2023-06]]   什么是时钟  简单来说，时钟是具有周期性的脉冲信号，最常用的是占空比50%的方波 时钟是单片机的脉搏，搞懂时钟走向及关系，对单片机使用至关重要！认识时钟树（F1）L：lowS：speedI：internalE：external时钟树简图 PLL：锁相环，">
+<meta property="og:description" content="- Date:2023-06-05  Time:14:21 Subject: none Tags: #stm32 #时钟 [[2023-06]]   什么是时钟   简单来说，时钟是具有周期性的脉冲信号，最常用的是占空比50%的方波 时钟是单片机的脉搏，搞懂时钟走向及关系，对单片机使用至关重要！  认识时钟树（F1）   L：low S：speed I：internal E：external  时">
 <meta property="og:locale" content="zh_CN">
 <meta property="og:image" content="https://pic-chris.oss-cn-guangzhou.aliyuncs.com/img/202407030938780.png">
 <meta property="og:image" content="https://pic-chris.oss-cn-guangzhou.aliyuncs.com/img/202407030938781.png">
@@ -21,7 +21,7 @@
 <meta property="og:image" content="https://pic-chris.oss-cn-guangzhou.aliyuncs.com/img/202407030938785.png">
 <meta property="og:image" content="https://pic-chris.oss-cn-guangzhou.aliyuncs.com/img/202407030938786.png">
 <meta property="article:published_time" content="2024-07-03T10:07:13.000Z">
-<meta property="article:modified_time" content="2025-02-28T07:46:54.944Z">
+<meta property="article:modified_time" content="2025-02-28T07:54:48.129Z">
 <meta property="article:author" content="Chris">
 <meta property="article:tag" content="博客,scolen,chris,技术,生活,记录,life,code">
 <meta name="twitter:card" content="summary">
@@ -132,7 +132,7 @@
     
     
       <div id="toc">
-        <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#Date-2023-06-05"><span class="toc-number">1.</span> <span class="toc-text">- Date:2023-06-05</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#%E4%BB%80%E4%B9%88%E6%98%AF%E6%97%B6%E9%92%9F"><span class="toc-number">1.1.</span> <span class="toc-text">什么是时钟</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E8%AE%A4%E8%AF%86%E6%97%B6%E9%92%9F%E6%A0%91%EF%BC%88F1%EF%BC%89"><span class="toc-number">1.2.</span> <span class="toc-text">认识时钟树（F1）</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#%E6%97%B6%E9%92%9F%E6%A0%91%E7%AE%80%E5%9B%BE"><span class="toc-number">1.2.1.</span> <span class="toc-text">时钟树简图</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#HAL%E5%BA%93%E5%86%85%E4%BD%93%E7%8E%B0"><span class="toc-number">1.2.2.</span> <span class="toc-text">HAL库内体现</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#STM32CubeMX%E6%97%B6%E9%92%9F%E6%A0%91%EF%BC%88F103%EF%BC%89"><span class="toc-number">1.2.3.</span> <span class="toc-text">STM32CubeMX时钟树（F103）</span></a></li></ol></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#Date-2023-06-05-1"><span class="toc-number">2.</span> <span class="toc-text">- Date:2023-06-05</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#%E7%B3%BB%E7%BB%9F%E6%97%B6%E9%92%9F%E9%85%8D%E7%BD%AE%E6%AD%A5%E9%AA%A4"><span class="toc-number">2.1.</span> <span class="toc-text">系统时钟配置步骤</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%A4%96%E8%AE%BE%E6%97%B6%E9%92%9F%E4%BD%BF%E8%83%BD%E5%92%8C%E5%A4%B1%E8%83%BD"><span class="toc-number">2.2.</span> <span class="toc-text">外设时钟使能和失能</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#sys-stm32-clock-init-%E5%87%BD%E6%95%B0%EF%BC%88F1%EF%BC%89"><span class="toc-number">2.3.</span> <span class="toc-text">sys_stm32_clock_init 函数（F1）</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#HAL-RCC-OscConfig-%E5%87%BD%E6%95%B0"><span class="toc-number">2.3.1.</span> <span class="toc-text">HAL_RCC_OscConfig()函数</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#HAL-RCC-ClockConfig-%E5%87%BD%E6%95%B0"><span class="toc-number">2.3.2.</span> <span class="toc-text">HAL_RCC_ClockConfig()函数</span></a></li></ol></li></ol></li></ol>
+        <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link"><span class="toc-number">1.</span> <span class="toc-text">- Date:2023-06-05</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#%E4%BB%80%E4%B9%88%E6%98%AF%E6%97%B6%E9%92%9F"><span class="toc-number">1.1.</span> <span class="toc-text">什么是时钟</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E8%AE%A4%E8%AF%86%E6%97%B6%E9%92%9F%E6%A0%91%EF%BC%88F1%EF%BC%89"><span class="toc-number">1.2.</span> <span class="toc-text">认识时钟树（F1）</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#%E6%97%B6%E9%92%9F%E6%A0%91%E7%AE%80%E5%9B%BE"><span class="toc-number">1.2.1.</span> <span class="toc-text">时钟树简图</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#HAL%E5%BA%93%E5%86%85%E4%BD%93%E7%8E%B0"><span class="toc-number">1.2.2.</span> <span class="toc-text">HAL库内体现</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#STM32CubeMX%E6%97%B6%E9%92%9F%E6%A0%91%EF%BC%88F103%EF%BC%89"><span class="toc-number">1.2.3.</span> <span class="toc-text">STM32CubeMX时钟树（F103）</span></a></li></ol></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link"><span class="toc-number">2.</span> <span class="toc-text">- Date:2023-06-05</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#%E7%B3%BB%E7%BB%9F%E6%97%B6%E9%92%9F%E9%85%8D%E7%BD%AE%E6%AD%A5%E9%AA%A4"><span class="toc-number">2.1.</span> <span class="toc-text">系统时钟配置步骤</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%A4%96%E8%AE%BE%E6%97%B6%E9%92%9F%E4%BD%BF%E8%83%BD%E5%92%8C%E5%A4%B1%E8%83%BD"><span class="toc-number">2.2.</span> <span class="toc-text">外设时钟使能和失能</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#sys-stm32-clock-init-%E5%87%BD%E6%95%B0%EF%BC%88F1%EF%BC%89"><span class="toc-number">2.3.</span> <span class="toc-text">sys_stm32_clock_init 函数（F1）</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#HAL-RCC-OscConfig-%E5%87%BD%E6%95%B0"><span class="toc-number">2.3.1.</span> <span class="toc-text">HAL_RCC_OscConfig()函数</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#HAL-RCC-ClockConfig-%E5%87%BD%E6%95%B0"><span class="toc-number">2.3.2.</span> <span class="toc-text">HAL_RCC_ClockConfig()函数</span></a></li></ol></li></ol></li></ol>
       </div>
     
   </span>
@@ -172,57 +172,96 @@
   
 
   <div class="content e-content" itemprop="articleBody">
-    <h1 id="Date-2023-06-05"><a href="#Date-2023-06-05" class="headerlink" title="- Date:2023-06-05"></a>- Date:2023-06-05</h1><ul>
+    <h1>- Date:2023-06-05</h1>
+<ul>
 <li>Time:14:21</li>
 <li>Subject: none</li>
-<li>Tags: #stm32 #时钟<br>[[2023-06]]</li>
+<li>Tags: #stm32 #时钟<br>
+[[2023-06]]</li>
 </ul>
 <hr>
-<h2 id="什么是时钟"><a href="#什么是时钟" class="headerlink" title="什么是时钟"></a>什么是时钟</h2><p><img src="https://pic-chris.oss-cn-guangzhou.aliyuncs.com/img/202407030938780.png" alt="Pasted image 20230605142235|600"></p>
+<h2 id="什么是时钟">什么是时钟</h2>
+<p><img src="https://pic-chris.oss-cn-guangzhou.aliyuncs.com/img/202407030938780.png" alt="Pasted image 20230605142235|600"></p>
 <ol>
 <li>简单来说，时钟是具有周期性的脉冲信号，最常用的是占空比50%的方波</li>
-<li>时钟是单片机的脉搏，搞懂时钟走向及关系，对单片机使用至关重要！<h2 id="认识时钟树（F1）"><a href="#认识时钟树（F1）" class="headerlink" title="认识时钟树（F1）"></a>认识时钟树（F1）</h2><img src="https://pic-chris.oss-cn-guangzhou.aliyuncs.com/img/202407030938781.png" alt="Pasted image 20230605142506|600"><br><img src="https://pic-chris.oss-cn-guangzhou.aliyuncs.com/img/202407030938782.png" alt="Pasted image 20230605142425|600"><br>L：low<br>S：speed<br>I：internal<br>E：external<br><img src="https://pic-chris.oss-cn-guangzhou.aliyuncs.com/img/202407030938783.png" alt="Pasted image 20230605142543|600"><h3 id="时钟树简图"><a href="#时钟树简图" class="headerlink" title="时钟树简图"></a>时钟树简图</h3><img src="https://pic-chris.oss-cn-guangzhou.aliyuncs.com/img/202407030938784.png" alt="Pasted image 20230605142739|600"></li>
+<li>时钟是单片机的脉搏，搞懂时钟走向及关系，对单片机使用至关重要！</li>
+</ol>
+<h2 id="认识时钟树（F1）">认识时钟树（F1）</h2>
+<p><img src="https://pic-chris.oss-cn-guangzhou.aliyuncs.com/img/202407030938781.png" alt="Pasted image 20230605142506|600"><br>
+<img src="https://pic-chris.oss-cn-guangzhou.aliyuncs.com/img/202407030938782.png" alt="Pasted image 20230605142425|600"><br>
+L：low<br>
+S：speed<br>
+I：internal<br>
+E：external<br>
+<img src="https://pic-chris.oss-cn-guangzhou.aliyuncs.com/img/202407030938783.png" alt="Pasted image 20230605142543|600"></p>
+<h3 id="时钟树简图">时钟树简图</h3>
+<p><img src="https://pic-chris.oss-cn-guangzhou.aliyuncs.com/img/202407030938784.png" alt="Pasted image 20230605142739|600"></p>
+<ol>
 <li>PLL：锁相环，倍频系数：2~3（PLLCLK）</li>
 <li>HSE分频可以说/1或者/2，HSI分频/2，再来到PLL倍频</li>
 <li>HCLK前分频也用1，保持72mhz</li>
-<li>APB1则分频/2，<br><img src="https://pic-chris.oss-cn-guangzhou.aliyuncs.com/img/202407030938785.png" alt="Pasted image 20230605143203|600"></li>
-<li>低速晶振<h3 id="HAL库内体现"><a href="#HAL库内体现" class="headerlink" title="HAL库内体现"></a>HAL库内体现</h3></li>
+<li>APB1则分频/2，<br>
+<img src="https://pic-chris.oss-cn-guangzhou.aliyuncs.com/img/202407030938785.png" alt="Pasted image 20230605143203|600"></li>
+<li>低速晶振</li>
+</ol>
+<h3 id="HAL库内体现">HAL库内体现</h3>
+<ol>
 <li>时钟源、锁相环：HAL_RCC_OscConfig()</li>
 <li>系统时钟、总线：HAL_RCC_ClockConfig()</li>
-<li>使能外设时钟：<em> </em> HAL_RCC_PPP_CLK_ENABLE()   是一个宏定义，打开外设时使用时</li>
-<li>扩展外设时钟(RTC/ADC/USB)：HAL_RCCEx_PeriphCLKConfig()<h3 id="STM32CubeMX时钟树（F103）"><a href="#STM32CubeMX时钟树（F103）" class="headerlink" title="STM32CubeMX时钟树（F103）"></a>STM32CubeMX时钟树（F103）</h3><img src="https://pic-chris.oss-cn-guangzhou.aliyuncs.com/img/202407030938786.png" alt="Pasted image 20230605143431|600"></li>
+<li>使能外设时钟：_ _ HAL_RCC_PPP_CLK_ENABLE()   是一个宏定义，打开外设时使用时</li>
+<li>扩展外设时钟(RTC/ADC/USB)：HAL_RCCEx_PeriphCLKConfig()</li>
 </ol>
-<h1 id="Date-2023-06-05-1"><a href="#Date-2023-06-05-1" class="headerlink" title="- Date:2023-06-05"></a>- Date:2023-06-05</h1><ul>
+<h3 id="STM32CubeMX时钟树（F103）">STM32CubeMX时钟树（F103）</h3>
+<p><img src="https://pic-chris.oss-cn-guangzhou.aliyuncs.com/img/202407030938786.png" alt="Pasted image 20230605143431|600"></p>
+<h1>- Date:2023-06-05</h1>
+<ul>
 <li>Time:15:01</li>
 <li>Subject: none</li>
-<li>Tags: #stm32 #配置 #时钟<br>[[2023-06]]</li>
+<li>Tags: #stm32 #配置 #时钟<br>
+[[2023-06]]</li>
 </ul>
 <hr>
-<h2 id="系统时钟配置步骤"><a href="#系统时钟配置步骤" class="headerlink" title="系统时钟配置步骤"></a>系统时钟配置步骤</h2><ol>
-<li>配置HSE_VALUE<ol>
+<h2 id="系统时钟配置步骤">系统时钟配置步骤</h2>
+<ol>
+<li>配置HSE_VALUE
+<ol>
 <li>告诉HAL库外部晶振频率，stm32xxxx_hal_conf.h</li>
 </ol>
 </li>
-<li>调用SystemInit()函数（可选）<ol>
+<li>调用SystemInit()函数（可选）
+<ol>
 <li>在启动文件中调用， 在system_stm32xxxx.c定义</li>
 </ol>
 </li>
-<li>选择时钟源，配置PLL<ol>
+<li>选择时钟源，配置PLL
+<ol>
 <li>通过HAL_RCC_OscConfig()函数设置</li>
 </ol>
 </li>
-<li>选择系统时钟源，配置总线分频器<ol>
+<li>选择系统时钟源，配置总线分频器
+<ol>
 <li>通过HAL_RCC_ClockConfig()函数设置</li>
 </ol>
 </li>
-<li>配置扩展外设时钟（可选）<ol>
-<li>通过HAL_RCCEx_PeriphCLKConfig()函数设置<br>注：<br>3 + 4 + 5 = sys_stm32_clock_init()   //正点原子配置<h2 id="外设时钟使能和失能"><a href="#外设时钟使能和失能" class="headerlink" title="外设时钟使能和失能"></a>外设时钟使能和失能</h2><font color="#ff0000">我们要使用某个外设，必需先使能该外设时钟！！！</font><figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">HAL库使能某个外设时钟的方法，如：</span><br><span class="line">__HAL_RCC_GPIOA_CLK_ENABLE();        <span class="comment">/* 使能 GPIOA 时钟 */</span></span><br><span class="line">HAL库禁止某个外设时钟的方法，如：</span><br><span class="line">__HAL_RCC_GPIOA_CLK_DISABLE();        <span class="comment">/* 禁止 GPIOA 时钟 */</span></span><br></pre></td></tr></table></figure>
-<h2 id="sys-stm32-clock-init-函数（F1）"><a href="#sys-stm32-clock-init-函数（F1）" class="headerlink" title="sys_stm32_clock_init 函数（F1）"></a>sys_stm32_clock_init 函数（F1）</h2>结合上一个md的图表来看，是对对应位的配置<h3 id="HAL-RCC-OscConfig-函数"><a href="#HAL-RCC-OscConfig-函数" class="headerlink" title="HAL_RCC_OscConfig()函数"></a>HAL_RCC_OscConfig()函数</h3>返回值：HAL_StatusTypeDef HAL_RCC_OscConfig(RCC_OscInitTypeDef  *RCC_OscInitStruct)<figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">typedef</span> <span class="class"><span class="keyword">struct</span></span></span><br><span class="line"><span class="class">&#123;</span></span><br><span class="line">  <span class="type">uint32_t</span>  OscillatorType;   <span class="comment">/* 选择需要配置的振荡器 */</span>  </span><br><span class="line">  <span class="type">uint32_t</span>  HSEState;   <span class="comment">/* HSE 状态 */</span></span><br><span class="line">  <span class="type">uint32_t</span>  HSEPredivValue;   <span class="comment">/* HSE 预分频值 */</span></span><br><span class="line">  <span class="type">uint32_t</span>  LSEState;   <span class="comment">/* LSE 状态 */</span></span><br><span class="line">  <span class="type">uint32_t</span>  HSIState;   <span class="comment">/* HSI状态 */</span></span><br><span class="line">  <span class="type">uint32_t</span>  HSICalibrationValue;   <span class="comment">/* HSI 校准值 */</span></span><br><span class="line">  <span class="type">uint32_t</span>  LSIState;   <span class="comment">/* LSI 状态 */</span></span><br><span class="line">  RCC_PLLInitTypeDef  PLL;   <span class="comment">/* PLL 结构体 */</span></span><br><span class="line">&#125;RCC_OscInitTypeDef;</span><br><span class="line"></span><br><span class="line"><span class="keyword">typedef</span> <span class="class"><span class="keyword">struct</span></span></span><br><span class="line"><span class="class">&#123;</span></span><br><span class="line">  <span class="type">uint32_t</span>  PLLState;   <span class="comment">/* PLL 状态 */</span></span><br><span class="line">  <span class="type">uint32_t</span>  PLLSource;   <span class="comment">/* PLL 时钟源 */</span></span><br><span class="line">  <span class="type">uint32_t</span>  PLLMUL;   <span class="comment">/* PLL 倍频系数 */</span></span><br><span class="line">&#125;RCC_PLLInitTypeDef;</span><br></pre></td></tr></table></figure>
-<h3 id="HAL-RCC-ClockConfig-函数"><a href="#HAL-RCC-ClockConfig-函数" class="headerlink" title="HAL_RCC_ClockConfig()函数"></a>HAL_RCC_ClockConfig()函数</h3>返回值：HAL_StatusTypeDef HAL_RCC_ClockConfig(RCC_ClkInitTypeDef  *RCC_ClkInitStruct, uint32_t FLatency)<figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">typedef</span> <span class="class"><span class="keyword">struct</span></span></span><br><span class="line"><span class="class">&#123;</span></span><br><span class="line">  <span class="type">uint32_t</span>  ClockType;   <span class="comment">/* 要配置的时钟（SYSCLK/HCLK/PCLK1/PCLK2） */</span></span><br><span class="line">  <span class="type">uint32_t</span>  SYSCLKSource;   <span class="comment">/* 系统时钟源 */</span></span><br><span class="line">  <span class="type">uint32_t</span>  AHBCLKDivider;   <span class="comment">/* AHB  时钟预分频系数 */</span></span><br><span class="line">  <span class="type">uint32_t</span>  APB1CLKDivider;   <span class="comment">/* APB1 时钟预分频系数 */</span></span><br><span class="line">  <span class="type">uint32_t</span>  APB2CLKDivider;   <span class="comment">/* APB2 时钟预分频系数 */</span></span><br><span class="line">&#125;RCC_ClkInitTypeDef;</span><br><span class="line"></span><br><span class="line"><span class="type">uint32_t</span> FLatency</span><br><span class="line"><span class="meta">#<span class="keyword">define</span>  FLASH_LATENCY_0   0x00000000U   <span class="comment">/* FLASH 0个等待周期 */</span></span></span><br><span class="line"><span class="meta">#<span class="keyword">define</span>  FLASH_LATENCY_1   FLASH_ACR_LATENCY_0   <span class="comment">/* FLASH 1个等待周期 */</span></span></span><br><span class="line"><span class="meta">#<span class="keyword">define</span>  FLASH_LATENCY_2   FLASH_ACR_LATENCY_1   <span class="comment">/* FLASH 2个等待周期 */</span></span></span><br></pre></td></tr></table></figure>
-</li>
+<li>配置扩展外设时钟（可选）
+<ol>
+<li>通过HAL_RCCEx_PeriphCLKConfig()函数设置<br>
+注：<br>
+3 + 4 + 5 = sys_stm32_clock_init()   //正点原子配置</li>
 </ol>
 </li>
 </ol>
+<h2 id="外设时钟使能和失能">外设时钟使能和失能</h2>
+<p><font color="#ff0000">我们要使用某个外设，必需先使能该外设时钟！！！</font></p>
+<figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">HAL库使能某个外设时钟的方法，如：</span><br><span class="line">__HAL_RCC_GPIOA_CLK_ENABLE();        <span class="comment">/* 使能 GPIOA 时钟 */</span></span><br><span class="line">HAL库禁止某个外设时钟的方法，如：</span><br><span class="line">__HAL_RCC_GPIOA_CLK_DISABLE();        <span class="comment">/* 禁止 GPIOA 时钟 */</span></span><br></pre></td></tr></table></figure>
+<h2 id="sys-stm32-clock-init-函数（F1）">sys_stm32_clock_init 函数（F1）</h2>
+<p>结合上一个md的图表来看，是对对应位的配置</p>
+<h3 id="HAL-RCC-OscConfig-函数">HAL_RCC_OscConfig()函数</h3>
+<p>返回值：HAL_StatusTypeDef HAL_RCC_OscConfig(RCC_OscInitTypeDef  *RCC_OscInitStruct)</p>
+<figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">typedef</span> <span class="class"><span class="keyword">struct</span></span></span><br><span class="line"><span class="class">&#123;</span></span><br><span class="line">  <span class="type">uint32_t</span>  OscillatorType;   <span class="comment">/* 选择需要配置的振荡器 */</span>  </span><br><span class="line">  <span class="type">uint32_t</span>  HSEState;   <span class="comment">/* HSE 状态 */</span></span><br><span class="line">  <span class="type">uint32_t</span>  HSEPredivValue;   <span class="comment">/* HSE 预分频值 */</span></span><br><span class="line">  <span class="type">uint32_t</span>  LSEState;   <span class="comment">/* LSE 状态 */</span></span><br><span class="line">  <span class="type">uint32_t</span>  HSIState;   <span class="comment">/* HSI状态 */</span></span><br><span class="line">  <span class="type">uint32_t</span>  HSICalibrationValue;   <span class="comment">/* HSI 校准值 */</span></span><br><span class="line">  <span class="type">uint32_t</span>  LSIState;   <span class="comment">/* LSI 状态 */</span></span><br><span class="line">  RCC_PLLInitTypeDef  PLL;   <span class="comment">/* PLL 结构体 */</span></span><br><span class="line">&#125;RCC_OscInitTypeDef;</span><br><span class="line"></span><br><span class="line"><span class="keyword">typedef</span> <span class="class"><span class="keyword">struct</span></span></span><br><span class="line"><span class="class">&#123;</span></span><br><span class="line">  <span class="type">uint32_t</span>  PLLState;   <span class="comment">/* PLL 状态 */</span></span><br><span class="line">  <span class="type">uint32_t</span>  PLLSource;   <span class="comment">/* PLL 时钟源 */</span></span><br><span class="line">  <span class="type">uint32_t</span>  PLLMUL;   <span class="comment">/* PLL 倍频系数 */</span></span><br><span class="line">&#125;RCC_PLLInitTypeDef;</span><br></pre></td></tr></table></figure>
+<h3 id="HAL-RCC-ClockConfig-函数">HAL_RCC_ClockConfig()函数</h3>
+<p>返回值：HAL_StatusTypeDef HAL_RCC_ClockConfig(RCC_ClkInitTypeDef  *RCC_ClkInitStruct, uint32_t FLatency)</p>
+<figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">typedef</span> <span class="class"><span class="keyword">struct</span></span></span><br><span class="line"><span class="class">&#123;</span></span><br><span class="line">  <span class="type">uint32_t</span>  ClockType;   <span class="comment">/* 要配置的时钟（SYSCLK/HCLK/PCLK1/PCLK2） */</span></span><br><span class="line">  <span class="type">uint32_t</span>  SYSCLKSource;   <span class="comment">/* 系统时钟源 */</span></span><br><span class="line">  <span class="type">uint32_t</span>  AHBCLKDivider;   <span class="comment">/* AHB  时钟预分频系数 */</span></span><br><span class="line">  <span class="type">uint32_t</span>  APB1CLKDivider;   <span class="comment">/* APB1 时钟预分频系数 */</span></span><br><span class="line">  <span class="type">uint32_t</span>  APB2CLKDivider;   <span class="comment">/* APB2 时钟预分频系数 */</span></span><br><span class="line">&#125;RCC_ClkInitTypeDef;</span><br><span class="line"></span><br><span class="line"><span class="type">uint32_t</span> FLatency</span><br><span class="line"><span class="meta">#<span class="keyword">define</span>  FLASH_LATENCY_0   0x00000000U   <span class="comment">/* FLASH 0个等待周期 */</span></span></span><br><span class="line"><span class="meta">#<span class="keyword">define</span>  FLASH_LATENCY_1   FLASH_ACR_LATENCY_0   <span class="comment">/* FLASH 1个等待周期 */</span></span></span><br><span class="line"><span class="meta">#<span class="keyword">define</span>  FLASH_LATENCY_2   FLASH_ACR_LATENCY_1   <span class="comment">/* FLASH 2个等待周期 */</span></span></span><br></pre></td></tr></table></figure>
 
   </div>
 </article>
@@ -250,7 +289,7 @@
     
     
       <div id="toc-footer" style="display: none">
-        <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#Date-2023-06-05"><span class="toc-number">1.</span> <span class="toc-text">- Date:2023-06-05</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#%E4%BB%80%E4%B9%88%E6%98%AF%E6%97%B6%E9%92%9F"><span class="toc-number">1.1.</span> <span class="toc-text">什么是时钟</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E8%AE%A4%E8%AF%86%E6%97%B6%E9%92%9F%E6%A0%91%EF%BC%88F1%EF%BC%89"><span class="toc-number">1.2.</span> <span class="toc-text">认识时钟树（F1）</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#%E6%97%B6%E9%92%9F%E6%A0%91%E7%AE%80%E5%9B%BE"><span class="toc-number">1.2.1.</span> <span class="toc-text">时钟树简图</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#HAL%E5%BA%93%E5%86%85%E4%BD%93%E7%8E%B0"><span class="toc-number">1.2.2.</span> <span class="toc-text">HAL库内体现</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#STM32CubeMX%E6%97%B6%E9%92%9F%E6%A0%91%EF%BC%88F103%EF%BC%89"><span class="toc-number">1.2.3.</span> <span class="toc-text">STM32CubeMX时钟树（F103）</span></a></li></ol></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#Date-2023-06-05-1"><span class="toc-number">2.</span> <span class="toc-text">- Date:2023-06-05</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#%E7%B3%BB%E7%BB%9F%E6%97%B6%E9%92%9F%E9%85%8D%E7%BD%AE%E6%AD%A5%E9%AA%A4"><span class="toc-number">2.1.</span> <span class="toc-text">系统时钟配置步骤</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%A4%96%E8%AE%BE%E6%97%B6%E9%92%9F%E4%BD%BF%E8%83%BD%E5%92%8C%E5%A4%B1%E8%83%BD"><span class="toc-number">2.2.</span> <span class="toc-text">外设时钟使能和失能</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#sys-stm32-clock-init-%E5%87%BD%E6%95%B0%EF%BC%88F1%EF%BC%89"><span class="toc-number">2.3.</span> <span class="toc-text">sys_stm32_clock_init 函数（F1）</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#HAL-RCC-OscConfig-%E5%87%BD%E6%95%B0"><span class="toc-number">2.3.1.</span> <span class="toc-text">HAL_RCC_OscConfig()函数</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#HAL-RCC-ClockConfig-%E5%87%BD%E6%95%B0"><span class="toc-number">2.3.2.</span> <span class="toc-text">HAL_RCC_ClockConfig()函数</span></a></li></ol></li></ol></li></ol>
+        <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link"><span class="toc-number">1.</span> <span class="toc-text">- Date:2023-06-05</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#%E4%BB%80%E4%B9%88%E6%98%AF%E6%97%B6%E9%92%9F"><span class="toc-number">1.1.</span> <span class="toc-text">什么是时钟</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E8%AE%A4%E8%AF%86%E6%97%B6%E9%92%9F%E6%A0%91%EF%BC%88F1%EF%BC%89"><span class="toc-number">1.2.</span> <span class="toc-text">认识时钟树（F1）</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#%E6%97%B6%E9%92%9F%E6%A0%91%E7%AE%80%E5%9B%BE"><span class="toc-number">1.2.1.</span> <span class="toc-text">时钟树简图</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#HAL%E5%BA%93%E5%86%85%E4%BD%93%E7%8E%B0"><span class="toc-number">1.2.2.</span> <span class="toc-text">HAL库内体现</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#STM32CubeMX%E6%97%B6%E9%92%9F%E6%A0%91%EF%BC%88F103%EF%BC%89"><span class="toc-number">1.2.3.</span> <span class="toc-text">STM32CubeMX时钟树（F103）</span></a></li></ol></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link"><span class="toc-number">2.</span> <span class="toc-text">- Date:2023-06-05</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#%E7%B3%BB%E7%BB%9F%E6%97%B6%E9%92%9F%E9%85%8D%E7%BD%AE%E6%AD%A5%E9%AA%A4"><span class="toc-number">2.1.</span> <span class="toc-text">系统时钟配置步骤</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%A4%96%E8%AE%BE%E6%97%B6%E9%92%9F%E4%BD%BF%E8%83%BD%E5%92%8C%E5%A4%B1%E8%83%BD"><span class="toc-number">2.2.</span> <span class="toc-text">外设时钟使能和失能</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#sys-stm32-clock-init-%E5%87%BD%E6%95%B0%EF%BC%88F1%EF%BC%89"><span class="toc-number">2.3.</span> <span class="toc-text">sys_stm32_clock_init 函数（F1）</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#HAL-RCC-OscConfig-%E5%87%BD%E6%95%B0"><span class="toc-number">2.3.1.</span> <span class="toc-text">HAL_RCC_OscConfig()函数</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#HAL-RCC-ClockConfig-%E5%87%BD%E6%95%B0"><span class="toc-number">2.3.2.</span> <span class="toc-text">HAL_RCC_ClockConfig()函数</span></a></li></ol></li></ol></li></ol>
       </div>
     
 

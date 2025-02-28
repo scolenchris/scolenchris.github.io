@@ -6,12 +6,12 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="HandheldFriendly" content="True">
     <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=5" />
-    <meta name="description" content="- Date:2023-05-22 Time:22:55 Subject: none Tags: #stm32[[2023-05]]   存储器映射 存储器指可以存储数据的设备，本身没有地址信息，对存储器分配地址的过程称为存储器映射 19根地址线：A0-A18   16根数据线：D0-D15 地址范围：0 - 512K 映射1：0 - 512K 映射2：1 – 512K + 1 映射3：100K">
+    <meta name="description" content="- Date:2023-05-22  Time:22:55 Subject: none Tags: #stm32 [[2023-05]]   存储器映射  存储器指可以存储数据的设备，本身没有地址信息，对存储器分配地址的过程称为存储器映射 19根地址线：A0-A18   16根数据线：D0-D15 地址范围：0 - 512K  映射1：0 - 512K 映射2：1 – 512K + 1 映射3：1">
 <meta property="og:type" content="article">
 <meta property="og:title" content="stm32-基础知识">
 <meta property="og:url" content="https://scolenchris.top/posts/1bce3e80.html">
 <meta property="og:site_name" content="Chris">
-<meta property="og:description" content="- Date:2023-05-22 Time:22:55 Subject: none Tags: #stm32[[2023-05]]   存储器映射 存储器指可以存储数据的设备，本身没有地址信息，对存储器分配地址的过程称为存储器映射 19根地址线：A0-A18   16根数据线：D0-D15 地址范围：0 - 512K 映射1：0 - 512K 映射2：1 – 512K + 1 映射3：100K">
+<meta property="og:description" content="- Date:2023-05-22  Time:22:55 Subject: none Tags: #stm32 [[2023-05]]   存储器映射  存储器指可以存储数据的设备，本身没有地址信息，对存储器分配地址的过程称为存储器映射 19根地址线：A0-A18   16根数据线：D0-D15 地址范围：0 - 512K  映射1：0 - 512K 映射2：1 – 512K + 1 映射3：1">
 <meta property="og:locale" content="zh_CN">
 <meta property="og:image" content="https://pic-chris.oss-cn-guangzhou.aliyuncs.com/img/202407030945405.png">
 <meta property="og:image" content="https://pic-chris.oss-cn-guangzhou.aliyuncs.com/img/202407030945406.png">
@@ -31,7 +31,7 @@
 <meta property="og:image" content="https://pic-chris.oss-cn-guangzhou.aliyuncs.com/img/202407030945059.png">
 <meta property="og:image" content="https://pic-chris.oss-cn-guangzhou.aliyuncs.com/img/202407030945060.png">
 <meta property="article:published_time" content="2024-07-03T10:12:06.000Z">
-<meta property="article:modified_time" content="2025-02-28T07:46:54.944Z">
+<meta property="article:modified_time" content="2025-02-28T07:54:48.129Z">
 <meta property="article:author" content="Chris">
 <meta property="article:tag" content="博客,scolen,chris,技术,生活,记录,life,code">
 <meta name="twitter:card" content="summary">
@@ -142,7 +142,7 @@
     
     
       <div id="toc">
-        <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#Date-2023-05-22"><span class="toc-number">1.</span> <span class="toc-text">- Date:2023-05-22</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%AD%98%E5%82%A8%E5%99%A8%E6%98%A0%E5%B0%84"><span class="toc-number">1.1.</span> <span class="toc-text">存储器映射</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#%E5%AF%84%E5%AD%98%E5%99%A8%E6%98%A0%E5%B0%84"><span class="toc-number">1.1.1.</span> <span class="toc-text">寄存器映射</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#F1%E4%B8%BA%E4%BE%8B"><span class="toc-number">1.1.2.</span> <span class="toc-text">F1为例</span></a></li></ol></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#Date-2023-05-25"><span class="toc-number">2.</span> <span class="toc-text">- Date:2023-05-25</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#%E8%8B%B1%E6%96%87%E7%BC%A9%E5%86%99%E9%83%A8%E5%88%86"><span class="toc-number">2.1.</span> <span class="toc-text">英文缩写部分</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#A%EF%BC%9A"><span class="toc-number">2.1.1.</span> <span class="toc-text">A：</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#B%EF%BC%9A"><span class="toc-number">2.1.2.</span> <span class="toc-text">B：</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#C%EF%BC%9A"><span class="toc-number">2.1.3.</span> <span class="toc-text">C：</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#D%EF%BC%9A"><span class="toc-number">2.1.4.</span> <span class="toc-text">D：</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#E%EF%BC%9A"><span class="toc-number">2.1.5.</span> <span class="toc-text">E：</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#F%EF%BC%9A"><span class="toc-number">2.1.6.</span> <span class="toc-text">F：</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#G%EF%BC%9A"><span class="toc-number">2.1.7.</span> <span class="toc-text">G：</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#I%EF%BC%9A"><span class="toc-number">2.1.8.</span> <span class="toc-text">I：</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#J%EF%BC%9A"><span class="toc-number">2.1.9.</span> <span class="toc-text">J：</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#L%EF%BC%9A"><span class="toc-number">2.1.10.</span> <span class="toc-text">L：</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#M%EF%BC%9A"><span class="toc-number">2.1.11.</span> <span class="toc-text">M：</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#N%EF%BC%9A"><span class="toc-number">2.1.12.</span> <span class="toc-text">N：</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#O%EF%BC%9A"><span class="toc-number">2.1.13.</span> <span class="toc-text">O：</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#P%EF%BC%9A"><span class="toc-number">2.1.14.</span> <span class="toc-text">P：</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#R%EF%BC%9A"><span class="toc-number">2.1.15.</span> <span class="toc-text">R：</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#S%EF%BC%9A"><span class="toc-number">2.1.16.</span> <span class="toc-text">S：</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#T%EF%BC%9A"><span class="toc-number">2.1.17.</span> <span class="toc-text">T：</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#U%EF%BC%9A"><span class="toc-number">2.1.18.</span> <span class="toc-text">U：</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#W%EF%BC%9A"><span class="toc-number">2.1.19.</span> <span class="toc-text">W：</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E8%AF%8D%E6%B1%87%E9%83%A8%E5%88%86"><span class="toc-number">2.2.</span> <span class="toc-text">词汇部分</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#A%EF%BC%9A-1"><span class="toc-number">2.2.1.</span> <span class="toc-text">A：</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#B%EF%BC%9A-1"><span class="toc-number">2.2.2.</span> <span class="toc-text">B：</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#C%EF%BC%9A-1"><span class="toc-number">2.2.3.</span> <span class="toc-text">C：</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#D%EF%BC%9A-1"><span class="toc-number">2.2.4.</span> <span class="toc-text">D：</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#E%EF%BC%9A-1"><span class="toc-number">2.2.5.</span> <span class="toc-text">E：</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#F%EF%BC%9A-1"><span class="toc-number">2.2.6.</span> <span class="toc-text">F：</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#G%EF%BC%9A-1"><span class="toc-number">2.2.7.</span> <span class="toc-text">G：</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#H%EF%BC%9A"><span class="toc-number">2.2.8.</span> <span class="toc-text">H：</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#I%EF%BC%9A-1"><span class="toc-number">2.2.9.</span> <span class="toc-text">I：</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#L%EF%BC%9A-1"><span class="toc-number">2.2.10.</span> <span class="toc-text">L：</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#M%EF%BC%9A-1"><span class="toc-number">2.2.11.</span> <span class="toc-text">M：</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#N%EF%BC%9A-1"><span class="toc-number">2.2.12.</span> <span class="toc-text">N：</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#O%EF%BC%9A-1"><span class="toc-number">2.2.13.</span> <span class="toc-text">O：</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#P%EF%BC%9A-1"><span class="toc-number">2.2.14.</span> <span class="toc-text">P：</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#R%EF%BC%9A-1"><span class="toc-number">2.2.15.</span> <span class="toc-text">R：</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#S%EF%BC%9A-1"><span class="toc-number">2.2.16.</span> <span class="toc-text">S：</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#T%EF%BC%9A-1"><span class="toc-number">2.2.17.</span> <span class="toc-text">T：</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#U%EF%BC%9A-1"><span class="toc-number">2.2.18.</span> <span class="toc-text">U：</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#V%EF%BC%9A"><span class="toc-number">2.2.19.</span> <span class="toc-text">V：</span></a></li></ol></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#Date-2023-05-22-1"><span class="toc-number">3.</span> <span class="toc-text">- Date:2023-05-22</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#Cortex-M%E5%86%85%E6%A0%B8-amp-%E8%8A%AF%E7%89%87"><span class="toc-number">3.1.</span> <span class="toc-text">Cortex M内核 &amp; 芯片</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#F1%E7%B3%BB%E7%BB%9F%E6%9E%B6%E6%9E%84"><span class="toc-number">3.2.</span> <span class="toc-text">F1系统架构</span></a></li></ol></li></ol>
+        <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link"><span class="toc-number">1.</span> <span class="toc-text">- Date:2023-05-22</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%AD%98%E5%82%A8%E5%99%A8%E6%98%A0%E5%B0%84"><span class="toc-number">1.1.</span> <span class="toc-text">存储器映射</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#%E5%AF%84%E5%AD%98%E5%99%A8%E6%98%A0%E5%B0%84"><span class="toc-number">1.1.1.</span> <span class="toc-text">寄存器映射</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#F1%E4%B8%BA%E4%BE%8B"><span class="toc-number">1.1.2.</span> <span class="toc-text">F1为例</span></a></li></ol></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link"><span class="toc-number">2.</span> <span class="toc-text">- Date:2023-05-25</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#%E8%8B%B1%E6%96%87%E7%BC%A9%E5%86%99%E9%83%A8%E5%88%86"><span class="toc-number">2.1.</span> <span class="toc-text">英文缩写部分</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#A%EF%BC%9A"><span class="toc-number">2.1.1.</span> <span class="toc-text">A：</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#B%EF%BC%9A"><span class="toc-number">2.1.2.</span> <span class="toc-text">B：</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#C%EF%BC%9A"><span class="toc-number">2.1.3.</span> <span class="toc-text">C：</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#D%EF%BC%9A"><span class="toc-number">2.1.4.</span> <span class="toc-text">D：</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#E%EF%BC%9A"><span class="toc-number">2.1.5.</span> <span class="toc-text">E：</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#F%EF%BC%9A"><span class="toc-number">2.1.6.</span> <span class="toc-text">F：</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#G%EF%BC%9A"><span class="toc-number">2.1.7.</span> <span class="toc-text">G：</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#I%EF%BC%9A"><span class="toc-number">2.1.8.</span> <span class="toc-text">I：</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#J%EF%BC%9A"><span class="toc-number">2.1.9.</span> <span class="toc-text">J：</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#L%EF%BC%9A"><span class="toc-number">2.1.10.</span> <span class="toc-text">L：</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#M%EF%BC%9A"><span class="toc-number">2.1.11.</span> <span class="toc-text">M：</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#N%EF%BC%9A"><span class="toc-number">2.1.12.</span> <span class="toc-text">N：</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#O%EF%BC%9A"><span class="toc-number">2.1.13.</span> <span class="toc-text">O：</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#P%EF%BC%9A"><span class="toc-number">2.1.14.</span> <span class="toc-text">P：</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#R%EF%BC%9A"><span class="toc-number">2.1.15.</span> <span class="toc-text">R：</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#S%EF%BC%9A"><span class="toc-number">2.1.16.</span> <span class="toc-text">S：</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#T%EF%BC%9A"><span class="toc-number">2.1.17.</span> <span class="toc-text">T：</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#U%EF%BC%9A"><span class="toc-number">2.1.18.</span> <span class="toc-text">U：</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#W%EF%BC%9A"><span class="toc-number">2.1.19.</span> <span class="toc-text">W：</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E8%AF%8D%E6%B1%87%E9%83%A8%E5%88%86"><span class="toc-number">2.2.</span> <span class="toc-text">词汇部分</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#A%EF%BC%9A-2"><span class="toc-number">2.2.1.</span> <span class="toc-text">A：</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#B%EF%BC%9A-2"><span class="toc-number">2.2.2.</span> <span class="toc-text">B：</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#C%EF%BC%9A-2"><span class="toc-number">2.2.3.</span> <span class="toc-text">C：</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#D%EF%BC%9A-2"><span class="toc-number">2.2.4.</span> <span class="toc-text">D：</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#E%EF%BC%9A-2"><span class="toc-number">2.2.5.</span> <span class="toc-text">E：</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#F%EF%BC%9A-2"><span class="toc-number">2.2.6.</span> <span class="toc-text">F：</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#G%EF%BC%9A-2"><span class="toc-number">2.2.7.</span> <span class="toc-text">G：</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#H%EF%BC%9A"><span class="toc-number">2.2.8.</span> <span class="toc-text">H：</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#I%EF%BC%9A-2"><span class="toc-number">2.2.9.</span> <span class="toc-text">I：</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#L%EF%BC%9A-2"><span class="toc-number">2.2.10.</span> <span class="toc-text">L：</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#M%EF%BC%9A-2"><span class="toc-number">2.2.11.</span> <span class="toc-text">M：</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#N%EF%BC%9A-2"><span class="toc-number">2.2.12.</span> <span class="toc-text">N：</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#O%EF%BC%9A-2"><span class="toc-number">2.2.13.</span> <span class="toc-text">O：</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#P%EF%BC%9A-2"><span class="toc-number">2.2.14.</span> <span class="toc-text">P：</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#R%EF%BC%9A-2"><span class="toc-number">2.2.15.</span> <span class="toc-text">R：</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#S%EF%BC%9A-2"><span class="toc-number">2.2.16.</span> <span class="toc-text">S：</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#T%EF%BC%9A-2"><span class="toc-number">2.2.17.</span> <span class="toc-text">T：</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#U%EF%BC%9A-2"><span class="toc-number">2.2.18.</span> <span class="toc-text">U：</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#V%EF%BC%9A"><span class="toc-number">2.2.19.</span> <span class="toc-text">V：</span></a></li></ol></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link"><span class="toc-number">3.</span> <span class="toc-text">- Date:2023-05-22</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#Cortex-M%E5%86%85%E6%A0%B8-%E8%8A%AF%E7%89%87"><span class="toc-number">3.1.</span> <span class="toc-text">Cortex M内核 &amp; 芯片</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#F1%E7%B3%BB%E7%BB%9F%E6%9E%B6%E6%9E%84"><span class="toc-number">3.2.</span> <span class="toc-text">F1系统架构</span></a></li></ol></li></ol>
       </div>
     
   </span>
@@ -182,85 +182,110 @@
   
 
   <div class="content e-content" itemprop="articleBody">
-    <h1 id="Date-2023-05-22"><a href="#Date-2023-05-22" class="headerlink" title="- Date:2023-05-22"></a>- Date:2023-05-22</h1><ul>
+    <h1>- Date:2023-05-22</h1>
+<ul>
 <li>Time:22:55</li>
 <li>Subject: none</li>
-<li>Tags: #stm32<br>[[2023-05]]</li>
+<li>Tags: #stm32<br>
+[[2023-05]]</li>
 </ul>
 <hr>
-<h2 id="存储器映射"><a href="#存储器映射" class="headerlink" title="存储器映射"></a>存储器映射</h2><ol>
+<h2 id="存储器映射">存储器映射</h2>
+<ol>
 <li>存储器指可以存储数据的设备，本身没有地址信息，对存储器分配地址的过程称为存储器映射</li>
 <li>19根地址线：A0-A18   16根数据线：D0-D15</li>
-<li>地址范围：0 - 512K<ol>
+<li>地址范围：0 - 512K
+<ol>
 <li>映射1：0 - 512K</li>
 <li>映射2：1 – 512K + 1</li>
 <li>映射3：100K – 612K</li>
 <li>映射4：512K – 1024K</li>
 </ol>
 </li>
-<li>F1为例子<ol>
-<li>ST将4GB（2^32）地址空间分成8个块<ol>
+<li>F1为例子
+<ol>
+<li>ST将4GB（2^32）地址空间分成8个块
+<ol>
 <li><img src="https://pic-chris.oss-cn-guangzhou.aliyuncs.com/img/202407030945405.png" alt="Pasted image 20230522230107|600"></li>
 </ol>
 </li>
-<li>Block0（FLASH）功能划分<ol>
+<li>Block0（FLASH）功能划分
+<ol>
 <li><img src="https://pic-chris.oss-cn-guangzhou.aliyuncs.com/img/202407030945406.png" alt="Pasted image 20230522231205|600"></li>
 </ol>
 </li>
-<li>Block1（SRAM）功能划分<ol>
+<li>Block1（SRAM）功能划分
+<ol>
 <li><img src="https://pic-chris.oss-cn-guangzhou.aliyuncs.com/img/202407030945407.png" alt="Pasted image 20230522231229|600"></li>
 </ol>
 </li>
-<li>Block2（外设）功能划分<ol>
-<li><img src="https://pic-chris.oss-cn-guangzhou.aliyuncs.com/img/202407030945408.png" alt="Pasted image 20230522231356|600"><h3 id="寄存器映射"><a href="#寄存器映射" class="headerlink" title="寄存器映射"></a>寄存器映射</h3></li>
+<li>Block2（外设）功能划分
+<ol>
+<li><img src="https://pic-chris.oss-cn-guangzhou.aliyuncs.com/img/202407030945408.png" alt="Pasted image 20230522231356|600"></li>
 </ol>
 </li>
 </ol>
 </li>
+</ol>
+<h3 id="寄存器映射">寄存器映射</h3>
+<ol>
 <li>寄存器是单片机内部一种特殊的内存，可以实现对单片机各个功能的控制</li>
-<li>简单来说：寄存器就是单片机内部的控制机构<ol>
+<li>简单来说：寄存器就是单片机内部的控制机构
+<ol>
 <li><img src="https://pic-chris.oss-cn-guangzhou.aliyuncs.com/img/202407030945409.png" alt="Pasted image 20230522231543|600"></li>
 </ol>
 </li>
-<li>STM32寄存器分类<ol>
-<li><img src="https://pic-chris.oss-cn-guangzhou.aliyuncs.com/img/202407030945410.png" alt="Pasted image 20230522231558|600"><h3 id="F1为例"><a href="#F1为例" class="headerlink" title="F1为例"></a>F1为例</h3></li>
+<li>STM32寄存器分类
+<ol>
+<li><img src="https://pic-chris.oss-cn-guangzhou.aliyuncs.com/img/202407030945410.png" alt="Pasted image 20230522231558|600"></li>
 </ol>
 </li>
-<li>寄存器是特殊的存储器，给寄存器地址命名的过程，就叫寄存器映射<ol>
+</ol>
+<h3 id="F1为例">F1为例</h3>
+<ol>
+<li>寄存器是特殊的存储器，给寄存器地址命名的过程，就叫寄存器映射
+<ol>
 <li><img src="https://pic-chris.oss-cn-guangzhou.aliyuncs.com/img/202407030945411.png" alt="Pasted image 20230522232415|600"></li>
 </ol>
 </li>
-<li>寄存器描述解读<ol>
-<li><img src="https://pic-chris.oss-cn-guangzhou.aliyuncs.com/img/202407030945412.png" alt="Pasted image 20230522232618|600"><ol>
+<li>寄存器描述解读
+<ol>
+<li><img src="https://pic-chris.oss-cn-guangzhou.aliyuncs.com/img/202407030945412.png" alt="Pasted image 20230522232618|600">
+<ol>
 <li>① 寄存器名字</li>
 <li>② 偏移量及复位值</li>
 <li>③ 寄存器位表</li>
 <li>④ 位功能描述</li>
 </ol>
 </li>
-<li>直接操作寄存器地址：<figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">*(<span class="type">unsigned</span> <span class="type">int</span> *)(<span class="number">0x4001</span> <span class="number">080</span>C) = <span class="number">0XFFFF</span>;</span><br><span class="line"><span class="comment">//强转unsigned int *,再取地址的值，然后进行操作</span></span><br></pre></td></tr></table></figure>
-</li>
+<li>直接操作寄存器地址：</li>
 </ol>
 </li>
 </ol>
+<figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">*(<span class="type">unsigned</span> <span class="type">int</span> *)(<span class="number">0x4001</span> <span class="number">080</span>C) = <span class="number">0XFFFF</span>;</span><br><span class="line"><span class="comment">//强转unsigned int *,再取地址的值，然后进行操作</span></span><br></pre></td></tr></table></figure>
 <figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">//定义一个名字后再操作：</span></span><br><span class="line"><span class="meta">#<span class="keyword">define</span>    GPIOA_ODR    *(unsigned int *)(0x4001 080C)</span></span><br><span class="line">GPIOA_ODR = <span class="number">0XFFFF</span>；</span><br></pre></td></tr></table></figure>
+<ol start="3">
+<li>寄存器地址计算
 <ol>
-<li>寄存器地址计算<ol>
-<li>为了方便编写代码及使用，我们将寄存器地址分为三个部分：<ol>
-<li>总线基地址（BUS_BASE_ADDR）（对应总线表格中最下面的那个地址）<ol>
+<li>为了方便编写代码及使用，我们将寄存器地址分为三个部分：
+<ol>
+<li>总线基地址（BUS_BASE_ADDR）（对应总线表格中最下面的那个地址）
+<ol>
 <li><img src="https://pic-chris.oss-cn-guangzhou.aliyuncs.com/img/202407030945413.png" alt="Pasted image 20230525091736|600"></li>
 <li>APB1总线的基地址，也叫外设基地址（PERIPH_BASE）</li>
 <li>此表的偏移量：是相对外设基地址（PERIPH_BASE）来说的</li>
 </ol>
 </li>
-<li>外设基于总线基地址的偏移量（PERIPH_OFFSET）<ol>
+<li>外设基于总线基地址的偏移量（PERIPH_OFFSET）
+<ol>
 <li><img src="https://pic-chris.oss-cn-guangzhou.aliyuncs.com/img/202407030945414.png" alt="Pasted image 20230525091902|600"></li>
 <li>apb2为例子</li>
 <li>此表的偏移量：是相对APB2外设基地址（APB2PERIPH_BASE）来说的</li>
 <li>这是外设的基地址，上面是总线的基地址</li>
 </ol>
 </li>
-<li>寄存器相对外设基地址的偏移量（REG_OFFSET）（对应8.24图的地址偏移0Ch）<ol>
+<li>寄存器相对外设基地址的偏移量（REG_OFFSET）（对应8.24图的地址偏移0Ch）
+<ol>
 <li>以GPIOA外设为例子</li>
 <li><img src="https://pic-chris.oss-cn-guangzhou.aliyuncs.com/img/202407030945415.png" alt="Pasted image 20230525092031|600"></li>
 <li>此表的偏移量：是相对GPIOA外设基地址（GPIOA_BASE（上图））来说的</li>
@@ -268,90 +293,333 @@
 </li>
 </ol>
 </li>
-<li>例子计算过程（GPIOA_ODR寄存器地址计算过程）<ol>
+<li>例子计算过程（GPIOA_ODR寄存器地址计算过程）
+<ol>
 <li>获取外设挂在哪个总线上面？查：系统结构图（同时得知道是哪个外设USART1_xx，那就是usart1）</li>
 <li>获取总线基地址，APB2总线基地址：0X4001 0000</li>
-<li>获取外设地址偏移量，GPIOA相对APB2总线偏移量是：0X800（一般可以直接找到外设地址）<ol>
+<li>获取外设地址偏移量，GPIOA相对APB2总线偏移量是：0X800（一般可以直接找到外设地址）
+<ol>
 <li><img src="https://pic-chris.oss-cn-guangzhou.aliyuncs.com/img/202407030945416.png" alt="Pasted image 20230525092659|600"></li>
 </ol>
 </li>
-<li>获取寄存器地址偏移量，ODR相对GPIOA外设基地址的偏移量是：0X0C<ol>
+<li>获取寄存器地址偏移量，ODR相对GPIOA外设基地址的偏移量是：0X0C
+<ol>
 <li><img src="https://pic-chris.oss-cn-guangzhou.aliyuncs.com/img/202407030945417.png" alt="Pasted image 20230525092528|600"></li>
 <li>在手册中找</li>
 </ol>
 </li>
-<li>寄存器地址 = <font color="#ff0000">BUS_BASE_ADDR +  PERIPH_OFFSET + REG_OFFSET</font></li>
+<li>寄存器地址 = <font color="#ff0000">BUS_BASE_ADDR +  PERIPH_OFFSET + REG_OFFSET</font></li>
 <li>GPIOA_ODR = 0X4001 0000 + 0X800 + 0X0C = 0X4001 080C</li>
 </ol>
 </li>
 </ol>
 </li>
-<li>寄存器映射实现<figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">typedef</span> <span class="class"><span class="keyword">struct</span></span></span><br><span class="line"><span class="class">&#123;</span></span><br><span class="line">  __IO <span class="type">uint32_t</span> CRL;</span><br><span class="line">  __IO <span class="type">uint32_t</span> CRH;</span><br><span class="line">  __IO <span class="type">uint32_t</span> IDR;</span><br><span class="line">  __IO <span class="type">uint32_t</span> ODR;</span><br><span class="line">  __IO <span class="type">uint32_t</span> BSRR;</span><br><span class="line">  __IO <span class="type">uint32_t</span> BRR;</span><br><span class="line">  __IO <span class="type">uint32_t</span> LCKR;</span><br><span class="line">&#125; GPIO_TypeDef;</span><br><span class="line"></span><br><span class="line">GPIOA_BASE： <span class="number">0X4001</span> <span class="number">0800</span></span><br></pre></td></tr></table></figure>
-<ol>
-<li>使用结构体，可以很方便的完成对寄存器的映射：</li>
-<li>一次性把7个寄存器映射完毕，可对比上面的对一个寄存器映射</li>
-<li>由于刚好结构体每个地址差4个字节，每个寄存器基地址之间差4个字节<figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#<span class="keyword">define</span>   GPIOA     ((GPIO_TypeDef *)GPIOA_BASE)</span></span><br><span class="line"><span class="comment">//强转GPIOA_BASE为结构体的地址</span></span><br><span class="line">&amp;GPIOA-&gt;CRL： <span class="number">0X4001</span> <span class="number">0800</span></span><br><span class="line">&amp;GPIOA-&gt;CRH： <span class="number">0X4001</span> <span class="number">0804</span></span><br><span class="line">&amp;GPIOA-&gt;IDR：  <span class="number">0X4001</span> <span class="number">0808</span></span><br><span class="line">&amp;GPIOA-&gt;ODR： <span class="number">0X4001</span> <span class="number">080</span>C</span><br><span class="line">实际应用：</span><br><span class="line"><span class="comment">//对地址的所指的位置赋值</span></span><br><span class="line"><span class="comment">//与前面单独对寄存器操作对比，方便了</span></span><br><span class="line">GPIOA-&gt; ODR = <span class="number">0XFFFF</span>；</span><br><span class="line">详见：stm32f103xe.h，<span class="number">725</span>行开始</span><br></pre></td></tr></table></figure></li>
+<li>寄存器映射实现</li>
 </ol>
-</li>
-<li>stm32f103xe.h主要组成部分<ol>
+<figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">typedef</span> <span class="class"><span class="keyword">struct</span></span></span><br><span class="line"><span class="class">&#123;</span></span><br><span class="line">  __IO <span class="type">uint32_t</span> CRL;</span><br><span class="line">  __IO <span class="type">uint32_t</span> CRH;</span><br><span class="line">  __IO <span class="type">uint32_t</span> IDR;</span><br><span class="line">  __IO <span class="type">uint32_t</span> ODR;</span><br><span class="line">  __IO <span class="type">uint32_t</span> BSRR;</span><br><span class="line">  __IO <span class="type">uint32_t</span> BRR;</span><br><span class="line">  __IO <span class="type">uint32_t</span> LCKR;</span><br><span class="line">&#125; GPIO_TypeDef;</span><br><span class="line"></span><br><span class="line">GPIOA_BASE： <span class="number">0X4001</span> <span class="number">0800</span></span><br></pre></td></tr></table></figure>
+<pre><code>1. 使用结构体，可以很方便的完成对寄存器的映射：
+2. 一次性把7个寄存器映射完毕，可对比上面的对一个寄存器映射
+3. 由于刚好结构体每个地址差4个字节，每个寄存器基地址之间差4个字节
+</code></pre>
+<figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#<span class="keyword">define</span>   GPIOA     ((GPIO_TypeDef *)GPIOA_BASE)</span></span><br><span class="line"><span class="comment">//强转GPIOA_BASE为结构体的地址</span></span><br><span class="line">&amp;GPIOA-&gt;CRL： <span class="number">0X4001</span> <span class="number">0800</span></span><br><span class="line">&amp;GPIOA-&gt;CRH： <span class="number">0X4001</span> <span class="number">0804</span></span><br><span class="line">&amp;GPIOA-&gt;IDR：  <span class="number">0X4001</span> <span class="number">0808</span></span><br><span class="line">&amp;GPIOA-&gt;ODR： <span class="number">0X4001</span> <span class="number">080</span>C</span><br><span class="line">实际应用：</span><br><span class="line"><span class="comment">//对地址的所指的位置赋值</span></span><br><span class="line"><span class="comment">//与前面单独对寄存器操作对比，方便了</span></span><br><span class="line">GPIOA-&gt; ODR = <span class="number">0XFFFF</span>；</span><br><span class="line">详见：stm32f103xe.h，<span class="number">725</span>行开始</span><br></pre></td></tr></table></figure>
+<ol start="5">
+<li>stm32f103xe.h主要组成部分
+<ol>
 <li><img src="https://pic-chris.oss-cn-guangzhou.aliyuncs.com/img/202407030945418.png" alt="Pasted image 20230525094311|600"></li>
 </ol>
 </li>
 </ol>
-<h1 id="Date-2023-05-25"><a href="#Date-2023-05-25" class="headerlink" title="- Date:2023-05-25"></a>- Date:2023-05-25</h1><ul>
+<h1>- Date:2023-05-25</h1>
+<ul>
 <li>Time:09:48</li>
 <li>Subject: none</li>
-<li>Tags: #stm32<br>[[2023-05]]</li>
+<li>Tags: #stm32<br>
+[[2023-05]]</li>
 </ul>
 <hr>
-<h2 id="英文缩写部分"><a href="#英文缩写部分" class="headerlink" title="英文缩写部分"></a>英文缩写部分</h2><h3 id="A："><a href="#A：" class="headerlink" title="A："></a>A：</h3><p>ADC————Analog-to-Digital Converter—模/数转换器，模数转换器<br>AFIO———-alternate function IO—复用 IO 端口<br>AHB————先进高性能总线<br>AHB-AP——AHB访问端口<br>Arg————-argument—自变量<br>APB————先进外设总线<br>API————-Application Programming Interface—应用程序编程接口  </p>
-<h3 id="B："><a href="#B：" class="headerlink" title="B："></a>B：</h3><p>BKP———后备寄存器<br>BSP———Board Support Package—板级支持包<br>BYP———Bypass—旁路<br>BYP———backup—备份  </p>
-<h3 id="C："><a href="#C：" class="headerlink" title="C："></a>C：</h3><p>CAN——-Controller area network—控制器局域网<br>Calc——-Calculate—计算<br>CM———CMSIS标准—Cortex Microcontroller Software Interface Standard—Cortex微控制器软件接口标准<br>Cmd——-command—[kəˈmɑ:nd]—命令、使能<br>CLK———Clock—时钟<br>Conf——-Config—配置<br>CPI———-每条指令的周期数<br>CRC———Cyclic Redundancy Check—循环冗余校验<br>CSR———clock control/status register—时钟控制/状态寄存器<br>Ctrl— —-control—控制  </p>
-<h3 id="D："><a href="#D：" class="headerlink" title="D："></a>D：</h3><p>DAC——-Digital to analog converter—数/模转换器，数字模拟转换器<br>DAP——-调试访问端口<br>DBG——-debug—调试<br>def ———Define—定义<br>DMA——Direct Memory Access—存储器直接访问<br>doc———Document—文件<br>DSP——-数字信号处理器/数字信号处理<br>DWT——数据观察点及跟踪  </p>
-<h3 id="E："><a href="#E：" class="headerlink" title="E："></a>E：</h3><p>ETM———<a target="_blank" rel="noopener" href="https://so.csdn.net/so/search?q=%E5%B5%8C%E5%85%A5%E5%BC%8F&amp;spm=1001.2101.3001.7020">嵌入式</a>跟踪宏单元<br>Eval———-Evaluate—评估<br>EXTI———-External Interrupts—外部中断  </p>
-<h3 id="F："><a href="#F：" class="headerlink" title="F："></a>F：</h3><p>FLITF——-The Flash memory interface—闪存存储器接口<br>FPB———-闪存地址重载及断点<br>FPGA——-Field-Programmable Gate Array—现场可编程门阵列<br>FSMC——-Flexible static memory controller—可变静态存储控制器<br>FSR————Fault状态寄存器<br>FwLib——-Firmware Library—固件库  </p>
-<h3 id="G："><a href="#G：" class="headerlink" title="G："></a>G：</h3><p>GPIO———general purpose input/output—通用 IO 端口<br>H：<br>HSE—————-High Speed External oscillator—高速外部时钟<br>HSI——————High Speed Internal oscillator—高速内部时钟<br>HTM—————CoreSight AHB跟踪宏单元  </p>
-<h3 id="I："><a href="#I：" class="headerlink" title="I："></a>I：</h3><p>ICE————in circuit emulator—在线仿真器<br>IDE————integrated development environment—集成开发环境<br>inc————Include—包括<br>INT ———-it—Interrupt—中断<br>Init ———-Initialize—[ɪˈnɪʃəlaɪz]—初始化<br>I2C————IIC—Inter-integrated circuit—微集成电路<br>I2S————IIS—integrate interface of sound—集成音频接口<br>IRQ———-中断请求(通常是指外部中断的请求)<br>IRQn——-中断级<br>ISA———-指令系统架构<br>ISR————Interrupt Service Routines—中断服务程序<br>ITM———-指令跟踪宏单元<br>IWDG——independent watchdog—独立看门狗  </p>
-<h3 id="J："><a href="#J：" class="headerlink" title="J："></a>J：</h3><p>JTAG————-连结点测试行动组(一个关于测试和调试接口的标准)<br>JTAG-DP——JTAG调试端口  </p>
-<h3 id="L："><a href="#L：" class="headerlink" title="L："></a>L：</h3><p>Lib———lib—Library—库<br>LP———Low Power—低功耗<br>LR———link register—链接寄存器<br>LSB——-最低有效位<br>LSE——-Low Speed External oscillator—低速外部时钟<br>LSI———Low Speed Internal oscillator—低速内部时钟<br>LSU——-加载/存储单元  </p>
-<h3 id="M："><a href="#M：" class="headerlink" title="M："></a>M：</h3><p>MCU—微控制器单元(俗称单片机)<br>MIPS—million instructions per second—每秒能执行的百万条指令的条数<br>MPU—Memory Protection Unit—存储器保护单元<br>MSB——最高有效位<br>MSP——main stack pointer—主堆栈指针  </p>
-<h3 id="N："><a href="#N：" class="headerlink" title="N："></a>N：</h3><p>NVIC— Nested Vectored Interrupt Controller—嵌套向量中断控制器<br>NMI——不可屏蔽中断  </p>
-<h3 id="O："><a href="#O：" class="headerlink" title="O："></a>O：</h3><p>OS——————操作系统<br>OTG—————On The Go—数据交换  </p>
-<h3 id="P："><a href="#P：" class="headerlink" title="P："></a>P：</h3><p>PC———————program counter—程序计数器<br>Periph————-Peripherals—[pəˈrɪfərəlz]—外设<br>PLL———————Phase Locked Loop—锁相环\倍频器<br>PSP——————process stack pointer—进程堆栈指针<br>POR/PDR—上电/掉电复位<br>PPB—————-私有外设总线<br>PWR—————电源控制  </p>
-<h3 id="R："><a href="#R：" class="headerlink" title="R："></a>R：</h3><p>RCC——————————Reset and clock control—复位和时钟控制<br>Retval————————Return value—返回值<br>RTC—————————-Real-Time Clock—实时时钟  </p>
-<h3 id="S："><a href="#S：" class="headerlink" title="S："></a>S：</h3><p>SCB———-System control block<br>SDIO——-SD I/O—Secure Digital Input and Output—安全数字输入输出卡<br>SRAM——Static Random-Access Memory—静态随机存取存储器<br>SP————-stack pointer—堆栈指针<br>SPI————Serial Peripheral Interface—串行外围设备接口<br>src————Source—源码<br>std————Standard—[ˈstændəd]—标准<br>STK———-SysTick timer<br>SW——- —Software—软件  </p>
-<h3 id="T："><a href="#T：" class="headerlink" title="T："></a>T：</h3><p>Tab——-table—表<br>TIM——-timer—定时器  </p>
-<h3 id="U："><a href="#U：" class="headerlink" title="U："></a>U：</h3><p>UART———Universal Asynch. Receiver Transmitter—通用异步接收/发送装置<br>USART——-Universal Synchronou/Asynchronous Receiver/Transmitter—通用同步/异步串行接收/发送器<br>USB————Universal Serial Bus—通用串行总线<br>USBPRE—USB prescaler——USB预分频  </p>
-<h3 id="W："><a href="#W：" class="headerlink" title="W："></a>W：</h3><p>WWDG—Window watchdog—窗口看门狗</p>
-<h2 id="词汇部分"><a href="#词汇部分" class="headerlink" title="词汇部分"></a>词汇部分</h2><h3 id="A：-1"><a href="#A：-1" class="headerlink" title="A："></a>A：</h3><p>Acceleration—[əkˌseləˈreɪʃn]—加速度<br>Access—[ˈækses]—访问、进入<br>Accordingly—相应地<br>Activate—[ˈæktɪveɪt]—激活<br>add-on—附加物<br>address offset—地址偏移量<br>Alias—[ˈeɪliəs]—别名<br>Align—[əˈlaɪn]—校准，使一致<br>Alternate—[ˈɔ:ltərnət]—替代、备用<br>Arbitration—[ˌɑ:bɪˈtreɪʃn]—仲裁<br>Argument—[ˈɑ:ɡjumənt]—自变量<br>Array—[əˈreɪ]—数组<br>Assembler—[əˈsemblə®]—汇编器<br>Assert—[əˈsɜ:t]—断言  </p>
-<h3 id="B：-1"><a href="#B：-1" class="headerlink" title="B："></a>B：</h3><p>Backslash—[ˈbækslæʃ]—(计算机符号)反斜线<br>Backup—备份<br>Brief—[bri:f]—任务简介<br>Buffer—[ˈbʌfə®]—缓存器，缓冲存储区  </p>
-<h3 id="C：-1"><a href="#C：-1" class="headerlink" title="C："></a>C：</h3><p>Calibration—[ˌkælɪˈbreɪʃn]—校准<br>Call—调用<br>Capture—[ˈkæptʃə®]—捕获<br>Code—代码<br>Comments—注释<br>Compute—计算<br>Configure—[kənˈfɪɡə®]—配置<br>Constant—[ˈkɒnstənt]—常数<br>Counter—[ˈkaʊntə®]—计数器<br>Channel—[ˈtʃænl]—通道、源<br>Crystal—[ˈkrɪstl]—晶体  </p>
-<h3 id="D：-1"><a href="#D：-1" class="headerlink" title="D："></a>D：</h3><p>Decode—[ˌdi:ˈkəʊd]—译码、解码<br>Decrement—[ˈdɛkrɪmənt]—减量，消耗<br>Default value—默认值<br>Depend on—根据<br>dependent variable–[dɪˌpendənt ˈveəriəbl]-因变量<br>Determine—[dɪˈtɜ:mɪn]—测定，查明<br>Differential—[ˌdɪfəˈrenʃl]—微分<br>Disassembly—反汇编  </p>
-<h3 id="E：-1"><a href="#E：-1" class="headerlink" title="E："></a>E：</h3><p>Emulator—[ˈemjuleɪtə®]—仿真器<br>Enable—使能、启用<br>Entry—[ˈentri]—进入<br>Enumeration—[ɪˌnju:məˈreɪʃn]—枚举<br>Even—偶<br>Exceed—超过<br>Exception—[ɪkˈsepʃn]—异常<br>Execute—[ˈeksɪkju:t]—执行<br>Expanse—[ɪkˈspæns]—扩展<br>Export—[ɪkˈspɔ:t , ˈekspɔ:t]—输出、导出  </p>
-<h3 id="F：-1"><a href="#F：-1" class="headerlink" title="F："></a>F：</h3><p>Falling edge—下降沿<br>Force—[fɔ:s]—强制<br>Frequency—[ˈfri:kwənsi]—频率  </p>
-<h3 id="G：-1"><a href="#G：-1" class="headerlink" title="G："></a>G：</h3><p>Global variable—全局变量<br>Gyroscope—[ˈdʒaɪrəskəʊp]—陀螺仪  </p>
-<h3 id="H："><a href="#H：" class="headerlink" title="H："></a>H：</h3><p>Halt—[hɔ:lt]—(使)停止<br>Handler—[ˈhændlə®]—处理程序<br>Hard Fault—硬件故障，硬故障<br>Hardware—硬件<br>Heap—[hi:p]—堆<br>Hint—[hɪnt]—提示  </p>
-<h3 id="I：-1"><a href="#I：-1" class="headerlink" title="I："></a>I：</h3><p>Implement—[ˈɪmplɪments]—执行、工具<br>Indicate—[ˈɪndɪkeɪt]—表明<br>Infinite—[ˈɪnfɪnət]—无限的<br>Initial—[ɪˈnɪʃl]—最初的<br>Instructions—[ɪnˈstrʌkʃənz]—指令<br>Integral—[ˈɪntɪɡrəl]—积分<br>Interface—[ˈɪntəfeɪs]—接口  </p>
-<h3 id="L：-1"><a href="#L：-1" class="headerlink" title="L："></a>L：</h3><p>Legacy—[ˈleɡəsi]—遗留<br>Local variable—局部变量<br>Loop—[lu:p]—循环  </p>
-<h3 id="M：-1"><a href="#M：-1" class="headerlink" title="M："></a>M：</h3><p>Macro—宏，宏指令<br>Mapping—映射<br>Mask—屏蔽<br>Memory—[ˈmeməri]—存储器<br>Memory Manage—内存管理<br>Modify—[ˈmɒdɪfaɪɪŋ]—修改<br>Module—[ˈmɒdju:l]—模块<br>Mount on—安装  </p>
-<h3 id="N：-1"><a href="#N：-1" class="headerlink" title="N："></a>N：</h3><p>Numeric—[nju(:)ˈmɛrɪk]—数（字，值）<br>Newline—换行符、新的一行  </p>
-<h3 id="O：-1"><a href="#O：-1" class="headerlink" title="O："></a>O：</h3><p>Odd—奇<br>Offset—[ˈɒfset]—补偿<br>Operation—[ˌɒpəˈreɪʃn]—操作、运行<br>Oscillator—[ˈɒsɪleɪtə®]—振荡器  </p>
-<h3 id="P：-1"><a href="#P：-1" class="headerlink" title="P："></a>P：</h3><p>Parallel—[ˈpærəlel]—并行<br>Parameter—[pəˈræmɪtə®]—参数<br>Parity—奇偶性<br>Perform—[pəˈfɔ:m]—执行<br>Permissions—[pəˈmɪʃənz]—权限<br>Preemption—[ˌpri:ˈempʃn]—抢占<br>Presentation—[ˌpreznˈteɪʃn]—显示、出示、演示<br>Priority Levels—[praɪˈɒrəti ˈlevlz]—优先级<br>Processor—[ˈprəʊsesə®]—处理器<br>Proportion—[prəˈpɔ:ʃn]—比例<br>Prototype—[ˈprəʊtətaɪp]—原型  </p>
-<h3 id="R：-1"><a href="#R：-1" class="headerlink" title="R："></a>R：</h3><p>Recursive—[rɪˈkɜ:sɪv]—递归的、循环的<br>refer to—参阅<br>Remap—重新映射<br>Reset—重置<br>Rising edge—上升沿  </p>
-<h3 id="S：-1"><a href="#S：-1" class="headerlink" title="S："></a>S：</h3><p>Schmitt Trigger—[ʃmɪt ˈtrɪɡər]—施密特触发器<br>Section—[ˈsekʃn]—部分，节<br>Select—[sɪˈlekt]—选择<br>Serial—[ˈsɪəriəl]—串行<br>service routine—服务程序<br>Setup—(软件或硬件的)安装，设置<br>Simplify—[ˈsɪmplɪfaɪ]—简化<br>Specified—[ˈspesɪfaɪd]—明确规定<br>Specifies—[ˈspesɪfaɪz]—指定<br>Suppression—[səˈpreʃn]—抑制<br>Stack—[stæk]—堆栈<br>Startup—启动<br>Stray—[streɪ]—孤立的、杂散的<br>Symbolic—[sɪmˈbɒlɪk]—象征性的  </p>
-<h3 id="T：-1"><a href="#T：-1" class="headerlink" title="T："></a>T：</h3><p>Table—表<br>Tailor—[ˈteɪlə®]—专门制作，定做<br>Temperature—[ˈtemprətʃə®]—温度<br>Template—[ˈtempleɪt]—模板<br>Toggle—[ˈtɒɡl]—切换<br>Trigger—[ˈtrɪɡə®]—触发  </p>
-<h3 id="U：-1"><a href="#U：-1" class="headerlink" title="U："></a>U：</h3><p>Uncomment—取消批注<br>Unique—[juˈni:k]—唯一的<br>Usage—[ˈju:sɪdʒ]—使用<br>Usart—通用同步异步收发器<br>Use—用途、使用  </p>
-<h3 id="V："><a href="#V：" class="headerlink" title="V："></a>V：</h3><p>Vector—[ˈvektə®]—矢量<br>Velocity—速度<br>Voltage—[ˈvəʊltɪdʒ]—电压</p>
-<h1 id="Date-2023-05-22-1"><a href="#Date-2023-05-22-1" class="headerlink" title="- Date:2023-05-22"></a>- Date:2023-05-22</h1><ul>
+<h2 id="英文缩写部分">英文缩写部分</h2>
+<h3 id="A：">A：</h3>
+<p>ADC--------Analog-to-Digital Converter—模/数转换器，模数转换器<br>
+AFIO-------alternate function IO—复用 IO 端口<br>
+AHB--------先进高性能总线<br>
+AHB-AP----AHB访问端口<br>
+Arg---------argument—自变量<br>
+APB--------先进外设总线<br>
+API---------Application Programming Interface—应用程序编程接口</p>
+<h3 id="B：">B：</h3>
+<p>BKP------后备寄存器<br>
+BSP------Board Support Package—板级支持包<br>
+BYP------Bypass—旁路<br>
+BYP------backup—备份</p>
+<h3 id="C：">C：</h3>
+<p>CAN-----Controller area network—控制器局域网<br>
+Calc-----Calculate—计算<br>
+CM------CMSIS标准—Cortex Microcontroller Software Interface Standard—Cortex微控制器软件接口标准<br>
+Cmd-----command—[kəˈmɑ:nd]—命令、使能<br>
+CLK------Clock—时钟<br>
+Conf-----Config—配置<br>
+CPI-------每条指令的周期数<br>
+CRC------Cyclic Redundancy Check—循环冗余校验<br>
+CSR------clock control/status register—时钟控制/状态寄存器<br>
+Ctrl— —control—控制</p>
+<h3 id="D：">D：</h3>
+<p>DAC-----Digital to analog converter—数/模转换器，数字模拟转换器<br>
+DAP-----调试访问端口<br>
+DBG-----debug—调试<br>
+def ------Define—定义<br>
+DMA----Direct Memory Access—存储器直接访问<br>
+doc------Document—文件<br>
+DSP-----数字信号处理器/数字信号处理<br>
+DWT----数据观察点及跟踪</p>
+<h3 id="E：">E：</h3>
+<p>ETM------<a target="_blank" rel="noopener" href="https://so.csdn.net/so/search?q=%E5%B5%8C%E5%85%A5%E5%BC%8F&amp;spm=1001.2101.3001.7020">嵌入式</a>跟踪宏单元<br>
+Eval-------Evaluate—评估<br>
+EXTI-------External Interrupts—外部中断</p>
+<h3 id="F：">F：</h3>
+<p>FLITF-----The Flash memory interface—闪存存储器接口<br>
+FPB-------闪存地址重载及断点<br>
+FPGA-----Field-Programmable Gate Array—现场可编程门阵列<br>
+FSMC-----Flexible static memory controller—可变静态存储控制器<br>
+FSR--------Fault状态寄存器<br>
+FwLib-----Firmware Library—固件库</p>
+<h3 id="G：">G：</h3>
+<p>GPIO------general purpose input/output—通用 IO 端口<br>
+H：<br>
+HSE-----------High Speed External oscillator—高速外部时钟<br>
+HSI------------High Speed Internal oscillator—高速内部时钟<br>
+HTM----------CoreSight AHB跟踪宏单元</p>
+<h3 id="I：">I：</h3>
+<p>ICE--------in circuit emulator—在线仿真器<br>
+IDE--------integrated development environment—集成开发环境<br>
+inc--------Include—包括<br>
+INT -------it—Interrupt—中断<br>
+Init -------Initialize—[ɪˈnɪʃəlaɪz]—初始化<br>
+I2C--------IIC—Inter-integrated circuit—微集成电路<br>
+I2S--------IIS—integrate interface of sound—集成音频接口<br>
+IRQ-------中断请求(通常是指外部中断的请求)<br>
+IRQn-----中断级<br>
+ISA-------指令系统架构<br>
+ISR--------Interrupt Service Routines—中断服务程序<br>
+ITM-------指令跟踪宏单元<br>
+IWDG----independent watchdog—独立看门狗</p>
+<h3 id="J：">J：</h3>
+<p>JTAG---------连结点测试行动组(一个关于测试和调试接口的标准)<br>
+JTAG-DP----JTAG调试端口</p>
+<h3 id="L：">L：</h3>
+<p>Lib------lib—Library—库<br>
+LP------Low Power—低功耗<br>
+LR------link register—链接寄存器<br>
+LSB-----最低有效位<br>
+LSE-----Low Speed External oscillator—低速外部时钟<br>
+LSI------Low Speed Internal oscillator—低速内部时钟<br>
+LSU-----加载/存储单元</p>
+<h3 id="M：">M：</h3>
+<p>MCU—微控制器单元(俗称单片机)<br>
+MIPS—million instructions per second—每秒能执行的百万条指令的条数<br>
+MPU—Memory Protection Unit—存储器保护单元<br>
+MSB----最高有效位<br>
+MSP----main stack pointer—主堆栈指针</p>
+<h3 id="N：">N：</h3>
+<p>NVIC— Nested Vectored Interrupt Controller—嵌套向量中断控制器<br>
+NMI----不可屏蔽中断</p>
+<h3 id="O：">O：</h3>
+<p>OS------------操作系统<br>
+OTG----------On The Go—数据交换</p>
+<h3 id="P：">P：</h3>
+<p>PC--------------program counter—程序计数器<br>
+Periph---------Peripherals—[pəˈrɪfərəlz]—外设<br>
+PLL--------------Phase Locked Loop—锁相环\倍频器<br>
+PSP------------process stack pointer—进程堆栈指针<br>
+POR/PDR—上电/掉电复位<br>
+PPB-----------私有外设总线<br>
+PWR----------电源控制</p>
+<h3 id="R：">R：</h3>
+<p>RCC--------------------Reset and clock control—复位和时钟控制<br>
+Retval----------------Return value—返回值<br>
+RTC-------------------Real-Time Clock—实时时钟</p>
+<h3 id="S：">S：</h3>
+<p>SCB-------System control block<br>
+SDIO-----SD I/O—Secure Digital Input and Output—安全数字输入输出卡<br>
+SRAM----Static Random-Access Memory—静态随机存取存储器<br>
+SP---------stack pointer—堆栈指针<br>
+SPI--------Serial Peripheral Interface—串行外围设备接口<br>
+src--------Source—源码<br>
+std--------Standard—[ˈstændəd]—标准<br>
+STK-------SysTick timer<br>
+SW----- --Software—软件</p>
+<h3 id="T：">T：</h3>
+<p>Tab-----table—表<br>
+TIM-----timer—定时器</p>
+<h3 id="U：">U：</h3>
+<p>UART------Universal Asynch. Receiver Transmitter—通用异步接收/发送装置<br>
+USART-----Universal Synchronou/Asynchronous Receiver/Transmitter—通用同步/异步串行接收/发送器<br>
+USB--------Universal Serial Bus—通用串行总线<br>
+USBPRE—USB prescaler----USB预分频</p>
+<h3 id="W：">W：</h3>
+<p>WWDG—Window watchdog—窗口看门狗</p>
+<h2 id="词汇部分">词汇部分</h2>
+<h3 id="A：-2">A：</h3>
+<p>Acceleration—[əkˌseləˈreɪʃn]—加速度<br>
+Access—[ˈækses]—访问、进入<br>
+Accordingly—相应地<br>
+Activate—[ˈæktɪveɪt]—激活<br>
+add-on—附加物<br>
+address offset—地址偏移量<br>
+Alias—[ˈeɪliəs]—别名<br>
+Align—[əˈlaɪn]—校准，使一致<br>
+Alternate—[ˈɔ:ltərnət]—替代、备用<br>
+Arbitration—[ˌɑ:bɪˈtreɪʃn]—仲裁<br>
+Argument—[ˈɑ:ɡjumənt]—自变量<br>
+Array—[əˈreɪ]—数组<br>
+Assembler—[əˈsemblə®]—汇编器<br>
+Assert—[əˈsɜ:t]—断言</p>
+<h3 id="B：-2">B：</h3>
+<p>Backslash—[ˈbækslæʃ]—(计算机符号)反斜线<br>
+Backup—备份<br>
+Brief—[bri:f]—任务简介<br>
+Buffer—[ˈbʌfə®]—缓存器，缓冲存储区</p>
+<h3 id="C：-2">C：</h3>
+<p>Calibration—[ˌkælɪˈbreɪʃn]—校准<br>
+Call—调用<br>
+Capture—[ˈkæptʃə®]—捕获<br>
+Code—代码<br>
+Comments—注释<br>
+Compute—计算<br>
+Configure—[kənˈfɪɡə®]—配置<br>
+Constant—[ˈkɒnstənt]—常数<br>
+Counter—[ˈkaʊntə®]—计数器<br>
+Channel—[ˈtʃænl]—通道、源<br>
+Crystal—[ˈkrɪstl]—晶体</p>
+<h3 id="D：-2">D：</h3>
+<p>Decode—[ˌdi:ˈkəʊd]—译码、解码<br>
+Decrement—[ˈdɛkrɪmənt]—减量，消耗<br>
+Default value—默认值<br>
+Depend on—根据<br>
+dependent variable–[dɪˌpendənt ˈveəriəbl]-因变量<br>
+Determine—[dɪˈtɜ:mɪn]—测定，查明<br>
+Differential—[ˌdɪfəˈrenʃl]—微分<br>
+Disassembly—反汇编</p>
+<h3 id="E：-2">E：</h3>
+<p>Emulator—[ˈemjuleɪtə®]—仿真器<br>
+Enable—使能、启用<br>
+Entry—[ˈentri]—进入<br>
+Enumeration—[ɪˌnju:məˈreɪʃn]—枚举<br>
+Even—偶<br>
+Exceed—超过<br>
+Exception—[ɪkˈsepʃn]—异常<br>
+Execute—[ˈeksɪkju:t]—执行<br>
+Expanse—[ɪkˈspæns]—扩展<br>
+Export—[ɪkˈspɔ:t , ˈekspɔ:t]—输出、导出</p>
+<h3 id="F：-2">F：</h3>
+<p>Falling edge—下降沿<br>
+Force—[fɔ:s]—强制<br>
+Frequency—[ˈfri:kwənsi]—频率</p>
+<h3 id="G：-2">G：</h3>
+<p>Global variable—全局变量<br>
+Gyroscope—[ˈdʒaɪrəskəʊp]—陀螺仪</p>
+<h3 id="H：">H：</h3>
+<p>Halt—[hɔ:lt]—(使)停止<br>
+Handler—[ˈhændlə®]—处理程序<br>
+Hard Fault—硬件故障，硬故障<br>
+Hardware—硬件<br>
+Heap—[hi:p]—堆<br>
+Hint—[hɪnt]—提示</p>
+<h3 id="I：-2">I：</h3>
+<p>Implement—[ˈɪmplɪments]—执行、工具<br>
+Indicate—[ˈɪndɪkeɪt]—表明<br>
+Infinite—[ˈɪnfɪnət]—无限的<br>
+Initial—[ɪˈnɪʃl]—最初的<br>
+Instructions—[ɪnˈstrʌkʃənz]—指令<br>
+Integral—[ˈɪntɪɡrəl]—积分<br>
+Interface—[ˈɪntəfeɪs]—接口</p>
+<h3 id="L：-2">L：</h3>
+<p>Legacy—[ˈleɡəsi]—遗留<br>
+Local variable—局部变量<br>
+Loop—[lu:p]—循环</p>
+<h3 id="M：-2">M：</h3>
+<p>Macro—宏，宏指令<br>
+Mapping—映射<br>
+Mask—屏蔽<br>
+Memory—[ˈmeməri]—存储器<br>
+Memory Manage—内存管理<br>
+Modify—[ˈmɒdɪfaɪɪŋ]—修改<br>
+Module—[ˈmɒdju:l]—模块<br>
+Mount on—安装</p>
+<h3 id="N：-2">N：</h3>
+<p>Numeric—[nju(:)ˈmɛrɪk]—数（字，值）<br>
+Newline—换行符、新的一行</p>
+<h3 id="O：-2">O：</h3>
+<p>Odd—奇<br>
+Offset—[ˈɒfset]—补偿<br>
+Operation—[ˌɒpəˈreɪʃn]—操作、运行<br>
+Oscillator—[ˈɒsɪleɪtə®]—振荡器</p>
+<h3 id="P：-2">P：</h3>
+<p>Parallel—[ˈpærəlel]—并行<br>
+Parameter—[pəˈræmɪtə®]—参数<br>
+Parity—奇偶性<br>
+Perform—[pəˈfɔ:m]—执行<br>
+Permissions—[pəˈmɪʃənz]—权限<br>
+Preemption—[ˌpri:ˈempʃn]—抢占<br>
+Presentation—[ˌpreznˈteɪʃn]—显示、出示、演示<br>
+Priority Levels—[praɪˈɒrəti ˈlevlz]—优先级<br>
+Processor—[ˈprəʊsesə®]—处理器<br>
+Proportion—[prəˈpɔ:ʃn]—比例<br>
+Prototype—[ˈprəʊtətaɪp]—原型</p>
+<h3 id="R：-2">R：</h3>
+<p>Recursive—[rɪˈkɜ:sɪv]—递归的、循环的<br>
+refer to—参阅<br>
+Remap—重新映射<br>
+Reset—重置<br>
+Rising edge—上升沿</p>
+<h3 id="S：-2">S：</h3>
+<p>Schmitt Trigger—[ʃmɪt ˈtrɪɡər]—施密特触发器<br>
+Section—[ˈsekʃn]—部分，节<br>
+Select—[sɪˈlekt]—选择<br>
+Serial—[ˈsɪəriəl]—串行<br>
+service routine—服务程序<br>
+Setup—(软件或硬件的)安装，设置<br>
+Simplify—[ˈsɪmplɪfaɪ]—简化<br>
+Specified—[ˈspesɪfaɪd]—明确规定<br>
+Specifies—[ˈspesɪfaɪz]—指定<br>
+Suppression—[səˈpreʃn]—抑制<br>
+Stack—[stæk]—堆栈<br>
+Startup—启动<br>
+Stray—[streɪ]—孤立的、杂散的<br>
+Symbolic—[sɪmˈbɒlɪk]—象征性的</p>
+<h3 id="T：-2">T：</h3>
+<p>Table—表<br>
+Tailor—[ˈteɪlə®]—专门制作，定做<br>
+Temperature—[ˈtemprətʃə®]—温度<br>
+Template—[ˈtempleɪt]—模板<br>
+Toggle—[ˈtɒɡl]—切换<br>
+Trigger—[ˈtrɪɡə®]—触发</p>
+<h3 id="U：-2">U：</h3>
+<p>Uncomment—取消批注<br>
+Unique—[juˈni:k]—唯一的<br>
+Usage—[ˈju:sɪdʒ]—使用<br>
+Usart—通用同步异步收发器<br>
+Use—用途、使用</p>
+<h3 id="V：">V：</h3>
+<p>Vector—[ˈvektə®]—矢量<br>
+Velocity—速度<br>
+Voltage—[ˈvəʊltɪdʒ]—电压</p>
+<h1>- Date:2023-05-22</h1>
+<ul>
 <li>Time:22:39</li>
-<li>Subject: </li>
-<li>Tags: #stm32<br>[[2023-05]]</li>
+<li>Subject:</li>
+<li>Tags: #stm32<br>
+[[2023-05]]</li>
 </ul>
 <hr>
-<h2 id="Cortex-M内核-amp-芯片"><a href="#Cortex-M内核-amp-芯片" class="headerlink" title="Cortex M内核 &amp; 芯片"></a>Cortex M内核 &amp; 芯片</h2><ol>
-<li><img src="https://pic-chris.oss-cn-guangzhou.aliyuncs.com/img/202407030945058.png" alt="Pasted image 20230522224008|600"><h2 id="F1系统架构"><a href="#F1系统架构" class="headerlink" title="F1系统架构"></a>F1系统架构</h2></li>
+<h2 id="Cortex-M内核-芯片">Cortex M内核 &amp; 芯片</h2>
+<ol>
+<li><img src="https://pic-chris.oss-cn-guangzhou.aliyuncs.com/img/202407030945058.png" alt="Pasted image 20230522224008|600"></li>
+</ol>
+<h2 id="F1系统架构">F1系统架构</h2>
+<ol>
 <li>4个主动单元 + 4个被动单元</li>
-<li><img src="https://pic-chris.oss-cn-guangzhou.aliyuncs.com/img/202407030945059.png" alt="Pasted image 20230522224227|600"><ol>
+<li><img src="https://pic-chris.oss-cn-guangzhou.aliyuncs.com/img/202407030945059.png" alt="Pasted image 20230522224227|600">
+<ol>
 <li>AHB：高级高性能总线</li>
 <li>APB：高级外围总线</li>
 </ol>
@@ -385,7 +653,7 @@
     
     
       <div id="toc-footer" style="display: none">
-        <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#Date-2023-05-22"><span class="toc-number">1.</span> <span class="toc-text">- Date:2023-05-22</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%AD%98%E5%82%A8%E5%99%A8%E6%98%A0%E5%B0%84"><span class="toc-number">1.1.</span> <span class="toc-text">存储器映射</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#%E5%AF%84%E5%AD%98%E5%99%A8%E6%98%A0%E5%B0%84"><span class="toc-number">1.1.1.</span> <span class="toc-text">寄存器映射</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#F1%E4%B8%BA%E4%BE%8B"><span class="toc-number">1.1.2.</span> <span class="toc-text">F1为例</span></a></li></ol></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#Date-2023-05-25"><span class="toc-number">2.</span> <span class="toc-text">- Date:2023-05-25</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#%E8%8B%B1%E6%96%87%E7%BC%A9%E5%86%99%E9%83%A8%E5%88%86"><span class="toc-number">2.1.</span> <span class="toc-text">英文缩写部分</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#A%EF%BC%9A"><span class="toc-number">2.1.1.</span> <span class="toc-text">A：</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#B%EF%BC%9A"><span class="toc-number">2.1.2.</span> <span class="toc-text">B：</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#C%EF%BC%9A"><span class="toc-number">2.1.3.</span> <span class="toc-text">C：</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#D%EF%BC%9A"><span class="toc-number">2.1.4.</span> <span class="toc-text">D：</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#E%EF%BC%9A"><span class="toc-number">2.1.5.</span> <span class="toc-text">E：</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#F%EF%BC%9A"><span class="toc-number">2.1.6.</span> <span class="toc-text">F：</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#G%EF%BC%9A"><span class="toc-number">2.1.7.</span> <span class="toc-text">G：</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#I%EF%BC%9A"><span class="toc-number">2.1.8.</span> <span class="toc-text">I：</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#J%EF%BC%9A"><span class="toc-number">2.1.9.</span> <span class="toc-text">J：</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#L%EF%BC%9A"><span class="toc-number">2.1.10.</span> <span class="toc-text">L：</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#M%EF%BC%9A"><span class="toc-number">2.1.11.</span> <span class="toc-text">M：</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#N%EF%BC%9A"><span class="toc-number">2.1.12.</span> <span class="toc-text">N：</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#O%EF%BC%9A"><span class="toc-number">2.1.13.</span> <span class="toc-text">O：</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#P%EF%BC%9A"><span class="toc-number">2.1.14.</span> <span class="toc-text">P：</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#R%EF%BC%9A"><span class="toc-number">2.1.15.</span> <span class="toc-text">R：</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#S%EF%BC%9A"><span class="toc-number">2.1.16.</span> <span class="toc-text">S：</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#T%EF%BC%9A"><span class="toc-number">2.1.17.</span> <span class="toc-text">T：</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#U%EF%BC%9A"><span class="toc-number">2.1.18.</span> <span class="toc-text">U：</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#W%EF%BC%9A"><span class="toc-number">2.1.19.</span> <span class="toc-text">W：</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E8%AF%8D%E6%B1%87%E9%83%A8%E5%88%86"><span class="toc-number">2.2.</span> <span class="toc-text">词汇部分</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#A%EF%BC%9A-1"><span class="toc-number">2.2.1.</span> <span class="toc-text">A：</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#B%EF%BC%9A-1"><span class="toc-number">2.2.2.</span> <span class="toc-text">B：</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#C%EF%BC%9A-1"><span class="toc-number">2.2.3.</span> <span class="toc-text">C：</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#D%EF%BC%9A-1"><span class="toc-number">2.2.4.</span> <span class="toc-text">D：</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#E%EF%BC%9A-1"><span class="toc-number">2.2.5.</span> <span class="toc-text">E：</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#F%EF%BC%9A-1"><span class="toc-number">2.2.6.</span> <span class="toc-text">F：</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#G%EF%BC%9A-1"><span class="toc-number">2.2.7.</span> <span class="toc-text">G：</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#H%EF%BC%9A"><span class="toc-number">2.2.8.</span> <span class="toc-text">H：</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#I%EF%BC%9A-1"><span class="toc-number">2.2.9.</span> <span class="toc-text">I：</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#L%EF%BC%9A-1"><span class="toc-number">2.2.10.</span> <span class="toc-text">L：</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#M%EF%BC%9A-1"><span class="toc-number">2.2.11.</span> <span class="toc-text">M：</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#N%EF%BC%9A-1"><span class="toc-number">2.2.12.</span> <span class="toc-text">N：</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#O%EF%BC%9A-1"><span class="toc-number">2.2.13.</span> <span class="toc-text">O：</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#P%EF%BC%9A-1"><span class="toc-number">2.2.14.</span> <span class="toc-text">P：</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#R%EF%BC%9A-1"><span class="toc-number">2.2.15.</span> <span class="toc-text">R：</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#S%EF%BC%9A-1"><span class="toc-number">2.2.16.</span> <span class="toc-text">S：</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#T%EF%BC%9A-1"><span class="toc-number">2.2.17.</span> <span class="toc-text">T：</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#U%EF%BC%9A-1"><span class="toc-number">2.2.18.</span> <span class="toc-text">U：</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#V%EF%BC%9A"><span class="toc-number">2.2.19.</span> <span class="toc-text">V：</span></a></li></ol></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#Date-2023-05-22-1"><span class="toc-number">3.</span> <span class="toc-text">- Date:2023-05-22</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#Cortex-M%E5%86%85%E6%A0%B8-amp-%E8%8A%AF%E7%89%87"><span class="toc-number">3.1.</span> <span class="toc-text">Cortex M内核 &amp; 芯片</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#F1%E7%B3%BB%E7%BB%9F%E6%9E%B6%E6%9E%84"><span class="toc-number">3.2.</span> <span class="toc-text">F1系统架构</span></a></li></ol></li></ol>
+        <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link"><span class="toc-number">1.</span> <span class="toc-text">- Date:2023-05-22</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%AD%98%E5%82%A8%E5%99%A8%E6%98%A0%E5%B0%84"><span class="toc-number">1.1.</span> <span class="toc-text">存储器映射</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#%E5%AF%84%E5%AD%98%E5%99%A8%E6%98%A0%E5%B0%84"><span class="toc-number">1.1.1.</span> <span class="toc-text">寄存器映射</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#F1%E4%B8%BA%E4%BE%8B"><span class="toc-number">1.1.2.</span> <span class="toc-text">F1为例</span></a></li></ol></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link"><span class="toc-number">2.</span> <span class="toc-text">- Date:2023-05-25</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#%E8%8B%B1%E6%96%87%E7%BC%A9%E5%86%99%E9%83%A8%E5%88%86"><span class="toc-number">2.1.</span> <span class="toc-text">英文缩写部分</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#A%EF%BC%9A"><span class="toc-number">2.1.1.</span> <span class="toc-text">A：</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#B%EF%BC%9A"><span class="toc-number">2.1.2.</span> <span class="toc-text">B：</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#C%EF%BC%9A"><span class="toc-number">2.1.3.</span> <span class="toc-text">C：</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#D%EF%BC%9A"><span class="toc-number">2.1.4.</span> <span class="toc-text">D：</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#E%EF%BC%9A"><span class="toc-number">2.1.5.</span> <span class="toc-text">E：</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#F%EF%BC%9A"><span class="toc-number">2.1.6.</span> <span class="toc-text">F：</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#G%EF%BC%9A"><span class="toc-number">2.1.7.</span> <span class="toc-text">G：</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#I%EF%BC%9A"><span class="toc-number">2.1.8.</span> <span class="toc-text">I：</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#J%EF%BC%9A"><span class="toc-number">2.1.9.</span> <span class="toc-text">J：</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#L%EF%BC%9A"><span class="toc-number">2.1.10.</span> <span class="toc-text">L：</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#M%EF%BC%9A"><span class="toc-number">2.1.11.</span> <span class="toc-text">M：</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#N%EF%BC%9A"><span class="toc-number">2.1.12.</span> <span class="toc-text">N：</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#O%EF%BC%9A"><span class="toc-number">2.1.13.</span> <span class="toc-text">O：</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#P%EF%BC%9A"><span class="toc-number">2.1.14.</span> <span class="toc-text">P：</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#R%EF%BC%9A"><span class="toc-number">2.1.15.</span> <span class="toc-text">R：</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#S%EF%BC%9A"><span class="toc-number">2.1.16.</span> <span class="toc-text">S：</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#T%EF%BC%9A"><span class="toc-number">2.1.17.</span> <span class="toc-text">T：</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#U%EF%BC%9A"><span class="toc-number">2.1.18.</span> <span class="toc-text">U：</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#W%EF%BC%9A"><span class="toc-number">2.1.19.</span> <span class="toc-text">W：</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E8%AF%8D%E6%B1%87%E9%83%A8%E5%88%86"><span class="toc-number">2.2.</span> <span class="toc-text">词汇部分</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#A%EF%BC%9A-2"><span class="toc-number">2.2.1.</span> <span class="toc-text">A：</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#B%EF%BC%9A-2"><span class="toc-number">2.2.2.</span> <span class="toc-text">B：</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#C%EF%BC%9A-2"><span class="toc-number">2.2.3.</span> <span class="toc-text">C：</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#D%EF%BC%9A-2"><span class="toc-number">2.2.4.</span> <span class="toc-text">D：</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#E%EF%BC%9A-2"><span class="toc-number">2.2.5.</span> <span class="toc-text">E：</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#F%EF%BC%9A-2"><span class="toc-number">2.2.6.</span> <span class="toc-text">F：</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#G%EF%BC%9A-2"><span class="toc-number">2.2.7.</span> <span class="toc-text">G：</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#H%EF%BC%9A"><span class="toc-number">2.2.8.</span> <span class="toc-text">H：</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#I%EF%BC%9A-2"><span class="toc-number">2.2.9.</span> <span class="toc-text">I：</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#L%EF%BC%9A-2"><span class="toc-number">2.2.10.</span> <span class="toc-text">L：</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#M%EF%BC%9A-2"><span class="toc-number">2.2.11.</span> <span class="toc-text">M：</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#N%EF%BC%9A-2"><span class="toc-number">2.2.12.</span> <span class="toc-text">N：</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#O%EF%BC%9A-2"><span class="toc-number">2.2.13.</span> <span class="toc-text">O：</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#P%EF%BC%9A-2"><span class="toc-number">2.2.14.</span> <span class="toc-text">P：</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#R%EF%BC%9A-2"><span class="toc-number">2.2.15.</span> <span class="toc-text">R：</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#S%EF%BC%9A-2"><span class="toc-number">2.2.16.</span> <span class="toc-text">S：</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#T%EF%BC%9A-2"><span class="toc-number">2.2.17.</span> <span class="toc-text">T：</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#U%EF%BC%9A-2"><span class="toc-number">2.2.18.</span> <span class="toc-text">U：</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#V%EF%BC%9A"><span class="toc-number">2.2.19.</span> <span class="toc-text">V：</span></a></li></ol></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link"><span class="toc-number">3.</span> <span class="toc-text">- Date:2023-05-22</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#Cortex-M%E5%86%85%E6%A0%B8-%E8%8A%AF%E7%89%87"><span class="toc-number">3.1.</span> <span class="toc-text">Cortex M内核 &amp; 芯片</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#F1%E7%B3%BB%E7%BB%9F%E6%9E%B6%E6%9E%84"><span class="toc-number">3.2.</span> <span class="toc-text">F1系统架构</span></a></li></ol></li></ol>
       </div>
     
 
