@@ -1,719 +1,443 @@
-<!DOCTYPE html><html lang="zh-CN" data-theme="light"><head><meta charset="UTF-8"><meta http-equiv="X-UA-Compatible" content="IE=edge"><meta name="viewport" content="width=device-width, initial-scale=1.0,viewport-fit=cover"><title>Chris - peace life, peace code</title><meta name="author" content="Chris"><meta name="copyright" content="Chris"><meta name="format-detection" content="telephone=no"><meta name="theme-color" content="#ffffff"><meta name="description" content="描述~">
+<!DOCTYPE html>
+<html lang=zh>
+<head>
+    <!-- so meta -->
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="HandheldFriendly" content="True">
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=5" />
+    <meta name="description" content="描述~">
 <meta property="og:type" content="website">
 <meta property="og:title" content="Chris">
 <meta property="og:url" content="https://scolenchris.top/index.html">
 <meta property="og:site_name" content="Chris">
 <meta property="og:description" content="描述~">
 <meta property="og:locale" content="zh_CN">
-<meta property="og:image" content="https://scolenchris.top/img/Avatar.jpg">
 <meta property="article:author" content="Chris">
 <meta property="article:tag" content="博客,scolen,chris,技术,生活,记录,life,code">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:image" content="https://scolenchris.top/img/Avatar.jpg"><link rel="shortcut icon" href="/img/favicon.jpg"><link rel="canonical" href="https://scolenchris.top/index.html"><link rel="preconnect" href="//cdn.jsdelivr.net"/><link rel="preconnect" href="//busuanzi.ibruce.info"/><link rel="manifest" href="/"/><link rel="stylesheet" href="/css/index.css"><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free/css/all.min.css" media="print" onload="this.media='all'"><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fancyapps/ui/dist/fancybox/fancybox.min.css" media="print" onload="this.media='all'"><script>const GLOBAL_CONFIG = {
-  root: '/',
-  algolia: undefined,
-  localSearch: {"path":"/search.xml","preload":false,"top_n_per_article":1,"unescape":false,"languages":{"hits_empty":"找不到您查询的内容：${query}","hits_stats":"共找到 ${hits} 篇文章"}},
-  translate: undefined,
-  noticeOutdate: undefined,
-  highlight: {"plugin":"highlighjs","highlightCopy":true,"highlightLang":true,"highlightHeightLimit":false},
-  copy: {
-    success: '复制成功',
-    error: '复制错误',
-    noSupport: '浏览器不支持'
-  },
-  relativeDate: {
-    homepage: false,
-    post: false
-  },
-  runtime: '',
-  dateSuffix: {
-    just: '刚刚',
-    min: '分钟前',
-    hour: '小时前',
-    day: '天前',
-    month: '个月前'
-  },
-  copyright: undefined,
-  lightbox: 'fancybox',
-  Snackbar: undefined,
-  infinitegrid: {
-    js: 'https://cdn.jsdelivr.net/npm/@egjs/infinitegrid/dist/infinitegrid.min.js',
-    buttonText: '加载更多'
-  },
-  isPhotoFigcaption: false,
-  islazyload: false,
-  isAnchor: false,
-  percent: {
-    toc: true,
-    rightside: false,
-  },
-  autoDarkmode: false
-}</script><script id="config-diff">var GLOBAL_CONFIG_SITE = {
-  title: 'Chris',
-  isPost: false,
-  isHome: true,
-  isHighlightShrink: false,
-  isToc: false,
-  postUpdate: '2024-08-13 15:06:19'
-}</script><script>(win=>{
-      win.saveToLocal = {
-        set: (key, value, ttl) => {
-          if (ttl === 0) return
-          const now = Date.now()
-          const expiry = now + ttl * 86400000
-          const item = {
-            value,
-            expiry
-          }
-          localStorage.setItem(key, JSON.stringify(item))
-        },
+    
+    
       
-        get: key => {
-          const itemStr = localStorage.getItem(key)
+        
+          <link rel="shortcut icon" href="/images/favicon.ico">
+        
       
-          if (!itemStr) {
-            return undefined
-          }
-          const item = JSON.parse(itemStr)
-          const now = Date.now()
       
-          if (now > item.expiry) {
-            localStorage.removeItem(key)
-            return undefined
-          }
-          return item.value
-        }
-      }
-    
-      win.getScript = (url, attr = {}) => new Promise((resolve, reject) => {
-        const script = document.createElement('script')
-        script.src = url
-        script.async = true
-        script.onerror = reject
-        script.onload = script.onreadystatechange = function() {
-          const loadState = this.readyState
-          if (loadState && loadState !== 'loaded' && loadState !== 'complete') return
-          script.onload = script.onreadystatechange = null
-          resolve()
-        }
-
-        Object.keys(attr).forEach(key => {
-          script.setAttribute(key, attr[key])
-        })
-
-        document.head.appendChild(script)
-      })
-    
-      win.getCSS = (url, id = false) => new Promise((resolve, reject) => {
-        const link = document.createElement('link')
-        link.rel = 'stylesheet'
-        link.href = url
-        if (id) link.id = id
-        link.onerror = reject
-        link.onload = link.onreadystatechange = function() {
-          const loadState = this.readyState
-          if (loadState && loadState !== 'loaded' && loadState !== 'complete') return
-          link.onload = link.onreadystatechange = null
-          resolve()
-        }
-        document.head.appendChild(link)
-      })
-    
-      win.activateDarkMode = () => {
-        document.documentElement.setAttribute('data-theme', 'dark')
-        if (document.querySelector('meta[name="theme-color"]') !== null) {
-          document.querySelector('meta[name="theme-color"]').setAttribute('content', '#0d0d0d')
-        }
-      }
-      win.activateLightMode = () => {
-        document.documentElement.setAttribute('data-theme', 'light')
-        if (document.querySelector('meta[name="theme-color"]') !== null) {
-          document.querySelector('meta[name="theme-color"]').setAttribute('content', '#ffffff')
-        }
-      }
-      const t = saveToLocal.get('theme')
-    
-        if (t === 'dark') activateDarkMode()
-        else if (t === 'light') activateLightMode()
+        
+          <link rel="icon" type="image/png" href="/images/favicon-192x192.png" sizes="192x192">
+        
       
-      const asideStatus = saveToLocal.get('aside-status')
-      if (asideStatus !== undefined) {
-        if (asideStatus === 'hide') {
-          document.documentElement.classList.add('hide-aside')
-        } else {
-          document.documentElement.classList.remove('hide-aside')
-        }
-      }
+      
+        
+          <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon.png">
+        
+      
     
-      const detectApple = () => {
-        if(/iPad|iPhone|iPod|Macintosh/.test(navigator.userAgent)){
-          document.documentElement.classList.add('apple')
+    <!-- title -->
+    <title>Chris</title>
+    <!-- async scripts -->
+    <!-- Google Analytics -->
+
+
+    <!-- Umami Analytics -->
+
+
+    <!-- styles -->
+    
+<link rel="stylesheet" href="/css/style.css">
+
+    <!-- persian styles -->
+    
+    <!-- rss -->
+    
+    
+	<!-- mathjax -->
+	
+		<script type="text/x-mathjax-config">
+		  MathJax.Hub.Config({
+			tex2jax: {
+			  skipTags: ['script', 'noscript', 'style', 'textarea', 'pre'],
+			  inlineMath: [['$','$']]
+			}
+		  });
+		</script>
+		<script src='https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.5/latest.js?config=TeX-MML-AM_CHTML' async></script>
+	
+<meta name="generator" content="Hexo 7.0.0"></head>
+
+<body class="max-width mx-auto px3 ltr">    
+    <div class="content index py4 h-card">
+        
+          <header id="header">
+  <a class="u-url u-uid" href="/">
+  
+    
+      <img id="logo" alt class="u-logo" src="/images/logo.png" />
+    
+  
+    <div id="title">
+      <h1 class="p-name">Chris</h1>
+    </div>
+  </a>
+  <div id="nav">
+    <ul>
+      <li class="icon">
+        <a href="#" aria-label="目录"><i class="fa-solid fa-bars fa-2x"></i></a>
+      </li>
+      <!--
+     --><li><a href="/">首页</a></li><!--
+   --><!--
+     --><li><a href="/about/">关于</a></li><!--
+   --><!--
+     --><li><a href="/archives/">归档</a></li><!--
+   --><!--
+     --><li><a target="_blank" rel="noopener" href="https://github.com/scolenchris">项目</a></li><!--
+   -->
+    </ul>
+  </div>
+</header>
+
+        
+        <section id="about" class="p-note">
+  
+    <p>描述~</p>
+
+  
+  
+    <p>
+      在这里找到我：
+      
+      
+      
+        
+        
+          <a class="icon u-url" target="_blank" rel="noopener me" href="https://github.com/scolenchris" aria-label="github" title="github">
+            <i class="fa-brands fa-github"></i><!--
+      ---></a><!--
+    ---><!--
+    --->， 
+        
+      
+        
+        
+          <a class="icon u-email" target="_blank" rel="noopener" href="mailto:scolenchris0328@outlook.com" aria-label="mail" title="mail">
+            <i class="fa-solid fa-envelope"></i><!--
+      ---></a>
+        <!--
+    ---> 和 
+        
+      
+        
+        
+          <a class="icon u-url" target="_blank" rel="noopener me" href="tencent://AddContact/?fromId=45&subcmd=all&uin=314889018" aria-label="qq" title="qq">
+            <i class="fa-brands fa-qq"></i><!--
+      ---></a><!--
+    ---><!--
+    --->.
+        
+      
+    </p>
+  
+</section>
+
+<section id="writing">
+  <span class="h1"><a href="/archives/">文章</a></span>
+  
+  <ul class="post-list">
+    
+    
+      
+    
+    
+      <li class="post-item">
+        
+    <div class="meta">
+      
+        
+          <time datetime="2025-02-28T14:54:42.000Z" class="dt-published" itemprop="datePublished">2025-02-28</time>
+        
+      
+    </div>
+
+
+        <span>
+    
+        <a class="" href="/posts/8731d904.html">hello1</a>
+    
+
+
+</span>
+      </li>
+    
+      <li class="post-item">
+        
+    <div class="meta">
+      
+        
+          <time datetime="2024-07-04T11:54:17.000Z" class="dt-published" itemprop="datePublished">2024-07-04</time>
+        
+      
+    </div>
+
+
+        <span>
+    
+        <a class="" href="/posts/feefa20.html">git知识总结</a>
+    
+
+
+</span>
+      </li>
+    
+      <li class="post-item">
+        
+    <div class="meta">
+      
+        
+          <time datetime="2024-07-04T11:53:47.000Z" class="dt-published" itemprop="datePublished">2024-07-04</time>
+        
+      
+    </div>
+
+
+        <span>
+    
+        <a class="" href="/posts/341ecd43.html">git命令</a>
+    
+
+
+</span>
+      </li>
+    
+      <li class="post-item">
+        
+    <div class="meta">
+      
+        
+          <time datetime="2024-07-03T10:18:05.000Z" class="dt-published" itemprop="datePublished">2024-07-03</time>
+        
+      
+    </div>
+
+
+        <span>
+    
+        <a class="" href="/posts/46909ac5.html">stm32-c语言复习</a>
+    
+
+
+</span>
+      </li>
+    
+      <li class="post-item">
+        
+    <div class="meta">
+      
+        
+          <time datetime="2024-07-03T10:17:19.000Z" class="dt-published" itemprop="datePublished">2024-07-03</time>
+        
+      
+    </div>
+
+
+        <span>
+    
+        <a class="" href="/posts/3b21df78.html">stm32-system文件夹</a>
+    
+
+
+</span>
+      </li>
+    
+      <li class="post-item">
+        
+    <div class="meta">
+      
+        
+          <time datetime="2024-07-03T10:12:06.000Z" class="dt-published" itemprop="datePublished">2024-07-03</time>
+        
+      
+    </div>
+
+
+        <span>
+    
+        <a class="" href="/posts/1bce3e80.html">stm32-基础知识</a>
+    
+
+
+</span>
+      </li>
+    
+      <li class="post-item">
+        
+    <div class="meta">
+      
+        
+          <time datetime="2024-07-03T10:10:44.000Z" class="dt-published" itemprop="datePublished">2024-07-03</time>
+        
+      
+    </div>
+
+
+        <span>
+    
+        <a class="" href="/posts/982d5dfa.html">stm32-hal</a>
+    
+
+
+</span>
+      </li>
+    
+      <li class="post-item">
+        
+    <div class="meta">
+      
+        
+          <time datetime="2024-07-03T10:09:51.000Z" class="dt-published" itemprop="datePublished">2024-07-03</time>
+        
+      
+    </div>
+
+
+        <span>
+    
+        <a class="" href="/posts/6a0f884f.html">stm32-gpio</a>
+    
+
+
+</span>
+      </li>
+    
+      <li class="post-item">
+        
+    <div class="meta">
+      
+        
+          <time datetime="2024-07-03T10:09:31.000Z" class="dt-published" itemprop="datePublished">2024-07-03</time>
+        
+      
+    </div>
+
+
+        <span>
+    
+        <a class="" href="/posts/d231037d.html">stm32-cubemx</a>
+    
+
+
+</span>
+      </li>
+    
+      <li class="post-item">
+        
+    <div class="meta">
+      
+        
+          <time datetime="2024-07-03T10:07:48.000Z" class="dt-published" itemprop="datePublished">2024-07-03</time>
+        
+      
+    </div>
+
+
+        <span>
+    
+        <a class="" href="/posts/cad4ed3.html">stm32-中断</a>
+    
+
+
+</span>
+      </li>
+    
+  </ul>
+  
+    
+    <div class="pagination">
+        
+        <span class="page-number">第 1 页，共 2 页</span>
+        
+            <a href="/page/2/"><i class="fa-solid fa-angle-right"></i>
+            </a>
+        
+    </div>
+
+
+  
+</section>
+
+
+
+        
+        <footer id="footer">
+  <div class="footer-left">
+    Copyright &copy;
+    
+    
+    2022-2025
+    Chris
+  </div>
+  <div class="footer-right">
+    <nav>
+      <ul>
+        <!--
+       --><li><a href="/">首页</a></li><!--
+     --><!--
+       --><li><a href="/about/">关于</a></li><!--
+     --><!--
+       --><li><a href="/archives/">归档</a></li><!--
+     --><!--
+       --><li><a target="_blank" rel="noopener" href="https://github.com/scolenchris">项目</a></li><!--
+     -->
+      </ul>
+    </nav>
+  </div>
+</footer>
+
+    </div>
+    <!-- styles -->
+
+
+
+  <link rel="preload" as="style" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" crossorigin="anonymous" onload="this.onload=null;this.rel='stylesheet'"/>
+
+
+    <!-- jquery -->
+
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.0/jquery.min.js" crossorigin="anonymous"></script>
+
+
+
+
+<!-- clipboard -->
+
+
+<script src="/js/main.js"></script>
+
+<!-- search -->
+
+<!-- Baidu Analytics -->
+
+<!-- Cloudflare Analytics -->
+
+<!-- Disqus Comments -->
+
+<!-- utterances Comments -->
+
+<script type="text/x-mathjax-config">
+    MathJax.Hub.Config({
+        tex2jax: {
+            inlineMath: [ ["$","$"], ["\\(","\\)"] ],
+            skipTags: ['script', 'noscript', 'style', 'textarea', 'pre', 'code'],
+            processEscapes: true
         }
-      }
-      detectApple()
-    })(window)</script><link rel="stylesheet" href="/css/custom.css" media="defer" onload="this.media='all'"><!-- hexo injector head_end start --><link rel="stylesheet" href="https://cdn.cbd.int/hexo-butterfly-clock-anzhiyu/lib/clock.min.css" /><link rel="stylesheet" href="/css/runtime.min.css" media="print" onload="this.media='all'"><link rel="stylesheet" href="https://cdn.cbd.int/hexo-butterfly-wowjs/lib/animate.min.css" media="print" onload="this.media='all'"><!-- hexo injector head_end end --><meta name="generator" content="Hexo 7.0.0"><link href="https://cdn.bootcss.com/KaTeX/0.11.1/katex.min.css" rel="stylesheet" /></head><body><div id="web_bg"></div><div id="sidebar"><div id="menu-mask"></div><div id="sidebar-menus"><div class="avatar-img is-center"><img src="/img/Avatar.jpg" onerror="onerror=null;src='/img/friend_404.gif'" alt="avatar"/></div><div class="sidebar-site-data site-data is-center"><a href="/archives/"><div class="headline">文章</div><div class="length-num">19</div></a><a href="/tags/"><div class="headline">标签</div><div class="length-num">0</div></a><a href="/categories/"><div class="headline">分类</div><div class="length-num">0</div></a></div><hr class="custom-hr"/></div></div><div class="page" id="body-wrap"><header class="full_page" id="page-header"><nav id="nav"><span id="blog-info"><a href="/" title="Chris"><span class="site-name">Chris</span></a></span><div id="menus"><div id="search-button"><a class="site-page social-icon search" href="javascript:void(0);"><i class="fas fa-search fa-fw"></i><span> 搜索</span></a></div><div id="toggle-menu"><a class="site-page" href="javascript:void(0);"><i class="fas fa-bars fa-fw"></i></a></div></div></nav><div id="site-info"><h1 id="site-title">Chris</h1><div id="site-subtitle"><span id="subtitle"></span></div></div><div id="scroll-down"><i class="fas fa-angle-down scroll-down-effects"></i></div></header><main class="layout" id="content-inner"><div class="recent-posts" id="recent-posts"><div class="recent-post-item"><div class="recent-post-info no-cover"><a class="article-title" href="/posts/feefa20.html" title="git知识总结">git知识总结</a><div class="article-meta-wrap"><span class="post-meta-date"><i class="far fa-calendar-alt"></i><span class="article-meta-label">发表于</span><time datetime="2024-07-04T11:54:17.000Z" title="发表于 2024-07-04 11:54:17">2024-07-04</time></span></div><div class="content">- Date:2024-07-03
-
-Time:15:19
-Subject: CS
-Tags: #git
-[[2024-07]]
-
-
-交叉内容
-[[git命令#- Date 2024-07-03]]
-git工作区域与文件状态
-三个区域
-
-工作区
-
-工作区提交后回到暂存区，确实就是文件管理器看到的，编辑的区域，正常使用（操作）的区域
-
-暂存区
-
-保存即将提交到git仓库的内容，临时存储
-可以先修改一部分，放到暂存区钟，再统一提交commit
-
-本地仓库
-
-git init 的仓库，保存了项目历史
-
-文件状态
-
-
-未跟踪，新创建，git还没管理，
-未修改，管理起来的，但是没有修改的文件
-已修改，已经修改了的，没暂存
-已暂存，放到暂存区的文件
-
-.gitignore 忽略文件
-
-把文件加入到里面，那么就会忽略这个文件
-假如已经加到版本库中，那这个文件就不起作用了，需要先从版本库删除中删除 git rm --catched 本地不删除，但是暂存和版本库都删除
-
-123456*.txt ， *.xls  表示过滤某种类型的文件target/ ：表示过滤这个文件夹下的所有文件/test/a.txt ...</div></div></div><div class="recent-post-item"><div class="recent-post-info no-cover"><a class="article-title" href="/posts/341ecd43.html" title="git命令">git命令</a><div class="article-meta-wrap"><span class="post-meta-date"><i class="far fa-calendar-alt"></i><span class="article-meta-label">发表于</span><time datetime="2024-07-04T11:53:47.000Z" title="发表于 2024-07-04 11:53:47">2024-07-04</time></span></div><div class="content">- Date:2024-07-03
-
-Time:15:35
-Subject: CS
-Tags: #git
-[[2024-07]]
-
-
-添加和提交文件
-
-git status 查看文件状态
-git add xxx 文件移动到暂存区，可以加上通配符，文件夹，如文件夹所有 .
-git commit -m &quot;xxx&quot; 文件提交到仓库
-git log 查看提交记录 --oneline 简单版显示记录
-
-回退reset
-
-
-参数的区别
-git reset --soft xxxx xxx为版本id
-
-查看差异git diff
-
-
-可用于查看版本之间差异，各个区之间差异，或者分支之间差异
-HEAD 表示最新的版本
-~ 或者 ^ 表示为上一个版本，如 HEAD~2 前两个版本
-
-删除文件
-
-rm之后，还需要在暂存区删除，也就是再add一次
-
-推送-拉取
-
-push pull 拉去和推送，对于原创仓库的
-
-连接远程仓库
-
-git remote add &lt;仓库别名&gt; &lt;远程仓库地址&gt;
-git remote -v 查看别名
-git push -u &lt;远程仓库名 ...</div></div></div><div class="recent-post-item"><div class="recent-post-info no-cover"><a class="article-title" href="/posts/46909ac5.html" title="stm32-c语言复习">stm32-c语言复习</a><div class="article-meta-wrap"><span class="post-meta-date"><i class="far fa-calendar-alt"></i><span class="article-meta-label">发表于</span><time datetime="2024-07-03T10:18:05.000Z" title="发表于 2024-07-03 10:18:05">2024-07-03</time></span></div><div class="content">- Date:2023-06-05
-
-Time:17:08
-Subject: none
-Tags: #stm32
-[[2023-06]]
-
-
-printf函数输出流程
-
-printf的使用
-123456//printf(&quot;字符串\r\n&quot;);printf(&quot;Hello World!\r\n&quot;);//printf(&quot;输出控制符&quot;，输出参数);uint32_t  temp = 10;printf(&quot;%d\r\n&quot;, temp);          /* %d是输出控制符，temp是输出参数 */
-常用输出控制符表
-
-常用转义字符表
-
-例子
-12345678910111213//printf(&quot;输出控制符1输出控制符2…&quot;，输出参数1，输出参数2，…);uint32_t  temp1 = 5;   uint32_t  temp2 = 10;printf(&quot;%d%x \r \n&quot;, temp1,temp2);  //printf(&quot;非输出控制符 输出控制符 非输出控 ...</div></div></div><div class="recent-post-item"><div class="recent-post-info no-cover"><a class="article-title" href="/posts/3b21df78.html" title="stm32-system文件夹">stm32-system文件夹</a><div class="article-meta-wrap"><span class="post-meta-date"><i class="far fa-calendar-alt"></i><span class="article-meta-label">发表于</span><time datetime="2024-07-03T10:17:19.000Z" title="发表于 2024-07-03 10:17:19">2024-07-03</time></span></div><div class="content">- Date:2023-06-05
-
-Time:15:31
-Subject: none
-Tags: #stm32
-[[2023-06]]
-
-
-sys文件夹介绍
-
-deley文件夹介绍
-deley文件夹函数简介
-
-SysTick工作原理
-SysTick，即系统滴答[[定时器]]，包含在M3/4/7内核里面，核心是一个24位的递减计数器(2的24次方，来一个脉冲就递减)
-
-每次VAL到0时，VAL自动从LOAD重载！开始新一轮递减计数！
-SysTick寄存器介绍
-SysTick控制及状态寄存器(CTRL)
-
-SysTick重装载数值寄存器(LOAD)
-
-SysTick当前数值寄存器(VAL)
-
-delay_init()函数(f1)
-12345678void delay_init(uint16_t sysclk)//传入72（mhz）&#123;  SysTick-&gt;CTRL = 0;//hal库清空，再配置  HAL_SYSTICK_CLKSourceConfig(SYSTICK_CLKSOURCE_HCLK_DIV8);//八分频，所以是72/8=9，计数频率是9mhz  g_fa ...</div></div></div><div class="recent-post-item"><div class="recent-post-info no-cover"><a class="article-title" href="/posts/1bce3e80.html" title="stm32-基础知识">stm32-基础知识</a><div class="article-meta-wrap"><span class="post-meta-date"><i class="far fa-calendar-alt"></i><span class="article-meta-label">发表于</span><time datetime="2024-07-03T10:12:06.000Z" title="发表于 2024-07-03 10:12:06">2024-07-03</time></span></div><div class="content">- Date:2023-05-22
-
-Time:22:55
-Subject: none
-Tags: #stm32
-[[2023-05]]
-
-
-存储器映射
-
-存储器指可以存储数据的设备，本身没有地址信息，对存储器分配地址的过程称为存储器映射
-19根地址线：A0-A18   16根数据线：D0-D15
-地址范围：0 - 512K
-
-映射1：0 - 512K
-映射2：1 – 512K + 1
-映射3：100K – 612K
-映射4：512K – 1024K
-
-
-F1为例子
-
-ST将4GB（2^32）地址空间分成8个块
-
-
-
-
-Block0（FLASH）功能划分
-
-
-
-
-Block1（SRAM）功能划分
-
-
-
-
-Block2（外设）功能划分
-
-
-
-
-
-
-
-寄存器映射
-
-寄存器是单片机内部一种特殊的内存，可以实现对单片机各个功能的控制
-简单来说：寄存器就是单片机内部的控制机构
-
-
-
-
-STM32寄存器分类
-
-
-
-
-
-F1为例
-
-寄存器是特殊的存储器，给寄存器地址命名的过程，就叫寄存器映射
-
-
-
-
-寄存器描述解读
-
-
-
-① 寄存器名字
-② 偏移量及复位值
-③ 寄存器位表
-④ 位功能描述
-
-
-直接操 ...</div></div></div><div class="recent-post-item"><div class="recent-post-info no-cover"><a class="article-title" href="/posts/982d5dfa.html" title="stm32-hal">stm32-hal</a><div class="article-meta-wrap"><span class="post-meta-date"><i class="far fa-calendar-alt"></i><span class="article-meta-label">发表于</span><time datetime="2024-07-03T10:10:44.000Z" title="发表于 2024-07-03 10:10:44">2024-07-03</time></span></div><div class="content">- Date:2023-05-25
-
-Time:15:57
-Subject: none
-Tags: #stm32
-[[2023-05]]
-
-
-基于CMSIS应用程序文件描述
-
-
-
-STM32开发文件结构分布
-
-
-
-HAL库的用户配置文件（stm32f1xx_hal_conf.h）
-
-裁剪HAL库外设驱动源码（不进行编译）
-
-/#ifdef /#endif 的使用
-
-
-设置外部高速晶振频率（HSF）（根据开发板实际情况设置）
-设置外部低速晶振频率（根据开发板实际情况设置）
-
-HAL库使用注意事项
-
-使用HAL库出现问题，还是得通过参考手册检查是否硬件操作是否有问题
-尽量不通过修改库源码实现功能，这样不方便库更新
-HAL库可能会存在错误，要有质疑精神
-有些HAL库API函数执行效率偏低，我们可能会直接通过操作寄存器的方式代替
-
-- Date:2023-05-25
-
-Time:12:53
-Subject: none
-Tags: #stm32
-[[2023-05]]
-
-
-CMSIS简介
-
-CMSIS (微控制器软件接口标准)：Cortex Microcontroller Software In ...</div></div></div><div class="recent-post-item"><div class="recent-post-info no-cover"><a class="article-title" href="/posts/6a0f884f.html" title="stm32-gpio">stm32-gpio</a><div class="article-meta-wrap"><span class="post-meta-date"><i class="far fa-calendar-alt"></i><span class="article-meta-label">发表于</span><time datetime="2024-07-03T10:09:51.000Z" title="发表于 2024-07-03 10:09:51">2024-07-03</time></span></div><div class="content">- Date:2023-06-08
-
-Time:20:49
-Subject: none
-Tags: #stm32 #GPIO
-[[2023-06]]
-
-
-通用外设驱动模型（四步法）
-
-初始化
-
-时钟设置：选择时钟源，启动时钟
-参数设置：gpio工作方式
-io设置：除了gpio，如串口usart，
-中断设置：开启，设置NVIC
-
-
-读函数（可选）
-
-从外设读取数据
-
-
-写函数（可选）
-
-往外设写入数据
-
-
-中断服务函数（可选）
-
-根据中断标志，处理外设各种中断事务
-
-
-
-GPIO配置步骤
-#配置
-使能时钟
-__HAL_RCC_GPIOx_CLK_ENABLE()
-主要寄存器：
-F1：RCC_APB2ENR //APB2总线上的
-F4：RCC_AHB1ENR
-F7：RCC_AHB1ENR
-H7：RCC_AHB4ENR
-开启GPIO时钟
-设置工作模式
-HAL_GPIO_Init()
-主要寄存器：
-F1：CRL、CRH、ODR
-F4/F7/H7：MODER、OTYPER、OSPEEDR、PUPDR
-初始化GPIO
-设置输出状态（可选）
-HAL_GPIO_WritePin()
-HAL_GPIO_ ...</div></div></div><div class="recent-post-item"><div class="recent-post-info no-cover"><a class="article-title" href="/posts/d231037d.html" title="stm32-cubemx">stm32-cubemx</a><div class="article-meta-wrap"><span class="post-meta-date"><i class="far fa-calendar-alt"></i><span class="article-meta-label">发表于</span><time datetime="2024-07-03T10:09:31.000Z" title="发表于 2024-07-03 10:09:31">2024-07-03</time></span></div><div class="content">- Date:2023-06-04
-
-Time:23:37
-Subject: none
-Tags: #stm32 #配置
-[[2023-06]]
-
-
-STM32CubeMX简介
-
-STM32CubeMX是ST开发的一款图形配置工具，可通过配置自动生成初始化代码
-一个图形配置工具，搭配不同系列的STM32Cube固件包，即可支持不同系列的STM32芯片
-
-新建STM32CubeMX工程步骤
-
-一个小细节
-
-选用basic，详细的配置看视频吧
-
-</div></div></div><div class="recent-post-item"><div class="recent-post-info no-cover"><a class="article-title" href="/posts/cad4ed3.html" title="stm32-中断">stm32-中断</a><div class="article-meta-wrap"><span class="post-meta-date"><i class="far fa-calendar-alt"></i><span class="article-meta-label">发表于</span><time datetime="2024-07-03T10:07:48.000Z" title="发表于 2024-07-03 10:07:48">2024-07-03</time></span></div><div class="content">- Date:2023-06-10
-
-Time:09:07
-Subject: none
-Tags: #stm32 #中断
-[[2023-06]]
-
-
-什么是中断
-打断CPU执行正常的程序，转而处理紧急程序，然后返回原暂停的程序继续运行，就叫中断
-
-中断的作用和意义
-
-实时控制：在确定时间内对相应事件作出响应，如：温度监控
-故障处理：检测到故障，需要第一时间处理，如：电梯门夹人了
-数据传输：不确定数据何时会来，如：串口数据接收
-中断的意义：高效处理紧急程序，不会一直占用CPU资源
-
-STM32 GPIO外部中断简图
-
-- Date:2023-06-10
-
-Time:09:12
-Subject: none
-Tags: #stm32 #NVIC #中断
-[[2023-06]]
-
-
-NVIC基本概念
-Nested vectored interrupt controller，嵌套向量中断控制器，属于内核（M3/4/7）
-NVIC支持：256个中断（16内核 + 240外部），支持：256个优先级，允许裁剪！
-
-什么是中断向量表？
-定义一块固定的内存，以4字节对齐，存放各个中断服务函数程序的首地址 ...</div></div></div><div class="recent-post-item"><div class="recent-post-info no-cover"><a class="article-title" href="/posts/6bd75491.html" title="stm32-时钟系统">stm32-时钟系统</a><div class="article-meta-wrap"><span class="post-meta-date"><i class="far fa-calendar-alt"></i><span class="article-meta-label">发表于</span><time datetime="2024-07-03T10:07:13.000Z" title="发表于 2024-07-03 10:07:13">2024-07-03</time></span></div><div class="content">- Date:2023-06-05
-
-Time:14:21
-Subject: none
-Tags: #stm32 #时钟
-[[2023-06]]
-
-
-什么是时钟
-
-
-简单来说，时钟是具有周期性的脉冲信号，最常用的是占空比50%的方波
-时钟是单片机的脉搏，搞懂时钟走向及关系，对单片机使用至关重要！
-
-认识时钟树（F1）
-
-
-L：low
-S：speed
-I：internal
-E：external
-
-时钟树简图
-
-
-PLL：锁相环，倍频系数：2~3（PLLCLK）
-HSE分频可以说/1或者/2，HSI分频/2，再来到PLL倍频
-HCLK前分频也用1，保持72mhz
-APB1则分频/2，
-
-低速晶振
-
-HAL库内体现
-
-时钟源、锁相环：HAL_RCC_OscConfig()
-系统时钟、总线：HAL_RCC_ClockConfig()
-使能外设时钟：_ _ HAL_RCC_PPP_CLK_ENABLE()   是一个宏定义，打开外设时使用时
-扩展外设时钟(RTC/ADC/USB)：HAL_RCCEx_PeriphCLKConfig()
-
-STM32CubeMX时钟树（F103）
-
-- Date: ...</div></div></div><nav id="pagination"><div class="pagination"><span class="page-number current">1</span><a class="page-number" href="/page/2/#content-inner">2</a><a class="extend next" rel="next" href="/page/2/#content-inner"><i class="fas fa-chevron-right fa-fw"></i></a></div></nav></div><div class="aside-content" id="aside-content"><div class="card-widget card-info"><div class="is-center"><div class="avatar-img"><img src="/img/Avatar.jpg" onerror="this.onerror=null;this.src='/img/friend_404.gif'" alt="avatar"/></div><div class="author-info__name">Chris</div><div class="author-info__description">描述~</div></div><div class="card-info-data site-data is-center"><a href="/archives/"><div class="headline">文章</div><div class="length-num">19</div></a><a href="/tags/"><div class="headline">标签</div><div class="length-num">0</div></a><a href="/categories/"><div class="headline">分类</div><div class="length-num">0</div></a></div><a id="card-info-btn" target="_blank" rel="noopener" href="https://github.com/scolenchris"><i class="fab fa-github"></i><span>Follow Me</span></a></div><div class="sticky_layout"><div class="card-widget card-recent-post"><div class="item-headline"><i class="fas fa-history"></i><span>最新文章</span></div><div class="aside-list"><div class="aside-list-item no-cover"><div class="content"><a class="title" href="/posts/feefa20.html" title="git知识总结">git知识总结</a><time datetime="2024-07-04T11:54:17.000Z" title="发表于 2024-07-04 11:54:17">2024-07-04</time></div></div><div class="aside-list-item no-cover"><div class="content"><a class="title" href="/posts/341ecd43.html" title="git命令">git命令</a><time datetime="2024-07-04T11:53:47.000Z" title="发表于 2024-07-04 11:53:47">2024-07-04</time></div></div><div class="aside-list-item no-cover"><div class="content"><a class="title" href="/posts/46909ac5.html" title="stm32-c语言复习">stm32-c语言复习</a><time datetime="2024-07-03T10:18:05.000Z" title="发表于 2024-07-03 10:18:05">2024-07-03</time></div></div><div class="aside-list-item no-cover"><div class="content"><a class="title" href="/posts/3b21df78.html" title="stm32-system文件夹">stm32-system文件夹</a><time datetime="2024-07-03T10:17:19.000Z" title="发表于 2024-07-03 10:17:19">2024-07-03</time></div></div><div class="aside-list-item no-cover"><div class="content"><a class="title" href="/posts/1bce3e80.html" title="stm32-基础知识">stm32-基础知识</a><time datetime="2024-07-03T10:12:06.000Z" title="发表于 2024-07-03 10:12:06">2024-07-03</time></div></div></div></div><div class="card-widget card-archives"><div class="item-headline"><i class="fas fa-archive"></i><span>归档</span></div><ul class="card-archive-list"><li class="card-archive-list-item"><a class="card-archive-list-link" href="/archives/2024/07/"><span class="card-archive-list-date">七月 2024</span><span class="card-archive-list-count">13</span></a></li><li class="card-archive-list-item"><a class="card-archive-list-link" href="/archives/2024/06/"><span class="card-archive-list-date">六月 2024</span><span class="card-archive-list-count">2</span></a></li><li class="card-archive-list-item"><a class="card-archive-list-link" href="/archives/2024/04/"><span class="card-archive-list-date">四月 2024</span><span class="card-archive-list-count">2</span></a></li><li class="card-archive-list-item"><a class="card-archive-list-link" href="/archives/2023/11/"><span class="card-archive-list-date">十一月 2023</span><span class="card-archive-list-count">1</span></a></li><li class="card-archive-list-item"><a class="card-archive-list-link" href="/archives/2023/10/"><span class="card-archive-list-date">十月 2023</span><span class="card-archive-list-count">1</span></a></li></ul></div><div class="card-widget card-webinfo"><div class="item-headline"><i class="fas fa-chart-line"></i><span>网站资讯</span></div><div class="webinfo"><div class="webinfo-item"><div class="item-name">文章数目 :</div><div class="item-count">19</div></div><div class="webinfo-item"><div class="item-name">本站访客数 :</div><div class="item-count" id="busuanzi_value_site_uv"><i class="fa-solid fa-spinner fa-spin"></i></div></div><div class="webinfo-item"><div class="item-name">本站总访问量 :</div><div class="item-count" id="busuanzi_value_site_pv"><i class="fa-solid fa-spinner fa-spin"></i></div></div><div class="webinfo-item"><div class="item-name">最后更新时间 :</div><div class="item-count" id="last-push-date" data-lastPushDate="2024-08-13T15:06:19.075Z"><i class="fa-solid fa-spinner fa-spin"></i></div></div></div></div></div></div></main><footer id="footer"><div id="footer-wrap"><div class="copyright">&copy;2020 - 2024 By Chris</div><div class="framework-info"><span>框架 </span><a target="_blank" rel="noopener" href="https://hexo.io">Hexo</a><span class="footer-separator">|</span><span>主题 </span><a target="_blank" rel="noopener" href="https://github.com/jerryc127/hexo-theme-butterfly">Butterfly</a></div></div></footer></div><div id="rightside"><div id="rightside-config-hide"><button id="darkmode" type="button" title="浅色和深色模式转换"><i class="fas fa-adjust"></i></button><button id="hide-aside-btn" type="button" title="单栏和双栏切换"><i class="fas fa-arrows-alt-h"></i></button></div><div id="rightside-config-show"><button id="rightside-config" type="button" title="设置"><i class="fas fa-cog fa-spin"></i></button><button id="go-up" type="button" title="回到顶部"><span class="scroll-percent"></span><i class="fas fa-arrow-up"></i></button></div></div><div><script src="/js/utils.js"></script><script src="/js/main.js"></script><script src="https://cdn.jsdelivr.net/npm/@fancyapps/ui/dist/fancybox/fancybox.umd.min.js"></script><div class="js-pjax"><script>window.typedJSFn = {
-  init: (str) => {
-    window.typed = new Typed('#subtitle', Object.assign({
-      strings: str,
-      startDelay: 300,
-      typeSpeed: 150,
-      loop: true,
-      backSpeed: 50,
-    }, null))
-  },
-  run: (subtitleType) => {
-    if (true) {
-      if (typeof Typed === 'function') {
-        subtitleType()
-      } else {
-        getScript('https://cdn.jsdelivr.net/npm/typed.js/dist/typed.umd.min.js').then(subtitleType)
-      }
-    } else {
-      subtitleType()
-    }
-  }
-}
-</script><script>function subtitleType () {
-  if (true) {
-    typedJSFn.init(["找不到答案的时候,先找自己","人类所有的智慧都提醒我们,人是有限的"])
-  } else {
-    document.getElementById("subtitle").textContent = "找不到答案的时候,先找自己"
-  }
-}
-typedJSFn.run(subtitleType)</script></div><script src="https://cdn.jsdelivr.net/npm/butterfly-extsrc/dist/activate-power-mode.min.js"></script><script>POWERMODE.colorful = true;
-POWERMODE.shake = true;
-POWERMODE.mobile = true;
-document.body.addEventListener('input', POWERMODE);
-</script><script async data-pjax src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script><div id="local-search"><div class="search-dialog"><nav class="search-nav"><span class="search-dialog-title">搜索</span><span id="loading-status"></span><button class="search-close-button"><i class="fas fa-times"></i></button></nav><div class="is-center" id="loading-database"><i class="fas fa-spinner fa-pulse"></i><span>  数据库加载中</span></div><div class="search-wrap"><div id="local-search-input"><div class="local-search-box"><input class="local-search-box--input" placeholder="搜索文章" type="text"/></div></div><hr/><div id="local-search-results"></div><div id="local-search-stats-wrap"></div></div></div><div id="search-mask"></div><script src="/js/search/local-search.js"></script></div><div class="app-refresh" id="app-refresh" style="position: fixed;top: -2.2rem;left: 0;right: 0;z-index: 99999;padding: 0 1rem;font-size: 15px;height: 2.2rem;transition: all 0.3s ease;"><div class="app-refresh-wrap" style=" display: flex;color: #fff;height: 100%;align-items: center;justify-content: center;"><label>✨ 有新文章啦！ 👉</label><a href="javascript:void(0)" onclick="location.reload()"><span style="color: #fff;text-decoration: underline;cursor: pointer;">🍗点击食用🍔</span></a></div></div><script>if ('serviceWorker' in navigator) {
-if (navigator.serviceWorker.controller) {
-navigator.serviceWorker.addEventListener('controllerchange', function() {
-showNotification()
-})
-}
-window.addEventListener('load', function() {
-navigator.serviceWorker.register('/sw.js')
-})
-}
-function showNotification() {
-if (GLOBAL_CONFIG.Snackbar) {
-var snackbarBg =
-document.documentElement.getAttribute('data-theme') === 'light' ?
-GLOBAL_CONFIG.Snackbar.bgLight :
-GLOBAL_CONFIG.Snackbar.bgDark
-var snackbarPos = GLOBAL_CONFIG.Snackbar.position
-Snackbar.show({
-text: '✨ 有新文章啦！ 👉',
-backgroundColor: snackbarBg,
-duration: 500000,
-pos: snackbarPos,
-actionText: '🍗点击食用🍔',
-actionTextColor: '#fff',
-onActionClick: function(e) {
-location.reload()
-},
-})
-} else {
-var showBg =
-document.documentElement.getAttribute('data-theme') === 'light' ?
-'#3b70fc' :
-'#1f1f1f'
-var cssText = `top: 0; background: ${showBg};`
-document.getElementById('app-refresh').style.cssText = cssText
-}
-}</script></div><!-- hexo injector body_end start --><script data-pjax>
-  function butterfly_clock_anzhiyu_injector_config(){
-    var parent_div_git = document.getElementsByClassName('sticky_layout')[0];
-    var item_html = '<div class="card-widget card-clock"><div class="card-glass"><div class="card-background"><div class="card-content"><div id="hexo_electric_clock"><img class="entered loading" id="card-clock-loading" src="https://cdn.cbd.int/hexo-butterfly-clock-anzhiyu/lib/loading.gif" style="height: 120px; width: 100%;" data-ll-status="loading"/></div></div></div></div></div>';
-    console.log('已挂载butterfly_clock_anzhiyu')
-    if(parent_div_git) {
-      parent_div_git.insertAdjacentHTML("afterbegin",item_html)
-    }
-  }
-  var elist = 'null'.split(',');
-  var cpage = location.pathname;
-  var epage = 'all';
-  var qweather_key = '1ecb681188744caeb284ad8724d6dd64';
-  var gaud_map_key = 'da2cc83783dbfdf556049e4e4bc86869';
-  var baidu_ak_key = 'undefined';
-  var flag = 0;
-  var clock_rectangle = '112.982279,28.19409';
-  var clock_default_rectangle_enable = 'false';
-
-  for (var i=0;i<elist.length;i++){
-    if (cpage.includes(elist[i])){
-      flag++;
-    }
-  }
-
-  if ((epage ==='all')&&(flag == 0)){
-    butterfly_clock_anzhiyu_injector_config();
-  }
-  else if (epage === cpage){
-    butterfly_clock_anzhiyu_injector_config();
-  }
-  </script><script src="https://widget.qweather.net/simple/static/js/he-simple-common.js?v=2.0"></script><script data-pjax src="https://cdn.cbd.int/hexo-butterfly-clock-anzhiyu/lib/clock.min.js"></script><script data-pjax>
-  function butterfly_footer_beautify_injector_config(){
-    var parent_div_git = document.getElementById('footer-wrap');
-    var item_html = '<div id="workboard"></div>';
-    console.log('已挂载butterfly_footer_beautify')
-    parent_div_git.insertAdjacentHTML("beforeend",item_html)
-    }
-  var elist = 'null'.split(',');
-  var cpage = location.pathname;
-  var epage = 'all';
-  var flag = 0;
-
-  for (var i=0;i<elist.length;i++){
-    if (cpage.includes(elist[i])){
-      flag++;
-    }
-  }
-
-  if ((epage ==='all')&&(flag == 0)){
-    butterfly_footer_beautify_injector_config();
-  }
-  else if (epage === cpage){
-    butterfly_footer_beautify_injector_config();
-  }
-  </script><script async src="/js/runtime.min.js"></script><div class="js-pjax"><script async="async">var arr = document.getElementsByClassName('recent-post-item');
-for(var i = 0;i<arr.length;i++){
-    arr[i].classList.add('wow');
-    arr[i].classList.add('animate__zoomIn');
-    arr[i].setAttribute('data-wow-duration', '1.5s');
-    arr[i].setAttribute('data-wow-delay', '200ms');
-    arr[i].setAttribute('data-wow-offset', '30');
-    arr[i].setAttribute('data-wow-iteration', '1');
-  }</script><script async="async">var arr = document.getElementsByClassName('card-widget');
-for(var i = 0;i<arr.length;i++){
-    arr[i].classList.add('wow');
-    arr[i].classList.add('animate__zoomIn');
-    arr[i].setAttribute('data-wow-duration', '');
-    arr[i].setAttribute('data-wow-delay', '200ms');
-    arr[i].setAttribute('data-wow-offset', '');
-    arr[i].setAttribute('data-wow-iteration', '');
-  }</script><script async="async">var arr = document.getElementsByClassName('flink-list-card');
-for(var i = 0;i<arr.length;i++){
-    arr[i].classList.add('wow');
-    arr[i].classList.add('animate__flipInY');
-    arr[i].setAttribute('data-wow-duration', '3s');
-    arr[i].setAttribute('data-wow-delay', '');
-    arr[i].setAttribute('data-wow-offset', '');
-    arr[i].setAttribute('data-wow-iteration', '');
-  }</script><script async="async">var arr = document.getElementsByClassName('flink-list-card');
-for(var i = 0;i<arr.length;i++){
-    arr[i].classList.add('wow');
-    arr[i].classList.add('animate__animated');
-    arr[i].setAttribute('data-wow-duration', '3s');
-    arr[i].setAttribute('data-wow-delay', '');
-    arr[i].setAttribute('data-wow-offset', '');
-    arr[i].setAttribute('data-wow-iteration', '');
-  }</script><script async="async">var arr = document.getElementsByClassName('article-sort-item');
-for(var i = 0;i<arr.length;i++){
-    arr[i].classList.add('wow');
-    arr[i].classList.add('animate__slideInRight');
-    arr[i].setAttribute('data-wow-duration', '1.5s');
-    arr[i].setAttribute('data-wow-delay', '');
-    arr[i].setAttribute('data-wow-offset', '');
-    arr[i].setAttribute('data-wow-iteration', '');
-  }</script><script async="async">var arr = document.getElementsByClassName('site-card');
-for(var i = 0;i<arr.length;i++){
-    arr[i].classList.add('wow');
-    arr[i].classList.add('animate__flipInY');
-    arr[i].setAttribute('data-wow-duration', '3s');
-    arr[i].setAttribute('data-wow-delay', '');
-    arr[i].setAttribute('data-wow-offset', '');
-    arr[i].setAttribute('data-wow-iteration', '');
-  }</script><script async="async">var arr = document.getElementsByClassName('site-card');
-for(var i = 0;i<arr.length;i++){
-    arr[i].classList.add('wow');
-    arr[i].classList.add('animate__animated');
-    arr[i].setAttribute('data-wow-duration', '3s');
-    arr[i].setAttribute('data-wow-delay', '');
-    arr[i].setAttribute('data-wow-offset', '');
-    arr[i].setAttribute('data-wow-iteration', '');
-  }</script></div><script defer src="https://cdn.cbd.int/hexo-butterfly-wowjs/lib/wow.min.js"></script><script defer src="https://cdn.cbd.int/hexo-butterfly-wowjs/lib/wow_init.js"></script><!-- hexo injector body_end end --></body></html>
+    });
+    MathJax.Hub.Queue(function() {
+        var all = MathJax.Hub.getAllJax();
+        for (var i = 0; i < all.length; ++i)
+            all[i].SourceElement().parentNode.className += ' has-jax';
+    });
+</script>
+<script src="http://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+</body>
+</html>

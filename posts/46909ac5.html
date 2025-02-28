@@ -1,159 +1,178 @@
-<!DOCTYPE html><html lang="zh-CN" data-theme="light"><head><meta charset="UTF-8"><meta http-equiv="X-UA-Compatible" content="IE=edge"><meta name="viewport" content="width=device-width, initial-scale=1.0,viewport-fit=cover"><title>stm32-c语言复习 | Chris</title><meta name="author" content="Chris"><meta name="copyright" content="Chris"><meta name="format-detection" content="telephone=no"><meta name="theme-color" content="#ffffff"><meta name="description" content="- Date:2023-06-05  Time:17:08 Subject: none Tags: #stm32 [[2023-06]]   printf函数输出流程  printf的使用 123456&#x2F;&#x2F;printf(&quot;字符串\r\n&quot;);printf(&quot;Hello World!\r\n&quot;);&#x2F;&#x2F;printf(&quot;输出控制符&quot;，输出参数)">
+<!DOCTYPE html>
+<html lang=zh>
+<head>
+    <!-- so meta -->
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="HandheldFriendly" content="True">
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=5" />
+    <meta name="description" content="- Date:2023-06-05  Time:17:08 Subject: none Tags: #stm32 [[2023-06]]   printf函数输出流程  printf的使用 123456&#x2F;&#x2F;printf(&quot;字符串\r\n&quot;);printf(&quot;Hello World!\r\n&quot;);&#x2F;&#x2F;printf(&quot;输出控制符&quot;，输出参数)">
 <meta property="og:type" content="article">
 <meta property="og:title" content="stm32-c语言复习">
 <meta property="og:url" content="https://scolenchris.top/posts/46909ac5.html">
 <meta property="og:site_name" content="Chris">
 <meta property="og:description" content="- Date:2023-06-05  Time:17:08 Subject: none Tags: #stm32 [[2023-06]]   printf函数输出流程  printf的使用 123456&#x2F;&#x2F;printf(&quot;字符串\r\n&quot;);printf(&quot;Hello World!\r\n&quot;);&#x2F;&#x2F;printf(&quot;输出控制符&quot;，输出参数)">
 <meta property="og:locale" content="zh_CN">
-<meta property="og:image" content="https://scolenchris.top/img/Avatar.jpg">
+<meta property="og:image" content="https://pic-chris.oss-cn-guangzhou.aliyuncs.com/img/202407030945863.png">
+<meta property="og:image" content="https://pic-chris.oss-cn-guangzhou.aliyuncs.com/img/202407030945864.png">
+<meta property="og:image" content="https://pic-chris.oss-cn-guangzhou.aliyuncs.com/img/202407030945865.png">
+<meta property="og:image" content="https://pic-chris.oss-cn-guangzhou.aliyuncs.com/img/202407030945866.png">
+<meta property="og:image" content="https://pic-chris.oss-cn-guangzhou.aliyuncs.com/img/202407030945867.png">
+<meta property="og:image" content="https://pic-chris.oss-cn-guangzhou.aliyuncs.com/img/202407030945868.png">
+<meta property="og:image" content="https://pic-chris.oss-cn-guangzhou.aliyuncs.com/img/202407030945869.png">
 <meta property="article:published_time" content="2024-07-03T10:18:05.000Z">
-<meta property="article:modified_time" content="2024-08-13T15:05:28.386Z">
+<meta property="article:modified_time" content="2025-02-28T07:17:00.708Z">
 <meta property="article:author" content="Chris">
 <meta property="article:tag" content="博客,scolen,chris,技术,生活,记录,life,code">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:image" content="https://scolenchris.top/img/Avatar.jpg"><link rel="shortcut icon" href="/img/favicon.jpg"><link rel="canonical" href="https://scolenchris.top/posts/46909ac5.html"><link rel="preconnect" href="//cdn.jsdelivr.net"/><link rel="preconnect" href="//busuanzi.ibruce.info"/><link rel="manifest" href="/"/><link rel="stylesheet" href="/css/index.css"><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free/css/all.min.css" media="print" onload="this.media='all'"><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fancyapps/ui/dist/fancybox/fancybox.min.css" media="print" onload="this.media='all'"><script>const GLOBAL_CONFIG = {
-  root: '/',
-  algolia: undefined,
-  localSearch: {"path":"/search.xml","preload":false,"top_n_per_article":1,"unescape":false,"languages":{"hits_empty":"找不到您查询的内容：${query}","hits_stats":"共找到 ${hits} 篇文章"}},
-  translate: undefined,
-  noticeOutdate: undefined,
-  highlight: {"plugin":"highlighjs","highlightCopy":true,"highlightLang":true,"highlightHeightLimit":false},
-  copy: {
-    success: '复制成功',
-    error: '复制错误',
-    noSupport: '浏览器不支持'
-  },
-  relativeDate: {
-    homepage: false,
-    post: false
-  },
-  runtime: '',
-  dateSuffix: {
-    just: '刚刚',
-    min: '分钟前',
-    hour: '小时前',
-    day: '天前',
-    month: '个月前'
-  },
-  copyright: undefined,
-  lightbox: 'fancybox',
-  Snackbar: undefined,
-  infinitegrid: {
-    js: 'https://cdn.jsdelivr.net/npm/@egjs/infinitegrid/dist/infinitegrid.min.js',
-    buttonText: '加载更多'
-  },
-  isPhotoFigcaption: false,
-  islazyload: false,
-  isAnchor: false,
-  percent: {
-    toc: true,
-    rightside: false,
-  },
-  autoDarkmode: false
-}</script><script id="config-diff">var GLOBAL_CONFIG_SITE = {
-  title: 'stm32-c语言复习',
-  isPost: true,
-  isHome: false,
-  isHighlightShrink: false,
-  isToc: true,
-  postUpdate: '2024-08-13 15:05:28'
-}</script><script>(win=>{
-      win.saveToLocal = {
-        set: (key, value, ttl) => {
-          if (ttl === 0) return
-          const now = Date.now()
-          const expiry = now + ttl * 86400000
-          const item = {
-            value,
-            expiry
-          }
-          localStorage.setItem(key, JSON.stringify(item))
-        },
-      
-        get: key => {
-          const itemStr = localStorage.getItem(key)
-      
-          if (!itemStr) {
-            return undefined
-          }
-          const item = JSON.parse(itemStr)
-          const now = Date.now()
-      
-          if (now > item.expiry) {
-            localStorage.removeItem(key)
-            return undefined
-          }
-          return item.value
-        }
-      }
+<meta name="twitter:image" content="https://pic-chris.oss-cn-guangzhou.aliyuncs.com/img/202407030945863.png">
     
-      win.getScript = (url, attr = {}) => new Promise((resolve, reject) => {
-        const script = document.createElement('script')
-        script.src = url
-        script.async = true
-        script.onerror = reject
-        script.onload = script.onreadystatechange = function() {
-          const loadState = this.readyState
-          if (loadState && loadState !== 'loaded' && loadState !== 'complete') return
-          script.onload = script.onreadystatechange = null
-          resolve()
-        }
+    
+      
+        
+          <link rel="shortcut icon" href="/images/favicon.ico">
+        
+      
+      
+        
+          <link rel="icon" type="image/png" href="/images/favicon-192x192.png" sizes="192x192">
+        
+      
+      
+        
+          <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon.png">
+        
+      
+    
+    <!-- title -->
+    <title>stm32-c语言复习</title>
+    <!-- async scripts -->
+    <!-- Google Analytics -->
 
-        Object.keys(attr).forEach(key => {
-          script.setAttribute(key, attr[key])
-        })
 
-        document.head.appendChild(script)
-      })
+    <!-- Umami Analytics -->
+
+
+    <!-- styles -->
     
-      win.getCSS = (url, id = false) => new Promise((resolve, reject) => {
-        const link = document.createElement('link')
-        link.rel = 'stylesheet'
-        link.href = url
-        if (id) link.id = id
-        link.onerror = reject
-        link.onload = link.onreadystatechange = function() {
-          const loadState = this.readyState
-          if (loadState && loadState !== 'loaded' && loadState !== 'complete') return
-          link.onload = link.onreadystatechange = null
-          resolve()
-        }
-        document.head.appendChild(link)
-      })
+<link rel="stylesheet" href="/css/style.css">
+
+    <!-- persian styles -->
     
-      win.activateDarkMode = () => {
-        document.documentElement.setAttribute('data-theme', 'dark')
-        if (document.querySelector('meta[name="theme-color"]') !== null) {
-          document.querySelector('meta[name="theme-color"]').setAttribute('content', '#0d0d0d')
-        }
-      }
-      win.activateLightMode = () => {
-        document.documentElement.setAttribute('data-theme', 'light')
-        if (document.querySelector('meta[name="theme-color"]') !== null) {
-          document.querySelector('meta[name="theme-color"]').setAttribute('content', '#ffffff')
-        }
-      }
-      const t = saveToLocal.get('theme')
+    <!-- rss -->
     
-        if (t === 'dark') activateDarkMode()
-        else if (t === 'light') activateLightMode()
+    
+	<!-- mathjax -->
+	
+		<script type="text/x-mathjax-config">
+		  MathJax.Hub.Config({
+			tex2jax: {
+			  skipTags: ['script', 'noscript', 'style', 'textarea', 'pre'],
+			  inlineMath: [['$','$']]
+			}
+		  });
+		</script>
+		<script src='https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.5/latest.js?config=TeX-MML-AM_CHTML' async></script>
+	
+<meta name="generator" content="Hexo 7.0.0"></head>
+
+<body class="max-width mx-auto px3 ltr">    
+      <div id="header-post">
+  <a id="menu-icon" href="#" aria-label="目录"><i class="fa-solid fa-bars fa-lg"></i></a>
+  <a id="menu-icon-tablet" href="#" aria-label="目录"><i class="fa-solid fa-bars fa-lg"></i></a>
+  <a id="top-icon-tablet" href="#" aria-label="顶部" onclick="$('html, body').animate({ scrollTop: 0 }, 'fast');" style="display:none;"><i class="fa-solid fa-chevron-up fa-lg"></i></a>
+  <span id="menu">
+    <span id="nav">
+      <ul>
+        <!--
+       --><li><a href="/">首页</a></li><!--
+     --><!--
+       --><li><a href="/about/">关于</a></li><!--
+     --><!--
+       --><li><a href="/archives/">归档</a></li><!--
+     --><!--
+       --><li><a target="_blank" rel="noopener" href="https://github.com/scolenchris">项目</a></li><!--
+     -->
+      </ul>
+    </span>
+    <br/>
+    <span id="actions">
+      <ul>
+        
+        <li><a class="icon" aria-label="上一篇" href="/posts/341ecd43.html"><i class="fa-solid fa-chevron-left" aria-hidden="true" onmouseover="$('#i-prev').toggle();" onmouseout="$('#i-prev').toggle();"></i></a></li>
+        
+        
+        <li><a class="icon" aria-label="下一篇" href="/posts/3b21df78.html"><i class="fa-solid fa-chevron-right" aria-hidden="true" onmouseover="$('#i-next').toggle();" onmouseout="$('#i-next').toggle();"></i></a></li>
+        
+        <li><a class="icon" aria-label="返回顶部" href="#" onclick="$('html, body').animate({ scrollTop: 0 }, 'fast');"><i class="fa-solid fa-chevron-up" aria-hidden="true" onmouseover="$('#i-top').toggle();" onmouseout="$('#i-top').toggle();"></i></a></li>
+        <li><a class="icon" aria-label="分享文章" href="#"><i class="fa-solid fa-share-alt" aria-hidden="true" onmouseover="$('#i-share').toggle();" onmouseout="$('#i-share').toggle();" onclick="$('#share').toggle();return false;"></i></a></li>
+      </ul>
+      <span id="i-prev" class="info" style="display:none;">上一篇</span>
+      <span id="i-next" class="info" style="display:none;">下一篇</span>
+      <span id="i-top" class="info" style="display:none;">返回顶部</span>
+      <span id="i-share" class="info" style="display:none;">分享文章</span>
+    </span>
+    <br/>
+    <div id="share" style="display: none">
+      <ul>
+  <li><a class="icon" target="_blank" rel="noopener" href="http://www.facebook.com/sharer.php?u=https://scolenchris.top/posts/46909ac5.html"><i class="fab fa-facebook " aria-hidden="true"></i></a></li>
+  <li><a class="icon" target="_blank" rel="noopener" href="https://twitter.com/share?url=https://scolenchris.top/posts/46909ac5.html&text=stm32-c语言复习"><i class="fab fa-twitter " aria-hidden="true"></i></a></li>
+  <li><a class="icon" target="_blank" rel="noopener" href="http://www.linkedin.com/shareArticle?url=https://scolenchris.top/posts/46909ac5.html&title=stm32-c语言复习"><i class="fab fa-linkedin " aria-hidden="true"></i></a></li>
+  <li><a class="icon" target="_blank" rel="noopener" href="https://pinterest.com/pin/create/bookmarklet/?url=https://scolenchris.top/posts/46909ac5.html&is_video=false&description=stm32-c语言复习"><i class="fab fa-pinterest " aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="mailto:?subject=stm32-c语言复习&body=Check out this article: https://scolenchris.top/posts/46909ac5.html"><i class="fa-solid fa-envelope " aria-hidden="true"></i></a></li>
+  <li><a class="icon" target="_blank" rel="noopener" href="https://getpocket.com/save?url=https://scolenchris.top/posts/46909ac5.html&title=stm32-c语言复习"><i class="fab fa-get-pocket " aria-hidden="true"></i></a></li>
+  <li><a class="icon" target="_blank" rel="noopener" href="http://reddit.com/submit?url=https://scolenchris.top/posts/46909ac5.html&title=stm32-c语言复习"><i class="fab fa-reddit " aria-hidden="true"></i></a></li>
+  <li><a class="icon" target="_blank" rel="noopener" href="http://www.stumbleupon.com/submit?url=https://scolenchris.top/posts/46909ac5.html&title=stm32-c语言复习"><i class="fab fa-stumbleupon " aria-hidden="true"></i></a></li>
+  <li><a class="icon" target="_blank" rel="noopener" href="http://digg.com/submit?url=https://scolenchris.top/posts/46909ac5.html&title=stm32-c语言复习"><i class="fab fa-digg " aria-hidden="true"></i></a></li>
+  <li><a class="icon" target="_blank" rel="noopener" href="http://www.tumblr.com/share/link?url=https://scolenchris.top/posts/46909ac5.html&name=stm32-c语言复习&description="><i class="fab fa-tumblr " aria-hidden="true"></i></a></li>
+  <li><a class="icon" target="_blank" rel="noopener" href="https://news.ycombinator.com/submitlink?u=https://scolenchris.top/posts/46909ac5.html&t=stm32-c语言复习"><i class="fab fa-hacker-news " aria-hidden="true"></i></a></li>
+</ul>
+
+    </div>
+    
+    
+      <div id="toc">
+        <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link"><span class="toc-number">1.</span> <span class="toc-text">- Date:2023-06-05</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#printf%E5%87%BD%E6%95%B0%E8%BE%93%E5%87%BA%E6%B5%81%E7%A8%8B"><span class="toc-number">1.1.</span> <span class="toc-text">printf函数输出流程</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#printf%E7%9A%84%E4%BD%BF%E7%94%A8"><span class="toc-number">1.2.</span> <span class="toc-text">printf的使用</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#%E5%B8%B8%E7%94%A8%E8%BE%93%E5%87%BA%E6%8E%A7%E5%88%B6%E7%AC%A6%E8%A1%A8"><span class="toc-number">1.2.1.</span> <span class="toc-text">常用输出控制符表</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E5%B8%B8%E7%94%A8%E8%BD%AC%E4%B9%89%E5%AD%97%E7%AC%A6%E8%A1%A8"><span class="toc-number">1.2.2.</span> <span class="toc-text">常用转义字符表</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E4%BE%8B%E5%AD%90"><span class="toc-number">1.2.3.</span> <span class="toc-text">例子</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#printf%E5%87%BD%E6%95%B0%E6%94%AF%E6%8C%81"><span class="toc-number">1.3.</span> <span class="toc-text">printf函数支持</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#%E5%8D%8A%E4%B8%BB%E6%9C%BA%E6%A8%A1%E5%BC%8F%E7%AE%80%E4%BB%8B"><span class="toc-number">1.3.1.</span> <span class="toc-text">半主机模式简介</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E6%96%B9%E6%B3%95%E4%B8%80%EF%BC%9A%E5%BE%AE%E5%BA%93%E6%B3%95"><span class="toc-number">1.3.2.</span> <span class="toc-text">方法一：微库法</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E6%96%B9%E6%B3%95%E4%BA%8C%EF%BC%9A%E4%BB%A3%E7%A0%81%E6%B3%95"><span class="toc-number">1.3.3.</span> <span class="toc-text">方法二：代码法</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#pragma-import-use-no-semihosting-%EF%BC%8C%E7%A1%AE%E4%BF%9D%E4%B8%8D%E4%BB%8EC%E5%BA%93%E4%B8%AD%E4%BD%BF%E7%94%A8%E5%8D%8A%E4%B8%BB%E6%9C%BA%E5%87%BD%E6%95%B0"><span class="toc-number">1.4.</span> <span class="toc-text">pragma import(__use_no_semihosting)，确保不从C库中使用半主机函数</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#%E5%BE%AE%E5%BA%93%E6%B3%95-VS-%E4%BB%A3%E7%A0%81%E6%B3%95"><span class="toc-number">1.4.1.</span> <span class="toc-text">微库法 VS 代码法</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%AE%9E%E7%8E%B0fputc%E5%87%BD%E6%95%B0"><span class="toc-number">1.5.</span> <span class="toc-text">实现fputc函数</span></a></li></ol></li></ol>
+      </div>
+    
+  </span>
+</div>
+
+    
+    <div class="content index py4 ">
+        
+        <article class="post h-entry" itemscope itemtype="http://schema.org/BlogPosting">
+  <header>
+    
+    <h1 class="posttitle p-name" itemprop="name headline">
+        stm32-c语言复习
+    </h1>
+
+
+
+    <div class="meta">
+      <span class="author p-author h-card" itemprop="author" itemscope itemtype="http://schema.org/Person">
+        <span class="p-name" itemprop="name">Chris</span>
+      </span>
       
-      const asideStatus = saveToLocal.get('aside-status')
-      if (asideStatus !== undefined) {
-        if (asideStatus === 'hide') {
-          document.documentElement.classList.add('hide-aside')
-        } else {
-          document.documentElement.classList.remove('hide-aside')
-        }
-      }
-    
-      const detectApple = () => {
-        if(/iPad|iPhone|iPod|Macintosh/.test(navigator.userAgent)){
-          document.documentElement.classList.add('apple')
-        }
-      }
-      detectApple()
-    })(window)</script><link rel="stylesheet" href="/css/custom.css" media="defer" onload="this.media='all'"><!-- hexo injector head_end start --><link rel="stylesheet" href="https://cdn.cbd.int/hexo-butterfly-clock-anzhiyu/lib/clock.min.css" /><link rel="stylesheet" href="/css/runtime.min.css" media="print" onload="this.media='all'"><link rel="stylesheet" href="https://cdn.cbd.int/hexo-butterfly-wowjs/lib/animate.min.css" media="print" onload="this.media='all'"><!-- hexo injector head_end end --><meta name="generator" content="Hexo 7.0.0"><link href="https://cdn.bootcss.com/KaTeX/0.11.1/katex.min.css" rel="stylesheet" /></head><body><div id="web_bg"></div><div id="sidebar"><div id="menu-mask"></div><div id="sidebar-menus"><div class="avatar-img is-center"><img src="/img/Avatar.jpg" onerror="onerror=null;src='/img/friend_404.gif'" alt="avatar"/></div><div class="sidebar-site-data site-data is-center"><a href="/archives/"><div class="headline">文章</div><div class="length-num">19</div></a><a href="/tags/"><div class="headline">标签</div><div class="length-num">0</div></a><a href="/categories/"><div class="headline">分类</div><div class="length-num">0</div></a></div><hr class="custom-hr"/></div></div><div class="post" id="body-wrap"><header class="post-bg" id="page-header"><nav id="nav"><span id="blog-info"><a href="/" title="Chris"><span class="site-name">Chris</span></a></span><div id="menus"><div id="search-button"><a class="site-page social-icon search" href="javascript:void(0);"><i class="fas fa-search fa-fw"></i><span> 搜索</span></a></div><div id="toggle-menu"><a class="site-page" href="javascript:void(0);"><i class="fas fa-bars fa-fw"></i></a></div></div></nav><div id="post-info"><h1 class="post-title">stm32-c语言复习</h1><div id="post-meta"><div class="meta-firstline"><span class="post-meta-date"><i class="far fa-calendar-alt fa-fw post-meta-icon"></i><span class="post-meta-label">发表于</span><time class="post-meta-date-created" datetime="2024-07-03T10:18:05.000Z" title="发表于 2024-07-03 10:18:05">2024-07-03</time><span class="post-meta-separator">|</span><i class="fas fa-history fa-fw post-meta-icon"></i><span class="post-meta-label">更新于</span><time class="post-meta-date-updated" datetime="2024-08-13T15:05:28.386Z" title="更新于 2024-08-13 15:05:28">2024-08-13</time></span></div><div class="meta-secondline"><span class="post-meta-separator">|</span><span class="post-meta-pv-cv" id="" data-flag-title="stm32-c语言复习"><i class="far fa-eye fa-fw post-meta-icon"></i><span class="post-meta-label">阅读量:</span><span id="busuanzi_value_page_pv"><i class="fa-solid fa-spinner fa-spin"></i></span></span></div></div></div></header><main class="layout" id="content-inner"><div id="post"><article class="post-content" id="article-container"><h1 id="date-2023-06-05">- Date:2023-06-05</h1>
+    <div class="postdate">
+      
+        <time datetime="2024-07-03T10:18:05.000Z" class="dt-published" itemprop="datePublished">2024-07-03</time>
+        
+      
+    </div>
+
+
+      
+
+      
+
+    </div>
+  </header>
+  
+
+  <div class="content e-content" itemprop="articleBody">
+    <h1>- Date:2023-06-05</h1>
 <ul>
 <li>Time:17:08</li>
 <li>Subject: none</li>
@@ -184,7 +203,7 @@
 <p>1个预处理、 2个定义、3个函数，会用就行</p>
 <ol>
 <li>
-<h2 id="pragma-import-use-no-semihosting-确保不从c库中使用半主机函数">pragma import(__use_no_semihosting)，确保不从C库中使用半主机函数</h2>
+<h2 id="pragma-import-use-no-semihosting-，确保不从C库中使用半主机函数">pragma import(__use_no_semihosting)，确保不从C库中使用半主机函数</h2>
 </li>
 <li>定义：__ FILE结构体，避免HAL库某些情况下报错</li>
 <li>定义： FILE __ stdout，避免编译报错</li>
@@ -192,160 +211,164 @@
 <font color="#ff0000">在历程（uart.c）中已经实现了</font><br>
 <font color="#ff0000">到时候拷贝就好</font></li>
 </ol>
-<h3 id="微库法-vs-代码法">微库法 VS 代码法</h3>
+<h3 id="微库法-VS-代码法">微库法 VS 代码法</h3>
 <p><img src="https://pic-chris.oss-cn-guangzhou.aliyuncs.com/img/202407030945868.png" alt="Pasted image 20230605174027|600"></p>
 <h2 id="实现fputc函数">实现fputc函数</h2>
 <p><img src="https://pic-chris.oss-cn-guangzhou.aliyuncs.com/img/202407030945869.png" alt="Pasted image 20230605175055|600"><br>
 也不需要怎么知道</p>
-</article><div class="post-copyright"><div class="post-copyright__author"><span class="post-copyright-meta"><i class="fas fa-circle-user fa-fw"></i>文章作者: </span><span class="post-copyright-info"><a href="https://scolenchris.top">Chris</a></span></div><div class="post-copyright__type"><span class="post-copyright-meta"><i class="fas fa-square-arrow-up-right fa-fw"></i>文章链接: </span><span class="post-copyright-info"><a href="https://scolenchris.top/posts/46909ac5.html">https://scolenchris.top/posts/46909ac5.html</a></span></div><div class="post-copyright__notice"><span class="post-copyright-meta"><i class="fas fa-circle-exclamation fa-fw"></i>版权声明: </span><span class="post-copyright-info">本博客所有文章除特别声明外，均采用 <a href="https://creativecommons.org/licenses/by-nc-sa/4.0/" target="_blank">CC BY-NC-SA 4.0</a> 许可协议。转载请注明来自 <a href="https://scolenchris.top" target="_blank">Chris</a>！</span></div></div><div class="tag_share"><div class="post-meta__tag-list"></div><div class="post_share"><div class="social-share" data-image="/img/Avatar.jpg" data-sites="facebook,twitter,wechat,weibo,qq"></div><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/butterfly-extsrc/sharejs/dist/css/share.min.css" media="print" onload="this.media='all'"><script src="https://cdn.jsdelivr.net/npm/butterfly-extsrc/sharejs/dist/js/social-share.min.js" defer></script></div></div><nav class="pagination-post" id="pagination"><div class="prev-post pull-left"><a href="/posts/341ecd43.html" title="git命令"><div class="cover" style="background: var(--default-bg-color)"></div><div class="pagination-info"><div class="label">上一篇</div><div class="prev_info">git命令</div></div></a></div><div class="next-post pull-right"><a href="/posts/3b21df78.html" title="stm32-system文件夹"><div class="cover" style="background: var(--default-bg-color)"></div><div class="pagination-info"><div class="label">下一篇</div><div class="next_info">stm32-system文件夹</div></div></a></div></nav></div><div class="aside-content" id="aside-content"><div class="card-widget card-info"><div class="is-center"><div class="avatar-img"><img src="/img/Avatar.jpg" onerror="this.onerror=null;this.src='/img/friend_404.gif'" alt="avatar"/></div><div class="author-info__name">Chris</div><div class="author-info__description">描述~</div></div><div class="card-info-data site-data is-center"><a href="/archives/"><div class="headline">文章</div><div class="length-num">19</div></a><a href="/tags/"><div class="headline">标签</div><div class="length-num">0</div></a><a href="/categories/"><div class="headline">分类</div><div class="length-num">0</div></a></div><a id="card-info-btn" target="_blank" rel="noopener" href="https://github.com/scolenchris"><i class="fab fa-github"></i><span>Follow Me</span></a></div><div class="sticky_layout"><div class="card-widget" id="card-toc"><div class="item-headline"><i class="fas fa-stream"></i><span>目录</span><span class="toc-percentage"></span></div><div class="toc-content"><ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#date-2023-06-05"><span class="toc-number">1.</span> <span class="toc-text">- Date:2023-06-05</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#printf%E5%87%BD%E6%95%B0%E8%BE%93%E5%87%BA%E6%B5%81%E7%A8%8B"><span class="toc-number">1.1.</span> <span class="toc-text">printf函数输出流程</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#printf%E7%9A%84%E4%BD%BF%E7%94%A8"><span class="toc-number">1.2.</span> <span class="toc-text">printf的使用</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#%E5%B8%B8%E7%94%A8%E8%BE%93%E5%87%BA%E6%8E%A7%E5%88%B6%E7%AC%A6%E8%A1%A8"><span class="toc-number">1.2.1.</span> <span class="toc-text">常用输出控制符表</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E5%B8%B8%E7%94%A8%E8%BD%AC%E4%B9%89%E5%AD%97%E7%AC%A6%E8%A1%A8"><span class="toc-number">1.2.2.</span> <span class="toc-text">常用转义字符表</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E4%BE%8B%E5%AD%90"><span class="toc-number">1.2.3.</span> <span class="toc-text">例子</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#printf%E5%87%BD%E6%95%B0%E6%94%AF%E6%8C%81"><span class="toc-number">1.3.</span> <span class="toc-text">printf函数支持</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#%E5%8D%8A%E4%B8%BB%E6%9C%BA%E6%A8%A1%E5%BC%8F%E7%AE%80%E4%BB%8B"><span class="toc-number">1.3.1.</span> <span class="toc-text">半主机模式简介</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E6%96%B9%E6%B3%95%E4%B8%80%EF%BC%9A%E5%BE%AE%E5%BA%93%E6%B3%95"><span class="toc-number">1.3.2.</span> <span class="toc-text">方法一：微库法</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E6%96%B9%E6%B3%95%E4%BA%8C%EF%BC%9A%E4%BB%A3%E7%A0%81%E6%B3%95"><span class="toc-number">1.3.3.</span> <span class="toc-text">方法二：代码法</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#pragma-import-use-no-semihosting-%E7%A1%AE%E4%BF%9D%E4%B8%8D%E4%BB%8Ec%E5%BA%93%E4%B8%AD%E4%BD%BF%E7%94%A8%E5%8D%8A%E4%B8%BB%E6%9C%BA%E5%87%BD%E6%95%B0"><span class="toc-number">1.4.</span> <span class="toc-text">pragma import(__use_no_semihosting)，确保不从C库中使用半主机函数</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#%E5%BE%AE%E5%BA%93%E6%B3%95-vs-%E4%BB%A3%E7%A0%81%E6%B3%95"><span class="toc-number">1.4.1.</span> <span class="toc-text">微库法 VS 代码法</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%AE%9E%E7%8E%B0fputc%E5%87%BD%E6%95%B0"><span class="toc-number">1.5.</span> <span class="toc-text">实现fputc函数</span></a></li></ol></li></ol></div></div><div class="card-widget card-recent-post"><div class="item-headline"><i class="fas fa-history"></i><span>最新文章</span></div><div class="aside-list"><div class="aside-list-item no-cover"><div class="content"><a class="title" href="/posts/feefa20.html" title="git知识总结">git知识总结</a><time datetime="2024-07-04T11:54:17.000Z" title="发表于 2024-07-04 11:54:17">2024-07-04</time></div></div><div class="aside-list-item no-cover"><div class="content"><a class="title" href="/posts/341ecd43.html" title="git命令">git命令</a><time datetime="2024-07-04T11:53:47.000Z" title="发表于 2024-07-04 11:53:47">2024-07-04</time></div></div><div class="aside-list-item no-cover"><div class="content"><a class="title" href="/posts/46909ac5.html" title="stm32-c语言复习">stm32-c语言复习</a><time datetime="2024-07-03T10:18:05.000Z" title="发表于 2024-07-03 10:18:05">2024-07-03</time></div></div><div class="aside-list-item no-cover"><div class="content"><a class="title" href="/posts/3b21df78.html" title="stm32-system文件夹">stm32-system文件夹</a><time datetime="2024-07-03T10:17:19.000Z" title="发表于 2024-07-03 10:17:19">2024-07-03</time></div></div><div class="aside-list-item no-cover"><div class="content"><a class="title" href="/posts/1bce3e80.html" title="stm32-基础知识">stm32-基础知识</a><time datetime="2024-07-03T10:12:06.000Z" title="发表于 2024-07-03 10:12:06">2024-07-03</time></div></div></div></div></div></div></main><footer id="footer"><div id="footer-wrap"><div class="copyright">&copy;2020 - 2024 By Chris</div><div class="framework-info"><span>框架 </span><a target="_blank" rel="noopener" href="https://hexo.io">Hexo</a><span class="footer-separator">|</span><span>主题 </span><a target="_blank" rel="noopener" href="https://github.com/jerryc127/hexo-theme-butterfly">Butterfly</a></div></div></footer></div><div id="rightside"><div id="rightside-config-hide"><button id="readmode" type="button" title="阅读模式"><i class="fas fa-book-open"></i></button><button id="darkmode" type="button" title="浅色和深色模式转换"><i class="fas fa-adjust"></i></button><button id="hide-aside-btn" type="button" title="单栏和双栏切换"><i class="fas fa-arrows-alt-h"></i></button></div><div id="rightside-config-show"><button id="rightside-config" type="button" title="设置"><i class="fas fa-cog fa-spin"></i></button><button class="close" id="mobile-toc-button" type="button" title="目录"><i class="fas fa-list-ul"></i></button><button id="go-up" type="button" title="回到顶部"><span class="scroll-percent"></span><i class="fas fa-arrow-up"></i></button></div></div><div><script src="/js/utils.js"></script><script src="/js/main.js"></script><script src="https://cdn.jsdelivr.net/npm/@fancyapps/ui/dist/fancybox/fancybox.umd.min.js"></script><div class="js-pjax"></div><script src="https://cdn.jsdelivr.net/npm/butterfly-extsrc/dist/activate-power-mode.min.js"></script><script>POWERMODE.colorful = true;
-POWERMODE.shake = true;
-POWERMODE.mobile = true;
-document.body.addEventListener('input', POWERMODE);
-</script><script async data-pjax src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script><div id="local-search"><div class="search-dialog"><nav class="search-nav"><span class="search-dialog-title">搜索</span><span id="loading-status"></span><button class="search-close-button"><i class="fas fa-times"></i></button></nav><div class="is-center" id="loading-database"><i class="fas fa-spinner fa-pulse"></i><span>  数据库加载中</span></div><div class="search-wrap"><div id="local-search-input"><div class="local-search-box"><input class="local-search-box--input" placeholder="搜索文章" type="text"/></div></div><hr/><div id="local-search-results"></div><div id="local-search-stats-wrap"></div></div></div><div id="search-mask"></div><script src="/js/search/local-search.js"></script></div><div class="app-refresh" id="app-refresh" style="position: fixed;top: -2.2rem;left: 0;right: 0;z-index: 99999;padding: 0 1rem;font-size: 15px;height: 2.2rem;transition: all 0.3s ease;"><div class="app-refresh-wrap" style=" display: flex;color: #fff;height: 100%;align-items: center;justify-content: center;"><label>✨ 有新文章啦！ 👉</label><a href="javascript:void(0)" onclick="location.reload()"><span style="color: #fff;text-decoration: underline;cursor: pointer;">🍗点击食用🍔</span></a></div></div><script>if ('serviceWorker' in navigator) {
-if (navigator.serviceWorker.controller) {
-navigator.serviceWorker.addEventListener('controllerchange', function() {
-showNotification()
-})
-}
-window.addEventListener('load', function() {
-navigator.serviceWorker.register('/sw.js')
-})
-}
-function showNotification() {
-if (GLOBAL_CONFIG.Snackbar) {
-var snackbarBg =
-document.documentElement.getAttribute('data-theme') === 'light' ?
-GLOBAL_CONFIG.Snackbar.bgLight :
-GLOBAL_CONFIG.Snackbar.bgDark
-var snackbarPos = GLOBAL_CONFIG.Snackbar.position
-Snackbar.show({
-text: '✨ 有新文章啦！ 👉',
-backgroundColor: snackbarBg,
-duration: 500000,
-pos: snackbarPos,
-actionText: '🍗点击食用🍔',
-actionTextColor: '#fff',
-onActionClick: function(e) {
-location.reload()
-},
-})
-} else {
-var showBg =
-document.documentElement.getAttribute('data-theme') === 'light' ?
-'#3b70fc' :
-'#1f1f1f'
-var cssText = `top: 0; background: ${showBg};`
-document.getElementById('app-refresh').style.cssText = cssText
-}
-}</script></div><!-- hexo injector body_end start --><script data-pjax>
-  function butterfly_clock_anzhiyu_injector_config(){
-    var parent_div_git = document.getElementsByClassName('sticky_layout')[0];
-    var item_html = '<div class="card-widget card-clock"><div class="card-glass"><div class="card-background"><div class="card-content"><div id="hexo_electric_clock"><img class="entered loading" id="card-clock-loading" src="https://cdn.cbd.int/hexo-butterfly-clock-anzhiyu/lib/loading.gif" style="height: 120px; width: 100%;" data-ll-status="loading"/></div></div></div></div></div>';
-    console.log('已挂载butterfly_clock_anzhiyu')
-    if(parent_div_git) {
-      parent_div_git.insertAdjacentHTML("afterbegin",item_html)
-    }
-  }
-  var elist = 'null'.split(',');
-  var cpage = location.pathname;
-  var epage = 'all';
-  var qweather_key = '1ecb681188744caeb284ad8724d6dd64';
-  var gaud_map_key = 'da2cc83783dbfdf556049e4e4bc86869';
-  var baidu_ak_key = 'undefined';
-  var flag = 0;
-  var clock_rectangle = '112.982279,28.19409';
-  var clock_default_rectangle_enable = 'false';
 
-  for (var i=0;i<elist.length;i++){
-    if (cpage.includes(elist[i])){
-      flag++;
-    }
-  }
+  </div>
+</article>
 
-  if ((epage ==='all')&&(flag == 0)){
-    butterfly_clock_anzhiyu_injector_config();
-  }
-  else if (epage === cpage){
-    butterfly_clock_anzhiyu_injector_config();
-  }
-  </script><script src="https://widget.qweather.net/simple/static/js/he-simple-common.js?v=2.0"></script><script data-pjax src="https://cdn.cbd.int/hexo-butterfly-clock-anzhiyu/lib/clock.min.js"></script><script data-pjax>
-  function butterfly_footer_beautify_injector_config(){
-    var parent_div_git = document.getElementById('footer-wrap');
-    var item_html = '<div id="workboard"></div>';
-    console.log('已挂载butterfly_footer_beautify')
-    parent_div_git.insertAdjacentHTML("beforeend",item_html)
-    }
-  var elist = 'null'.split(',');
-  var cpage = location.pathname;
-  var epage = 'all';
-  var flag = 0;
 
-  for (var i=0;i<elist.length;i++){
-    if (cpage.includes(elist[i])){
-      flag++;
-    }
-  }
 
-  if ((epage ==='all')&&(flag == 0)){
-    butterfly_footer_beautify_injector_config();
-  }
-  else if (epage === cpage){
-    butterfly_footer_beautify_injector_config();
-  }
-  </script><script async src="/js/runtime.min.js"></script><div class="js-pjax"><script async="async">var arr = document.getElementsByClassName('recent-post-item');
-for(var i = 0;i<arr.length;i++){
-    arr[i].classList.add('wow');
-    arr[i].classList.add('animate__zoomIn');
-    arr[i].setAttribute('data-wow-duration', '1.5s');
-    arr[i].setAttribute('data-wow-delay', '200ms');
-    arr[i].setAttribute('data-wow-offset', '30');
-    arr[i].setAttribute('data-wow-iteration', '1');
-  }</script><script async="async">var arr = document.getElementsByClassName('card-widget');
-for(var i = 0;i<arr.length;i++){
-    arr[i].classList.add('wow');
-    arr[i].classList.add('animate__zoomIn');
-    arr[i].setAttribute('data-wow-duration', '');
-    arr[i].setAttribute('data-wow-delay', '200ms');
-    arr[i].setAttribute('data-wow-offset', '');
-    arr[i].setAttribute('data-wow-iteration', '');
-  }</script><script async="async">var arr = document.getElementsByClassName('flink-list-card');
-for(var i = 0;i<arr.length;i++){
-    arr[i].classList.add('wow');
-    arr[i].classList.add('animate__flipInY');
-    arr[i].setAttribute('data-wow-duration', '3s');
-    arr[i].setAttribute('data-wow-delay', '');
-    arr[i].setAttribute('data-wow-offset', '');
-    arr[i].setAttribute('data-wow-iteration', '');
-  }</script><script async="async">var arr = document.getElementsByClassName('flink-list-card');
-for(var i = 0;i<arr.length;i++){
-    arr[i].classList.add('wow');
-    arr[i].classList.add('animate__animated');
-    arr[i].setAttribute('data-wow-duration', '3s');
-    arr[i].setAttribute('data-wow-delay', '');
-    arr[i].setAttribute('data-wow-offset', '');
-    arr[i].setAttribute('data-wow-iteration', '');
-  }</script><script async="async">var arr = document.getElementsByClassName('article-sort-item');
-for(var i = 0;i<arr.length;i++){
-    arr[i].classList.add('wow');
-    arr[i].classList.add('animate__slideInRight');
-    arr[i].setAttribute('data-wow-duration', '1.5s');
-    arr[i].setAttribute('data-wow-delay', '');
-    arr[i].setAttribute('data-wow-offset', '');
-    arr[i].setAttribute('data-wow-iteration', '');
-  }</script><script async="async">var arr = document.getElementsByClassName('site-card');
-for(var i = 0;i<arr.length;i++){
-    arr[i].classList.add('wow');
-    arr[i].classList.add('animate__flipInY');
-    arr[i].setAttribute('data-wow-duration', '3s');
-    arr[i].setAttribute('data-wow-delay', '');
-    arr[i].setAttribute('data-wow-offset', '');
-    arr[i].setAttribute('data-wow-iteration', '');
-  }</script><script async="async">var arr = document.getElementsByClassName('site-card');
-for(var i = 0;i<arr.length;i++){
-    arr[i].classList.add('wow');
-    arr[i].classList.add('animate__animated');
-    arr[i].setAttribute('data-wow-duration', '3s');
-    arr[i].setAttribute('data-wow-delay', '');
-    arr[i].setAttribute('data-wow-offset', '');
-    arr[i].setAttribute('data-wow-iteration', '');
-  }</script></div><script defer src="https://cdn.cbd.int/hexo-butterfly-wowjs/lib/wow.min.js"></script><script defer src="https://cdn.cbd.int/hexo-butterfly-wowjs/lib/wow_init.js"></script><!-- hexo injector body_end end --></body></html>
+        
+          <div id="footer-post-container">
+  <div id="footer-post">
+
+    <div id="nav-footer" style="display: none">
+      <ul>
+        
+          <li><a href="/">首页</a></li>
+        
+          <li><a href="/about/">关于</a></li>
+        
+          <li><a href="/archives/">归档</a></li>
+        
+          <li><a target="_blank" rel="noopener" href="https://github.com/scolenchris">项目</a></li>
+        
+      </ul>
+    </div>
+
+    
+    
+      <div id="toc-footer" style="display: none">
+        <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link"><span class="toc-number">1.</span> <span class="toc-text">- Date:2023-06-05</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#printf%E5%87%BD%E6%95%B0%E8%BE%93%E5%87%BA%E6%B5%81%E7%A8%8B"><span class="toc-number">1.1.</span> <span class="toc-text">printf函数输出流程</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#printf%E7%9A%84%E4%BD%BF%E7%94%A8"><span class="toc-number">1.2.</span> <span class="toc-text">printf的使用</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#%E5%B8%B8%E7%94%A8%E8%BE%93%E5%87%BA%E6%8E%A7%E5%88%B6%E7%AC%A6%E8%A1%A8"><span class="toc-number">1.2.1.</span> <span class="toc-text">常用输出控制符表</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E5%B8%B8%E7%94%A8%E8%BD%AC%E4%B9%89%E5%AD%97%E7%AC%A6%E8%A1%A8"><span class="toc-number">1.2.2.</span> <span class="toc-text">常用转义字符表</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E4%BE%8B%E5%AD%90"><span class="toc-number">1.2.3.</span> <span class="toc-text">例子</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#printf%E5%87%BD%E6%95%B0%E6%94%AF%E6%8C%81"><span class="toc-number">1.3.</span> <span class="toc-text">printf函数支持</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#%E5%8D%8A%E4%B8%BB%E6%9C%BA%E6%A8%A1%E5%BC%8F%E7%AE%80%E4%BB%8B"><span class="toc-number">1.3.1.</span> <span class="toc-text">半主机模式简介</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E6%96%B9%E6%B3%95%E4%B8%80%EF%BC%9A%E5%BE%AE%E5%BA%93%E6%B3%95"><span class="toc-number">1.3.2.</span> <span class="toc-text">方法一：微库法</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E6%96%B9%E6%B3%95%E4%BA%8C%EF%BC%9A%E4%BB%A3%E7%A0%81%E6%B3%95"><span class="toc-number">1.3.3.</span> <span class="toc-text">方法二：代码法</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#pragma-import-use-no-semihosting-%EF%BC%8C%E7%A1%AE%E4%BF%9D%E4%B8%8D%E4%BB%8EC%E5%BA%93%E4%B8%AD%E4%BD%BF%E7%94%A8%E5%8D%8A%E4%B8%BB%E6%9C%BA%E5%87%BD%E6%95%B0"><span class="toc-number">1.4.</span> <span class="toc-text">pragma import(__use_no_semihosting)，确保不从C库中使用半主机函数</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#%E5%BE%AE%E5%BA%93%E6%B3%95-VS-%E4%BB%A3%E7%A0%81%E6%B3%95"><span class="toc-number">1.4.1.</span> <span class="toc-text">微库法 VS 代码法</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%AE%9E%E7%8E%B0fputc%E5%87%BD%E6%95%B0"><span class="toc-number">1.5.</span> <span class="toc-text">实现fputc函数</span></a></li></ol></li></ol>
+      </div>
+    
+
+    <div id="share-footer" style="display: none">
+      <ul>
+  <li><a class="icon" target="_blank" rel="noopener" href="http://www.facebook.com/sharer.php?u=https://scolenchris.top/posts/46909ac5.html"><i class="fab fa-facebook fa-lg" aria-hidden="true"></i></a></li>
+  <li><a class="icon" target="_blank" rel="noopener" href="https://twitter.com/share?url=https://scolenchris.top/posts/46909ac5.html&text=stm32-c语言复习"><i class="fab fa-twitter fa-lg" aria-hidden="true"></i></a></li>
+  <li><a class="icon" target="_blank" rel="noopener" href="http://www.linkedin.com/shareArticle?url=https://scolenchris.top/posts/46909ac5.html&title=stm32-c语言复习"><i class="fab fa-linkedin fa-lg" aria-hidden="true"></i></a></li>
+  <li><a class="icon" target="_blank" rel="noopener" href="https://pinterest.com/pin/create/bookmarklet/?url=https://scolenchris.top/posts/46909ac5.html&is_video=false&description=stm32-c语言复习"><i class="fab fa-pinterest fa-lg" aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="mailto:?subject=stm32-c语言复习&body=Check out this article: https://scolenchris.top/posts/46909ac5.html"><i class="fa-solid fa-envelope fa-lg" aria-hidden="true"></i></a></li>
+  <li><a class="icon" target="_blank" rel="noopener" href="https://getpocket.com/save?url=https://scolenchris.top/posts/46909ac5.html&title=stm32-c语言复习"><i class="fab fa-get-pocket fa-lg" aria-hidden="true"></i></a></li>
+  <li><a class="icon" target="_blank" rel="noopener" href="http://reddit.com/submit?url=https://scolenchris.top/posts/46909ac5.html&title=stm32-c语言复习"><i class="fab fa-reddit fa-lg" aria-hidden="true"></i></a></li>
+  <li><a class="icon" target="_blank" rel="noopener" href="http://www.stumbleupon.com/submit?url=https://scolenchris.top/posts/46909ac5.html&title=stm32-c语言复习"><i class="fab fa-stumbleupon fa-lg" aria-hidden="true"></i></a></li>
+  <li><a class="icon" target="_blank" rel="noopener" href="http://digg.com/submit?url=https://scolenchris.top/posts/46909ac5.html&title=stm32-c语言复习"><i class="fab fa-digg fa-lg" aria-hidden="true"></i></a></li>
+  <li><a class="icon" target="_blank" rel="noopener" href="http://www.tumblr.com/share/link?url=https://scolenchris.top/posts/46909ac5.html&name=stm32-c语言复习&description="><i class="fab fa-tumblr fa-lg" aria-hidden="true"></i></a></li>
+  <li><a class="icon" target="_blank" rel="noopener" href="https://news.ycombinator.com/submitlink?u=https://scolenchris.top/posts/46909ac5.html&t=stm32-c语言复习"><i class="fab fa-hacker-news fa-lg" aria-hidden="true"></i></a></li>
+</ul>
+
+    </div>
+
+    <div id="actions-footer">
+        <a id="menu" class="icon" href="#" onclick="$('#nav-footer').toggle();return false;"><i class="fa-solid fa-bars fa-lg" aria-hidden="true"></i> 菜单</a>
+        
+          <a id="toc" class="icon" href="#" onclick="$('#toc-footer').toggle();return false;"><i class="fa-solid fa-list fa-lg" aria-hidden="true"></i> 目录</a>
+        
+        <a id="share" class="icon" href="#" onclick="$('#share-footer').toggle();return false;"><i class="fa-solid fa-share-alt fa-lg" aria-hidden="true"></i> 分享</a>
+        <a id="top" style="display:none" class="icon" href="#" onclick="$('html, body').animate({ scrollTop: 0 }, 'fast');"><i class="fa-solid fa-chevron-up fa-lg" aria-hidden="true"></i> 返回顶部</a>
+    </div>
+
+  </div>
+</div>
+
+        
+        <footer id="footer">
+  <div class="footer-left">
+    Copyright &copy;
+    
+    
+    2022-2025
+    Chris
+  </div>
+  <div class="footer-right">
+    <nav>
+      <ul>
+        <!--
+       --><li><a href="/">首页</a></li><!--
+     --><!--
+       --><li><a href="/about/">关于</a></li><!--
+     --><!--
+       --><li><a href="/archives/">归档</a></li><!--
+     --><!--
+       --><li><a target="_blank" rel="noopener" href="https://github.com/scolenchris">项目</a></li><!--
+     -->
+      </ul>
+    </nav>
+  </div>
+</footer>
+
+    </div>
+    <!-- styles -->
+
+
+
+  <link rel="preload" as="style" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" crossorigin="anonymous" onload="this.onload=null;this.rel='stylesheet'"/>
+
+
+    <!-- jquery -->
+
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.0/jquery.min.js" crossorigin="anonymous"></script>
+
+
+
+
+<!-- clipboard -->
+
+  
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/clipboard.js/2.0.7/clipboard.min.js" crossorigin="anonymous"></script>
+  
+  <script type="text/javascript">
+  $(function() {
+    // copy-btn HTML
+    var btn = "<span class=\"btn-copy tooltipped tooltipped-sw\" aria-label=\"复制到粘贴板！\">";
+    btn += '<i class="fa-regular fa-clone"></i>';
+    btn += '</span>';
+    // mount it!
+    $(".highlight table").before(btn);
+    var clip = new ClipboardJS('.btn-copy', {
+      text: function(trigger) {
+        return Array.from(trigger.nextElementSibling.querySelectorAll('.code')).reduce((str,it)=>str+it.innerText+'\n','')
+      }
+    });
+    clip.on('success', function(e) {
+      e.trigger.setAttribute('aria-label', "复制成功！");
+      e.clearSelection();
+    })
+  })
+  </script>
+
+
+<script src="/js/main.js"></script>
+
+<!-- search -->
+
+<!-- Baidu Analytics -->
+
+<!-- Cloudflare Analytics -->
+
+<!-- Disqus Comments -->
+
+<!-- utterances Comments -->
+
+<script type="text/x-mathjax-config">
+    MathJax.Hub.Config({
+        tex2jax: {
+            inlineMath: [ ["$","$"], ["\\(","\\)"] ],
+            skipTags: ['script', 'noscript', 'style', 'textarea', 'pre', 'code'],
+            processEscapes: true
+        }
+    });
+    MathJax.Hub.Queue(function() {
+        var all = MathJax.Hub.getAllJax();
+        for (var i = 0; i < all.length; ++i)
+            all[i].SourceElement().parentNode.className += ' has-jax';
+    });
+</script>
+<script src="http://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+</body>
+</html>
