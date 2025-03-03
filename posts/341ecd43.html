@@ -6,17 +6,17 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="HandheldFriendly" content="True">
     <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=5" />
-    <meta name="description" content="- Date:2024-07-03  Time:15:35 Subject: CS Tags: #git [[2024-07]]   添加和提交文件  git status 查看文件状态 git add xxx 文件移动到暂存区，可以加上通配符，文件夹，如文件夹所有 . git commit -m &quot;xxx&quot; 文件提交到仓库 git log 查看提交记录 --oneline 简">
+    <meta name="description" content="添加和提交文件  git status 查看文件状态 git add xxx 文件移动到暂存区，可以加上通配符，文件夹，如文件夹所有 . git commit -m &quot;xxx&quot; 文件提交到仓库 git log 查看提交记录 --oneline 简单版显示记录  回退 reset   参数的区别 git reset --soft xxxx xxx 为版本 id  查看差异 git">
 <meta property="og:type" content="article">
 <meta property="og:title" content="git命令">
 <meta property="og:url" content="https://scolenchris.top/posts/341ecd43.html">
 <meta property="og:site_name" content="Chris - Peace Life, Peace Code">
-<meta property="og:description" content="- Date:2024-07-03  Time:15:35 Subject: CS Tags: #git [[2024-07]]   添加和提交文件  git status 查看文件状态 git add xxx 文件移动到暂存区，可以加上通配符，文件夹，如文件夹所有 . git commit -m &quot;xxx&quot; 文件提交到仓库 git log 查看提交记录 --oneline 简">
+<meta property="og:description" content="添加和提交文件  git status 查看文件状态 git add xxx 文件移动到暂存区，可以加上通配符，文件夹，如文件夹所有 . git commit -m &quot;xxx&quot; 文件提交到仓库 git log 查看提交记录 --oneline 简单版显示记录  回退 reset   参数的区别 git reset --soft xxxx xxx 为版本 id  查看差异 git">
 <meta property="og:locale" content="zh_CN">
 <meta property="og:image" content="https://pic-chris.oss-cn-guangzhou.aliyuncs.com/img/202407031535611.png">
 <meta property="og:image" content="https://pic-chris.oss-cn-guangzhou.aliyuncs.com/img/202407031546380.png">
 <meta property="article:published_time" content="2024-07-04T11:53:47.000Z">
-<meta property="article:modified_time" content="2025-02-28T15:36:09.441Z">
+<meta property="article:modified_time" content="2025-03-03T10:16:37.051Z">
 <meta property="article:author" content="Chris">
 <meta property="article:tag" content="博客,scolen,chris,技术,生活,记录,life,code">
 <meta name="twitter:card" content="summary">
@@ -99,7 +99,7 @@
         <li><a class="icon" aria-label="上一篇" href="/posts/feefa20.html"><i class="fa-solid fa-chevron-left" aria-hidden="true" onmouseover="$('#i-prev').toggle();" onmouseout="$('#i-prev').toggle();"></i></a></li>
         
         
-        <li><a class="icon" aria-label="下一篇" href="/posts/46909ac5.html"><i class="fa-solid fa-chevron-right" aria-hidden="true" onmouseover="$('#i-next').toggle();" onmouseout="$('#i-next').toggle();"></i></a></li>
+        <li><a class="icon" aria-label="下一篇" href="/posts/29eadd43.html"><i class="fa-solid fa-chevron-right" aria-hidden="true" onmouseover="$('#i-next').toggle();" onmouseout="$('#i-next').toggle();"></i></a></li>
         
         <li><a class="icon" aria-label="返回顶部" href="#" onclick="$('html, body').animate({ scrollTop: 0 }, 'fast');"><i class="fa-solid fa-chevron-up" aria-hidden="true" onmouseover="$('#i-top').toggle();" onmouseout="$('#i-top').toggle();"></i></a></li>
         <li><a class="icon" aria-label="分享文章" href="#"><i class="fa-solid fa-share-alt" aria-hidden="true" onmouseover="$('#i-share').toggle();" onmouseout="$('#i-share').toggle();" onclick="$('#share').toggle();return false;"></i></a></li>
@@ -129,7 +129,7 @@
     
     
       <div id="toc">
-        <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link"><span class="toc-number">1.</span> <span class="toc-text">- Date:2024-07-03</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#%E6%B7%BB%E5%8A%A0%E5%92%8C%E6%8F%90%E4%BA%A4%E6%96%87%E4%BB%B6"><span class="toc-number">1.1.</span> <span class="toc-text">添加和提交文件</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%9B%9E%E9%80%80reset"><span class="toc-number">1.2.</span> <span class="toc-text">回退reset</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E6%9F%A5%E7%9C%8B%E5%B7%AE%E5%BC%82git-diff"><span class="toc-number">1.3.</span> <span class="toc-text">查看差异git diff</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%88%A0%E9%99%A4%E6%96%87%E4%BB%B6"><span class="toc-number">1.4.</span> <span class="toc-text">删除文件</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E6%8E%A8%E9%80%81-%E6%8B%89%E5%8F%96"><span class="toc-number">1.5.</span> <span class="toc-text">推送-拉取</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E8%BF%9E%E6%8E%A5%E8%BF%9C%E7%A8%8B%E4%BB%93%E5%BA%93"><span class="toc-number">1.6.</span> <span class="toc-text">连接远程仓库</span></a></li></ol></li></ol>
+        <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#%E6%B7%BB%E5%8A%A0%E5%92%8C%E6%8F%90%E4%BA%A4%E6%96%87%E4%BB%B6"><span class="toc-number">1.</span> <span class="toc-text">添加和提交文件</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%9B%9E%E9%80%80-reset"><span class="toc-number">2.</span> <span class="toc-text">回退 reset</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E6%9F%A5%E7%9C%8B%E5%B7%AE%E5%BC%82-git-diff"><span class="toc-number">3.</span> <span class="toc-text">查看差异 git diff</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%88%A0%E9%99%A4%E6%96%87%E4%BB%B6"><span class="toc-number">4.</span> <span class="toc-text">删除文件</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E6%8E%A8%E9%80%81-%E6%8B%89%E5%8F%96"><span class="toc-number">5.</span> <span class="toc-text">推送-拉取</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E8%BF%9E%E6%8E%A5%E8%BF%9C%E7%A8%8B%E4%BB%93%E5%BA%93"><span class="toc-number">6.</span> <span class="toc-text">连接远程仓库</span></a></li></ol>
       </div>
     
   </span>
@@ -169,28 +169,20 @@
   
 
   <div class="content e-content" itemprop="articleBody">
-    <h1>- Date:2024-07-03</h1>
-<ul>
-<li>Time:15:35</li>
-<li>Subject: CS</li>
-<li>Tags: #git<br>
-[[2024-07]]</li>
-</ul>
-<hr>
-<h2 id="添加和提交文件">添加和提交文件</h2>
+    <h2 id="添加和提交文件">添加和提交文件</h2>
 <ul>
 <li><code>git status</code> 查看文件状态</li>
 <li><code>git add xxx</code> 文件移动到暂存区，可以加上通配符，文件夹，如文件夹所有 <code>.</code></li>
 <li><code>git commit -m &quot;xxx&quot;</code> 文件提交到仓库</li>
 <li><code>git log</code> 查看提交记录 <code>--oneline</code> 简单版显示记录</li>
 </ul>
-<h2 id="回退reset">回退reset</h2>
+<h2 id="回退-reset">回退 reset</h2>
 <p><img src="https://pic-chris.oss-cn-guangzhou.aliyuncs.com/img/202407031535611.png" alt="image.png|600"></p>
 <ul>
 <li>参数的区别</li>
-<li><code>git reset --soft xxxx</code> xxx为版本id</li>
+<li><code>git reset --soft xxxx</code> xxx 为版本 id</li>
 </ul>
-<h2 id="查看差异git-diff">查看差异git diff</h2>
+<h2 id="查看差异-git-diff">查看差异 git diff</h2>
 <p><img src="https://pic-chris.oss-cn-guangzhou.aliyuncs.com/img/202407031546380.png" alt="image.png|600"></p>
 <ul>
 <li>可用于查看版本之间差异，各个区之间差异，或者分支之间差异</li>
@@ -199,7 +191,7 @@
 </ul>
 <h2 id="删除文件">删除文件</h2>
 <ul>
-<li>rm之后，还需要在暂存区删除，也就是再add一次</li>
+<li>rm 之后，还需要在暂存区删除，也就是再 add 一次</li>
 </ul>
 <h2 id="推送-拉取">推送-拉取</h2>
 <ul>
@@ -209,7 +201,7 @@
 <ul>
 <li><code>git remote add &lt;仓库别名&gt; &lt;远程仓库地址&gt;</code></li>
 <li><code>git remote -v</code> 查看别名</li>
-<li><code>git push -u &lt;远程仓库名&gt; &lt;分支名&gt;:&lt;分支名&gt;</code> 关联远程和本地，把本地的main推送到远程的main分支，</li>
+<li><code>git push -u &lt;远程仓库名&gt; &lt;分支名&gt;:&lt;分支名&gt;</code> 关联远程和本地，把本地的 main 推送到远程的 main 分支，</li>
 <li>拉取远程仓库 <code>git pull &lt;远程仓库名&gt; &lt;远程分支名&gt;:&lt;本地分支名&gt;</code></li>
 </ul>
 
@@ -239,7 +231,7 @@
     
     
       <div id="toc-footer" style="display: none">
-        <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link"><span class="toc-number">1.</span> <span class="toc-text">- Date:2024-07-03</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#%E6%B7%BB%E5%8A%A0%E5%92%8C%E6%8F%90%E4%BA%A4%E6%96%87%E4%BB%B6"><span class="toc-number">1.1.</span> <span class="toc-text">添加和提交文件</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%9B%9E%E9%80%80reset"><span class="toc-number">1.2.</span> <span class="toc-text">回退reset</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E6%9F%A5%E7%9C%8B%E5%B7%AE%E5%BC%82git-diff"><span class="toc-number">1.3.</span> <span class="toc-text">查看差异git diff</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%88%A0%E9%99%A4%E6%96%87%E4%BB%B6"><span class="toc-number">1.4.</span> <span class="toc-text">删除文件</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E6%8E%A8%E9%80%81-%E6%8B%89%E5%8F%96"><span class="toc-number">1.5.</span> <span class="toc-text">推送-拉取</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E8%BF%9E%E6%8E%A5%E8%BF%9C%E7%A8%8B%E4%BB%93%E5%BA%93"><span class="toc-number">1.6.</span> <span class="toc-text">连接远程仓库</span></a></li></ol></li></ol>
+        <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#%E6%B7%BB%E5%8A%A0%E5%92%8C%E6%8F%90%E4%BA%A4%E6%96%87%E4%BB%B6"><span class="toc-number">1.</span> <span class="toc-text">添加和提交文件</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%9B%9E%E9%80%80-reset"><span class="toc-number">2.</span> <span class="toc-text">回退 reset</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E6%9F%A5%E7%9C%8B%E5%B7%AE%E5%BC%82-git-diff"><span class="toc-number">3.</span> <span class="toc-text">查看差异 git diff</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%88%A0%E9%99%A4%E6%96%87%E4%BB%B6"><span class="toc-number">4.</span> <span class="toc-text">删除文件</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E6%8E%A8%E9%80%81-%E6%8B%89%E5%8F%96"><span class="toc-number">5.</span> <span class="toc-text">推送-拉取</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E8%BF%9E%E6%8E%A5%E8%BF%9C%E7%A8%8B%E4%BB%93%E5%BA%93"><span class="toc-number">6.</span> <span class="toc-text">连接远程仓库</span></a></li></ol>
       </div>
     
 

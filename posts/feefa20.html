@@ -6,19 +6,19 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="HandheldFriendly" content="True">
     <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=5" />
-    <meta name="description" content="- Date:2024-07-03  Time:15:19 Subject: CS Tags: #git [[2024-07]]   交叉内容 [[git命令#- Date 2024-07-03]] git工作区域与文件状态 三个区域  工作区  工作区提交后回到暂存区，确实就是文件管理器看到的，编辑的区域，正常使用（操作）的区域  暂存区  保存即将提交到git仓库的内容，临时存储 可以先修改一">
+    <meta name="description" content="交叉内容 [[git命令#- Date 2024-07-03]] git 工作区域与文件状态 三个区域  工作区  工作区提交后回到暂存区，确实就是文件管理器看到的，编辑的区域，正常使用（操作）的区域  暂存区  保存即将提交到 git 仓库的内容，临时存储 可以先修改一部分，放到暂存区钟，再统一提交 commit  本地仓库  git init 的仓库，保存了项目历史  文件状态   未跟踪，新">
 <meta property="og:type" content="article">
 <meta property="og:title" content="git知识总结">
 <meta property="og:url" content="https://scolenchris.top/posts/feefa20.html">
 <meta property="og:site_name" content="Chris - Peace Life, Peace Code">
-<meta property="og:description" content="- Date:2024-07-03  Time:15:19 Subject: CS Tags: #git [[2024-07]]   交叉内容 [[git命令#- Date 2024-07-03]] git工作区域与文件状态 三个区域  工作区  工作区提交后回到暂存区，确实就是文件管理器看到的，编辑的区域，正常使用（操作）的区域  暂存区  保存即将提交到git仓库的内容，临时存储 可以先修改一">
+<meta property="og:description" content="交叉内容 [[git命令#- Date 2024-07-03]] git 工作区域与文件状态 三个区域  工作区  工作区提交后回到暂存区，确实就是文件管理器看到的，编辑的区域，正常使用（操作）的区域  暂存区  保存即将提交到 git 仓库的内容，临时存储 可以先修改一部分，放到暂存区钟，再统一提交 commit  本地仓库  git init 的仓库，保存了项目历史  文件状态   未跟踪，新">
 <meta property="og:locale" content="zh_CN">
 <meta property="og:image" content="https://pic-chris.oss-cn-guangzhou.aliyuncs.com/img/202407031520964.png">
 <meta property="og:image" content="https://pic-chris.oss-cn-guangzhou.aliyuncs.com/img/202407031526681.png">
 <meta property="og:image" content="https://pic-chris.oss-cn-guangzhou.aliyuncs.com/img/202407041152476.png">
 <meta property="og:image" content="https://pic-chris.oss-cn-guangzhou.aliyuncs.com/img/202407041130339.png">
 <meta property="article:published_time" content="2024-07-04T11:54:17.000Z">
-<meta property="article:modified_time" content="2025-02-28T15:36:09.441Z">
+<meta property="article:modified_time" content="2025-03-03T10:16:37.051Z">
 <meta property="article:author" content="Chris">
 <meta property="article:tag" content="博客,scolen,chris,技术,生活,记录,life,code">
 <meta name="twitter:card" content="summary">
@@ -98,7 +98,7 @@
     <span id="actions">
       <ul>
         
-        <li><a class="icon" aria-label="上一篇" href="/posts/8731d904.html"><i class="fa-solid fa-chevron-left" aria-hidden="true" onmouseover="$('#i-prev').toggle();" onmouseout="$('#i-prev').toggle();"></i></a></li>
+        <li><a class="icon" aria-label="上一篇" href="/posts/a48157de.html"><i class="fa-solid fa-chevron-left" aria-hidden="true" onmouseover="$('#i-prev').toggle();" onmouseout="$('#i-prev').toggle();"></i></a></li>
         
         
         <li><a class="icon" aria-label="下一篇" href="/posts/341ecd43.html"><i class="fa-solid fa-chevron-right" aria-hidden="true" onmouseover="$('#i-next').toggle();" onmouseout="$('#i-next').toggle();"></i></a></li>
@@ -131,7 +131,7 @@
     
     
       <div id="toc">
-        <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link"><span class="toc-number">1.</span> <span class="toc-text">- Date:2024-07-03</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#%E4%BA%A4%E5%8F%89%E5%86%85%E5%AE%B9"><span class="toc-number">1.1.</span> <span class="toc-text">交叉内容</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#git%E5%B7%A5%E4%BD%9C%E5%8C%BA%E5%9F%9F%E4%B8%8E%E6%96%87%E4%BB%B6%E7%8A%B6%E6%80%81"><span class="toc-number">1.2.</span> <span class="toc-text">git工作区域与文件状态</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#%E4%B8%89%E4%B8%AA%E5%8C%BA%E5%9F%9F"><span class="toc-number">1.2.1.</span> <span class="toc-text">三个区域</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#%E5%B7%A5%E4%BD%9C%E5%8C%BA"><span class="toc-number">1.2.1.1.</span> <span class="toc-text">工作区</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#%E6%9A%82%E5%AD%98%E5%8C%BA"><span class="toc-number">1.2.1.2.</span> <span class="toc-text">暂存区</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#%E6%9C%AC%E5%9C%B0%E4%BB%93%E5%BA%93"><span class="toc-number">1.2.1.3.</span> <span class="toc-text">本地仓库</span></a></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E6%96%87%E4%BB%B6%E7%8A%B6%E6%80%81"><span class="toc-number">1.2.2.</span> <span class="toc-text">文件状态</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#gitignore-%E5%BF%BD%E7%95%A5%E6%96%87%E4%BB%B6"><span class="toc-number">1.3.</span> <span class="toc-text">.gitignore 忽略文件</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%88%86%E6%94%AF"><span class="toc-number">1.4.</span> <span class="toc-text">分支</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#%E5%86%B2%E7%AA%81%E8%A7%A3%E5%86%B3"><span class="toc-number">1.4.1.</span> <span class="toc-text">冲突解决</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E5%88%86%E6%94%AF%E5%91%BD%E5%90%8D"><span class="toc-number">1.4.2.</span> <span class="toc-text">分支命名</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E5%8F%98%E5%9F%BArebase"><span class="toc-number">1.4.3.</span> <span class="toc-text">变基rebase</span></a></li></ol></li></ol></li></ol>
+        <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#%E4%BA%A4%E5%8F%89%E5%86%85%E5%AE%B9"><span class="toc-number">1.</span> <span class="toc-text">交叉内容</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#git-%E5%B7%A5%E4%BD%9C%E5%8C%BA%E5%9F%9F%E4%B8%8E%E6%96%87%E4%BB%B6%E7%8A%B6%E6%80%81"><span class="toc-number">2.</span> <span class="toc-text">git 工作区域与文件状态</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#%E4%B8%89%E4%B8%AA%E5%8C%BA%E5%9F%9F"><span class="toc-number">2.1.</span> <span class="toc-text">三个区域</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#%E5%B7%A5%E4%BD%9C%E5%8C%BA"><span class="toc-number">2.1.1.</span> <span class="toc-text">工作区</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#%E6%9A%82%E5%AD%98%E5%8C%BA"><span class="toc-number">2.1.2.</span> <span class="toc-text">暂存区</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#%E6%9C%AC%E5%9C%B0%E4%BB%93%E5%BA%93"><span class="toc-number">2.1.3.</span> <span class="toc-text">本地仓库</span></a></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E6%96%87%E4%BB%B6%E7%8A%B6%E6%80%81"><span class="toc-number">2.2.</span> <span class="toc-text">文件状态</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#gitignore-%E5%BF%BD%E7%95%A5%E6%96%87%E4%BB%B6"><span class="toc-number">3.</span> <span class="toc-text">.gitignore 忽略文件</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%88%86%E6%94%AF"><span class="toc-number">4.</span> <span class="toc-text">分支</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#%E5%86%B2%E7%AA%81%E8%A7%A3%E5%86%B3"><span class="toc-number">4.1.</span> <span class="toc-text">冲突解决</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E5%88%86%E6%94%AF%E5%91%BD%E5%90%8D"><span class="toc-number">4.2.</span> <span class="toc-text">分支命名</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E5%8F%98%E5%9F%BA-rebase"><span class="toc-number">4.3.</span> <span class="toc-text">变基 rebase</span></a></li></ol></li></ol>
       </div>
     
   </span>
@@ -171,17 +171,9 @@
   
 
   <div class="content e-content" itemprop="articleBody">
-    <h1>- Date:2024-07-03</h1>
-<ul>
-<li>Time:15:19</li>
-<li>Subject: CS</li>
-<li>Tags: #git<br>
-[[2024-07]]</li>
-</ul>
-<hr>
-<h2 id="交叉内容">交叉内容</h2>
+    <h2 id="交叉内容">交叉内容</h2>
 <p>[[git命令#- Date 2024-07-03]]</p>
-<h2 id="git工作区域与文件状态">git工作区域与文件状态</h2>
+<h2 id="git-工作区域与文件状态">git 工作区域与文件状态</h2>
 <h3 id="三个区域">三个区域</h3>
 <p><img src="https://pic-chris.oss-cn-guangzhou.aliyuncs.com/img/202407031520964.png" alt="image.png|600"></p>
 <h4 id="工作区">工作区</h4>
@@ -190,8 +182,8 @@
 </ul>
 <h4 id="暂存区">暂存区</h4>
 <ul>
-<li>保存即将提交到git仓库的内容，临时存储</li>
-<li>可以先修改一部分，放到暂存区钟，再统一提交commit</li>
+<li>保存即将提交到 git 仓库的内容，临时存储</li>
+<li>可以先修改一部分，放到暂存区钟，再统一提交 commit</li>
 </ul>
 <h4 id="本地仓库">本地仓库</h4>
 <ul>
@@ -200,7 +192,7 @@
 <h3 id="文件状态">文件状态</h3>
 <p><img src="https://pic-chris.oss-cn-guangzhou.aliyuncs.com/img/202407031526681.png" alt="image.png|600"></p>
 <ul>
-<li>未跟踪，新创建，git还没管理，</li>
+<li>未跟踪，新创建，git 还没管理，</li>
 <li>未修改，管理起来的，但是没有修改的文件</li>
 <li>已修改，已经修改了的，没暂存</li>
 <li>已暂存，放到暂存区的文件</li>
@@ -217,7 +209,7 @@
 <li><code>git branch &lt;分支名&gt;</code> 创建分支</li>
 <li><code>git checkout &lt;分支名&gt;</code> 切换到分支（恢复文件），可能会有歧义</li>
 <li><code>git switch &lt;分支名&gt;</code> 专门用来切换分支</li>
-<li><code>git merge &lt;被合并的分支1&gt; &lt;目标分支2&gt;</code> 会将1合并到2中</li>
+<li><code>git merge &lt;被合并的分支1&gt; &lt;目标分支2&gt;</code> 会将 1 合并到 2 中</li>
 <li><code>git branch -d &lt;删除的分支&gt;</code> 合并后可以删除，如果没合并就想删除，那得用 <code>-D</code></li>
 </ul>
 <h3 id="冲突解决">冲突解决</h3>
@@ -229,22 +221,23 @@
 <p><img src="https://pic-chris.oss-cn-guangzhou.aliyuncs.com/img/202407041152476.png" alt="image.png|600"></p>
 <ul>
 <li>feat——feature，功能开发</li>
-<li>main——分支，稳定版本代码，可以随时发布的，不能直接修改，得用merge来改，用tag标记版本号</li>
+<li>main——分支，稳定版本代码，可以随时发布的，不能直接修改，得用 merge 来改，用 tag 标记版本号</li>
 <li>hotfix——问题修复分支，用于合并</li>
 <li>develop——开发版本</li>
 </ul>
-<h3 id="变基rebase">变基rebase</h3>
+<h3 id="变基-rebase">变基 rebase</h3>
 <p><img src="https://pic-chris.oss-cn-guangzhou.aliyuncs.com/img/202407041130339.png" alt="image.png|600"></p>
 <ul>
 <li>嫁接移植的感觉</li>
-<li>先switch到要移动的分支dev上，然后用 <code>git rebawse &lt;基的名字，branch名字&gt;</code>，然后就把dev移动到main上了，</li>
+<li>先 switch 到要移动的分支 dev 上，然后用 <code>git rebawse &lt;基的名字，branch名字&gt;</code>，然后就把 dev 移动到 main 上了，</li>
 <li>优点：不会有额外提交记录，线性的，直观简洁</li>
-<li>缺点：会改变提交记录，改变branch out的节点，避免在共享分支上使用</li>
-</ul>
+<li>缺点：会改变提交记录，改变 branch out 的节点，避免在共享分支上使用
 <blockquote>
 <p>[!note]<br>
-在使用 Git 的 <code>rebase</code> 时，如果两个不同的分支对同一行代码进行了不同的修改，<strong>也会像merge那样产生冲突</strong>,这种冲突需要手动解决。</p>
+在使用 Git 的  <code>rebase</code>  时，如果两个不同的分支对同一行代码进行了不同的修改，<strong>也会像 merge 那样产生冲突</strong>,这种冲突需要手动解决。</p>
 </blockquote>
+</li>
+</ul>
 
   </div>
 </article>
@@ -272,7 +265,7 @@
     
     
       <div id="toc-footer" style="display: none">
-        <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link"><span class="toc-number">1.</span> <span class="toc-text">- Date:2024-07-03</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#%E4%BA%A4%E5%8F%89%E5%86%85%E5%AE%B9"><span class="toc-number">1.1.</span> <span class="toc-text">交叉内容</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#git%E5%B7%A5%E4%BD%9C%E5%8C%BA%E5%9F%9F%E4%B8%8E%E6%96%87%E4%BB%B6%E7%8A%B6%E6%80%81"><span class="toc-number">1.2.</span> <span class="toc-text">git工作区域与文件状态</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#%E4%B8%89%E4%B8%AA%E5%8C%BA%E5%9F%9F"><span class="toc-number">1.2.1.</span> <span class="toc-text">三个区域</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#%E5%B7%A5%E4%BD%9C%E5%8C%BA"><span class="toc-number">1.2.1.1.</span> <span class="toc-text">工作区</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#%E6%9A%82%E5%AD%98%E5%8C%BA"><span class="toc-number">1.2.1.2.</span> <span class="toc-text">暂存区</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#%E6%9C%AC%E5%9C%B0%E4%BB%93%E5%BA%93"><span class="toc-number">1.2.1.3.</span> <span class="toc-text">本地仓库</span></a></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E6%96%87%E4%BB%B6%E7%8A%B6%E6%80%81"><span class="toc-number">1.2.2.</span> <span class="toc-text">文件状态</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#gitignore-%E5%BF%BD%E7%95%A5%E6%96%87%E4%BB%B6"><span class="toc-number">1.3.</span> <span class="toc-text">.gitignore 忽略文件</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%88%86%E6%94%AF"><span class="toc-number">1.4.</span> <span class="toc-text">分支</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#%E5%86%B2%E7%AA%81%E8%A7%A3%E5%86%B3"><span class="toc-number">1.4.1.</span> <span class="toc-text">冲突解决</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E5%88%86%E6%94%AF%E5%91%BD%E5%90%8D"><span class="toc-number">1.4.2.</span> <span class="toc-text">分支命名</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E5%8F%98%E5%9F%BArebase"><span class="toc-number">1.4.3.</span> <span class="toc-text">变基rebase</span></a></li></ol></li></ol></li></ol>
+        <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#%E4%BA%A4%E5%8F%89%E5%86%85%E5%AE%B9"><span class="toc-number">1.</span> <span class="toc-text">交叉内容</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#git-%E5%B7%A5%E4%BD%9C%E5%8C%BA%E5%9F%9F%E4%B8%8E%E6%96%87%E4%BB%B6%E7%8A%B6%E6%80%81"><span class="toc-number">2.</span> <span class="toc-text">git 工作区域与文件状态</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#%E4%B8%89%E4%B8%AA%E5%8C%BA%E5%9F%9F"><span class="toc-number">2.1.</span> <span class="toc-text">三个区域</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#%E5%B7%A5%E4%BD%9C%E5%8C%BA"><span class="toc-number">2.1.1.</span> <span class="toc-text">工作区</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#%E6%9A%82%E5%AD%98%E5%8C%BA"><span class="toc-number">2.1.2.</span> <span class="toc-text">暂存区</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#%E6%9C%AC%E5%9C%B0%E4%BB%93%E5%BA%93"><span class="toc-number">2.1.3.</span> <span class="toc-text">本地仓库</span></a></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E6%96%87%E4%BB%B6%E7%8A%B6%E6%80%81"><span class="toc-number">2.2.</span> <span class="toc-text">文件状态</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#gitignore-%E5%BF%BD%E7%95%A5%E6%96%87%E4%BB%B6"><span class="toc-number">3.</span> <span class="toc-text">.gitignore 忽略文件</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%88%86%E6%94%AF"><span class="toc-number">4.</span> <span class="toc-text">分支</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#%E5%86%B2%E7%AA%81%E8%A7%A3%E5%86%B3"><span class="toc-number">4.1.</span> <span class="toc-text">冲突解决</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E5%88%86%E6%94%AF%E5%91%BD%E5%90%8D"><span class="toc-number">4.2.</span> <span class="toc-text">分支命名</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E5%8F%98%E5%9F%BA-rebase"><span class="toc-number">4.3.</span> <span class="toc-text">变基 rebase</span></a></li></ol></li></ol>
       </div>
     
 
