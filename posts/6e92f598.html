@@ -1,0 +1,383 @@
+<!DOCTYPE html>
+<html lang=zh>
+<head>
+    <!-- so meta -->
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="HandheldFriendly" content="True">
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=5" />
+    <meta name="description" content="看前吐槽一下，hexo 的公式编码真麻烦，markdown 语法老是有问题  反馈控制系统的典型结构 3.3.1-3.3.2  系统开环传递函数 系统开环传递函数定义为 $$G_L(s)&#x3D;\frac{B(s)}{R(s)}&#x3D;G_c(s)G_p(s)H(s)$$  当 H(s) &#x3D; 1 时，系统被称为单位反馈 闭环传递函数 参考输入 R(s)作用下的闭环传递函数 $$T_R(s)&#x3D;\frac{Y(">
+<meta property="og:type" content="article">
+<meta property="og:title" content="稳定性概念与定义-极点与稳定性关系">
+<meta property="og:url" content="https://scolenchris.top/posts/6e92f598.html">
+<meta property="og:site_name" content="Chris - Peace Life, Peace Code">
+<meta property="og:description" content="看前吐槽一下，hexo 的公式编码真麻烦，markdown 语法老是有问题  反馈控制系统的典型结构 3.3.1-3.3.2  系统开环传递函数 系统开环传递函数定义为 $$G_L(s)&#x3D;\frac{B(s)}{R(s)}&#x3D;G_c(s)G_p(s)H(s)$$  当 H(s) &#x3D; 1 时，系统被称为单位反馈 闭环传递函数 参考输入 R(s)作用下的闭环传递函数 $$T_R(s)&#x3D;\frac{Y(">
+<meta property="og:locale" content="zh_CN">
+<meta property="og:image" content="https://pic-chris.oss-cn-guangzhou.aliyuncs.com/img/202503041630958.png">
+<meta property="og:image" content="https://pic-chris.oss-cn-guangzhou.aliyuncs.com/img/202503041631771.png">
+<meta property="article:published_time" content="2025-03-04T17:48:01.000Z">
+<meta property="article:modified_time" content="2025-03-04T13:51:24.986Z">
+<meta property="article:author" content="Chris">
+<meta property="article:tag" content="博客,scolen,chris,技术,生活,记录,life,code">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="https://pic-chris.oss-cn-guangzhou.aliyuncs.com/img/202503041630958.png">
+    
+    
+      
+        
+          <link rel="shortcut icon" href="/images/favicon.ico">
+        
+      
+      
+        
+          <link rel="icon" type="image/png" href="/images/favicon-192x192.png" sizes="192x192">
+        
+      
+      
+        
+          <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon.png">
+        
+      
+    
+    <!-- title -->
+    <title>稳定性概念与定义-极点与稳定性关系</title>
+    <!-- async scripts -->
+    <!-- Google Analytics -->
+
+
+    <!-- Umami Analytics -->
+
+
+    <!-- styles -->
+    
+<link rel="stylesheet" href="/css/style.css">
+
+    <!-- persian styles -->
+    
+    <!-- rss -->
+    
+    
+      <link rel="alternate" href="/true" title="Chris - Peace Life, Peace Code" type="application/atom+xml" />
+    
+	<!-- mathjax -->
+	
+		<script type="text/x-mathjax-config">
+		  MathJax.Hub.Config({
+			tex2jax: {
+			  skipTags: ['script', 'noscript', 'style', 'textarea', 'pre'],
+			  inlineMath: [['$','$']]
+			}
+		  });
+		</script>
+		<script src='https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.5/latest.js?config=TeX-MML-AM_CHTML' async></script>
+	
+<meta name="generator" content="Hexo 7.0.0"></head>
+
+<body class="max-width mx-auto px3 ltr">    
+      <div id="header-post">
+  <a id="menu-icon" href="#" aria-label="目录"><i class="fa-solid fa-bars fa-lg"></i></a>
+  <a id="menu-icon-tablet" href="#" aria-label="目录"><i class="fa-solid fa-bars fa-lg"></i></a>
+  <a id="top-icon-tablet" href="#" aria-label="顶部" onclick="$('html, body').animate({ scrollTop: 0 }, 'fast');" style="display:none;"><i class="fa-solid fa-chevron-up fa-lg"></i></a>
+  <span id="menu">
+    <span id="nav">
+      <ul>
+        <!--
+       --><li><a href="/">首页</a></li><!--
+     --><!--
+       --><li><a href="/about/">关于</a></li><!--
+     --><!--
+       --><li><a href="/archives/">归档</a></li><!--
+     --><!--
+       --><li><a target="_blank" rel="noopener" href="https://github.com/scolenchris">项目</a></li><!--
+     -->
+      </ul>
+    </span>
+    <br/>
+    <span id="actions">
+      <ul>
+        
+        
+        <li><a class="icon" aria-label="下一篇" href="/posts/8731d904.html"><i class="fa-solid fa-chevron-right" aria-hidden="true" onmouseover="$('#i-next').toggle();" onmouseout="$('#i-next').toggle();"></i></a></li>
+        
+        <li><a class="icon" aria-label="返回顶部" href="#" onclick="$('html, body').animate({ scrollTop: 0 }, 'fast');"><i class="fa-solid fa-chevron-up" aria-hidden="true" onmouseover="$('#i-top').toggle();" onmouseout="$('#i-top').toggle();"></i></a></li>
+        <li><a class="icon" aria-label="分享文章" href="#"><i class="fa-solid fa-share-alt" aria-hidden="true" onmouseover="$('#i-share').toggle();" onmouseout="$('#i-share').toggle();" onclick="$('#share').toggle();return false;"></i></a></li>
+      </ul>
+      <span id="i-prev" class="info" style="display:none;">上一篇</span>
+      <span id="i-next" class="info" style="display:none;">下一篇</span>
+      <span id="i-top" class="info" style="display:none;">返回顶部</span>
+      <span id="i-share" class="info" style="display:none;">分享文章</span>
+    </span>
+    <br/>
+    <div id="share" style="display: none">
+      <ul>
+  <li><a class="icon" target="_blank" rel="noopener" href="http://www.facebook.com/sharer.php?u=https://scolenchris.top/posts/6e92f598.html"><i class="fab fa-facebook " aria-hidden="true"></i></a></li>
+  <li><a class="icon" target="_blank" rel="noopener" href="https://twitter.com/share?url=https://scolenchris.top/posts/6e92f598.html&text=稳定性概念与定义-极点与稳定性关系"><i class="fab fa-twitter " aria-hidden="true"></i></a></li>
+  <li><a class="icon" target="_blank" rel="noopener" href="http://www.linkedin.com/shareArticle?url=https://scolenchris.top/posts/6e92f598.html&title=稳定性概念与定义-极点与稳定性关系"><i class="fab fa-linkedin " aria-hidden="true"></i></a></li>
+  <li><a class="icon" target="_blank" rel="noopener" href="https://pinterest.com/pin/create/bookmarklet/?url=https://scolenchris.top/posts/6e92f598.html&is_video=false&description=稳定性概念与定义-极点与稳定性关系"><i class="fab fa-pinterest " aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="mailto:?subject=稳定性概念与定义-极点与稳定性关系&body=Check out this article: https://scolenchris.top/posts/6e92f598.html"><i class="fa-solid fa-envelope " aria-hidden="true"></i></a></li>
+  <li><a class="icon" target="_blank" rel="noopener" href="https://getpocket.com/save?url=https://scolenchris.top/posts/6e92f598.html&title=稳定性概念与定义-极点与稳定性关系"><i class="fab fa-get-pocket " aria-hidden="true"></i></a></li>
+  <li><a class="icon" target="_blank" rel="noopener" href="http://reddit.com/submit?url=https://scolenchris.top/posts/6e92f598.html&title=稳定性概念与定义-极点与稳定性关系"><i class="fab fa-reddit " aria-hidden="true"></i></a></li>
+  <li><a class="icon" target="_blank" rel="noopener" href="http://www.stumbleupon.com/submit?url=https://scolenchris.top/posts/6e92f598.html&title=稳定性概念与定义-极点与稳定性关系"><i class="fab fa-stumbleupon " aria-hidden="true"></i></a></li>
+  <li><a class="icon" target="_blank" rel="noopener" href="http://digg.com/submit?url=https://scolenchris.top/posts/6e92f598.html&title=稳定性概念与定义-极点与稳定性关系"><i class="fab fa-digg " aria-hidden="true"></i></a></li>
+  <li><a class="icon" target="_blank" rel="noopener" href="http://www.tumblr.com/share/link?url=https://scolenchris.top/posts/6e92f598.html&name=稳定性概念与定义-极点与稳定性关系&description="><i class="fab fa-tumblr " aria-hidden="true"></i></a></li>
+  <li><a class="icon" target="_blank" rel="noopener" href="https://news.ycombinator.com/submitlink?u=https://scolenchris.top/posts/6e92f598.html&t=稳定性概念与定义-极点与稳定性关系"><i class="fab fa-hacker-news " aria-hidden="true"></i></a></li>
+</ul>
+
+    </div>
+    
+    
+      <div id="toc">
+        <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link"><span class="toc-number">1.</span> <span class="toc-text">反馈控制系统的典型结构 3.3.1-3.3.2</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#%E7%B3%BB%E7%BB%9F%E5%BC%80%E7%8E%AF%E4%BC%A0%E9%80%92%E5%87%BD%E6%95%B0"><span class="toc-number">1.1.</span> <span class="toc-text">系统开环传递函数</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E9%97%AD%E7%8E%AF%E4%BC%A0%E9%80%92%E5%87%BD%E6%95%B0"><span class="toc-number">1.2.</span> <span class="toc-text">闭环传递函数</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%81%8F%E5%B7%AE%E4%BC%A0%E9%80%92%E5%87%BD%E6%95%B0"><span class="toc-number">1.3.</span> <span class="toc-text">偏差传递函数</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#%E5%8F%82%E8%80%83%E8%BE%93%E5%85%A5-R-s-%E4%BD%9C%E7%94%A8%E4%B8%8B%E7%9A%84%E5%81%8F%E5%B7%AE%E4%BC%A0%E9%80%92%E5%87%BD%E6%95%B0"><span class="toc-number">1.3.1.</span> <span class="toc-text">参考输入 R(s)作用下的偏差传递函数</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E6%89%B0%E5%8A%A8%E8%BE%93%E5%85%A5-D-s-%E4%BD%9C%E7%94%A8%E4%B8%8B%E7%9A%84%E5%81%8F%E5%B7%AE%E4%BC%A0%E9%80%92%E5%87%BD%E6%95%B0"><span class="toc-number">1.3.2.</span> <span class="toc-text">扰动输入 D (s)作用下的偏差传递函数</span></a></li></ol></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link"><span class="toc-number">2.</span> <span class="toc-text">系统稳定性的初步认识</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#%E4%B8%80%E8%88%AC%E6%A6%82%E5%BF%B5"><span class="toc-number">2.1.</span> <span class="toc-text">一般概念</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E9%97%AD%E7%8E%AF%E4%BC%A0%E9%80%92%E5%87%BD%E6%95%B0%E7%9A%84%E6%9E%81%E7%82%B9%E4%B8%8E%E7%B3%BB%E7%BB%9F%E7%9A%84%E7%A8%B3%E5%AE%9A%E6%80%A7"><span class="toc-number">2.2.</span> <span class="toc-text">闭环传递函数的极点与系统的稳定性</span></a></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link"><span class="toc-number">3.</span> <span class="toc-text">闭环传递函数的极点与系统的稳定性</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#%E7%A8%B3%E5%AE%9A%E6%80%A7%E5%88%86%E6%9E%90-vs-%E7%A8%B3%E5%AE%9A%E5%8C%96%E8%AE%BE%E8%AE%A1"><span class="toc-number">3.1.</span> <span class="toc-text">稳定性分析 vs 稳定化设计</span></a></li></ol></li></ol>
+      </div>
+    
+  </span>
+</div>
+
+    
+    <div class="content index py4 ">
+        
+        <article class="post h-entry" itemscope itemtype="http://schema.org/BlogPosting">
+  <header>
+    
+    <h1 class="posttitle p-name" itemprop="name headline">
+        稳定性概念与定义-极点与稳定性关系
+    </h1>
+
+
+
+    <div class="meta">
+      <span class="author p-author h-card" itemprop="author" itemscope itemtype="http://schema.org/Person">
+        <span class="p-name" itemprop="name">Chris</span>
+      </span>
+      
+    <div class="postdate">
+      
+        <time datetime="2025-03-04T17:48:01.000Z" class="dt-published" itemprop="datePublished">2025-03-04</time>
+        
+      
+    </div>
+
+
+      
+
+      
+
+    </div>
+  </header>
+  
+
+  <div class="content e-content" itemprop="articleBody">
+    <ul>
+<li>看前吐槽一下，hexo 的公式编码真麻烦，markdown 语法老是有问题</li>
+</ul>
+<h1>反馈控制系统的典型结构 3.3.1-3.3.2</h1>
+<p><img src="https://pic-chris.oss-cn-guangzhou.aliyuncs.com/img/202503041630958.png" alt="image.png|800"></p>
+<h2 id="系统开环传递函数">系统开环传递函数</h2>
+<p>系统开环传递函数定义为<br>
+$$G_L(s)=\frac{B(s)}{R(s)}=G_c(s)G_p(s)H(s)$$<br>
+<img src="https://pic-chris.oss-cn-guangzhou.aliyuncs.com/img/202503041631771.png" alt="image.png|800"></p>
+<p>当 H(s) = 1 时，系统被称为单位反馈</p>
+<h2 id="闭环传递函数">闭环传递函数</h2>
+<p>参考输入 R(s)作用下的闭环传递函数<br>
+$$T_R(s)=\frac{Y(s)}{R(s)}=\frac{G_c(s)G_p(s)}{1+G_c(s)G_p(s)H(s)}=\frac{G_c(s)G_p(s)}{1+G_L(s)}$$<br>
+扰动输入 D (s)作用下的闭环传递函数<br>
+$$T_D(s)=\frac{Y(s)}{D(s)}=\frac{G_p(s)}{1+G_c(s)G_p(s)H(s)}=\frac{G_p(s)}{1+G_L(s)}$$</p>
+<h2 id="偏差传递函数">偏差传递函数</h2>
+<p>偏差 e (t)=给定输入信号 r (t)-主反馈信号 b (t)</p>
+<h3 id="参考输入-R-s-作用下的偏差传递函数">参考输入 R(s)作用下的偏差传递函数</h3>
+<p>$$T_{RE}(s)=\frac{E(s)}{R(s)}=\frac{1}{1+G_{c}(s)G_{p}(s)H(s)}=\frac{1}{1+G_{L}(s)}$$</p>
+<h3 id="扰动输入-D-s-作用下的偏差传递函数">扰动输入 D (s)作用下的偏差传递函数</h3>
+<p>$$T_{DE}(s)=\frac{E(s)}{D(s)}=\frac{-G_p(s)H(s)}{1+G_c(s)G_p(s)H(s)}=\frac{-G_p(s)H(s)}{1+G_L(s)}$$</p>
+<h1>系统稳定性的初步认识</h1>
+<p>假设有界外部干扰使系统偏离平衡状态。若瞬间干扰消失后，系统最终能够回到平衡状态，则称该系统是稳定的。否则，称该系统不稳定</p>
+<h2 id="一般概念">一般概念</h2>
+<p>定义 1： 零初始条件下，若系统在有界输入（参考输入或干扰输入） 的作用下，其输出响应也是有界的，则称系统是稳定的。 （也叫做，有界输入有界输出稳定， Bounded-Input Bounded-Output， BIBO 稳定）<br>
+BIBO 稳定最具代表性<br>
+稳定性的定义多种多样<br>
+定义 2：零初始条件下，若输入信号 $r(t)$ 在 $(0,\infty]$ 上满足 $|r(t)|\leq N$, 系统在其作用下的输出相应 $y(t)$ 满足 $|y(t)|\leq M$, 则称该系统是稳定的。其中 $N,M$ 均为常数。</p>
+<h2 id="闭环传递函数的极点与系统的稳定性">闭环传递函数的极点与系统的稳定性</h2>
+<p>以线性定常连续系统为例：$Y(s) = G(s)R(s) \Rightarrow y(t) = \int_{0}^{+\infty} g(\tau)r(t-\tau)d\tau$<br>
+$\left|y(t)\right| = \left|\int_{0}^{+\infty} g(\tau)r(t-\tau)d\tau\right| \leq \int_{0}^{+\infty}\left|g(\tau)r(t-\tau)\right|d\tau \leq \int_{0}^{+\infty}\left|g(\tau)\right|\left|r(t-\tau)\right|d\tau \leq N\int_{0}^{+\infty}\left|g(\tau)\right|d\tau \leq M$<br>
+而 $\int _{0}^{+\infty }\vert g(\tau )\vert d\tau \leq \frac {M}{N}$ 意味着什么？​<br>
+什么因素决定了传递函数的脉冲响应是收敛的？</p>
+<h1>闭环传递函数的极点与系统的稳定性</h1>
+<p>抛砖引玉，考虑系统： $$G(s)=\frac {N(s)}{\Delta (s)}=\frac {1}{(s+1)(s+2)(s^{2}+2s+2)}$$<br>
+$$=\frac {1}{s+1}+\frac {-2}{s+2}+\frac {-2+2j}{s+1+j}+\frac {-2-2j}{s+1-j}$$</p>
+<p>那么反拉式变换$$L^{-1}{G(s)}=e^{-t}-2e^{-2t}+(-2+2j)e^{-(1+j)t}+(-2-2j)e^{-(1-j)t}$$<br>
+$$=e^{-t}-2e^{-2t}+(-2+2j)e^{-t}e^{-jt}+(-2-2j)e^{-t}e^{jt}$$<br>
+$$=e^{-t}-2e^{-2t}+4e^{-t}(\sin t-\cos t)$$<br>
+那么 G（s）有以下的形式<br>
+$$G(s)=\frac{N(s)}{\Delta(s)}=\frac{K_g\prod_{i=1}^m(s+z_i)}{\prod_{l=1}^{n_1}(s+p_l)\prod_{l=n_1+1}^{n_1+(n-n_1)/2}(s+\sigma_l-j\omega_l)(s+\sigma_l+j\omega_l)}$$那么 $L^{-1}{G(s)}=?$</p>
+$$L^{-1}{\sum _{l=1}^{n_{1}-k}\frac {a_{l}}{s+p_{l}}}$$
+<p>包含$e^{-p_{l}t}$</p>
+$$L^{-1}{\sum _{l=1}^{k}\frac {b_{l}}{(s+p)^{l}}}$$
+<p>包含 $e^{-pt},te^{-pt},$ $t^{2}e^{-pt},\cdots ,$ $t^{k-1}e^{-pt}$</p>
+$$L^{-1}\left\{\sum_{l=n_{1}+1}^{n_{1}+(n-n_{1})/2}\left(\frac{c_{l}}{s+\sigma_{l}-j\omega_{l}}+\frac{d_{l}}{s+\sigma_{l}+j\omega_{l}}\right)\right\}$$
+<p>包含 $e^{-\sigma _{l}t}\cos \omega _{l}t,$ $e^{-\sigma _{l}t}\sin \omega _{l}t$</p>
+<p>$e^{-p_{l}t},e^{-pt},te^{-pt},$ $t^{2}e^{-pt},\cdots ,$ $t^{k-1}e^{-pt},$ $e^{-\sigma _{l}t}\cos \omega _{l}t,$ $e^{-\sigma _{l}t}\sin \omega _{l}t$：应该看作模态！</p>
+<p><strong>线性定常连续系统有界输入有界输出稳定的充分必要条件</strong><br>
+证明略，就是解得要负实部</p>
+<h2 id="稳定性分析-vs-稳定化设计">稳定性分析 vs 稳定化设计</h2>
+<p>考虑某一个系统的稳定性<br>
+$G(s)=\frac {N(s)}{\Delta (s)}$</p>
+<p>Δ(s)=0 的解是否均具有负实部——稳定性分析<br>
+① 是，稳定性分析结束<br>
+② 否，需要增加反馈控制器使得新的闭环系统稳定</p>
+<p>对于传递函数是 $\frac {Y(s)}{R(s)}=\frac {G_{c}(s)G(s)}{1+G_{c}(s)G(s)}$<br>
+需要设计合适的 $G_{c}(s)$使得$1+G_{c}(s)G(s)=0$的解均具有负实部</p>
+
+  </div>
+</article>
+
+
+
+        
+          <div id="footer-post-container">
+  <div id="footer-post">
+
+    <div id="nav-footer" style="display: none">
+      <ul>
+        
+          <li><a href="/">首页</a></li>
+        
+          <li><a href="/about/">关于</a></li>
+        
+          <li><a href="/archives/">归档</a></li>
+        
+          <li><a target="_blank" rel="noopener" href="https://github.com/scolenchris">项目</a></li>
+        
+      </ul>
+    </div>
+
+    
+    
+      <div id="toc-footer" style="display: none">
+        <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link"><span class="toc-number">1.</span> <span class="toc-text">反馈控制系统的典型结构 3.3.1-3.3.2</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#%E7%B3%BB%E7%BB%9F%E5%BC%80%E7%8E%AF%E4%BC%A0%E9%80%92%E5%87%BD%E6%95%B0"><span class="toc-number">1.1.</span> <span class="toc-text">系统开环传递函数</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E9%97%AD%E7%8E%AF%E4%BC%A0%E9%80%92%E5%87%BD%E6%95%B0"><span class="toc-number">1.2.</span> <span class="toc-text">闭环传递函数</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%81%8F%E5%B7%AE%E4%BC%A0%E9%80%92%E5%87%BD%E6%95%B0"><span class="toc-number">1.3.</span> <span class="toc-text">偏差传递函数</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#%E5%8F%82%E8%80%83%E8%BE%93%E5%85%A5-R-s-%E4%BD%9C%E7%94%A8%E4%B8%8B%E7%9A%84%E5%81%8F%E5%B7%AE%E4%BC%A0%E9%80%92%E5%87%BD%E6%95%B0"><span class="toc-number">1.3.1.</span> <span class="toc-text">参考输入 R(s)作用下的偏差传递函数</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E6%89%B0%E5%8A%A8%E8%BE%93%E5%85%A5-D-s-%E4%BD%9C%E7%94%A8%E4%B8%8B%E7%9A%84%E5%81%8F%E5%B7%AE%E4%BC%A0%E9%80%92%E5%87%BD%E6%95%B0"><span class="toc-number">1.3.2.</span> <span class="toc-text">扰动输入 D (s)作用下的偏差传递函数</span></a></li></ol></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link"><span class="toc-number">2.</span> <span class="toc-text">系统稳定性的初步认识</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#%E4%B8%80%E8%88%AC%E6%A6%82%E5%BF%B5"><span class="toc-number">2.1.</span> <span class="toc-text">一般概念</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E9%97%AD%E7%8E%AF%E4%BC%A0%E9%80%92%E5%87%BD%E6%95%B0%E7%9A%84%E6%9E%81%E7%82%B9%E4%B8%8E%E7%B3%BB%E7%BB%9F%E7%9A%84%E7%A8%B3%E5%AE%9A%E6%80%A7"><span class="toc-number">2.2.</span> <span class="toc-text">闭环传递函数的极点与系统的稳定性</span></a></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link"><span class="toc-number">3.</span> <span class="toc-text">闭环传递函数的极点与系统的稳定性</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#%E7%A8%B3%E5%AE%9A%E6%80%A7%E5%88%86%E6%9E%90-vs-%E7%A8%B3%E5%AE%9A%E5%8C%96%E8%AE%BE%E8%AE%A1"><span class="toc-number">3.1.</span> <span class="toc-text">稳定性分析 vs 稳定化设计</span></a></li></ol></li></ol>
+      </div>
+    
+
+    <div id="share-footer" style="display: none">
+      <ul>
+  <li><a class="icon" target="_blank" rel="noopener" href="http://www.facebook.com/sharer.php?u=https://scolenchris.top/posts/6e92f598.html"><i class="fab fa-facebook fa-lg" aria-hidden="true"></i></a></li>
+  <li><a class="icon" target="_blank" rel="noopener" href="https://twitter.com/share?url=https://scolenchris.top/posts/6e92f598.html&text=稳定性概念与定义-极点与稳定性关系"><i class="fab fa-twitter fa-lg" aria-hidden="true"></i></a></li>
+  <li><a class="icon" target="_blank" rel="noopener" href="http://www.linkedin.com/shareArticle?url=https://scolenchris.top/posts/6e92f598.html&title=稳定性概念与定义-极点与稳定性关系"><i class="fab fa-linkedin fa-lg" aria-hidden="true"></i></a></li>
+  <li><a class="icon" target="_blank" rel="noopener" href="https://pinterest.com/pin/create/bookmarklet/?url=https://scolenchris.top/posts/6e92f598.html&is_video=false&description=稳定性概念与定义-极点与稳定性关系"><i class="fab fa-pinterest fa-lg" aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="mailto:?subject=稳定性概念与定义-极点与稳定性关系&body=Check out this article: https://scolenchris.top/posts/6e92f598.html"><i class="fa-solid fa-envelope fa-lg" aria-hidden="true"></i></a></li>
+  <li><a class="icon" target="_blank" rel="noopener" href="https://getpocket.com/save?url=https://scolenchris.top/posts/6e92f598.html&title=稳定性概念与定义-极点与稳定性关系"><i class="fab fa-get-pocket fa-lg" aria-hidden="true"></i></a></li>
+  <li><a class="icon" target="_blank" rel="noopener" href="http://reddit.com/submit?url=https://scolenchris.top/posts/6e92f598.html&title=稳定性概念与定义-极点与稳定性关系"><i class="fab fa-reddit fa-lg" aria-hidden="true"></i></a></li>
+  <li><a class="icon" target="_blank" rel="noopener" href="http://www.stumbleupon.com/submit?url=https://scolenchris.top/posts/6e92f598.html&title=稳定性概念与定义-极点与稳定性关系"><i class="fab fa-stumbleupon fa-lg" aria-hidden="true"></i></a></li>
+  <li><a class="icon" target="_blank" rel="noopener" href="http://digg.com/submit?url=https://scolenchris.top/posts/6e92f598.html&title=稳定性概念与定义-极点与稳定性关系"><i class="fab fa-digg fa-lg" aria-hidden="true"></i></a></li>
+  <li><a class="icon" target="_blank" rel="noopener" href="http://www.tumblr.com/share/link?url=https://scolenchris.top/posts/6e92f598.html&name=稳定性概念与定义-极点与稳定性关系&description="><i class="fab fa-tumblr fa-lg" aria-hidden="true"></i></a></li>
+  <li><a class="icon" target="_blank" rel="noopener" href="https://news.ycombinator.com/submitlink?u=https://scolenchris.top/posts/6e92f598.html&t=稳定性概念与定义-极点与稳定性关系"><i class="fab fa-hacker-news fa-lg" aria-hidden="true"></i></a></li>
+</ul>
+
+    </div>
+
+    <div id="actions-footer">
+        <a id="menu" class="icon" href="#" onclick="$('#nav-footer').toggle();return false;"><i class="fa-solid fa-bars fa-lg" aria-hidden="true"></i> 菜单</a>
+        
+          <a id="toc" class="icon" href="#" onclick="$('#toc-footer').toggle();return false;"><i class="fa-solid fa-list fa-lg" aria-hidden="true"></i> 目录</a>
+        
+        <a id="share" class="icon" href="#" onclick="$('#share-footer').toggle();return false;"><i class="fa-solid fa-share-alt fa-lg" aria-hidden="true"></i> 分享</a>
+        <a id="top" style="display:none" class="icon" href="#" onclick="$('html, body').animate({ scrollTop: 0 }, 'fast');"><i class="fa-solid fa-chevron-up fa-lg" aria-hidden="true"></i> 返回顶部</a>
+    </div>
+
+  </div>
+</div>
+
+        
+        <footer id="footer">
+  <div class="footer-left">
+    Copyright &copy;
+    
+    
+    2022-2025
+    Chris
+  </div>
+  <div class="footer-right">
+    <nav>
+      <ul>
+        <!--
+       --><li><a href="/">首页</a></li><!--
+     --><!--
+       --><li><a href="/about/">关于</a></li><!--
+     --><!--
+       --><li><a href="/archives/">归档</a></li><!--
+     --><!--
+       --><li><a target="_blank" rel="noopener" href="https://github.com/scolenchris">项目</a></li><!--
+     -->
+      </ul>
+    </nav>
+  </div>
+</footer>
+
+    </div>
+    <!-- styles -->
+
+
+
+  <link rel="preload" as="style" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" crossorigin="anonymous" onload="this.onload=null;this.rel='stylesheet'"/>
+
+
+    <!-- jquery -->
+
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.0/jquery.min.js" crossorigin="anonymous"></script>
+
+
+
+
+<!-- clipboard -->
+
+  
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/clipboard.js/2.0.7/clipboard.min.js" crossorigin="anonymous"></script>
+  
+  <script type="text/javascript">
+  $(function() {
+    // copy-btn HTML
+    var btn = "<span class=\"btn-copy tooltipped tooltipped-sw\" aria-label=\"复制到粘贴板！\">";
+    btn += '<i class="fa-regular fa-clone"></i>';
+    btn += '</span>';
+    // mount it!
+    $(".highlight table").before(btn);
+    var clip = new ClipboardJS('.btn-copy', {
+      text: function(trigger) {
+        return Array.from(trigger.nextElementSibling.querySelectorAll('.code')).reduce((str,it)=>str+it.innerText+'\n','')
+      }
+    });
+    clip.on('success', function(e) {
+      e.trigger.setAttribute('aria-label', "复制成功！");
+      e.clearSelection();
+    })
+  })
+  </script>
+
+
+<script src="/js/main.js"></script>
+
+<!-- search -->
+
+<!-- Baidu Analytics -->
+
+<!-- Cloudflare Analytics -->
+
+<!-- Disqus Comments -->
+
+<!-- utterances Comments -->
+
+<script type="text/x-mathjax-config">
+    MathJax.Hub.Config({
+        tex2jax: {
+            inlineMath: [ ["$","$"], ["\\(","\\)"] ],
+            skipTags: ['script', 'noscript', 'style', 'textarea', 'pre', 'code'],
+            processEscapes: true
+        }
+    });
+    MathJax.Hub.Queue(function() {
+        var all = MathJax.Hub.getAllJax();
+        for (var i = 0; i < all.length; ++i)
+            all[i].SourceElement().parentNode.className += ' has-jax';
+    });
+</script>
+<script src="http://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+</body>
+</html>
