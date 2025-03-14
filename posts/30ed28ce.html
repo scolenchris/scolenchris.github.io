@@ -1,0 +1,678 @@
+<!DOCTYPE html>
+<html lang=zh>
+<head>
+    <!-- so meta -->
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="HandheldFriendly" content="True">
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=5" />
+    <meta name="description" content="Source Document Source Project  I. Research Background This course aims to comprehensively equip students with the structural understanding, operational principles, control methodologies, design calc">
+<meta property="og:type" content="article">
+<meta property="og:title" content="AC-DC-AC电力电子转换器simulink仿真-en">
+<meta property="og:url" content="https://scolenchris.top/posts/30ed28ce.html">
+<meta property="og:site_name" content="Chris - Peace Life, Peace Code">
+<meta property="og:description" content="Source Document Source Project  I. Research Background This course aims to comprehensively equip students with the structural understanding, operational principles, control methodologies, design calc">
+<meta property="og:locale" content="zh_CN">
+<meta property="og:image" content="https://github.com/user-attachments/assets/c74f9623-6f42-4dd4-a972-ba0d1839ed03">
+<meta property="og:image" content="https://github.com/user-attachments/assets/b146140f-d98e-432c-bdc5-dfab913bb8a9">
+<meta property="og:image" content="https://github.com/user-attachments/assets/69499ca8-420f-4b9d-b1f8-5f71c48b25c0">
+<meta property="og:image" content="https://github.com/user-attachments/assets/72b64264-49b4-464e-8122-2911b3814acd">
+<meta property="og:image" content="https://github.com/user-attachments/assets/9307f5fa-2c66-46b5-89f4-a7b847d46ea9">
+<meta property="og:image" content="https://github.com/user-attachments/assets/894fe34b-7112-42b4-9da0-e4a6ef2ccb94">
+<meta property="og:image" content="https://github.com/user-attachments/assets/de873b4e-f511-4a73-b69b-93616f090676">
+<meta property="og:image" content="https://github.com/user-attachments/assets/c2a8c195-7bd1-448e-8d2c-6608ec2b4c66">
+<meta property="og:image" content="https://github.com/user-attachments/assets/2fade552-b27b-4a50-89a9-e8ec50985382">
+<meta property="og:image" content="https://github.com/user-attachments/assets/e34c7275-0bd5-41c3-bc44-cecb3c78e7ae">
+<meta property="og:image" content="https://github.com/user-attachments/assets/c4b34a22-d271-4d5c-96b8-1e3934d0df47">
+<meta property="og:image" content="https://github.com/user-attachments/assets/9383854a-e810-40b8-beb1-98e42a24ec0c">
+<meta property="og:image" content="https://github.com/user-attachments/assets/2bd1f859-17cd-4d85-b3b5-93604e9973f1">
+<meta property="og:image" content="https://github.com/user-attachments/assets/f7f914df-81e5-4563-85dc-f8319dc3fc67">
+<meta property="og:image" content="https://github.com/user-attachments/assets/6b5ac3e2-d516-4155-856b-1b221096de4c">
+<meta property="og:image" content="https://github.com/user-attachments/assets/28354c15-0240-4014-94d5-70e1904ddd71">
+<meta property="og:image" content="https://github.com/user-attachments/assets/37683a08-57f9-4f67-bdaf-b879e99e137d">
+<meta property="og:image" content="https://github.com/user-attachments/assets/6b4021ac-d5af-45e3-88e5-aedbde052f9e">
+<meta property="og:image" content="https://github.com/user-attachments/assets/7af96925-1373-490b-b68d-6c267333601d">
+<meta property="og:image" content="https://github.com/user-attachments/assets/120c8705-6c8b-4007-bd96-20213f724a1f">
+<meta property="og:image" content="https://github.com/user-attachments/assets/60b04e02-83af-4d53-8bb4-234ec5449c73">
+<meta property="og:image" content="https://github.com/user-attachments/assets/40fdef8c-ced9-4fcb-9ef3-185e8a27f33c">
+<meta property="og:image" content="https://github.com/user-attachments/assets/04337025-f9ea-4acc-b4ad-dc13941b26af">
+<meta property="og:image" content="https://github.com/user-attachments/assets/3e696e08-dd51-41ea-8056-6d44b407731c">
+<meta property="og:image" content="https://github.com/user-attachments/assets/b5cd86c6-7e58-444d-99f4-b2dba6297cef">
+<meta property="og:image" content="https://github.com/user-attachments/assets/84073a4c-5b8e-4545-94ac-b8ebdbeecf9a">
+<meta property="og:image" content="https://github.com/user-attachments/assets/dd25839b-24f4-4899-ba0b-a5b1c3991117">
+<meta property="og:image" content="https://github.com/user-attachments/assets/c9b1a883-e0c2-4021-a009-6cb75be25bad">
+<meta property="og:image" content="https://github.com/user-attachments/assets/5fd09311-d2f0-4ea0-be62-053b85eafbb0">
+<meta property="og:image" content="https://github.com/user-attachments/assets/91957195-f6cd-4745-9544-f7b72dff4e60">
+<meta property="og:image" content="https://github.com/user-attachments/assets/89a179e0-5eab-4c3e-a264-6041cf5de62c">
+<meta property="og:image" content="https://github.com/user-attachments/assets/c8dc8a3d-35a9-4c7a-838e-5ec96d650a12">
+<meta property="og:image" content="https://github.com/user-attachments/assets/c5a9eb55-c43b-47e4-8158-d4fd449ac5af">
+<meta property="og:image" content="https://github.com/user-attachments/assets/d01ad7d6-c8d7-423f-bdc6-7f8abaa2154f">
+<meta property="og:image" content="https://github.com/user-attachments/assets/625ab309-86b9-454d-a718-999cb9880dc8">
+<meta property="og:image" content="https://github.com/user-attachments/assets/ed0fe85c-8ad5-465f-b6c9-996a7b9d023e">
+<meta property="article:published_time" content="2025-03-14T14:46:03.000Z">
+<meta property="article:modified_time" content="2025-03-14T06:52:25.624Z">
+<meta property="article:author" content="Chris">
+<meta property="article:tag" content="博客,scolen,chris,技术,生活,记录,life,code">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="https://github.com/user-attachments/assets/c74f9623-6f42-4dd4-a972-ba0d1839ed03">
+    
+    
+      
+        
+          <link rel="shortcut icon" href="/images/favicon.ico">
+        
+      
+      
+        
+          <link rel="icon" type="image/png" href="/images/favicon-192x192.png" sizes="192x192">
+        
+      
+      
+        
+          <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon.png">
+        
+      
+    
+    <!-- title -->
+    <title>AC-DC-AC电力电子转换器simulink仿真-en</title>
+    <!-- async scripts -->
+    <!-- Google Analytics -->
+
+
+    <!-- Umami Analytics -->
+
+
+    <!-- styles -->
+    
+<link rel="stylesheet" href="/css/style.css">
+
+    <!-- persian styles -->
+    
+    <!-- rss -->
+    
+    
+      <link rel="alternate" href="/true" title="Chris - Peace Life, Peace Code" type="application/atom+xml" />
+    
+	<!-- mathjax -->
+	
+		<script type="text/x-mathjax-config">
+		  MathJax.Hub.Config({
+			tex2jax: {
+			  skipTags: ['script', 'noscript', 'style', 'textarea', 'pre'],
+			  inlineMath: [['$','$']]
+			}
+		  });
+		</script>
+		<script src='https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.5/latest.js?config=TeX-MML-AM_CHTML' async></script>
+	
+<meta name="generator" content="Hexo 7.0.0"></head>
+
+<body class="max-width mx-auto px3 ltr">    
+      <div id="header-post">
+  <a id="menu-icon" href="#" aria-label="目录"><i class="fa-solid fa-bars fa-lg"></i></a>
+  <a id="menu-icon-tablet" href="#" aria-label="目录"><i class="fa-solid fa-bars fa-lg"></i></a>
+  <a id="top-icon-tablet" href="#" aria-label="顶部" onclick="$('html, body').animate({ scrollTop: 0 }, 'fast');" style="display:none;"><i class="fa-solid fa-chevron-up fa-lg"></i></a>
+  <span id="menu">
+    <span id="nav">
+      <ul>
+        <!--
+       --><li><a href="/">首页</a></li><!--
+     --><!--
+       --><li><a href="/about/">关于</a></li><!--
+     --><!--
+       --><li><a href="/archives/">归档</a></li><!--
+     --><!--
+       --><li><a target="_blank" rel="noopener" href="https://github.com/scolenchris">项目</a></li><!--
+     -->
+      </ul>
+    </span>
+    <br/>
+    <span id="actions">
+      <ul>
+        
+        
+        <li><a class="icon" aria-label="下一篇" href="/posts/c261a60c.html"><i class="fa-solid fa-chevron-right" aria-hidden="true" onmouseover="$('#i-next').toggle();" onmouseout="$('#i-next').toggle();"></i></a></li>
+        
+        <li><a class="icon" aria-label="返回顶部" href="#" onclick="$('html, body').animate({ scrollTop: 0 }, 'fast');"><i class="fa-solid fa-chevron-up" aria-hidden="true" onmouseover="$('#i-top').toggle();" onmouseout="$('#i-top').toggle();"></i></a></li>
+        <li><a class="icon" aria-label="分享文章" href="#"><i class="fa-solid fa-share-alt" aria-hidden="true" onmouseover="$('#i-share').toggle();" onmouseout="$('#i-share').toggle();" onclick="$('#share').toggle();return false;"></i></a></li>
+      </ul>
+      <span id="i-prev" class="info" style="display:none;">上一篇</span>
+      <span id="i-next" class="info" style="display:none;">下一篇</span>
+      <span id="i-top" class="info" style="display:none;">返回顶部</span>
+      <span id="i-share" class="info" style="display:none;">分享文章</span>
+    </span>
+    <br/>
+    <div id="share" style="display: none">
+      <ul>
+  <li><a class="icon" target="_blank" rel="noopener" href="http://www.facebook.com/sharer.php?u=https://scolenchris.top/posts/30ed28ce.html"><i class="fab fa-facebook " aria-hidden="true"></i></a></li>
+  <li><a class="icon" target="_blank" rel="noopener" href="https://twitter.com/share?url=https://scolenchris.top/posts/30ed28ce.html&text=AC-DC-AC电力电子转换器simulink仿真-en"><i class="fab fa-twitter " aria-hidden="true"></i></a></li>
+  <li><a class="icon" target="_blank" rel="noopener" href="http://www.linkedin.com/shareArticle?url=https://scolenchris.top/posts/30ed28ce.html&title=AC-DC-AC电力电子转换器simulink仿真-en"><i class="fab fa-linkedin " aria-hidden="true"></i></a></li>
+  <li><a class="icon" target="_blank" rel="noopener" href="https://pinterest.com/pin/create/bookmarklet/?url=https://scolenchris.top/posts/30ed28ce.html&is_video=false&description=AC-DC-AC电力电子转换器simulink仿真-en"><i class="fab fa-pinterest " aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="mailto:?subject=AC-DC-AC电力电子转换器simulink仿真-en&body=Check out this article: https://scolenchris.top/posts/30ed28ce.html"><i class="fa-solid fa-envelope " aria-hidden="true"></i></a></li>
+  <li><a class="icon" target="_blank" rel="noopener" href="https://getpocket.com/save?url=https://scolenchris.top/posts/30ed28ce.html&title=AC-DC-AC电力电子转换器simulink仿真-en"><i class="fab fa-get-pocket " aria-hidden="true"></i></a></li>
+  <li><a class="icon" target="_blank" rel="noopener" href="http://reddit.com/submit?url=https://scolenchris.top/posts/30ed28ce.html&title=AC-DC-AC电力电子转换器simulink仿真-en"><i class="fab fa-reddit " aria-hidden="true"></i></a></li>
+  <li><a class="icon" target="_blank" rel="noopener" href="http://www.stumbleupon.com/submit?url=https://scolenchris.top/posts/30ed28ce.html&title=AC-DC-AC电力电子转换器simulink仿真-en"><i class="fab fa-stumbleupon " aria-hidden="true"></i></a></li>
+  <li><a class="icon" target="_blank" rel="noopener" href="http://digg.com/submit?url=https://scolenchris.top/posts/30ed28ce.html&title=AC-DC-AC电力电子转换器simulink仿真-en"><i class="fab fa-digg " aria-hidden="true"></i></a></li>
+  <li><a class="icon" target="_blank" rel="noopener" href="http://www.tumblr.com/share/link?url=https://scolenchris.top/posts/30ed28ce.html&name=AC-DC-AC电力电子转换器simulink仿真-en&description="><i class="fab fa-tumblr " aria-hidden="true"></i></a></li>
+  <li><a class="icon" target="_blank" rel="noopener" href="https://news.ycombinator.com/submitlink?u=https://scolenchris.top/posts/30ed28ce.html&t=AC-DC-AC电力电子转换器simulink仿真-en"><i class="fab fa-hacker-news " aria-hidden="true"></i></a></li>
+</ul>
+
+    </div>
+    
+    
+      <div id="toc">
+        <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link"><span class="toc-number">1.</span> <span class="toc-text">I. Research Background</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#Table-of-Contents"><span class="toc-number">1.1.</span> <span class="toc-text">Table of Contents</span></a></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link"><span class="toc-number">2.</span> <span class="toc-text">II. Scheme Demonstration (Design Concept)</span></a></li><li class="toc-item toc-level-1"><a class="toc-link"><span class="toc-number">3.</span> <span class="toc-text">III. Process Discussion</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#1-Analysis-and-Simulation-of-Phase-Controlled-Trigger-Circuit"><span class="toc-number">3.1.</span> <span class="toc-text">1. Analysis and Simulation of Phase-Controlled Trigger Circuit</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#2-Analysis-and-Simulation-of-Rectifier-Circuit-Implementation"><span class="toc-number">3.2.</span> <span class="toc-text">2. Analysis and Simulation of Rectifier Circuit Implementation</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#3-Analysis-and-Simulation-of-Step-Down-Chopper-Circuit-Implementation"><span class="toc-number">3.3.</span> <span class="toc-text">3. Analysis and Simulation of Step-Down Chopper Circuit Implementation</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#1-Analysis-and-Simulation-of-Open-Loop-Buck-Circuit"><span class="toc-number">3.3.1.</span> <span class="toc-text">(1) Analysis and Simulation of Open-Loop Buck Circuit</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#2-Analysis-and-Simulation-of-Closed-Loop-Buck-Circuit"><span class="toc-number">3.3.2.</span> <span class="toc-text">(2) Analysis and Simulation of Closed-Loop Buck Circuit</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#4-Analysis-and-Simulation-of-Inverter-Circuit-Implementation"><span class="toc-number">3.4.</span> <span class="toc-text">4. Analysis and Simulation of Inverter Circuit Implementation</span></a></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link"><span class="toc-number">4.</span> <span class="toc-text">IV. Result Analysis</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#1-Analysis-of-Rectifier-Circuit-Output-Waveform-Data"><span class="toc-number">4.1.</span> <span class="toc-text">1. Analysis of Rectifier Circuit Output Waveform Data</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#2-Analysis-of-Step-Down-Chopper-Circuit-Output-Waveform-Data"><span class="toc-number">4.2.</span> <span class="toc-text">2. Analysis of Step-Down Chopper Circuit Output Waveform Data</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#1-Analysis-of-Open-Loop-Buck-Circuit-Waveform"><span class="toc-number">4.2.1.</span> <span class="toc-text">(1) Analysis of Open-Loop Buck Circuit Waveform</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#2-Analysis-of-Closed-Loop-Buck-Circuit-Waveform"><span class="toc-number">4.2.2.</span> <span class="toc-text">(2) Analysis of Closed-Loop Buck Circuit Waveform</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#3-Analysis-of-Inverter-Circuit-Output-Waveform-Data"><span class="toc-number">4.3.</span> <span class="toc-text">3. Analysis of Inverter Circuit Output Waveform Data</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#1-Open-Loop-Condition"><span class="toc-number">4.3.1.</span> <span class="toc-text">(1) Open-Loop Condition</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#2-Closed-Loop-Condition"><span class="toc-number">4.3.2.</span> <span class="toc-text">(2) Closed-Loop Condition</span></a></li></ol></li></ol></li></ol>
+      </div>
+    
+  </span>
+</div>
+
+    
+    <div class="content index py4 ">
+        
+        <article class="post h-entry" itemscope itemtype="http://schema.org/BlogPosting">
+  <header>
+    
+    <h1 class="posttitle p-name" itemprop="name headline">
+        AC-DC-AC电力电子转换器simulink仿真-en
+    </h1>
+
+
+
+    <div class="meta">
+      <span class="author p-author h-card" itemprop="author" itemscope itemtype="http://schema.org/Person">
+        <span class="p-name" itemprop="name">Chris</span>
+      </span>
+      
+    <div class="postdate">
+      
+        <time datetime="2025-03-14T14:46:03.000Z" class="dt-published" itemprop="datePublished">2025-03-14</time>
+        
+      
+    </div>
+
+
+      
+
+      
+
+    </div>
+  </header>
+  
+
+  <div class="content e-content" itemprop="articleBody">
+    <ul>
+<li><a target="_blank" rel="noopener" href="https://github.com/scolenchris/AC-DC-AC-Power-Converter/blob/main/Design_EN.md">Source Document</a></li>
+<li><a target="_blank" rel="noopener" href="https://github.com/scolenchris/AC-DC-AC-Power-Converter">Source Project</a></li>
+</ul>
+<h1>I. Research Background</h1>
+<p>This course aims to comprehensively equip students with the structural understanding, operational principles, control methodologies, design calculations, and experimental skills of various power electronic circuits through a combination of theoretical and practical approaches. The curriculum encompasses the combined application of multiple conversion circuits to achieve efficient transformation and control of electrical energy. Throughout the learning process, students will deeply appreciate the importance of applying theoretical knowledge to real-world scenarios, while also understanding the value of teamwork. The course places particular emphasis on fostering students’ innovative spirit, stimulating their creative consciousness, and enhancing their hands-on and practical operational abilities through practice.</p>
+<h2 id="Table-of-Contents">Table of Contents</h2>
+<ul>
+<li><a href="#i-research-background">I. Research Background</a>
+<ul>
+<li><a href="#table-of-contents">Table of Contents</a></li>
+</ul>
+</li>
+<li><a href="#ii-scheme-demonstration-design-concept">II. Scheme Demonstration (Design Concept)</a></li>
+<li><a href="#iii-process-discussion">III. Process Discussion</a>
+<ul>
+<li><a href="#1-analysis-and-simulation-of-phase-controlled-trigger-circuit">1. Analysis and Simulation of Phase-Controlled Trigger Circuit</a></li>
+<li><a href="#2-analysis-and-simulation-of-rectifier-circuit-implementation">2. Analysis and Simulation of Rectifier Circuit Implementation</a></li>
+<li><a href="#3-analysis-and-simulation-of-step-down-chopper-circuit-implementation">3. Analysis and Simulation of Step-Down Chopper Circuit Implementation</a>
+<ul>
+<li><a href="#1-analysis-and-simulation-of-open-loop-buck-circuit">(1) Analysis and Simulation of Open-Loop Buck Circuit</a></li>
+<li><a href="#2-analysis-and-simulation-of-closed-loop-buck-circuit">(2) Analysis and Simulation of Closed-Loop Buck Circuit</a></li>
+</ul>
+</li>
+<li><a href="#4-analysis-and-simulation-of-inverter-circuit-implementation">4. Analysis and Simulation of Inverter Circuit Implementation</a></li>
+</ul>
+</li>
+<li><a href="#iv-result-analysis">IV. Result Analysis</a>
+<ul>
+<li><a href="#1-analysis-of-rectifier-circuit-output-waveform-data">1. Analysis of Rectifier Circuit Output Waveform Data</a></li>
+<li><a href="#2-analysis-of-step-down-chopper-circuit-output-waveform-data">2. Analysis of Step-Down Chopper Circuit Output Waveform Data</a>
+<ul>
+<li><a href="#1-analysis-of-open-loop-buck-circuit-waveform">(1) Analysis of Open-Loop Buck Circuit Waveform</a></li>
+<li><a href="#2-analysis-of-closed-loop-buck-circuit-waveform">(2) Analysis of Closed-Loop Buck Circuit Waveform</a></li>
+</ul>
+</li>
+<li><a href="#3-analysis-of-inverter-circuit-output-waveform-data">3. Analysis of Inverter Circuit Output Waveform Data</a>
+<ul>
+<li><a href="#1-open-loop-condition">(1) Open-Loop Condition</a></li>
+<li><a href="#2-closed-loop-condition">(2) Closed-Loop Condition</a></li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+<h1>II. Scheme Demonstration (Design Concept)</h1>
+<p><strong>Figure 1: Overall Framework Diagram of the Power Electronic System Circuit</strong></p>
+<p><img src="https://github.com/user-attachments/assets/c74f9623-6f42-4dd4-a972-ba0d1839ed03" alt="image"></p>
+<p>As illustrated in Figure 1, the main circuit of this design consists of a rectifier circuit, a Buck step-down chopper circuit, and an inverter circuit. Additionally, to achieve effective control of thyristors and IGBTs, corresponding trigger circuits are required for each part of the circuit. The input voltage is single-phase alternating current (AC), which is converted to direct current (DC) through rectification and filtering processes, and then regenerated into AC through step-down and inversion processes.</p>
+<p>The input of the circuit is single-phase sinusoidal AC, hence the rectifier circuit section employs a single-phase bridge fully-controlled rectifier circuit. To eliminate the AC component in the output voltage of the rectifier circuit, a capacitor is connected in parallel at the load. Similarly, to remove the AC component in the output current of the rectifier circuit, an inductor is connected in series at the load. Therefore, the overall load constitutes an RLC load.</p>
+<p>In the step-down chopper section, a Buck step-down chopper circuit is utilized due to its simple structure and convenient control. Since the inverter circuit requires a stable DC voltage input, an RLC load similar to the one mentioned above is connected at the load end of the step-down chopper circuit.</p>
+<p>The inverter circuit, which outputs single-phase sinusoidal AC, employs a single-phase voltage-source inverter circuit. To obtain a sinusoidal output voltage, a capacitor is connected in parallel and an inductor in series at the load end.</p>
+<p>The trigger circuit for the single-phase bridge fully-controlled rectifier circuit is composed of synchronous sampling, integration, signal conditioning, and logical comparison output stages. To achieve the adjustment of the trigger angle, an adjustable voltage circuit consisting of a DC voltage source and a voltage-divider type sliding rheostat can be used. The output voltage is connected to the reference voltage input of the comparison stage to complete the adjustment.</p>
+<p>The Buck step-down chopper circuit uses a rectangular wave generator, with IGBT as the switching device. The input-output voltage ratio is controlled by adjusting the duty cycle, while the frequency of the rectangular wave is adjusted to meet the switching frequency requirements.</p>
+<p>Since the output single-phase sinusoidal AC has requirements for amplitude and frequency, the IGBT control in the single-phase voltage-source inverter circuit employs PWM control technology. The amplitude and frequency of the signal wave (sine wave) and the carrier wave (triangular wave) are adjusted to meet the design requirements for output voltage amplitude, frequency, and switching frequency.</p>
+<p>Moreover, to reduce the current impact and peak during startup, a soft-start function is incorporated. A linearly varying rheostat causes the voltage to change linearly, thereby achieving the soft-start function.</p>
+<p>To achieve the effect of tracking the given chopper output voltage, a voltage closed-loop controller based on the output voltage is designed and applied to the Buck chopper circuit.</p>
+<h1>III. Process Discussion</h1>
+<h2 id="1-Analysis-and-Simulation-of-Phase-Controlled-Trigger-Circuit">1. Analysis and Simulation of Phase-Controlled Trigger Circuit</h2>
+<p><strong>Figure 2: Simulation Circuit of Grid Voltage Step-Down Circuit and Phase-Locked Loop</strong></p>
+<p><img src="https://github.com/user-attachments/assets/b146140f-d98e-432c-bdc5-dfab913bb8a9" alt="image"></p>
+<p><strong>Figure 3: Waveform Simulation Diagram from Sine Wave Sampling to Rectangular Wave</strong></p>
+<p><img src="https://github.com/user-attachments/assets/69499ca8-420f-4b9d-b1f8-5f71c48b25c0" alt="image"></p>
+<p>For the processing of the grid input voltage, an operational amplifier circuit is first employed to step down the grid voltage, reducing its amplitude to approximately 10 volts. Subsequently, a Schmitt trigger is used to phase-lock the stepped-down voltage, accurately capturing the zero-crossing signal. The Schmitt trigger, leveraging its hysteresis characteristics, stably converts the input signal into a corresponding rectangular wave output. This approach not only effectively reduces the voltage amplitude but also generates rectangular wave signals corresponding to the zero-crossing points, facilitating subsequent signal processing and control applications.</p>
+<p><strong>Figure 4: Simulation Circuit of Integration (Rectangular to Triangular Wave)</strong></p>
+<p><img src="https://github.com/user-attachments/assets/72b64264-49b4-464e-8122-2911b3814acd" alt="image"></p>
+<p><strong>Figure 5: Simulation Waveform Diagram of Rectangular Wave Integration into Triangular Wave</strong></p>
+<p><img src="https://github.com/user-attachments/assets/9307f5fa-2c66-46b5-89f4-a7b847d46ea9" alt="image"></p>
+<p>In the next stage, the output rectangular wave is integrated to generate a corresponding triangular wave. During this simulation, the zero-drift phenomenon in the integration stage is not significant, thus eliminating the need for a zero-drift suppressor. Through the integration operation, each rising and falling edge of the rectangular wave is converted into a linear ramp, forming a continuous triangular waveform.</p>
+<p>The voltage output formula of the integration circuit is as follows:</p>
+$${U}_{io}={\int}_{0}^{t}\frac{1}{RC}{V}_{in}\mathrm\ dt$$
+<p>To ensure that the output amplitude remains at 5 volts for subsequent signal conditioning, we set:</p>
+$$\mathrm{R}=1\mathrm{M}\mathrm{\Omega}$$
+$$C=0.01uF$$
+<p>As shown in the figure, the output triangular wave voltage ranges from 0 to 5 volts, consistent with theoretical calculations.</p>
+<p><strong>Figure 6: Dual Anti-Phase Differential Signal Conditioning Circuit</strong></p>
+<p><img src="https://github.com/user-attachments/assets/894fe34b-7112-42b4-9da0-e4a6ef2ccb94" alt="image"></p>
+<p><strong>Figure 7: Simulation Waveform Diagram of Anti-Phase Output Voltage from Conditioning Circuit</strong></p>
+<p><img src="https://github.com/user-attachments/assets/de873b4e-f511-4a73-b69b-93616f090676" alt="image"></p>
+<p>In the signal conditioning stage, two differential circuits are used to split the original triangular wave into two triangular waves with a 180° phase difference. The generated anti-phase signals can be used to control the conduction of two sets of thyristors, respectively.</p>
+<p><strong>Figure 8: Simulation Circuit of Comparison Stage</strong></p>
+<p><img src="https://github.com/user-attachments/assets/c2a8c195-7bd1-448e-8d2c-6608ec2b4c66" alt="image"></p>
+<p><strong>Figure 9: Simulation Waveform Diagram of Triangular Wave Comparison with Given Voltage</strong></p>
+<p><img src="https://github.com/user-attachments/assets/2fade552-b27b-4a50-89a9-e8ec50985382" alt="image"></p>
+<p>In the comparison stage, the output of the signal conditioning (triangular wave) is compared with a given reference voltage (constant). This process is typically implemented using a comparator. When the voltage of the triangular wave exceeds the reference voltage, the comparator outputs a high-level signal; otherwise, it outputs a low-level signal. The output signal generated in this manner is the phase-controlled voltage, used to control the conduction angle of the thyristors.</p>
+<p><strong>Figure 10: Simulation Circuit of Logic Processing</strong></p>
+<p><img src="https://github.com/user-attachments/assets/e34c7275-0bd5-41c3-bc44-cecb3c78e7ae" alt="image"></p>
+<p><strong>Figure 11: Comparison Diagram of Logic Processing Output and Various In-Phase Waveforms</strong></p>
+<p><img src="https://github.com/user-attachments/assets/c4b34a22-d271-4d5c-96b8-1e3934d0df47" alt="image"></p>
+<p>In the signal conditioning section, theoretically, the comparator output is already a phase-controlled rectangular wave that can be used to control the conduction and cutoff of thyristors. However, the addition of logic processing aims to prevent the comparator output from simultaneously turning on all four thyristors in the rectifier circuit, thereby avoiding short circuits.</p>
+<p>In Figure 11, the lines represent different voltage signals: the purple line represents the external input voltage source waveform, the orange line represents the phase-locked output voltage waveform, the blue line represents the comparator output waveform (from the previous stage), and the yellow line represents the voltage waveform output to the thyristors after logic processing.</p>
+<p>If the blue waveform is directly input to the thyristors, it would cover both the positive and negative parts of the sine wave, potentially causing reverse thyristors to conduct and leading to a short circuit. Therefore, by performing a logical AND operation between the blue waveform and the orange phase-locked signal, the yellow waveform is obtained. The yellow waveform only includes the positive half-cycle of the sine wave, effectively avoiding the risk of a short circuit in the rectifier circuit.</p>
+<p><strong>Figure 12: Output Waveform Diagram After Logic Processing</strong></p>
+<p><img src="https://github.com/user-attachments/assets/9383854a-e810-40b8-beb1-98e42a24ec0c" alt="image"></p>
+<p>In the rectifier circuit, to ensure the correct triggering of thyristors and the proper operation of the rectifier circuit, the two thyristor trigger waveforms obtained are as shown in the figure above. The trigger pulses of the two different phases are 90° apart, while the pulses of the same phase are 180° apart. This phase relationship ensures that each thyristor conducts at the correct time, achieving effective rectification and avoiding issues such as short circuits or overlapping conduction.</p>
+<h2 id="2-Analysis-and-Simulation-of-Rectifier-Circuit-Implementation">2. Analysis and Simulation of Rectifier Circuit Implementation</h2>
+<p>In the corresponding rectifier circuit design specifications, the output voltage of the rectifier circuit is:</p>
+$${\mathrm{U}}_{\mathrm{r}\mathrm{o}}=175\mathrm{V}$$
+<p>The effective value of the input voltage is:</p>
+$${\mathrm{U}}_{\mathrm{i}}={\mathrm{U}}_{2}=220\mathrm{V}$$
+<p>In the simulation, an RLC load is used. Considering that the inductance is large, the rectifier circuit can be assumed to operate in a freewheeling state. At the triggering angle α , trigger pulses are applied to thyristors VT1 and VT4 to turn them on, resulting in U*d = U*2 . The presence of inductance in the load prevents abrupt changes in the load current, and the inductance smooths the load current. Given the assumption of a large load inductance, the load current I remains continuous and its waveform approximates a horizontal line. Therefore, as derived from the textbook:</p>
+$$\begin{array}{c}{U}*{d}=\frac{1}{\pi}{\int}_{\alpha}^{\pi +\alpha}\sqrt{2}{U}_{2}\mathrm{s}\mathrm{i}\mathrm{n}\omega t\mathrm{d}\left(\omega t\right)=\frac{2\sqrt{2}}{\pi}{U}_{2}cos\alpha =0.9{U}_{2}cos\alpha \#\left(2\right)\end{array}$$
+<p>Substituting the values, we solve for:</p>
+$$\mathrm{\alpha}=27.89°$$
+<p>After determining the triggering angle, the comparison voltage for generating the phase-controlled trigger waveform can be calculated. Since there is a 180° phase difference between the two phases, the denominator for calculating the relative voltage ratio is 180°. Considering that the system operates in rectification mode, the triggering angle α ranges from 0° to 90°, so the numerator is multiplied by 2. Thus, the relative comparison voltage ratio β can be expressed as:</p>
+$$\beta =\frac{2\times \alpha}{180°}=0.3099$$
+<p>This value is set in the sliding rheostat of the phase-controlled trigger circuit, as shown in the figure below.</p>
+<p><strong>Figure 13: Schematic Diagram of Phase Adjustment in the Phase-Controlled Trigger Circuit</strong></p>
+<p><img src="https://github.com/user-attachments/assets/2bd1f859-17cd-4d85-b3b5-93604e9973f1" alt="image"></p>
+<p>For the soft-start time, which is the time required for the current to rise from zero to 80% of the maximum voltage, we have:</p>
+$${\mathrm{U}}_{\mathrm{s}\mathrm{o}\mathrm{f}\mathrm{t}\mathrm{o}}=0.8\times 175\mathrm{V}=140\mathrm{V}$$
+<p>Using the same formula, the triggering angle is found to be 45°, corresponding to a relative comparison voltage ratio of 0.5. Therefore, the resistance is linearly transformed with a slope:</p>
+$$K=0.0738$$
+<p>The time to reach 100% is T=β/K=4.2</p>
+<p>Thus, the time to reach 80% is:</p>
+$$\begin{array}{c}{T}_{1}=\frac{{U}_{softo}}{{U}_{d}}\times T=3.36s\#\left(3\right)\end{array}$$
+<p>This result slightly deviates from the expected 3.6 seconds. However, considering the influence of ripple in the simulation, the final soft-start time can be determined to be within the range of 3.4 to 3.8 seconds. Given the acceptable margin of error, the soft-start is deemed to meet the design requirements.</p>
+<h2 id="3-Analysis-and-Simulation-of-Step-Down-Chopper-Circuit-Implementation">3. Analysis and Simulation of Step-Down Chopper Circuit Implementation</h2>
+<h3 id="1-Analysis-and-Simulation-of-Open-Loop-Buck-Circuit">(1) Analysis and Simulation of Open-Loop Buck Circuit</h3>
+<p><strong>Figure 14: Simulation Circuit of Buck Chopper</strong></p>
+<p><img src="https://github.com/user-attachments/assets/f7f914df-81e5-4563-85dc-f8319dc3fc67" alt="image"></p>
+<p>In the design specifications of the corresponding Buck circuit, the output voltage is:</p>
+$${\mathrm{U}}_{\mathrm{b}\mathrm{o}}=70\mathrm{V}$$
+<p>The input voltage is:</p>
+$${\mathrm{U}}_{\mathrm{b}\mathrm{i}}={\mathrm{U}}_{\mathrm{r}\mathrm{o}}=175\mathrm{V}$$
+<p>The switching frequency is:</p>
+$${f}_{b}=13kHz$$
+<p>Based on the output voltage relationship of the chopper circuit, we obtain:</p>
+$$\begin{array}{c}{\alpha}_{b}=\frac{{\mathrm{U}}_{\mathrm{b}\mathrm{o}}}{{\mathrm{U}}_{\mathrm{b}\mathrm{i}}}=40\%\#\left(4\right)\end{array}$$
+$${T}_{b}=\frac{1}{{f}_{b}}=7.6923\times {10}^{-5}s$$
+<p>where α_b is the duty cycle of the rectangular wave generator in the step-down chopper circuit, and T_b is the period of the rectangular wave generator. These values are entered into the pulse generator of the simulation circuit, as shown in Figure 15.</p>
+<p><strong>Figure 15: Data Entry for the Pulse Generator in the Buck Chopper Circuit</strong></p>
+<p><img src="https://github.com/user-attachments/assets/6b5ac3e2-d516-4155-856b-1b221096de4c" alt="image"></p>
+<h3 id="2-Analysis-and-Simulation-of-Closed-Loop-Buck-Circuit">(2) Analysis and Simulation of Closed-Loop Buck Circuit</h3>
+<p><strong>Figure 16: Simulation Diagram and Structural Schematic of the Voltage Closed-Loop Buck Chopper Circuit</strong></p>
+<p><img src="https://github.com/user-attachments/assets/28354c15-0240-4014-94d5-70e1904ddd71" alt="image"></p>
+<p>Based on the requirements, we designed the above PI controller on the foundation of the open-loop chopper circuit. This controller includes a delay integration stage, a PI controller stage, a PI-to-PWM conversion stage, and an output voltage acquisition stage. Its working principle is as follows:</p>
+<p>First, the output voltage is sampled and fed into the controller, where it is subtracted from the set voltage (70 volts) to obtain an error signal. This error signal is then input into both the proportional (P) and integral (I) stages. After processing through these stages, along with a constant bias value of 0.12, the output of the PI controller is obtained.</p>
+<p>Next, the output signal of the PI controller is fed into a saturation stage to prevent the output from exceeding the allowable range (0% to 100%). Subsequently, this signal is sent to the PWM module to adjust the duty cycle of the PWM signal. Finally, after being amplified by a factor of 7, the signal is input to the IGBT module, thereby achieving closed-loop voltage regulation. Through precise control of the PWM signal width, the output voltage can be effectively adjusted to reach the desired steady-state level.</p>
+<p>Below, we discuss the settings for the values of (P) and (I).</p>
+<p><strong>Figure 17: Output of the Chopper Circuit Without the Integral Stage</strong></p>
+<p><img src="https://github.com/user-attachments/assets/37683a08-57f9-4f67-bdaf-b879e99e137d" alt="image"></p>
+<p><strong>Figure 18: Output Waveform of the PI Controller Without the Integral Stage</strong></p>
+<p><img src="https://github.com/user-attachments/assets/6b4021ac-d5af-45e3-88e5-aedbde052f9e" alt="image"></p>
+<p>As shown in the figures, when the integral gain I is set to 0 and the proportional gain P is adjusted, a steady-state error is observed in the system: despite the set value being 70 volts, the output only reaches 51.92 volts, falling short of the expected voltage. From the output of the PI controller, it can be seen that after 4.5 seconds, the output remains unchanged, indicating that the system has reached a dynamic equilibrium state. However, to eliminate the steady-state error, it is necessary to introduce an integral controller. By adjusting the value of the integral gain I while maintaining the current proportional gain P , the steady-state error can be effectively eliminated.</p>
+<p><strong>Figure 19: Output Waveform of the Chopper Voltage After Introducing the Integral Stage at 1.5 Seconds</strong></p>
+<p><img src="https://github.com/user-attachments/assets/7af96925-1373-490b-b68d-6c267333601d" alt="image"></p>
+<p><strong>Figure 20: Output Waveform of the PI Controller After Introducing the Integral Stage at 1.5 Seconds</strong></p>
+<p><img src="https://github.com/user-attachments/assets/120c8705-6c8b-4007-bd96-20213f724a1f" alt="image"></p>
+<p>Consider introducing the integral stage after 1.5 seconds. However, as observed in the figures, at 1.5 seconds, the output voltage of the chopper increases significantly, with a large rate of voltage change, indicating an overshoot phenomenon. Examining the output of the PI controller (as shown in the figure), a noticeable overshoot is observed. Therefore, considering that the value of I is already relatively small, to ensure the steady-state error is correctly eliminated, we do not change the value of I, but instead delay the introduction of the integral stage. Since introducing the integral stage too early results in an excessively large output from the integral part (due to accumulated error), it is considered to introduce the integral stage between 2 to 3 seconds to reduce the overshoot caused by large errors.</p>
+<p>Additionally, we note that the chopper voltage output reaches 71.75 volts at 5 seconds, which is very close to the target voltage of 70 volts. Although further observation is limited by the simulation time, we can still infer that under the current integral gain value, the steady-state error can be eliminated. Below, we proceed with further optimization of the parameters.</p>
+<p><strong>Figure 21: Output Waveform of the Chopper Voltage After Introducing the Integral Stage at 2.25 Seconds</strong></p>
+<p><img src="https://github.com/user-attachments/assets/60b04e02-83af-4d53-8bb4-234ec5449c73" alt="image"></p>
+<p><strong>Figure 22: Output Waveform of the PI Controller After Introducing the Integral Stage at 2.25 Seconds</strong></p>
+<p><img src="https://github.com/user-attachments/assets/40fdef8c-ced9-4fcb-9ef3-185e8a27f33c" alt="image"></p>
+<p>As shown in the figures above, the integral controller is ultimately introduced at 2.25 seconds, with the integral gain I set to 0.01 and the proportional gain P set to 0.011. Under this parameter configuration, the final output voltage of the system reaches the design requirement of 70 volts, with minimal error. When the integral controller is introduced at 2.25 seconds, the system’s transition process exhibits good stability, and the ripple coefficient meets the design standards. The specific calculation process is as follows.</p>
+<p>Based on process control principles, to determine P, it is necessary to calculate the change in duty cycle required for each 1-volt deviation in the output voltage of the step-down chopper circuit:</p>
+$$\begin{array}{c}\Delta{\alpha}_{b}=\frac{1}{{\mathrm{U}}_{\mathrm{b}\mathrm{i}}}\approx 0.00571\#\left(5\right)\end{array}$$
+<p>As a feedback loop, P is taken as n times the change in duty cycle, thus setting n = 2:</p>
+$$\begin{array}{c}P=n\Delta{\alpha}_{b}=0.01142\approx 0.011\#\left(6\right)\end{array}$$
+<p>The parameter I is determined through the PI tuning method and multiple experimental simulations, resulting in:</p>
+<p>I = 0.01</p>
+<h2 id="4-Analysis-and-Simulation-of-Inverter-Circuit-Implementation">4. Analysis and Simulation of Inverter Circuit Implementation</h2>
+<p>In the design specifications, the output voltage of the inverter circuit is:</p>
+$${\mathrm{U}}_{\mathrm{i}\mathrm{o}}=48\mathrm{V}$$
+<p>The input voltage is:</p>
+$${\mathrm{U}}_{\mathrm{i}\mathrm{i}}={\mathrm{U}}_{\mathrm{b}\mathrm{o}}=70\mathrm{V}$$
+<p>The output voltage frequency is:</p>
+$${f}_{i}=175Hz$$
+<p>The switching frequency is:</p>
+$${f}_{sw}=28kHz$$
+<p>Based on the principles of PWM modulation, we obtain:</p>
+$$\begin{array}{c}{T}_{c}={T}_{sw}=\frac{1}{{f}_{sw}}=3.571\times {10}^{-5}s\#\left(7\right)\end{array}$$
+$${{f}_{r}=f}_{o}=175Hz$$
+<p>The relative amplitude of the signal wave (modulation index) is:</p>
+$$\begin{array}{c}{\mathrm{\beta}}_{\mathrm{i}}=\frac{{\mathrm{U}}_{\mathrm{o}\mathrm{i}}}{{\mathrm{U}}_{\mathrm{i}\mathrm{i}}}=\frac{{U}_{r}}{{U}_{c}}=68.57\%\#\left(8\right)\end{array}$$
+<p>where U_r and U_c are the amplitudes of the signal wave and carrier wave, respectively, f_r is the frequency of the signal wave, T_c is the period of the carrier wave, and β_i is the relative amplitude of the signal wave (modulation index).</p>
+<p><strong>Figure 23: Output Parameter Settings for the Carrier and Signal Waves in the Inverter Simulation Circuit</strong></p>
+<p><img src="https://github.com/user-attachments/assets/04337025-f9ea-4acc-b4ad-dc13941b26af" alt="image"></p>
+<p>For ease of calculation, the amplitude of the carrier wave is set to 1. According to the relative amplitude β_i of the signal wave, the amplitude of the signal wave is set to 0.6857. Based on the above derivation, the signal wave and carrier wave are configured as shown in the figure above.</p>
+<p><strong>Figure 24: Voltage Output Waveform of the Triangular Wave (Carrier) Generator</strong></p>
+<p><img src="https://github.com/user-attachments/assets/3e696e08-dd51-41ea-8056-6d44b407731c" alt="image"></p>
+<p><strong>Figure 25: Simulation Waveform and Data of the Carrier Wave in the Single-Phase Inverter Circuit</strong></p>
+<p><img src="https://github.com/user-attachments/assets/b5cd86c6-7e58-444d-99f4-b2dba6297cef" alt="image"></p>
+<p>Through simulation analysis, it is observed that when the amplitude of the signal wave is set to 0.6857, the output voltage exceeds the theoretical calculated value. Further examination of the amplified carrier wave (triangular wave) reveals distortion, as shown in the figure. This distortion, when modulated by the signal wave, prolongs the high-level duration of part of the modulated wave, thereby increasing the conduction time of the IGBT and ultimately leading to an increase in the output voltage amplitude. To bring the output closer to the theoretical value, the amplitude of the signal wave is slightly reduced to 0.54, resulting in an output that aligns well with the theoretical calculations.</p>
+<h1>IV. Result Analysis</h1>
+<p>A qualitative and quantitative analysis of the main data and phenomena obtained during the research process is conducted to draw conclusions and inferences.</p>
+<h2 id="1-Analysis-of-Rectifier-Circuit-Output-Waveform-Data">1. Analysis of Rectifier Circuit Output Waveform Data</h2>
+<p><strong>Figure 26: Soft-Start Time and Output Voltage Waveform Data of the Controlled Rectifier Simulation</strong></p>
+<p><img src="https://github.com/user-attachments/assets/84073a4c-5b8e-4545-94ac-b8ebdbeecf9a" alt="image"></p>
+<p>From the figure above, the following can be observed:</p>
+<ul>
+<li>
+<p>The rectifier output voltage is:</p>
+$${\mathrm{U}}_{\mathrm{r}\mathrm{o}}=175.1\mathrm{V}$$
+</li>
+<li>
+<p>The theoretical relative error is:</p>
+$${\mathrm{\delta}}_{\mathrm{r}\mathrm{o}}=0.057\mathrm{\%}$$
+</li>
+<li>
+<p>The soft-start time is 3.6 seconds, corresponding to 80% of the maximum output voltage:</p>
+$${\mathrm{U}}_{\mathrm{s}\mathrm{o}\mathrm{f}\mathrm{t}\mathrm{o}}=140\mathrm{V}$$
+</li>
+<li>
+<p>From the figure, the actual voltage at this time is:</p>
+$${\mathrm{U}\mathrm{\text{'}}}_{\mathrm{s}\mathrm{o}\mathrm{f}\mathrm{t}\mathrm{o}}=139.226\mathrm{V}$$
+</li>
+<li>
+<p>The theoretical relative error for the voltage is:</p>
+$${\mathrm{\delta}}_{\mathrm{s}\mathrm{o}\mathrm{f}\mathrm{t}\mathrm{o}}=0.553\mathrm{\%}$$
+<p>Therefore, it can be concluded that the simulation data and the corresponding simulation circuit diagram meet the design requirements of the circuit.</p>
+</li>
+</ul>
+<h2 id="2-Analysis-of-Step-Down-Chopper-Circuit-Output-Waveform-Data">2. Analysis of Step-Down Chopper Circuit Output Waveform Data</h2>
+<h3 id="1-Analysis-of-Open-Loop-Buck-Circuit-Waveform">(1) Analysis of Open-Loop Buck Circuit Waveform</h3>
+<p><strong>Figure 27: Voltage Output Data and Waveform of the Chopper Circuit</strong></p>
+<p><img src="https://github.com/user-attachments/assets/dd25839b-24f4-4899-ba0b-a5b1c3991117" alt="image"></p>
+<p><strong>Figure 28: IGBT Trigger Pulse Waveform and IGBT Output Voltage Waveform of the Chopper Circuit</strong></p>
+<p><img src="https://github.com/user-attachments/assets/c9b1a883-e0c2-4021-a009-6cb75be25bad" alt="image"></p>
+<p>From the figures, the following observations can be made:</p>
+<ul>
+<li>
+<p>The output voltage of the Buck chopper circuit is:</p>
+$${\mathrm{U}}_{\mathrm{b}\mathrm{o}}=70.52\mathrm{V}$$
+</li>
+<li>
+<p>The theoretical voltage error is:</p>
+$${\mathrm{\delta}}_{\mathrm{b}\mathrm{o}}=0.743\mathrm{\%}$$
+</li>
+<li>
+<p>The switching frequency of the IGBT is:</p>
+$${f}_{b}=12.670kHz$$
+</li>
+<li>
+<p>The theoretical switching frequency error is:</p>
+$${\mathrm{\delta}}_{\mathrm{b}\mathrm{f}}=2.538\mathrm{\%}$$
+<p>Considering that the measured average switching frequency over the entire duration includes some measurement error, it can be concluded that the Buck chopper circuit meets the design requirements and aligns with the theoretical calculations.</p>
+</li>
+</ul>
+<h3 id="2-Analysis-of-Closed-Loop-Buck-Circuit-Waveform">(2) Analysis of Closed-Loop Buck Circuit Waveform</h3>
+<p><strong>Figure 29: Voltage Output Data and Waveform of the Closed-Loop Buck Chopper Circuit</strong></p>
+<p><img src="https://github.com/user-attachments/assets/5fd09311-d2f0-4ea0-be62-053b85eafbb0" alt="image"></p>
+<p><strong>Figure 30: IGBT Trigger Pulse Waveform and IGBT Output Voltage Waveform of the Closed-Loop Buck Chopper Circuit</strong></p>
+<p><img src="https://github.com/user-attachments/assets/91957195-f6cd-4745-9544-f7b72dff4e60" alt="image"></p>
+<p>The overall output voltage waveform of the chopper circuit exhibits a smooth rise. The presence of the PI controller stabilizes the output voltage at 70.148 V, with the error within an acceptable range.</p>
+<ul>
+<li>
+<p>The relative output voltage error is:</p>
+$${\mathrm{\delta}}_{\mathrm{h}\mathrm{o}}=0.221\mathrm{\%}$$
+</li>
+<li>
+<p>The output switching frequency is:</p>
+$${f}_{h}=13.001kHz$$
+</li>
+<li>
+<p>The theoretical switching frequency error is:</p>
+$${\mathrm{\delta}}_{\mathrm{h}\mathrm{h}\mathrm{f}}=0.008\mathrm{\%}$$
+</li>
+</ul>
+<p><strong>Figure 31: Amplified Output Voltage (Ripple) Waveform of the Closed-Loop Buck Chopper Circuit</strong></p>
+<p><img src="https://github.com/user-attachments/assets/89a179e0-5eab-4c3e-a264-6041cf5de62c" alt="image"></p>
+<p>Next, the ripple coefficient is calculated.</p>
+<ul>
+<li>
+<p>The ripple voltage is defined as:</p>
+$$\begin{array}{c}\Delta {U}_{l}=\frac{{U}_{l\left(on\right)}-{U}_{l\left(off\right)}}{2}\#\left(9\right)\end{array}$$
+</li>
+<li>
+<p>The output voltage is defined as:</p>
+$$\begin{array}{c}{U}_{o}=\frac{{U}_{l\left(on\right)}+{U}_{l\left(off\right)}}{2}\#\left(10\right)\end{array}$$
+</li>
+<li>
+<p>The ripple coefficient is defined as:</p>
+$$\begin{array}{c}\gamma =\frac{\Delta {U}_{l}}{{U}_{o}}=\frac{{U}_{l\left(on\right)}-{U}_{l\left(off\right)}}{{U}_{l\left(on\right)}+{U}_{l\left(off\right)}}\#\left(11\right)\end{array}$$
+<p>Calculations yield:</p>
+$$\gamma =1.35\%$$
+<p>It is evident that this meets the requirement for a ripple coefficient of less than 5% in the closed-loop system. Therefore, it can be inferred that the design fulfills the expected requirements, and the closed-loop system demonstrates excellent stability. Additionally, due to the high switching frequency and low ripple coefficient, the output voltage can, to a certain extent, be regarded as a straight line.</p>
+</li>
+</ul>
+<h2 id="3-Analysis-of-Inverter-Circuit-Output-Waveform-Data">3. Analysis of Inverter Circuit Output Waveform Data</h2>
+<h3 id="1-Open-Loop-Condition">(1) Open-Loop Condition</h3>
+<p><strong>Figure 32: Simulation Output Voltage Waveform and Data of the Single-Phase Inverter Circuit</strong></p>
+<p><img src="https://github.com/user-attachments/assets/c8dc8a3d-35a9-4c7a-838e-5ec96d650a12" alt="image"></p>
+<p><strong>Figure 33: Local Amplified Waveform of the Stable Output of the Single-Phase Inverter Circuit</strong></p>
+<p><img src="https://github.com/user-attachments/assets/c5a9eb55-c43b-47e4-8158-d4fd449ac5af" alt="image"></p>
+<p>The output voltage of the single-phase inverter circuit is:</p>
+$${\mathrm{U}}_{\mathrm{i}\mathrm{o}}=48.08\mathrm{V}$$
+<p>The relative theoretical voltage error is:</p>
+$${\mathrm{\delta}}_{\mathrm{i}\mathrm{o}}=0.167\mathrm{\%}$$
+<p>The output voltage frequency is:</p>
+$${f}_{\mathrm{i}\mathrm{o}}=175.004Hz$$
+<p>The relative theoretical frequency error is:</p>
+$${\mathrm{\delta}}_{fi\mathrm{o}}=0.0023\mathrm{\%}$$
+<p>The switching frequency of the single-phase inverter circuit is:</p>
+$${f}_{\mathrm{i}}=27.877kHz$$
+<p>The relative theoretical switching frequency error is:</p>
+$${\mathrm{\delta}}_{fi}=-0.440\mathrm{\%}$$
+<p>Based on the waveform and data, it can be concluded that the single-phase inverter simulation circuit meets the design requirements.</p>
+<h3 id="2-Closed-Loop-Condition">(2) Closed-Loop Condition</h3>
+<p><strong>Figure 34: Simulation Output Voltage Waveform and Data of the Single-Phase Inverter Circuit</strong></p>
+<p><img src="https://github.com/user-attachments/assets/d01ad7d6-c8d7-423f-bdc6-7f8abaa2154f" alt="image"></p>
+<p><strong>Figure 35: Simulation Carrier Waveform and Data of the Single-Phase Inverter Circuit</strong></p>
+<p><img src="https://github.com/user-attachments/assets/625ab309-86b9-454d-a718-999cb9880dc8" alt="image"></p>
+<p><strong>Figure 36: Local Amplified Waveform of the Stable Output of the Single-Phase Inverter Circuit</strong></p>
+<p><img src="https://github.com/user-attachments/assets/ed0fe85c-8ad5-465f-b6c9-996a7b9d023e" alt="image"></p>
+<p>The output voltage of the single-phase inverter circuit is:</p>
+$${\mathrm{U}}_{\mathrm{i}\mathrm{o}}=49.59\mathrm{V}$$
+<p>The relative theoretical voltage error is:</p>
+$${\mathrm{\delta}}_{\mathrm{i}\mathrm{o}}=3.313\mathrm{\%}$$
+<p>The output voltage frequency is:</p>
+$${f}_{\mathrm{i}\mathrm{o}}=175.003Hz$$
+<p>The relative theoretical frequency error is:</p>
+$${\mathrm{\delta}}_{fi\mathrm{o}}=0.0017\mathrm{\%}$$
+<p>The switching frequency of the single-phase inverter circuit is:</p>
+$${f}_{\mathrm{i}}=28.004kHz$$
+<p>The relative theoretical switching frequency error is:</p>
+$${\mathrm{\delta}}_{fi}=0.014\mathrm{\%}$$
+<p>Based on the waveform and data, it can be concluded that the closed-loop single-phase inverter simulation circuit meets the design requirements. Additionally, it is evident that under closed-loop conditions, the performance of the inverter output voltage has improved to some extent.</p>
+
+  </div>
+</article>
+
+
+
+        
+          <div id="footer-post-container">
+  <div id="footer-post">
+
+    <div id="nav-footer" style="display: none">
+      <ul>
+        
+          <li><a href="/">首页</a></li>
+        
+          <li><a href="/about/">关于</a></li>
+        
+          <li><a href="/archives/">归档</a></li>
+        
+          <li><a target="_blank" rel="noopener" href="https://github.com/scolenchris">项目</a></li>
+        
+      </ul>
+    </div>
+
+    
+    
+      <div id="toc-footer" style="display: none">
+        <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link"><span class="toc-number">1.</span> <span class="toc-text">I. Research Background</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#Table-of-Contents"><span class="toc-number">1.1.</span> <span class="toc-text">Table of Contents</span></a></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link"><span class="toc-number">2.</span> <span class="toc-text">II. Scheme Demonstration (Design Concept)</span></a></li><li class="toc-item toc-level-1"><a class="toc-link"><span class="toc-number">3.</span> <span class="toc-text">III. Process Discussion</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#1-Analysis-and-Simulation-of-Phase-Controlled-Trigger-Circuit"><span class="toc-number">3.1.</span> <span class="toc-text">1. Analysis and Simulation of Phase-Controlled Trigger Circuit</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#2-Analysis-and-Simulation-of-Rectifier-Circuit-Implementation"><span class="toc-number">3.2.</span> <span class="toc-text">2. Analysis and Simulation of Rectifier Circuit Implementation</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#3-Analysis-and-Simulation-of-Step-Down-Chopper-Circuit-Implementation"><span class="toc-number">3.3.</span> <span class="toc-text">3. Analysis and Simulation of Step-Down Chopper Circuit Implementation</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#1-Analysis-and-Simulation-of-Open-Loop-Buck-Circuit"><span class="toc-number">3.3.1.</span> <span class="toc-text">(1) Analysis and Simulation of Open-Loop Buck Circuit</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#2-Analysis-and-Simulation-of-Closed-Loop-Buck-Circuit"><span class="toc-number">3.3.2.</span> <span class="toc-text">(2) Analysis and Simulation of Closed-Loop Buck Circuit</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#4-Analysis-and-Simulation-of-Inverter-Circuit-Implementation"><span class="toc-number">3.4.</span> <span class="toc-text">4. Analysis and Simulation of Inverter Circuit Implementation</span></a></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link"><span class="toc-number">4.</span> <span class="toc-text">IV. Result Analysis</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#1-Analysis-of-Rectifier-Circuit-Output-Waveform-Data"><span class="toc-number">4.1.</span> <span class="toc-text">1. Analysis of Rectifier Circuit Output Waveform Data</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#2-Analysis-of-Step-Down-Chopper-Circuit-Output-Waveform-Data"><span class="toc-number">4.2.</span> <span class="toc-text">2. Analysis of Step-Down Chopper Circuit Output Waveform Data</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#1-Analysis-of-Open-Loop-Buck-Circuit-Waveform"><span class="toc-number">4.2.1.</span> <span class="toc-text">(1) Analysis of Open-Loop Buck Circuit Waveform</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#2-Analysis-of-Closed-Loop-Buck-Circuit-Waveform"><span class="toc-number">4.2.2.</span> <span class="toc-text">(2) Analysis of Closed-Loop Buck Circuit Waveform</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#3-Analysis-of-Inverter-Circuit-Output-Waveform-Data"><span class="toc-number">4.3.</span> <span class="toc-text">3. Analysis of Inverter Circuit Output Waveform Data</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#1-Open-Loop-Condition"><span class="toc-number">4.3.1.</span> <span class="toc-text">(1) Open-Loop Condition</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#2-Closed-Loop-Condition"><span class="toc-number">4.3.2.</span> <span class="toc-text">(2) Closed-Loop Condition</span></a></li></ol></li></ol></li></ol>
+      </div>
+    
+
+    <div id="share-footer" style="display: none">
+      <ul>
+  <li><a class="icon" target="_blank" rel="noopener" href="http://www.facebook.com/sharer.php?u=https://scolenchris.top/posts/30ed28ce.html"><i class="fab fa-facebook fa-lg" aria-hidden="true"></i></a></li>
+  <li><a class="icon" target="_blank" rel="noopener" href="https://twitter.com/share?url=https://scolenchris.top/posts/30ed28ce.html&text=AC-DC-AC电力电子转换器simulink仿真-en"><i class="fab fa-twitter fa-lg" aria-hidden="true"></i></a></li>
+  <li><a class="icon" target="_blank" rel="noopener" href="http://www.linkedin.com/shareArticle?url=https://scolenchris.top/posts/30ed28ce.html&title=AC-DC-AC电力电子转换器simulink仿真-en"><i class="fab fa-linkedin fa-lg" aria-hidden="true"></i></a></li>
+  <li><a class="icon" target="_blank" rel="noopener" href="https://pinterest.com/pin/create/bookmarklet/?url=https://scolenchris.top/posts/30ed28ce.html&is_video=false&description=AC-DC-AC电力电子转换器simulink仿真-en"><i class="fab fa-pinterest fa-lg" aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="mailto:?subject=AC-DC-AC电力电子转换器simulink仿真-en&body=Check out this article: https://scolenchris.top/posts/30ed28ce.html"><i class="fa-solid fa-envelope fa-lg" aria-hidden="true"></i></a></li>
+  <li><a class="icon" target="_blank" rel="noopener" href="https://getpocket.com/save?url=https://scolenchris.top/posts/30ed28ce.html&title=AC-DC-AC电力电子转换器simulink仿真-en"><i class="fab fa-get-pocket fa-lg" aria-hidden="true"></i></a></li>
+  <li><a class="icon" target="_blank" rel="noopener" href="http://reddit.com/submit?url=https://scolenchris.top/posts/30ed28ce.html&title=AC-DC-AC电力电子转换器simulink仿真-en"><i class="fab fa-reddit fa-lg" aria-hidden="true"></i></a></li>
+  <li><a class="icon" target="_blank" rel="noopener" href="http://www.stumbleupon.com/submit?url=https://scolenchris.top/posts/30ed28ce.html&title=AC-DC-AC电力电子转换器simulink仿真-en"><i class="fab fa-stumbleupon fa-lg" aria-hidden="true"></i></a></li>
+  <li><a class="icon" target="_blank" rel="noopener" href="http://digg.com/submit?url=https://scolenchris.top/posts/30ed28ce.html&title=AC-DC-AC电力电子转换器simulink仿真-en"><i class="fab fa-digg fa-lg" aria-hidden="true"></i></a></li>
+  <li><a class="icon" target="_blank" rel="noopener" href="http://www.tumblr.com/share/link?url=https://scolenchris.top/posts/30ed28ce.html&name=AC-DC-AC电力电子转换器simulink仿真-en&description="><i class="fab fa-tumblr fa-lg" aria-hidden="true"></i></a></li>
+  <li><a class="icon" target="_blank" rel="noopener" href="https://news.ycombinator.com/submitlink?u=https://scolenchris.top/posts/30ed28ce.html&t=AC-DC-AC电力电子转换器simulink仿真-en"><i class="fab fa-hacker-news fa-lg" aria-hidden="true"></i></a></li>
+</ul>
+
+    </div>
+
+    <div id="actions-footer">
+        <a id="menu" class="icon" href="#" onclick="$('#nav-footer').toggle();return false;"><i class="fa-solid fa-bars fa-lg" aria-hidden="true"></i> 菜单</a>
+        
+          <a id="toc" class="icon" href="#" onclick="$('#toc-footer').toggle();return false;"><i class="fa-solid fa-list fa-lg" aria-hidden="true"></i> 目录</a>
+        
+        <a id="share" class="icon" href="#" onclick="$('#share-footer').toggle();return false;"><i class="fa-solid fa-share-alt fa-lg" aria-hidden="true"></i> 分享</a>
+        <a id="top" style="display:none" class="icon" href="#" onclick="$('html, body').animate({ scrollTop: 0 }, 'fast');"><i class="fa-solid fa-chevron-up fa-lg" aria-hidden="true"></i> 返回顶部</a>
+    </div>
+
+  </div>
+</div>
+
+        
+        <footer id="footer">
+  <div class="footer-left">
+    Copyright &copy;
+    
+    
+    2022-2025
+    Chris
+  </div>
+  <div class="footer-right">
+    <nav>
+      <ul>
+        <!--
+       --><li><a href="/">首页</a></li><!--
+     --><!--
+       --><li><a href="/about/">关于</a></li><!--
+     --><!--
+       --><li><a href="/archives/">归档</a></li><!--
+     --><!--
+       --><li><a target="_blank" rel="noopener" href="https://github.com/scolenchris">项目</a></li><!--
+     -->
+      </ul>
+    </nav>
+  </div>
+</footer>
+
+    </div>
+    <!-- styles -->
+
+
+
+  <link rel="preload" as="style" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" crossorigin="anonymous" onload="this.onload=null;this.rel='stylesheet'"/>
+
+
+    <!-- jquery -->
+
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.0/jquery.min.js" crossorigin="anonymous"></script>
+
+
+
+
+<!-- clipboard -->
+
+  
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/clipboard.js/2.0.7/clipboard.min.js" crossorigin="anonymous"></script>
+  
+  <script type="text/javascript">
+  $(function() {
+    // copy-btn HTML
+    var btn = "<span class=\"btn-copy tooltipped tooltipped-sw\" aria-label=\"复制到粘贴板！\">";
+    btn += '<i class="fa-regular fa-clone"></i>';
+    btn += '</span>';
+    // mount it!
+    $(".highlight table").before(btn);
+    var clip = new ClipboardJS('.btn-copy', {
+      text: function(trigger) {
+        return Array.from(trigger.nextElementSibling.querySelectorAll('.code')).reduce((str,it)=>str+it.innerText+'\n','')
+      }
+    });
+    clip.on('success', function(e) {
+      e.trigger.setAttribute('aria-label', "复制成功！");
+      e.clearSelection();
+    })
+  })
+  </script>
+
+
+<script src="/js/main.js"></script>
+
+<!-- search -->
+
+<!-- Baidu Analytics -->
+
+<!-- Cloudflare Analytics -->
+
+<!-- Disqus Comments -->
+
+<!-- utterances Comments -->
+
+<script type="text/x-mathjax-config">
+    MathJax.Hub.Config({
+        tex2jax: {
+            inlineMath: [ ["$","$"], ["\\(","\\)"] ],
+            skipTags: ['script', 'noscript', 'style', 'textarea', 'pre', 'code'],
+            processEscapes: true
+        }
+    });
+    MathJax.Hub.Queue(function() {
+        var all = MathJax.Hub.getAllJax();
+        for (var i = 0; i < all.length; ++i)
+            all[i].SourceElement().parentNode.className += ' has-jax';
+    });
+</script>
+<script src="http://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+</body>
+</html>
